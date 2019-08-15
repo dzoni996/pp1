@@ -1,0 +1,308 @@
+INFO  18:54:29,721 - Compiling source file: C:\Storage\PP1\Projekat\2. sintaksna analiza\Izvorni kod\MJCompiler2\test\program.mj
+INFO  18:54:29,769 - #2 program
+INFO  18:54:29,769 - #46 MJProgram
+INFO  18:54:29,769 - #46 int
+INFO  18:54:29,770 - #46 x
+INFO  18:54:29,770 - #5 ;
+INFO  18:54:29,771 - #46 char
+INFO  18:54:29,772 - #46 x2
+INFO  18:54:29,772 - #26 [
+INFO  18:54:29,772 - #36 ]
+INFO  18:54:29,772 - #5 ;
+INFO  18:54:29,772 - #23 const
+INFO  18:54:29,772 - #46 bool
+INFO  18:54:29,772 - #46 y2
+INFO  18:54:29,774 - #12 =
+INFO  18:54:29,774 - #28 true
+INFO  18:54:29,774 - #5 ;
+INFO  18:54:29,775 - #31 enum
+INFO  18:54:29,775 - #46 nums
+INFO  18:54:29,775 - #3 {
+INFO  18:54:29,775 - #46 ONE
+INFO  18:54:29,775 - #8 ,
+INFO  18:54:29,801 - #46 TWO
+INFO  18:54:29,801 - #8 ,
+INFO  18:54:29,801 - #46 THREE
+INFO  18:54:29,801 - #12 =
+INFO  18:54:29,801 - #42 3
+INFO  18:54:29,801 - #4 }
+INFO  18:54:29,801 - #16 class
+INFO  18:54:29,802 - #46 klasa
+INFO  18:54:29,802 - #41 extends
+INFO  18:54:29,802 - #46 Inyt
+INFO  18:54:29,802 - #43 implements
+INFO  18:54:29,802 - #46 Inter1
+INFO  18:54:29,803 - #8 ,
+INFO  18:54:29,803 - #46 INter2
+INFO  18:54:29,803 - #3 {
+INFO  18:54:29,804 - #46 int
+INFO  18:54:29,805 - #46 f
+INFO  18:54:29,805 - #5 ;
+INFO  18:54:29,806 - #46 bool
+INFO  18:54:29,807 - #46 f5
+INFO  18:54:29,807 - #26 [
+INFO  18:54:29,807 - #36 ]
+INFO  18:54:29,807 - #5 ;
+INFO  18:54:29,807 - #3 {
+INFO  18:54:29,807 - #13 void
+INFO  18:54:29,808 - #46 f
+INFO  18:54:29,809 - #6 (
+INFO  18:54:29,810 - #7 )
+INFO  18:54:29,810 - #3 {
+INFO  18:54:29,811 - #4 }
+INFO  18:54:29,811 - #4 }
+INFO  18:54:29,812 - #4 }
+INFO  18:54:29,812 - #14 interface
+INFO  18:54:29,812 - #46 Inter1
+INFO  18:54:29,812 - #3 {
+INFO  18:54:29,812 - #13 void
+INFO  18:54:29,812 - #46 foo
+INFO  18:54:29,813 - #6 (
+INFO  18:54:29,814 - #46 int
+INFO  18:54:29,814 - #46 x
+INFO  18:54:29,814 - #8 ,
+INFO  18:54:29,814 - #46 int
+INFO  18:54:29,814 - #46 z
+INFO  18:54:29,814 - #26 [
+INFO  18:54:29,814 - #36 ]
+INFO  18:54:29,815 - #7 )
+INFO  18:54:29,815 - #5 ;
+INFO  18:54:29,815 - #4 }
+INFO  18:54:29,815 - #3 {
+INFO  18:54:29,816 - #13 void
+INFO  18:54:29,816 - #46 m2
+INFO  18:54:29,816 - #6 (
+INFO  18:54:29,816 - #46 int
+INFO  18:54:29,816 - #46 x5
+INFO  18:54:29,817 - #26 [
+INFO  18:54:29,817 - #36 ]
+INFO  18:54:29,817 - #7 )
+INFO  18:54:29,817 - #3 {
+INFO  18:54:29,817 - #46 var
+INFO  18:54:29,817 - #15 .
+INFO  18:54:29,818 - #46 x
+INFO  18:54:29,818 - #5 ;
+INFO  18:54:29,818 - #4 }
+INFO  18:54:29,819 - #4 }
+INFO  18:54:29,822 - Program(
+ MJProgram
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        VarDeclLists(
+          VarDeclLists(
+            VarDeclLists(
+              NoVarDecl(
+              ) [NoVarDecl]
+              VarDeclaration(
+                VarDeclarations(
+                  Type(
+                   int
+                  ) [Type]
+                  SingleVar(
+                    Var(
+                     x
+                      NoArrayVar(
+                      ) [NoArrayVar]
+                    ) [Var]
+                  ) [SingleVar]
+                ) [VarDeclarations]
+              ) [VarDeclaration]
+            ) [VarDeclLists]
+            VarDeclaration(
+              VarDeclarations(
+                Type(
+                 char
+                ) [Type]
+                SingleVar(
+                  Var(
+                   x2
+                    ArrayVar(
+                    ) [ArrayVar]
+                  ) [Var]
+                ) [SingleVar]
+              ) [VarDeclarations]
+            ) [VarDeclaration]
+          ) [VarDeclLists]
+          ConstDeclaration(
+            ConstDeclarations(
+              Type(
+               bool
+              ) [Type]
+              SingleConst(
+                ConstInit(
+                 y2
+                  InitializerBool(
+                  ) [InitializerBool]
+                ) [ConstInit]
+              ) [SingleConst]
+            ) [ConstDeclarations]
+          ) [ConstDeclaration]
+        ) [VarDeclLists]
+        EnumDeclaration(
+          EnumDeclarations(
+           nums
+            MultipleEnums(
+              MultipleEnums(
+                SingleEnum(
+                  NoInitEnum(
+                   ONE
+                  ) [NoInitEnum]
+                ) [SingleEnum]
+                NoInitEnum(
+                 TWO
+                ) [NoInitEnum]
+              ) [MultipleEnums]
+              InitEnum(
+               THREE
+              ) [InitEnum]
+            ) [MultipleEnums]
+          ) [EnumDeclarations]
+        ) [EnumDeclaration]
+      ) [VarDeclLists]
+      ClasstDeclaration(
+        ClassDeclaration(
+         klasa
+          SuperClass(
+            Type(
+             Inyt
+            ) [Type]
+          ) [SuperClass]
+          ImplInteraces(
+            InterfList(
+              NoInterfList(
+                Type(
+                 Inter1
+                ) [Type]
+              ) [NoInterfList]
+              Type(
+               INter2
+              ) [Type]
+            ) [InterfList]
+          ) [ImplInteraces]
+          OptVars(
+            OptVars(
+              NoOptVars(
+              ) [NoOptVars]
+              VarDeclarations(
+                Type(
+                 int
+                ) [Type]
+                SingleVar(
+                  Var(
+                   f
+                    NoArrayVar(
+                    ) [NoArrayVar]
+                  ) [Var]
+                ) [SingleVar]
+              ) [VarDeclarations]
+            ) [OptVars]
+            VarDeclarations(
+              Type(
+               bool
+              ) [Type]
+              SingleVar(
+                Var(
+                 f5
+                  ArrayVar(
+                  ) [ArrayVar]
+                ) [Var]
+              ) [SingleVar]
+            ) [VarDeclarations]
+          ) [OptVars]
+          ClassMethodDecl(
+            OptMethods(
+              NoOptMethods(
+              ) [NoOptMethods]
+              MethodDeclarations(
+                VoidIdentificator(
+                ) [VoidIdentificator]
+               f
+                NoOptionalFormPars(
+                ) [NoOptionalFormPars]
+                NoOptVars(
+                ) [NoOptVars]
+                NoOptionalStmt(
+                ) [NoOptionalStmt]
+              ) [MethodDeclarations]
+            ) [OptMethods]
+          ) [ClassMethodDecl]
+        ) [ClassDeclaration]
+      ) [ClasstDeclaration]
+    ) [VarDeclLists]
+    InterfaceDeclaration(
+      InterfaceDeclarations(
+       Inter1
+        OptInterMethodDeclList(
+          SingleInterfaceMethodDeclaration(
+            InterfaceMethodDeclaration(
+              VoidIdentificator(
+              ) [VoidIdentificator]
+             foo
+              OptionalFormPars(
+                MultipleFormPars(
+                  SingleFormPars(
+                    FormParam(
+                      Type(
+                       int
+                      ) [Type]
+                     x
+                    ) [FormParam]
+                  ) [SingleFormPars]
+                  FormParArray(
+                    Type(
+                     int
+                    ) [Type]
+                   z
+                  ) [FormParArray]
+                ) [MultipleFormPars]
+              ) [OptionalFormPars]
+            ) [InterfaceMethodDeclaration]
+          ) [SingleInterfaceMethodDeclaration]
+        ) [OptInterMethodDeclList]
+      ) [InterfaceDeclarations]
+    ) [InterfaceDeclaration]
+  ) [VarDeclLists]
+  OptMethods(
+    NoOptMethods(
+    ) [NoOptMethods]
+    MethodDeclarations(
+      VoidIdentificator(
+      ) [VoidIdentificator]
+     m2
+      OptionalFormPars(
+        SingleFormPars(
+          FormParArray(
+            Type(
+             int
+            ) [Type]
+           x5
+          ) [FormParArray]
+        ) [SingleFormPars]
+      ) [OptionalFormPars]
+      NoOptVars(
+      ) [NoOptVars]
+      OptionalStmt(
+        NoOptionalStmt(
+        ) [NoOptionalStmt]
+        DesignatorStmt(
+          DesignatorStatementDerived1(
+            DesignatorDerived1(
+             var
+              OptDesignDerived1(
+                OptDesignDerived2(
+                ) [OptDesignDerived2]
+                DesignItemDerived1(
+                 x
+                ) [DesignItemDerived1]
+              ) [OptDesignDerived1]
+            ) [DesignatorDerived1]
+          ) [DesignatorStatementDerived1]
+        ) [DesignatorStmt]
+      ) [OptionalStmt]
+    ) [MethodDeclarations]
+  ) [OptMethods]
+) [Program]
+INFO  18:54:29,822 - ===================================
+INFO  18:54:29,822 -  Print count calls = 94
+INFO  18:54:29,822 -  Deklarisanih promenljivih ima = 0

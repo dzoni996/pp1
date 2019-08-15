@@ -1,0 +1,52 @@
+INFO  17:15:49,323 - Compiling source file: C:\Storage\PP1\Projekat\2. sintaksna analiza\Izvorni kod\MJCompiler2\test\program.mj
+INFO  17:15:49,359 - #2 program
+INFO  17:15:49,359 - #46 MJProgram
+INFO  17:15:49,360 - #46 int
+INFO  17:15:49,360 - #46 x
+INFO  17:15:49,360 - #5 ;
+INFO  17:15:49,362 - #23 const
+INFO  17:15:49,363 - #46 bool
+INFO  17:15:49,363 - #46 y2
+INFO  17:15:49,363 - #12 =
+INFO  17:15:49,363 - #42 5
+INFO  17:15:49,363 - #5 ;
+INFO  17:15:49,363 - #3 {
+INFO  17:15:49,363 - #4 }
+INFO  17:15:49,366 - Program(
+ MJProgram
+  VarDeclLists(
+    VarDeclLists(
+      NoVarDecl(
+      ) [NoVarDecl]
+      VarDeclaration(
+        VarDeclarations(
+          Type(
+           int
+          ) [Type]
+          SingleVar(
+            Var(
+             x
+            ) [Var]
+          ) [SingleVar]
+        ) [VarDeclarations]
+      ) [VarDeclaration]
+    ) [VarDeclLists]
+    ConstDeclaration(
+      ConstDeclarations(
+        Type(
+         bool
+        ) [Type]
+        SingleConst(
+          ConstInit(
+           y2
+            InitializerNum(
+            ) [InitializerNum]
+          ) [ConstInit]
+        ) [SingleConst]
+      ) [ConstDeclarations]
+    ) [ConstDeclaration]
+  ) [VarDeclLists]
+) [Program]
+INFO  17:15:49,367 - ===================================
+INFO  17:15:49,369 -  Print count calls = 15
+INFO  17:15:49,369 -  Deklarisanih promenljivih ima = 0

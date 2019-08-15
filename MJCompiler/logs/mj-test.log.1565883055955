@@ -1,0 +1,139 @@
+INFO  17:30:38,549 - Compiling source file: C:\Storage\PP1\Projekat\2. sintaksna analiza\Izvorni kod\MJCompiler2\test\program.mj
+INFO  17:30:38,588 - #2 program
+INFO  17:30:38,588 - #46 MJProgram
+INFO  17:30:38,588 - #46 int
+INFO  17:30:38,592 - #46 x
+INFO  17:30:38,593 - #5 ;
+INFO  17:30:38,594 - #46 char
+INFO  17:30:38,595 - #46 x2
+INFO  17:30:38,595 - #26 [
+INFO  17:30:38,595 - #36 ]
+INFO  17:30:38,595 - #5 ;
+INFO  17:30:38,596 - #23 const
+INFO  17:30:38,596 - #46 bool
+INFO  17:30:38,596 - #46 y2
+INFO  17:30:38,596 - #12 =
+INFO  17:30:38,596 - #28 true
+INFO  17:30:38,596 - #5 ;
+INFO  17:30:38,598 - #31 enum
+INFO  17:30:38,599 - #46 nums
+INFO  17:30:38,599 - #3 {
+INFO  17:30:38,599 - #46 ONE
+INFO  17:30:38,599 - #8 ,
+INFO  17:30:38,600 - #46 TWO
+INFO  17:30:38,600 - #8 ,
+INFO  17:30:38,600 - #46 THREE
+INFO  17:30:38,600 - #12 =
+INFO  17:30:38,600 - #42 3
+INFO  17:30:38,600 - #4 }
+INFO  17:30:38,601 - #16 class
+INFO  17:30:38,601 - #46 klasa
+INFO  17:30:38,601 - #41 extends
+INFO  17:30:38,601 - #46 Inyt
+INFO  17:30:38,601 - #43 implements
+INFO  17:30:38,601 - #46 Inter1
+INFO  17:30:38,601 - #3 {
+INFO  17:30:38,602 - #4 }
+INFO  17:30:38,603 - #3 {
+INFO  17:30:38,603 - #4 }
+INFO  17:30:38,607 - Program(
+ MJProgram
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        VarDeclLists(
+          VarDeclLists(
+            NoVarDecl(
+            ) [NoVarDecl]
+            VarDeclaration(
+              VarDeclarations(
+                Type(
+                 int
+                ) [Type]
+                SingleVar(
+                  Var(
+                   x
+                    NoArrayVar(
+                    ) [NoArrayVar]
+                  ) [Var]
+                ) [SingleVar]
+              ) [VarDeclarations]
+            ) [VarDeclaration]
+          ) [VarDeclLists]
+          VarDeclaration(
+            VarDeclarations(
+              Type(
+               char
+              ) [Type]
+              SingleVar(
+                Var(
+                 x2
+                  ArrayVar(
+                  ) [ArrayVar]
+                ) [Var]
+              ) [SingleVar]
+            ) [VarDeclarations]
+          ) [VarDeclaration]
+        ) [VarDeclLists]
+        ConstDeclaration(
+          ConstDeclarations(
+            Type(
+             bool
+            ) [Type]
+            SingleConst(
+              ConstInit(
+               y2
+                InitializerBool(
+                ) [InitializerBool]
+              ) [ConstInit]
+            ) [SingleConst]
+          ) [ConstDeclarations]
+        ) [ConstDeclaration]
+      ) [VarDeclLists]
+      EnumDeclaration(
+        EnumDeclarations(
+         nums
+          MultipleEnums(
+            MultipleEnums(
+              SingleEnum(
+                NoInitEnum(
+                 ONE
+                ) [NoInitEnum]
+              ) [SingleEnum]
+              NoInitEnum(
+               TWO
+              ) [NoInitEnum]
+            ) [MultipleEnums]
+            InitEnum(
+             THREE
+            ) [InitEnum]
+          ) [MultipleEnums]
+        ) [EnumDeclarations]
+      ) [EnumDeclaration]
+    ) [VarDeclLists]
+    ClasstDeclaration(
+      ClassDeclaration(
+       klasa
+        SuperClass(
+          Type(
+           Inyt
+          ) [Type]
+        ) [SuperClass]
+        ImplInteraces(
+          NoInterfList(
+            Type(
+             Inter1
+            ) [Type]
+          ) [NoInterfList]
+        ) [ImplInteraces]
+        NoOptVars(
+        ) [NoOptVars]
+        NoClassMethodDecl(
+        ) [NoClassMethodDecl]
+      ) [ClassDeclaration]
+    ) [ClasstDeclaration]
+  ) [VarDeclLists]
+) [Program]
+INFO  17:30:38,607 - ===================================
+INFO  17:30:38,611 -  Print count calls = 42
+INFO  17:30:38,611 -  Deklarisanih promenljivih ima = 0

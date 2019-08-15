@@ -1,0 +1,232 @@
+INFO  17:43:30,028 - Compiling source file: C:\Storage\PP1\Projekat\2. sintaksna analiza\Izvorni kod\MJCompiler2\test\program.mj
+INFO  17:43:30,069 - #2 program
+INFO  17:43:30,069 - #46 MJProgram
+INFO  17:43:30,072 - #46 int
+INFO  17:43:30,072 - #46 x
+INFO  17:43:30,074 - #5 ;
+INFO  17:43:30,075 - #46 char
+INFO  17:43:30,076 - #46 x2
+INFO  17:43:30,076 - #26 [
+INFO  17:43:30,076 - #36 ]
+INFO  17:43:30,076 - #5 ;
+INFO  17:43:30,077 - #23 const
+INFO  17:43:30,077 - #46 bool
+INFO  17:43:30,078 - #46 y2
+INFO  17:43:30,078 - #12 =
+INFO  17:43:30,078 - #28 true
+INFO  17:43:30,079 - #5 ;
+INFO  17:43:30,080 - #31 enum
+INFO  17:43:30,081 - #46 nums
+INFO  17:43:30,081 - #3 {
+INFO  17:43:30,081 - #46 ONE
+INFO  17:43:30,081 - #8 ,
+INFO  17:43:30,083 - #46 TWO
+INFO  17:43:30,083 - #8 ,
+INFO  17:43:30,084 - #46 THREE
+INFO  17:43:30,084 - #12 =
+INFO  17:43:30,084 - #42 3
+INFO  17:43:30,084 - #4 }
+INFO  17:43:30,085 - #16 class
+INFO  17:43:30,085 - #46 klasa
+INFO  17:43:30,085 - #41 extends
+INFO  17:43:30,085 - #46 Inyt
+INFO  17:43:30,085 - #43 implements
+INFO  17:43:30,085 - #46 Inter1
+INFO  17:43:30,085 - #8 ,
+INFO  17:43:30,087 - #46 INter2
+INFO  17:43:30,087 - #3 {
+INFO  17:43:30,088 - #46 int
+INFO  17:43:30,091 - #46 f
+INFO  17:43:30,091 - #5 ;
+INFO  17:43:30,091 - #46 bool
+INFO  17:43:30,092 - #46 f5
+INFO  17:43:30,092 - #26 [
+INFO  17:43:30,092 - #36 ]
+INFO  17:43:30,092 - #5 ;
+INFO  17:43:30,092 - #3 {
+INFO  17:43:30,092 - #13 void
+INFO  17:43:30,093 - #46 f
+INFO  17:43:30,094 - #6 (
+INFO  17:43:30,094 - #7 )
+INFO  17:43:30,095 - #3 {
+INFO  17:43:30,095 - #4 }
+INFO  17:43:30,096 - #4 }
+INFO  17:43:30,097 - #4 }
+INFO  17:43:30,097 - #14 interface
+INFO  17:43:30,097 - #46 Inter1
+INFO  17:43:30,097 - #3 {
+INFO  17:43:30,098 - #13 void
+INFO  17:43:30,098 - #46 foo
+INFO  17:43:30,098 - #6 (
+INFO  17:43:30,098 - #7 )
+INFO  17:43:30,098 - #5 ;
+INFO  17:43:30,098 - #4 }
+INFO  17:43:30,099 - #3 {
+INFO  17:43:30,099 - #4 }
+INFO  17:43:30,100 - Program(
+ MJProgram
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        VarDeclLists(
+          VarDeclLists(
+            VarDeclLists(
+              NoVarDecl(
+              ) [NoVarDecl]
+              VarDeclaration(
+                VarDeclarations(
+                  Type(
+                   int
+                  ) [Type]
+                  SingleVar(
+                    Var(
+                     x
+                      NoArrayVar(
+                      ) [NoArrayVar]
+                    ) [Var]
+                  ) [SingleVar]
+                ) [VarDeclarations]
+              ) [VarDeclaration]
+            ) [VarDeclLists]
+            VarDeclaration(
+              VarDeclarations(
+                Type(
+                 char
+                ) [Type]
+                SingleVar(
+                  Var(
+                   x2
+                    ArrayVar(
+                    ) [ArrayVar]
+                  ) [Var]
+                ) [SingleVar]
+              ) [VarDeclarations]
+            ) [VarDeclaration]
+          ) [VarDeclLists]
+          ConstDeclaration(
+            ConstDeclarations(
+              Type(
+               bool
+              ) [Type]
+              SingleConst(
+                ConstInit(
+                 y2
+                  InitializerBool(
+                  ) [InitializerBool]
+                ) [ConstInit]
+              ) [SingleConst]
+            ) [ConstDeclarations]
+          ) [ConstDeclaration]
+        ) [VarDeclLists]
+        EnumDeclaration(
+          EnumDeclarations(
+           nums
+            MultipleEnums(
+              MultipleEnums(
+                SingleEnum(
+                  NoInitEnum(
+                   ONE
+                  ) [NoInitEnum]
+                ) [SingleEnum]
+                NoInitEnum(
+                 TWO
+                ) [NoInitEnum]
+              ) [MultipleEnums]
+              InitEnum(
+               THREE
+              ) [InitEnum]
+            ) [MultipleEnums]
+          ) [EnumDeclarations]
+        ) [EnumDeclaration]
+      ) [VarDeclLists]
+      ClasstDeclaration(
+        ClassDeclaration(
+         klasa
+          SuperClass(
+            Type(
+             Inyt
+            ) [Type]
+          ) [SuperClass]
+          ImplInteraces(
+            InterfList(
+              NoInterfList(
+                Type(
+                 Inter1
+                ) [Type]
+              ) [NoInterfList]
+              Type(
+               INter2
+              ) [Type]
+            ) [InterfList]
+          ) [ImplInteraces]
+          OptVars(
+            OptVars(
+              NoOptVars(
+              ) [NoOptVars]
+              VarDeclarations(
+                Type(
+                 int
+                ) [Type]
+                SingleVar(
+                  Var(
+                   f
+                    NoArrayVar(
+                    ) [NoArrayVar]
+                  ) [Var]
+                ) [SingleVar]
+              ) [VarDeclarations]
+            ) [OptVars]
+            VarDeclarations(
+              Type(
+               bool
+              ) [Type]
+              SingleVar(
+                Var(
+                 f5
+                  ArrayVar(
+                  ) [ArrayVar]
+                ) [Var]
+              ) [SingleVar]
+            ) [VarDeclarations]
+          ) [OptVars]
+          ClassMethodDecl(
+            OptMethods(
+              NoOptMethods(
+              ) [NoOptMethods]
+              MethodDeclarations(
+                TypeIdentDerived1(
+                ) [TypeIdentDerived1]
+               f
+                NoOptionalFormPars(
+                ) [NoOptionalFormPars]
+                NoOptVars(
+                ) [NoOptVars]
+                NoOptionalStmt(
+                ) [NoOptionalStmt]
+              ) [MethodDeclarations]
+            ) [OptMethods]
+          ) [ClassMethodDecl]
+        ) [ClassDeclaration]
+      ) [ClasstDeclaration]
+    ) [VarDeclLists]
+    InterfaceDeclaration(
+      InterfaceDeclarations(
+       Inter1
+        OptInterMethodDeclList(
+          SingleInterfaceMethodDeclaration(
+            InterfaceMethodDeclaration(
+              TypeIdentDerived1(
+              ) [TypeIdentDerived1]
+             foo
+              NoOptionalFormPars(
+              ) [NoOptionalFormPars]
+            ) [InterfaceMethodDeclaration]
+          ) [SingleInterfaceMethodDeclaration]
+        ) [OptInterMethodDeclList]
+      ) [InterfaceDeclarations]
+    ) [InterfaceDeclaration]
+  ) [VarDeclLists]
+) [Program]
+INFO  17:43:30,102 - ===================================
+INFO  17:43:30,103 -  Print count calls = 71
+INFO  17:43:30,103 -  Deklarisanih promenljivih ima = 0

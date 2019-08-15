@@ -1,0 +1,75 @@
+INFO  17:23:53,544 - Compiling source file: C:\Storage\PP1\Projekat\2. sintaksna analiza\Izvorni kod\MJCompiler2\test\program.mj
+INFO  17:23:53,586 - #2 program
+INFO  17:23:53,586 - #46 MJProgram
+INFO  17:23:53,589 - #46 int
+INFO  17:23:53,589 - #46 x
+INFO  17:23:53,590 - #5 ;
+INFO  17:23:53,590 - #46 char
+INFO  17:23:53,591 - #46 x2
+INFO  17:23:53,591 - #26 [
+INFO  17:23:53,591 - #36 ]
+INFO  17:23:53,591 - #5 ;
+INFO  17:23:53,592 - #23 const
+INFO  17:23:53,592 - #46 bool
+INFO  17:23:53,593 - #46 y2
+INFO  17:23:53,593 - #12 =
+INFO  17:23:53,593 - #28 true
+INFO  17:23:53,593 - #5 ;
+INFO  17:23:53,594 - #3 {
+INFO  17:23:53,595 - #4 }
+INFO  17:23:53,596 - Program(
+ MJProgram
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        NoVarDecl(
+        ) [NoVarDecl]
+        VarDeclaration(
+          VarDeclarations(
+            Type(
+             int
+            ) [Type]
+            SingleVar(
+              Var(
+               x
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [VarDeclaration]
+      ) [VarDeclLists]
+      VarDeclaration(
+        VarDeclarations(
+          Type(
+           char
+          ) [Type]
+          SingleVar(
+            Var(
+             x2
+              ArrayVar(
+              ) [ArrayVar]
+            ) [Var]
+          ) [SingleVar]
+        ) [VarDeclarations]
+      ) [VarDeclaration]
+    ) [VarDeclLists]
+    ConstDeclaration(
+      ConstDeclarations(
+        Type(
+         bool
+        ) [Type]
+        SingleConst(
+          ConstInit(
+           y2
+            InitializerBool(
+            ) [InitializerBool]
+          ) [ConstInit]
+        ) [SingleConst]
+      ) [ConstDeclarations]
+    ) [ConstDeclaration]
+  ) [VarDeclLists]
+) [Program]
+INFO  17:23:53,597 - ===================================
+INFO  17:23:53,600 -  Print count calls = 23
+INFO  17:23:53,600 -  Deklarisanih promenljivih ima = 0

@@ -1,0 +1,392 @@
+
+
+package rs.ac.bg.etf.pp1;
+
+import java_cup.runtime.*;
+import org.apache.log4j.*;
+import rs.ac.bg.etf.pp1.ast.*;
+
+parser code {:
+
+	boolean errorDetected = false;
+	
+	Logger log = Logger.getLogger(getClass());
+   
+   
+    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
+     
+    public void report_fatal_error(String message, Object info) throws java.lang.Exception {
+      done_parsing();
+      report_error(message, info);
+    }
+  
+    public void syntax_error(Symbol cur_token) {
+        report_error("\nSintaksna greska", cur_token);
+    }
+  
+    public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
+        report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+    }
+
+    public void report_error(String message, Object info) {
+    	errorDetected = true;
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left);
+        log.error(msg.toString());
+    }
+    
+    public void report_info(String message, Object info) {
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left);
+        log.info(msg.toString());
+    }
+
+
+:}
+
+
+scan with {:
+	Symbol s = this.getScanner().next_token();
+	if (s != null && s.value != null) 
+		log.info(s.toString() + " " + s.value.toString());
+	return s;
+:}
+
+/**************************************************************
+*********************** (Non)Terminals ************************
+**************************************************************/
+
+terminal PROG, LBRACE, RBRACE, SEMI, LPAREN, RPAREN, COMMA, PRINT, RETURN, PLUS, EQUAL, VOID;
+terminal INTERFACE, DOT, CLASS, BREAK, NEW, L, OR, MM, CHARCONST, CONST, LE, MOD, LSQUARE, READ, BOOLCONST, DIV, GE, ENUM, TIMES, DIF, G;
+terminal MINUS, RSQUARE, SAME, CONTINUE, AND, PP, EXTENDS, NUMCONST, IMPLEMENTS, FOR;
+
+terminal Integer NUMBER ;
+terminal String IDENT ;
+terminal IF, ELSE;
+
+nonterminal Program, DeclList, DeclItem, Type ;
+nonterminal ConstDecl, ConstDeclList, ConstItem, Initializer ;
+nonterminal EnumDecl, EnumDeclList, EnumItem ;
+nonterminal VarDecl, VarDeclList, VarItem, OptArraySq ; 
+nonterminal ClassDecl, Extend, Implement, InterfaceList, OptVarDecl, OptMethodDecl, ClassMethods ;
+nonterminal InterfaceDecl, InterfaceMethodDeclList, OptInterfaceMethodDeclList, InterfaceMethodDecl, OptFormPars, TypeIdent ;
+nonterminal MethodDeclList, OptStmt, Statement, FormParsItem, FormPars ;
+nonterminal DesignatorStatement, Designator, OptDesign, DesignItem, SideEffect ;
+nonterminal Expr, OptActPars, ActPars, OptMinus, OptAddTerms, Term, OptMulTerms, Factor, OptMethodCall, OptExpr ;
+nonterminal Mulop, Addop, Relop, Assignop ;
+nonterminal OptRetExpr, OptNumConst ;
+
+/**************************************************************
+*********************** Program *******************************
+**************************************************************/
+
+Program ::= (Program) PROG IDENT:pName DeclList LBRACE OptMethodDecl  RBRACE 
+;
+
+/********************** Var Declaration ***********************
+**************************************************************/
+
+DeclList ::= (VarDeclLists) DeclList DeclItem 
+			 |
+			 (NoVarDecl)/* epsilon */ 
+			 ;
+				
+DeclItem ::= (ConstDeclaration) ConstDecl
+			 |
+			 (EnumDeclaration) EnumDecl
+			 |
+			 (VarDeclaration) VarDecl
+			 |
+			 (ClasstDeclaration) ClassDecl
+			 |
+			 (InterfaceDeclaration) InterfaceDecl
+			 ;
+
+Type ::= (Type) IDENT:typeName 
+;
+
+ConstDecl ::= (ConstDeclarations) CONST Type ConstDeclList SEMI
+;
+
+ConstDeclList ::= (MultipleConsts) ConstDeclList COMMA ConstItem
+				  | 
+				  (SingleConst) ConstItem
+				  ;
+
+ConstItem ::= (ConstInit) IDENT EQUAL Initializer;
+
+Initializer ::= (InitializerNum) NUMCONST
+			   |
+			   (InitializerChar) CHARCONST
+			   |
+			   (InitializerBool) BOOLCONST
+			   ;
+			   
+
+EnumDecl ::= (EnumDeclarations) ENUM IDENT LBRACE EnumDeclList RBRACE
+;
+
+EnumDeclList ::= (MultipleEnums) EnumDeclList COMMA EnumItem
+				 | 
+				 (SingleEnum) EnumItem
+				 ;
+
+EnumItem ::= (InitEnum) IDENT EQUAL NUMCONST
+			 |
+			 (NoInitEnum) IDENT
+			 ;
+
+
+VarDecl ::= (VarDeclarations) Type VarDeclList SEMI
+;
+
+VarDeclList ::= (MultipleVars) VarDeclList COMMA VarItem
+				|
+				(SingleVar) VarItem
+				;
+
+VarItem ::= (Var) IDENT OptArraySq
+;
+
+OptArraySq ::= (ArrayVar) LSQUARE RSQUARE
+			   | 
+			   (NoArrayVar) /* epsilon */
+			   ;
+
+ClassDecl ::= (ClassDeclaration) CLASS IDENT Extend Implement LBRACE OptVarDecl ClassMethods RBRACE
+;
+
+ClassMethods ::= (ClassMethodDecl) LBRACE OptMethodDecl RBRACE
+				 |
+				 (NoClassMethodDecl) /* epsilon */
+				 ;
+
+Extend ::= (SuperClass) EXTENDS Type
+		   |
+		   (NoSuperClass) /* epsilon */
+		   ;
+
+Implement ::= (ImplInteraces) IMPLEMENTS InterfaceList
+			   |
+			   (NoImplInteraces) /* epsilon */
+			   ;
+
+InterfaceList ::= (InterfList) InterfaceList COMMA Type
+				  |
+				  (NoInterfList) Type /* epsilon */
+				  ;			   
+
+OptVarDecl ::= (OptVars) OptVarDecl VarDecl
+			   |
+			   (NoOptVars) /* epsilon */
+			   ;
+
+OptMethodDecl ::= (OptMethods) OptMethodDecl MethodDeclList
+				  |
+				  (NoOptMethods) /* epsilon */
+				  ;
+
+InterfaceDecl ::= (InterfaceDeclarations) INTERFACE IDENT LBRACE OptInterfaceMethodDeclList RBRACE
+;
+
+OptInterfaceMethodDeclList ::=  (OptInterMethodDeclList) InterfaceMethodDeclList
+								|
+								(NoOptInterMethodDeclList) /* epsilon */
+								;
+
+InterfaceMethodDeclList ::= (InterfaceMethodDeclarations) InterfaceMethodDeclList InterfaceMethodDecl
+							| 
+							(SingleInterfaceMethodDeclaration) InterfaceMethodDecl
+							;
+							
+InterfaceMethodDecl ::= (InterfaceMethodDeclaration) TypeIdent IDENT LPAREN OptFormPars RPAREN SEMI
+;
+
+TypeIdent ::= (TypeIdentificator) Type 
+			  | 
+			  (VoidIdentificator) VOID
+			  ;
+
+OptFormPars ::= (OptionalFormPars) FormPars
+				|
+				(NoOptionalFormPars) /* epsilon */
+				;
+
+
+/********************** Method Declaration ********************
+**************************************************************/
+
+MethodDeclList ::= (MethodDeclarations) TypeIdent IDENT LPAREN OptFormPars RPAREN OptVarDecl LBRACE OptStmt RBRACE
+;
+
+OptStmt ::= (OptionalStmt) OptStmt Statement
+			| 
+			(NoOptionalStmt) /* epsilon */
+			;
+			
+			
+FormPars ::= (MultipleFormPars) FormPars COMMA FormParsItem
+			 |
+			 (SingleFormPars) FormParsItem
+			 ;
+			 
+FormParsItem ::= (FormParArray) Type IDENT LSQUARE RSQUARE
+				 |
+				 (FormParam) Type IDENT
+				 ;				  	
+			 
+
+/**************************************************************
+*********************** Statements ****************************
+**************************************************************/
+
+Statement ::= (DesignatorStmt) DesignatorStatement SEMI
+			  |
+			  IF /* TODO */
+			  |
+			  FOR /* TODO */
+			  |
+			  BREAK SEMI
+			  |
+			  CONTINUE SEMI
+			  | 
+			  RETURN OptRetExpr SEMI
+			  |
+			  READ LPAREN Designator RPAREN SEMI
+			  |
+			  PRINT LPAREN Expr OptNumConst RPAREN SEMI
+			  |
+			  LBRACE OptStmt RBRACE
+			  ;
+
+
+OptRetExpr ::= Expr
+			   |
+			   /* epsilon */
+			   ;
+
+OptNumConst ::= COMMA NUMCONST
+				|
+				/* epsilon */ 
+				;			   
+
+/*********************** Designators **************************
+**************************************************************/
+
+DesignatorStatement ::= (DesignStmt) Designator SideEffect;
+
+SideEffect ::= (AddSideEff) Assignop Expr
+			  |
+			  (ActParsSideEff) LPAREN OptActPars RPAREN
+			  |
+			  (PlusPlusSideEff) PP
+			  |
+			  (MinusMinusSideEff) MM
+			  ;
+
+OptActPars ::= (WithActPars) ActPars
+			   |
+			   (NoActPars) /* epsilon */
+			   ;			  
+
+ActPars ::= (MultiActPars) ActPars COMMA Expr
+			|
+			(SingleActPars) Expr
+			;
+		
+Designator ::= (Design) IDENT OptDesign
+;
+
+OptDesign ::= (OptDesignator) OptDesign DesignItem
+			  |
+			  (NoDesignator) /* epsilon */ 
+			  ; 
+
+DesignItem ::= (DesignField) DOT IDENT
+			   |
+			   (DesignArr) LSQUARE Expr RSQUARE
+			   ;
+
+
+Expr ::= (Expression) OptMinus Term OptAddTerms
+;
+
+OptMinus ::= (Positive) MINUS
+			 |
+			 (Negative) /* epsilon */
+			 ;
+
+OptAddTerms ::= (WithAddTerms) OptAddTerms Addop Term
+				|
+				(NoAddTerms) /* epsilon */ 
+				;
+
+Term ::= (Terms) Factor OptMulTerms
+;
+
+OptMulTerms ::= (WithMulFacts) OptMulTerms Mulop Factor
+				|
+				(NoMulFacts) /* epsilon */
+				;
+
+Factor ::= (DesignFactor) Designator OptMethodCall
+		   |
+		   (NumFactor) NUMCONST
+		   |
+		   (CharFactor) CHARCONST
+		   |
+		   (BoolFactor) BOOLCONST
+		   |
+		   (NewFactor) NEW Type OptExpr
+		   |
+		   (ExprFactor) LPAREN Expr RPAREN
+		   ;
+
+
+OptMethodCall ::= (WithMethodCall) LPAREN OptActPars RPAREN
+				  |
+				  (NoMethodCall) /* epsilon */
+				  ;	
+
+OptExpr ::= (WithExpr) LSQUARE Expr RSQUARE
+			|
+			(NoExpr) /* epsilon */
+			;				  			
+
+
+/*********************** If **********************************
+**************************************************************/
+
+/* *********************************************** */
+
+
+/* *********************************************** */
+
+Assignop ::= (AssignOperation) EQUAL;
+
+Relop ::= (RelSame) SAME
+		  |
+		  (RelDif) DIF
+		  |
+		  (RelGreather) G
+		  |
+		  (RelGreatherEq) GE
+		  |
+		  (RelLess) L
+		  |
+		  (RelLessEq) LE
+		  ;
+
+Addop ::= (PlusOp) PLUS
+		  |
+		  (MinusOp) MINUS
+		  ;
+
+Mulop ::= (MultOp) TIMES 
+		  |
+		  (DivOp) DIV
+		  |
+		  (ModOp) MOD
+		  ;		  
