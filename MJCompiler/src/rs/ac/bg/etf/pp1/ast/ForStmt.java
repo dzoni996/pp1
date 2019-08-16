@@ -1,18 +1,18 @@
 // generated with ast extension for cup
 // version 0.8
-// 16/7/2019 1:53:29
+// 16/7/2019 15:15:36
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class StatementDerived2 extends Statement {
+public class ForStmt extends Statement {
 
     private OptDesignStmt OptDesignStmt;
     private OptCond OptCond;
     private OptDesignStmt OptDesignStmt1;
     private Statement Statement;
 
-    public StatementDerived2 (OptDesignStmt OptDesignStmt, OptCond OptCond, OptDesignStmt OptDesignStmt1, Statement Statement) {
+    public ForStmt (OptDesignStmt OptDesignStmt, OptCond OptCond, OptDesignStmt OptDesignStmt1, Statement Statement) {
         this.OptDesignStmt=OptDesignStmt;
         if(OptDesignStmt!=null) OptDesignStmt.setParent(this);
         this.OptCond=OptCond;
@@ -85,7 +85,7 @@ public class StatementDerived2 extends Statement {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("StatementDerived2(\n");
+        buffer.append("ForStmt(\n");
 
         if(OptDesignStmt!=null)
             buffer.append(OptDesignStmt.toString("  "+tab));
@@ -112,7 +112,7 @@ public class StatementDerived2 extends Statement {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [StatementDerived2]");
+        buffer.append(") [ForStmt]");
         return buffer.toString();
     }
 }

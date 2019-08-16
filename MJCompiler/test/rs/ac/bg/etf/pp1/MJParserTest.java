@@ -28,7 +28,7 @@ public class MJParserTest {
 		
 		Reader br = null;
 		try {
-			File sourceCode = new File("test/program.mj");
+			File sourceCode = new File("test/test01.mj");
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 			
 			br = new BufferedReader(new FileReader(sourceCode));
@@ -47,8 +47,11 @@ public class MJParserTest {
 			prog.traverseBottomUp(v); 
 	      
 			log.info(" Print count calls = " + v.printCallCount);
+			
+			log.info(" Read count calls = " + v.readCallCount);
 
-			log.info(" Deklarisanih promenljivih ima = " + v.varDeclCount);
+			//log.info(" Deklarisanih promenljivih ima = " + v.varDeclCount);
+			
 			
 		} 
 		finally {

@@ -1,15 +1,15 @@
 // generated with ast extension for cup
 // version 0.8
-// 16/7/2019 1:53:29
+// 16/7/2019 15:15:36
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class StatementDerived8 extends Statement {
+public class BlockStmt extends Statement {
 
     private OptStmt OptStmt;
 
-    public StatementDerived8 (OptStmt OptStmt) {
+    public BlockStmt (OptStmt OptStmt) {
         this.OptStmt=OptStmt;
         if(OptStmt!=null) OptStmt.setParent(this);
     }
@@ -43,7 +43,7 @@ public class StatementDerived8 extends Statement {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("StatementDerived8(\n");
+        buffer.append("BlockStmt(\n");
 
         if(OptStmt!=null)
             buffer.append(OptStmt.toString("  "+tab));
@@ -52,7 +52,7 @@ public class StatementDerived8 extends Statement {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [StatementDerived8]");
+        buffer.append(") [BlockStmt]");
         return buffer.toString();
     }
 }

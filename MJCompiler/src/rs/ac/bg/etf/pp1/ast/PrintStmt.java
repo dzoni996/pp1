@@ -1,16 +1,16 @@
 // generated with ast extension for cup
 // version 0.8
-// 16/7/2019 1:53:29
+// 16/7/2019 15:15:36
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class StatementDerived7 extends Statement {
+public class PrintStmt extends Statement {
 
     private Expr Expr;
     private OptNumConst OptNumConst;
 
-    public StatementDerived7 (Expr Expr, OptNumConst OptNumConst) {
+    public PrintStmt (Expr Expr, OptNumConst OptNumConst) {
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
         this.OptNumConst=OptNumConst;
@@ -57,7 +57,7 @@ public class StatementDerived7 extends Statement {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("StatementDerived7(\n");
+        buffer.append("PrintStmt(\n");
 
         if(Expr!=null)
             buffer.append(Expr.toString("  "+tab));
@@ -72,7 +72,7 @@ public class StatementDerived7 extends Statement {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [StatementDerived7]");
+        buffer.append(") [PrintStmt]");
         return buffer.toString();
     }
 }

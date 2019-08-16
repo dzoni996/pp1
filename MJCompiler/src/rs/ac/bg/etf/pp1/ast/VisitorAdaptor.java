@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 16/7/2019 1:53:30
+// 16/7/2019 15:15:38
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -127,14 +127,14 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(OptNumConstDerived1 OptNumConstDerived1) { visit(); }
     public void visit(OptRetExprDerived2 OptRetExprDerived2) { visit(); }
     public void visit(OptRetExprDerived1 OptRetExprDerived1) { visit(); }
-    public void visit(StatementDerived8 StatementDerived8) { visit(); }
-    public void visit(StatementDerived7 StatementDerived7) { visit(); }
-    public void visit(StatementDerived6 StatementDerived6) { visit(); }
-    public void visit(StatementDerived5 StatementDerived5) { visit(); }
-    public void visit(StatementDerived4 StatementDerived4) { visit(); }
-    public void visit(StatementDerived3 StatementDerived3) { visit(); }
-    public void visit(StatementDerived2 StatementDerived2) { visit(); }
-    public void visit(StatementDerived1 StatementDerived1) { visit(); }
+    public void visit(BlockStmt BlockStmt) { visit(); }
+    public void visit(PrintStmt PrintStmt) { visit(); }
+    public void visit(ReadStmt ReadStmt) { visit(); }
+    public void visit(ReturnStmt ReturnStmt) { visit(); }
+    public void visit(ContinueStmt ContinueStmt) { visit(); }
+    public void visit(BreakStmt BreakStmt) { visit(); }
+    public void visit(ForStmt ForStmt) { visit(); }
+    public void visit(IfStmt IfStmt) { visit(); }
     public void visit(DesignatorStmt DesignatorStmt) { visit(); }
     public void visit(FormParam FormParam) { visit(); }
     public void visit(FormParArray FormParArray) { visit(); }

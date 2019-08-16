@@ -246,21 +246,21 @@ FormParsItem ::= (FormParArray) Type IDENT LSQUARE RSQUARE
 
 Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  |
-			  IF LPAREN Condition RPAREN Statement OptElse
+			  (IfStmt) IF LPAREN Condition RPAREN Statement OptElse
 			  |
-			  FOR LPAREN OptDesignStmt SEMI OptCond SEMI OptDesignStmt RPAREN Statement
+			  (ForStmt) FOR LPAREN OptDesignStmt SEMI OptCond SEMI OptDesignStmt RPAREN Statement
 			  |
-			  BREAK SEMI
+			  (BreakStmt) BREAK SEMI
 			  |
-			  CONTINUE SEMI
+			  (ContinueStmt) CONTINUE SEMI
 			  | 
-			  RETURN OptRetExpr SEMI
+			  (ReturnStmt) RETURN OptRetExpr SEMI
 			  |
-			  READ LPAREN Designator RPAREN SEMI
+			  (ReadStmt) READ LPAREN Designator RPAREN SEMI
 			  |
-			  PRINT LPAREN Expr OptNumConst RPAREN SEMI
+			  (PrintStmt) PRINT LPAREN Expr OptNumConst RPAREN SEMI
 			  |
-			  LBRACE OptStmt RBRACE
+			  (BlockStmt) LBRACE OptStmt RBRACE
 			  ;
 
 

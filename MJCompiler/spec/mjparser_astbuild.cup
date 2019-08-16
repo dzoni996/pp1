@@ -295,21 +295,21 @@ FormParsItem ::= (FormParArray) Type:T1 IDENT:I2 LSQUARE RSQUARE {: RESULT=new F
 
 Statement ::= (DesignatorStmt) DesignatorStatement:D1 SEMI {: RESULT=new DesignatorStmt(D1); RESULT.setLine(D1left); :}
 			  |
-			  IF LPAREN Condition:C1 RPAREN Statement:S2 OptElse:O3 {: RESULT=new StatementDerived1(C1, S2, O3); RESULT.setLine(C1left); :}
+			  (IfStmt) IF LPAREN Condition:C1 RPAREN Statement:S2 OptElse:O3 {: RESULT=new IfStmt(C1, S2, O3); RESULT.setLine(C1left); :}
 			  |
-			  FOR LPAREN OptDesignStmt:O1 SEMI OptCond:O2 SEMI OptDesignStmt:O3 RPAREN Statement:S4 {: RESULT=new StatementDerived2(O1, O2, O3, S4); RESULT.setLine(O1left); :}
+			  (ForStmt) FOR LPAREN OptDesignStmt:O1 SEMI OptCond:O2 SEMI OptDesignStmt:O3 RPAREN Statement:S4 {: RESULT=new ForStmt(O1, O2, O3, S4); RESULT.setLine(O1left); :}
 			  |
-			  BREAK SEMI {: RESULT=new StatementDerived3(); :}
+			  (BreakStmt) BREAK SEMI {: RESULT=new BreakStmt(); :}
 			  |
-			  CONTINUE SEMI {: RESULT=new StatementDerived4(); :}
+			  (ContinueStmt) CONTINUE SEMI {: RESULT=new ContinueStmt(); :}
 			  | 
-			  RETURN OptRetExpr:O1 SEMI {: RESULT=new StatementDerived5(O1); RESULT.setLine(O1left); :}
+			  (ReturnStmt) RETURN OptRetExpr:O1 SEMI {: RESULT=new ReturnStmt(O1); RESULT.setLine(O1left); :}
 			  |
-			  READ LPAREN Designator:D1 RPAREN SEMI {: RESULT=new StatementDerived6(D1); RESULT.setLine(D1left); :}
+			  (ReadStmt) READ LPAREN Designator:D1 RPAREN SEMI {: RESULT=new ReadStmt(D1); RESULT.setLine(D1left); :}
 			  |
-			  PRINT LPAREN Expr:E1 OptNumConst:O2 RPAREN SEMI {: RESULT=new StatementDerived7(E1, O2); RESULT.setLine(E1left); :}
+			  (PrintStmt) PRINT LPAREN Expr:E1 OptNumConst:O2 RPAREN SEMI {: RESULT=new PrintStmt(E1, O2); RESULT.setLine(E1left); :}
 			  |
-			  LBRACE OptStmt:O1 RBRACE {: RESULT=new StatementDerived8(O1); RESULT.setLine(O1left); :}
+			  (BlockStmt) LBRACE OptStmt:O1 RBRACE {: RESULT=new BlockStmt(O1); RESULT.setLine(O1left); :}
 			  ;
 
 

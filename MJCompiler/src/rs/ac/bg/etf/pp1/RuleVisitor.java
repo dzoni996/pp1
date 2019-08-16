@@ -6,6 +6,7 @@ import rs.ac.bg.etf.pp1.ast.*;
 public class RuleVisitor extends VisitorAdaptor{
 
 	int printCallCount = 0;
+	int readCallCount = 0;
 	int varDeclCount = 0;
 	
 	Logger log = Logger.getLogger(getClass());
@@ -14,8 +15,12 @@ public class RuleVisitor extends VisitorAdaptor{
 		varDeclCount++;
 	}
 	
-    public void visit() {
+    public void visit(PrintStmt print) {
 		printCallCount++;
+	}
+    
+    public void visit(ReadStmt read) {
+    	readCallCount++;
 	}
 
 }
