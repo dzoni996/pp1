@@ -60,9 +60,9 @@ scan with {:
 
 terminal PROG, LBRACE, RBRACE, SEMI, LPAREN, RPAREN, COMMA, PRINT, RETURN, PLUS, EQUAL, VOID;
 terminal INTERFACE, DOT, CLASS, BREAK, NEW, L, OR, MM, CHARCONST, CONST, LE, MOD, LSQUARE, READ, BOOLCONST, DIV, GE, ENUM, TIMES, DIF, G;
-terminal MINUS, RSQUARE, SAME, CONTINUE, AND, PP, EXTENDS, NUMCONST, IMPLEMENTS, FOR;
+terminal MINUS, RSQUARE, SAME, CONTINUE, AND, PP, EXTENDS, IMPLEMENTS, FOR;
 
-terminal Integer NUMBER ;
+terminal Integer NUMCONST ;
 terminal String IDENT ;
 terminal IF, ELSE;
 
@@ -120,7 +120,15 @@ nonterminal Relop Relop;
 nonterminal Assignop Assignop ;
 nonterminal OptRetExpr OptRetExpr;
 nonterminal OptNumConst OptNumConst ;
+nonterminal Condition Condition;
+nonterminal CondTerm CondTerm;
+nonterminal CondFact CondFact;
+nonterminal OptRelExpr OptRelExpr;
+nonterminal OptElse OptElse;
+nonterminal OptDesignStmt OptDesignStmt;
+nonterminal OptCond OptCond ;
 
+precedence left ELSE;
 /**************************************************************
 *********************** Program *******************************
 **************************************************************/
@@ -160,7 +168,7 @@ ConstDeclList ::= (MultipleConsts) ConstDeclList:C1 COMMA ConstItem:C2 {: RESULT
 
 ConstItem ::= (ConstInit) IDENT:I1 EQUAL Initializer:I2 {: RESULT=new ConstInit(I1, I2); RESULT.setLine(I1left); :};
 
-Initializer ::= (InitializerNum) NUMCONST {: RESULT=new InitializerNum(); :}
+Initializer ::= (InitializerNum) NUMCONST:N1 {: RESULT=new InitializerNum(N1); RESULT.setLine(N1left); :}
 			   |
 			   (InitializerChar) CHARCONST {: RESULT=new InitializerChar(); :}
 			   |
@@ -176,7 +184,7 @@ EnumDeclList ::= (MultipleEnums) EnumDeclList:E1 COMMA EnumItem:E2 {: RESULT=new
 				 (SingleEnum) EnumItem:E1 {: RESULT=new SingleEnum(E1); RESULT.setLine(E1left); :}
 				 ;
 
-EnumItem ::= (InitEnum) IDENT:I1 EQUAL NUMCONST {: RESULT=new InitEnum(I1); RESULT.setLine(I1left); :}
+EnumItem ::= (InitEnum) IDENT:I1 EQUAL NUMCONST:N2 {: RESULT=new InitEnum(I1, N2); RESULT.setLine(I1left); :}
 			 |
 			 (NoInitEnum) IDENT:I1 {: RESULT=new NoInitEnum(I1); RESULT.setLine(I1left); :}
 			 ;
@@ -287,9 +295,9 @@ FormParsItem ::= (FormParArray) Type:T1 IDENT:I2 LSQUARE RSQUARE {: RESULT=new F
 
 Statement ::= (DesignatorStmt) DesignatorStatement:D1 SEMI {: RESULT=new DesignatorStmt(D1); RESULT.setLine(D1left); :}
 			  |
-			  IF {: RESULT=new StatementDerived1(); :} /* TODO */
+			  IF LPAREN Condition:C1 RPAREN Statement:S2 OptElse:O3 {: RESULT=new StatementDerived1(C1, S2, O3); RESULT.setLine(C1left); :}
 			  |
-			  FOR {: RESULT=new StatementDerived2(); :} /* TODO */
+			  FOR LPAREN OptDesignStmt:O1 SEMI OptCond:O2 SEMI OptDesignStmt:O3 RPAREN Statement:S4 {: RESULT=new StatementDerived2(O1, O2, O3, S4); RESULT.setLine(O1left); :}
 			  |
 			  BREAK SEMI {: RESULT=new StatementDerived3(); :}
 			  |
@@ -310,10 +318,25 @@ OptRetExpr ::= Expr:E1 {: RESULT=new OptRetExprDerived1(E1); RESULT.setLine(E1le
 			   /* epsilon */
 			   ;
 
-OptNumConst ::= COMMA NUMCONST {: RESULT=new OptNumConstDerived1(); :}
+OptNumConst ::= COMMA NUMCONST:N1 {: RESULT=new OptNumConstDerived1(N1); RESULT.setLine(N1left); :}
 				| {: RESULT=new OptNumConstDerived2(); :}
 				/* epsilon */ 
-				;			   
+				;		
+
+OptElse ::= ELSE Statement:S1 {: RESULT=new OptElseDerived1(S1); RESULT.setLine(S1left); :}
+			| {: RESULT=new OptElseDerived2(); :}
+			/* epsilon */
+			;
+
+OptDesignStmt ::= DesignatorStatement:D1 {: RESULT=new OptDesignStmtDerived1(D1); RESULT.setLine(D1left); :}
+				  | {: RESULT=new OptDesignStmtDerived2(); :}
+				  /* epsilon */
+				  ;
+
+OptCond ::= Condition:C1 {: RESULT=new OptCondDerived1(C1); RESULT.setLine(C1left); :}
+			| {: RESULT=new OptCondDerived2(); :}
+			/* epsilon */
+			;				  
 
 /*********************** Designators **************************
 **************************************************************/
@@ -376,7 +399,7 @@ OptMulTerms ::= (WithMulFacts) OptMulTerms:O1 Mulop:M2 Factor:F3 {: RESULT=new W
 
 Factor ::= (DesignFactor) Designator:D1 OptMethodCall:O2 {: RESULT=new DesignFactor(D1, O2); RESULT.setLine(D1left); :}
 		   |
-		   (NumFactor) NUMCONST {: RESULT=new NumFactor(); :}
+		   (NumFactor) NUMCONST:N1 {: RESULT=new NumFactor(N1); RESULT.setLine(N1left); :}
 		   |
 		   (CharFactor) CHARCONST {: RESULT=new CharFactor(); :}
 		   |
@@ -399,10 +422,26 @@ OptExpr ::= (WithExpr) LSQUARE Expr:E1 RSQUARE {: RESULT=new WithExpr(E1); RESUL
 			;				  			
 
 
-/*********************** If **********************************
+/*********************** Condition ****************************
 **************************************************************/
 
-/* *********************************************** */
+Condition ::= Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionDerived1(C1, C2); RESULT.setLine(C1left); :}
+			  |
+			  CondTerm:C1 {: RESULT=new ConditionDerived2(C1); RESULT.setLine(C1left); :}
+			  ;
+
+CondTerm ::= CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermDerived1(C1, C2); RESULT.setLine(C1left); :}
+			 |
+			 CondFact:C1 {: RESULT=new CondTermDerived2(C1); RESULT.setLine(C1left); :}
+			 ;
+
+CondFact ::= Expr:E1 OptRelExpr:O2 {: RESULT=new CondFactDerived1(E1, O2); RESULT.setLine(E1left); :}
+;
+
+OptRelExpr ::= Relop:R1 Expr:E2 {: RESULT=new OptRelExprDerived1(R1, E2); RESULT.setLine(R1left); :}
+			   | {: RESULT=new OptRelExprDerived2(); :}
+			   /* epsilon */
+			   ;
 
 
 /* *********************************************** */

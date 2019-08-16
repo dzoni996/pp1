@@ -60,9 +60,9 @@ scan with {:
 
 terminal PROG, LBRACE, RBRACE, SEMI, LPAREN, RPAREN, COMMA, PRINT, RETURN, PLUS, EQUAL, VOID;
 terminal INTERFACE, DOT, CLASS, BREAK, NEW, L, OR, MM, CHARCONST, CONST, LE, MOD, LSQUARE, READ, BOOLCONST, DIV, GE, ENUM, TIMES, DIF, G;
-terminal MINUS, RSQUARE, SAME, CONTINUE, AND, PP, EXTENDS, NUMCONST, IMPLEMENTS, FOR;
+terminal MINUS, RSQUARE, SAME, CONTINUE, AND, PP, EXTENDS, IMPLEMENTS, FOR;
 
-terminal Integer NUMBER ;
+terminal Integer NUMCONST ;
 terminal String IDENT ;
 terminal IF, ELSE;
 
@@ -77,7 +77,9 @@ nonterminal DesignatorStatement, Designator, OptDesign, DesignItem, SideEffect ;
 nonterminal Expr, OptActPars, ActPars, OptMinus, OptAddTerms, Term, OptMulTerms, Factor, OptMethodCall, OptExpr ;
 nonterminal Mulop, Addop, Relop, Assignop ;
 nonterminal OptRetExpr, OptNumConst ;
+nonterminal Condition, CondTerm, CondFact, OptRelExpr, OptElse, OptDesignStmt, OptCond ;
 
+precedence left ELSE;
 /**************************************************************
 *********************** Program *******************************
 **************************************************************/
@@ -244,9 +246,9 @@ FormParsItem ::= (FormParArray) Type IDENT LSQUARE RSQUARE
 
 Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  |
-			  IF /* TODO */
+			  IF LPAREN Condition RPAREN Statement OptElse
 			  |
-			  FOR /* TODO */
+			  FOR LPAREN OptDesignStmt SEMI OptCond SEMI OptDesignStmt RPAREN Statement
 			  |
 			  BREAK SEMI
 			  |
@@ -270,7 +272,22 @@ OptRetExpr ::= Expr
 OptNumConst ::= COMMA NUMCONST
 				|
 				/* epsilon */ 
-				;			   
+				;		
+
+OptElse ::= ELSE Statement
+			|
+			/* epsilon */
+			;
+
+OptDesignStmt ::= DesignatorStatement
+				  |
+				  /* epsilon */
+				  ;
+
+OptCond ::= Condition
+			|
+			/* epsilon */
+			;				  
 
 /*********************** Designators **************************
 **************************************************************/
@@ -356,10 +373,26 @@ OptExpr ::= (WithExpr) LSQUARE Expr RSQUARE
 			;				  			
 
 
-/*********************** If **********************************
+/*********************** Condition ****************************
 **************************************************************/
 
-/* *********************************************** */
+Condition ::= Condition OR CondTerm
+			  |
+			  CondTerm
+			  ;
+
+CondTerm ::= CondTerm AND CondFact
+			 |
+			 CondFact
+			 ;
+
+CondFact ::= Expr OptRelExpr
+;
+
+OptRelExpr ::= Relop Expr
+			   |
+			   /* epsilon */
+			   ;
 
 
 /* *********************************************** */

@@ -30,6 +30,10 @@ interface Inter1 { void foo(int x, int z[]); }
 	print('v');
 	{ print('a'); }
 
+	if (a < 6) break; 
+	
+	if (5 == f) read(a); else read(f);
+
 	 }
 	 
 	 

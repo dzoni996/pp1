@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 15/7/2019 20:59:26
+// 16/7/2019 1:53:30
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -21,6 +21,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Addop Addop) { }
     public void visit(EnumDeclList EnumDeclList) { }
     public void visit(Factor Factor) { }
+    public void visit(CondTerm CondTerm) { }
     public void visit(SideEffect SideEffect) { }
     public void visit(DeclList DeclList) { }
     public void visit(Designator Designator) { }
@@ -29,6 +30,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Term Term) { }
     public void visit(OptRetExpr OptRetExpr) { }
     public void visit(OptDesign OptDesign) { }
+    public void visit(Condition Condition) { }
+    public void visit(OptElse OptElse) { }
     public void visit(VarItem VarItem) { }
     public void visit(ConstDeclList ConstDeclList) { }
     public void visit(ConstItem ConstItem) { }
@@ -39,8 +42,10 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(FormParsItem FormParsItem) { }
     public void visit(InterfaceList InterfaceList) { }
     public void visit(OptAddTerms OptAddTerms) { }
+    public void visit(OptRelExpr OptRelExpr) { }
     public void visit(EnumItem EnumItem) { }
     public void visit(VarDeclList VarDeclList) { }
+    public void visit(OptDesignStmt OptDesignStmt) { }
     public void visit(Expr Expr) { }
     public void visit(ActPars ActPars) { }
     public void visit(Extend Extend) { }
@@ -52,11 +57,13 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(DesignItem DesignItem) { }
     public void visit(ClassDecl ClassDecl) { }
     public void visit(ConstDecl ConstDecl) { }
+    public void visit(CondFact CondFact) { }
     public void visit(OptActPars OptActPars) { }
     public void visit(MethodDeclList MethodDeclList) { }
     public void visit(Implement Implement) { }
     public void visit(TypeIdent TypeIdent) { }
     public void visit(OptExpr OptExpr) { }
+    public void visit(OptCond OptCond) { }
     public void visit(FormPars FormPars) { }
     public void visit(ClassMethods ClassMethods) { }
     public void visit(ModOp ModOp) { visit(); }
@@ -71,6 +78,13 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(RelDif RelDif) { visit(); }
     public void visit(RelSame RelSame) { visit(); }
     public void visit(AssignOperation AssignOperation) { visit(); }
+    public void visit(OptRelExprDerived2 OptRelExprDerived2) { visit(); }
+    public void visit(OptRelExprDerived1 OptRelExprDerived1) { visit(); }
+    public void visit(CondFactDerived1 CondFactDerived1) { visit(); }
+    public void visit(CondTermDerived2 CondTermDerived2) { visit(); }
+    public void visit(CondTermDerived1 CondTermDerived1) { visit(); }
+    public void visit(ConditionDerived2 ConditionDerived2) { visit(); }
+    public void visit(ConditionDerived1 ConditionDerived1) { visit(); }
     public void visit(NoExpr NoExpr) { visit(); }
     public void visit(WithExpr WithExpr) { visit(); }
     public void visit(NoMethodCall NoMethodCall) { visit(); }
@@ -103,6 +117,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ActParsSideEff ActParsSideEff) { visit(); }
     public void visit(AddSideEff AddSideEff) { visit(); }
     public void visit(DesignStmt DesignStmt) { visit(); }
+    public void visit(OptCondDerived2 OptCondDerived2) { visit(); }
+    public void visit(OptCondDerived1 OptCondDerived1) { visit(); }
+    public void visit(OptDesignStmtDerived2 OptDesignStmtDerived2) { visit(); }
+    public void visit(OptDesignStmtDerived1 OptDesignStmtDerived1) { visit(); }
+    public void visit(OptElseDerived2 OptElseDerived2) { visit(); }
+    public void visit(OptElseDerived1 OptElseDerived1) { visit(); }
     public void visit(OptNumConstDerived2 OptNumConstDerived2) { visit(); }
     public void visit(OptNumConstDerived1 OptNumConstDerived1) { visit(); }
     public void visit(OptRetExprDerived2 OptRetExprDerived2) { visit(); }

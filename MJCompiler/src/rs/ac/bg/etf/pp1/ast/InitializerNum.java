@@ -1,13 +1,24 @@
 // generated with ast extension for cup
 // version 0.8
-// 15/7/2019 20:59:25
+// 16/7/2019 1:53:28
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class InitializerNum extends Initializer {
 
-    public InitializerNum () {
+    private Integer N1;
+
+    public InitializerNum (Integer N1) {
+        this.N1=N1;
+    }
+
+    public Integer getN1() {
+        return N1;
+    }
+
+    public void setN1(Integer N1) {
+        this.N1=N1;
     }
 
     public void accept(Visitor visitor) {
@@ -29,6 +40,9 @@ public class InitializerNum extends Initializer {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("InitializerNum(\n");
+
+        buffer.append(" "+tab+N1);
+        buffer.append("\n");
 
         buffer.append(tab);
         buffer.append(") [InitializerNum]");

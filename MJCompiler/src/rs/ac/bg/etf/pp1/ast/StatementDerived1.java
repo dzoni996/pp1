@@ -1,13 +1,47 @@
 // generated with ast extension for cup
 // version 0.8
-// 15/7/2019 20:59:26
+// 16/7/2019 1:53:29
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class StatementDerived1 extends Statement {
 
-    public StatementDerived1 () {
+    private Condition Condition;
+    private Statement Statement;
+    private OptElse OptElse;
+
+    public StatementDerived1 (Condition Condition, Statement Statement, OptElse OptElse) {
+        this.Condition=Condition;
+        if(Condition!=null) Condition.setParent(this);
+        this.Statement=Statement;
+        if(Statement!=null) Statement.setParent(this);
+        this.OptElse=OptElse;
+        if(OptElse!=null) OptElse.setParent(this);
+    }
+
+    public Condition getCondition() {
+        return Condition;
+    }
+
+    public void setCondition(Condition Condition) {
+        this.Condition=Condition;
+    }
+
+    public Statement getStatement() {
+        return Statement;
+    }
+
+    public void setStatement(Statement Statement) {
+        this.Statement=Statement;
+    }
+
+    public OptElse getOptElse() {
+        return OptElse;
+    }
+
+    public void setOptElse(OptElse OptElse) {
+        this.OptElse=OptElse;
     }
 
     public void accept(Visitor visitor) {
@@ -15,13 +49,22 @@ public class StatementDerived1 extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(Condition!=null) Condition.accept(visitor);
+        if(Statement!=null) Statement.accept(visitor);
+        if(OptElse!=null) OptElse.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(Condition!=null) Condition.traverseTopDown(visitor);
+        if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(OptElse!=null) OptElse.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(Condition!=null) Condition.traverseBottomUp(visitor);
+        if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(OptElse!=null) OptElse.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -29,6 +72,24 @@ public class StatementDerived1 extends Statement {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("StatementDerived1(\n");
+
+        if(Condition!=null)
+            buffer.append(Condition.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(Statement!=null)
+            buffer.append(Statement.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(OptElse!=null)
+            buffer.append(OptElse.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         buffer.append(tab);
         buffer.append(") [StatementDerived1]");
