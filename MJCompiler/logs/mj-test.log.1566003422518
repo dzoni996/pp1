@@ -1,0 +1,1329 @@
+INFO  02:56:50,193 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\test01.mj
+INFO  02:56:50,282 - #2 program
+INFO  02:56:50,282 - #45 Program
+INFO  02:56:50,282 - #45 int
+INFO  02:56:50,283 - #45 f
+INFO  02:56:50,284 - #12 =
+ERROR 02:56:50,284 - 
+Sintaksna greska na liniji 3
+INFO  02:56:50,285 - #44 4
+INFO  02:56:50,285 - #5 ;
+INFO  02:56:50,285 - #14 interface
+INFO  02:56:50,286 - #45 I
+INFO  02:56:50,286 - #3 {
+ERROR 02:56:50,286 - Greska pri definiciji globalne promenljive. Uspesno izvrsen oporavak u liniji 3
+INFO  02:56:50,286 - #13 void
+INFO  02:56:50,286 - #45 m
+INFO  02:56:50,289 - #6 (
+INFO  02:56:50,289 - #7 )
+INFO  02:56:50,290 - #5 ;
+INFO  02:56:50,290 - #4 }
+INFO  02:56:50,290 - #16 class
+INFO  02:56:50,291 - #45 A
+INFO  02:56:50,291 - #3 {
+INFO  02:56:50,292 - #45 int
+INFO  02:56:50,293 - #45 x
+INFO  02:56:50,293 - #26 [
+INFO  02:56:50,293 - #36 ]
+INFO  02:56:50,293 - #8 ,
+INFO  02:56:50,295 - #45 y
+INFO  02:56:50,295 - #26 [
+INFO  02:56:50,296 - #36 ]
+INFO  02:56:50,296 - #5 ;
+INFO  02:56:50,296 - #4 }
+INFO  02:56:50,297 - #23 const
+INFO  02:56:50,298 - #45 int
+INFO  02:56:50,298 - #45 pi
+INFO  02:56:50,298 - #12 =
+INFO  02:56:50,298 - #44 3
+INFO  02:56:50,298 - #8 ,
+INFO  02:56:50,299 - #45 e
+INFO  02:56:50,299 - #12 =
+INFO  02:56:50,299 - #44 2
+INFO  02:56:50,300 - #5 ;
+INFO  02:56:50,300 - #31 enum
+INFO  02:56:50,301 - #45 Broj
+INFO  02:56:50,301 - #3 {
+INFO  02:56:50,301 - #45 NULA
+INFO  02:56:50,301 - #8 ,
+INFO  02:56:50,301 - #45 TRI
+INFO  02:56:50,301 - #12 =
+INFO  02:56:50,301 - #44 3
+INFO  02:56:50,301 - #8 ,
+INFO  02:56:50,301 - #45 PET
+INFO  02:56:50,301 - #12 =
+INFO  02:56:50,301 - #44 5
+INFO  02:56:50,303 - #4 }
+INFO  02:56:50,303 - #16 class
+INFO  02:56:50,303 - #45 B
+INFO  02:56:50,303 - #41 extends
+INFO  02:56:50,303 - #45 A
+INFO  02:56:50,303 - #42 implements
+INFO  02:56:50,304 - #45 I
+INFO  02:56:50,304 - #3 {
+INFO  02:56:50,304 - #45 int
+INFO  02:56:50,305 - #45 i
+INFO  02:56:50,305 - #5 ;
+INFO  02:56:50,305 - #45 int
+INFO  02:56:50,305 - #45 x
+INFO  02:56:50,305 - #26 [
+INFO  02:56:50,305 - #36 ]
+INFO  02:56:50,305 - #5 ;
+INFO  02:56:50,305 - #3 {
+INFO  02:56:50,305 - #45 int
+INFO  02:56:50,305 - #45 getValue
+INFO  02:56:50,309 - #6 (
+INFO  02:56:50,309 - #45 int
+INFO  02:56:50,309 - #45 a
+INFO  02:56:50,309 - #7 )
+INFO  02:56:50,310 - #45 int
+INFO  02:56:50,310 - #45 b
+INFO  02:56:50,310 - #5 ;
+INFO  02:56:50,310 - #45 bool
+INFO  02:56:50,310 - #45 c
+INFO  02:56:50,310 - #5 ;
+INFO  02:56:50,310 - #3 {
+INFO  02:56:50,310 - #10 return
+INFO  02:56:50,311 - #45 this
+INFO  02:56:50,311 - #15 .
+INFO  02:56:50,314 - #45 i
+INFO  02:56:50,314 - #11 +
+INFO  02:56:50,317 - #45 this
+INFO  02:56:50,318 - #15 .
+INFO  02:56:50,319 - #45 x
+INFO  02:56:50,319 - #26 [
+INFO  02:56:50,319 - #44 0
+INFO  02:56:50,319 - #36 ]
+INFO  02:56:50,319 - #11 +
+INFO  02:56:50,319 - #45 a
+INFO  02:56:50,320 - #5 ;
+INFO  02:56:50,320 - #4 }
+INFO  02:56:50,320 - #13 void
+INFO  02:56:50,320 - #45 m
+INFO  02:56:50,326 - #6 (
+INFO  02:56:50,328 - #7 )
+INFO  02:56:50,328 - #3 {
+INFO  02:56:50,328 - #4 }
+INFO  02:56:50,328 - #4 }
+INFO  02:56:50,328 - #4 }
+INFO  02:56:50,328 - #16 class
+INFO  02:56:50,328 - #45 C
+INFO  02:56:50,328 - #41 extends
+INFO  02:56:50,328 - #45 B
+INFO  02:56:50,328 - #3 {
+INFO  02:56:50,328 - #45 A
+INFO  02:56:50,328 - #45 theA
+INFO  02:56:50,328 - #5 ;
+INFO  02:56:50,329 - #45 int
+INFO  02:56:50,329 - #45 a
+INFO  02:56:50,329 - #5 ;
+INFO  02:56:50,329 - #4 }
+INFO  02:56:50,329 - #3 {
+INFO  02:56:50,329 - #13 void
+INFO  02:56:50,329 - #45 main
+INFO  02:56:50,329 - #6 (
+INFO  02:56:50,329 - #7 )
+INFO  02:56:50,329 - #45 A
+INFO  02:56:50,329 - #45 a
+INFO  02:56:50,329 - #5 ;
+INFO  02:56:50,330 - #45 C
+INFO  02:56:50,330 - #45 c
+INFO  02:56:50,330 - #5 ;
+INFO  02:56:50,330 - #45 int
+INFO  02:56:50,330 - #45 i
+INFO  02:56:50,330 - #5 ;
+INFO  02:56:50,330 - #45 int
+INFO  02:56:50,330 - #45 x
+INFO  02:56:50,330 - #26 [
+INFO  02:56:50,330 - #36 ]
+INFO  02:56:50,330 - #5 ;
+INFO  02:56:50,331 - #3 {
+INFO  02:56:50,331 - #45 a
+INFO  02:56:50,331 - #12 =
+INFO  02:56:50,331 - #18 new
+INFO  02:56:50,332 - #45 A
+INFO  02:56:50,332 - #5 ;
+INFO  02:56:50,334 - #45 a
+INFO  02:56:50,334 - #15 .
+INFO  02:56:50,334 - #45 x
+INFO  02:56:50,334 - #12 =
+INFO  02:56:50,334 - #18 new
+INFO  02:56:50,334 - #45 int
+INFO  02:56:50,334 - #26 [
+INFO  02:56:50,334 - #45 Broj
+INFO  02:56:50,334 - #15 .
+INFO  02:56:50,334 - #45 PET
+INFO  02:56:50,334 - #36 ]
+INFO  02:56:50,334 - #5 ;
+INFO  02:56:50,334 - #45 a
+INFO  02:56:50,334 - #15 .
+INFO  02:56:50,334 - #45 y
+INFO  02:56:50,334 - #12 =
+INFO  02:56:50,335 - #18 new
+INFO  02:56:50,335 - #45 int
+INFO  02:56:50,335 - #26 [
+INFO  02:56:50,335 - #44 5
+INFO  02:56:50,335 - #36 ]
+INFO  02:56:50,335 - #5 ;
+INFO  02:56:50,335 - #45 c
+INFO  02:56:50,335 - #12 =
+INFO  02:56:50,335 - #18 new
+INFO  02:56:50,335 - #45 C
+INFO  02:56:50,335 - #5 ;
+INFO  02:56:50,335 - #45 c
+INFO  02:56:50,335 - #15 .
+INFO  02:56:50,335 - #45 theA
+INFO  02:56:50,335 - #12 =
+INFO  02:56:50,335 - #45 a
+INFO  02:56:50,335 - #5 ;
+INFO  02:56:50,335 - #45 c
+INFO  02:56:50,335 - #15 .
+INFO  02:56:50,335 - #45 x
+INFO  02:56:50,335 - #12 =
+INFO  02:56:50,335 - #18 new
+INFO  02:56:50,335 - #45 int
+INFO  02:56:50,336 - #26 [
+INFO  02:56:50,336 - #44 5
+INFO  02:56:50,336 - #36 ]
+INFO  02:56:50,336 - #5 ;
+INFO  02:56:50,336 - #45 x
+INFO  02:56:50,336 - #12 =
+INFO  02:56:50,336 - #18 new
+INFO  02:56:50,336 - #45 int
+INFO  02:56:50,336 - #26 [
+INFO  02:56:50,336 - #45 Broj
+INFO  02:56:50,337 - #15 .
+INFO  02:56:50,337 - #45 TRI
+INFO  02:56:50,337 - #36 ]
+INFO  02:56:50,337 - #5 ;
+INFO  02:56:50,337 - #27 read
+INFO  02:56:50,337 - #6 (
+INFO  02:56:50,337 - #45 c
+INFO  02:56:50,337 - #15 .
+INFO  02:56:50,337 - #45 i
+INFO  02:56:50,337 - #7 )
+INFO  02:56:50,337 - #5 ;
+INFO  02:56:50,337 - #43 for
+INFO  02:56:50,337 - #6 (
+INFO  02:56:50,337 - #45 i
+INFO  02:56:50,337 - #12 =
+INFO  02:56:50,337 - #44 0
+INFO  02:56:50,337 - #5 ;
+INFO  02:56:50,338 - #45 i
+INFO  02:56:50,338 - #19 <
+INFO  02:56:50,338 - #44 5
+INFO  02:56:50,339 - #5 ;
+INFO  02:56:50,340 - #45 i
+INFO  02:56:50,340 - #40 ++
+INFO  02:56:50,340 - #7 )
+INFO  02:56:50,341 - #3 {
+INFO  02:56:50,341 - #27 read
+INFO  02:56:50,341 - #6 (
+INFO  02:56:50,341 - #45 c
+INFO  02:56:50,341 - #15 .
+INFO  02:56:50,342 - #45 x
+INFO  02:56:50,342 - #26 [
+INFO  02:56:50,342 - #45 i
+INFO  02:56:50,342 - #36 ]
+INFO  02:56:50,342 - #7 )
+INFO  02:56:50,342 - #5 ;
+INFO  02:56:50,342 - #27 read
+INFO  02:56:50,342 - #6 (
+INFO  02:56:50,342 - #45 c
+INFO  02:56:50,342 - #15 .
+INFO  02:56:50,342 - #45 theA
+INFO  02:56:50,342 - #15 .
+INFO  02:56:50,343 - #45 x
+INFO  02:56:50,343 - #26 [
+INFO  02:56:50,343 - #45 i
+INFO  02:56:50,343 - #36 ]
+INFO  02:56:50,343 - #7 )
+INFO  02:56:50,343 - #5 ;
+INFO  02:56:50,343 - #4 }
+INFO  02:56:50,343 - #9 print
+INFO  02:56:50,343 - #6 (
+INFO  02:56:50,343 - #45 c
+INFO  02:56:50,343 - #15 .
+INFO  02:56:50,343 - #45 getValue
+INFO  02:56:50,343 - #6 (
+INFO  02:56:50,343 - #45 c
+INFO  02:56:50,344 - #15 .
+INFO  02:56:50,344 - #45 theA
+INFO  02:56:50,344 - #15 .
+INFO  02:56:50,344 - #45 x
+INFO  02:56:50,344 - #26 [
+INFO  02:56:50,344 - #45 Broj
+INFO  02:56:50,344 - #15 .
+INFO  02:56:50,344 - #45 NULA
+INFO  02:56:50,344 - #36 ]
+INFO  02:56:50,344 - #7 )
+INFO  02:56:50,345 - #7 )
+INFO  02:56:50,345 - #5 ;
+INFO  02:56:50,345 - #45 c
+INFO  02:56:50,345 - #15 .
+INFO  02:56:50,345 - #45 m
+INFO  02:56:50,345 - #6 (
+INFO  02:56:50,346 - #7 )
+INFO  02:56:50,346 - #5 ;
+INFO  02:56:50,346 - #4 }
+INFO  02:56:50,346 - #4 }
+INFO  02:56:50,349 - Program(
+  ProgramName(
+   Program
+  ) [ProgramName]
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        VarDeclLists(
+          VarDeclLists(
+            VarDeclLists(
+              VarDeclLists(
+                NoVarDecl(
+                ) [NoVarDecl]
+                VarDeclaration(
+                  VarDeclarations(
+                    Type(
+                     int
+                    ) [Type]
+                    SingleVar(
+                      VarDeclError(
+                      ) [VarDeclError]
+                    ) [SingleVar]
+                  ) [VarDeclarations]
+                ) [VarDeclaration]
+              ) [VarDeclLists]
+              InterfaceDeclaration(
+                InterfaceDeclarations(
+                 I
+                  OptInterMethodDeclList(
+                    SingleInterfaceMethodDeclaration(
+                      InterfaceMethodDeclaration(
+                        VoidIdentificator(
+                        ) [VoidIdentificator]
+                       m
+                        NoOptionalFormPars(
+                        ) [NoOptionalFormPars]
+                      ) [InterfaceMethodDeclaration]
+                    ) [SingleInterfaceMethodDeclaration]
+                  ) [OptInterMethodDeclList]
+                ) [InterfaceDeclarations]
+              ) [InterfaceDeclaration]
+            ) [VarDeclLists]
+            ClasstDeclaration(
+              ClassDeclaration(
+               A
+                NoSuperClass(
+                ) [NoSuperClass]
+                NoImplInteraces(
+                ) [NoImplInteraces]
+                OptVars(
+                  NoOptVars(
+                  ) [NoOptVars]
+                  VarDeclarations(
+                    Type(
+                     int
+                    ) [Type]
+                    MultipleVars(
+                      SingleVar(
+                        Var(
+                         x
+                          ArrayVar(
+                          ) [ArrayVar]
+                        ) [Var]
+                      ) [SingleVar]
+                      Var(
+                       y
+                        ArrayVar(
+                        ) [ArrayVar]
+                      ) [Var]
+                    ) [MultipleVars]
+                  ) [VarDeclarations]
+                ) [OptVars]
+                NoClassMethodDecl(
+                ) [NoClassMethodDecl]
+              ) [ClassDeclaration]
+            ) [ClasstDeclaration]
+          ) [VarDeclLists]
+          ConstDeclaration(
+            ConstDeclarations(
+              Type(
+               int
+              ) [Type]
+              MultipleConsts(
+                SingleConst(
+                  ConstInit(
+                   pi
+                    InitializerNum(
+                     3
+                    ) [InitializerNum]
+                  ) [ConstInit]
+                ) [SingleConst]
+                ConstInit(
+                 e
+                  InitializerNum(
+                   2
+                  ) [InitializerNum]
+                ) [ConstInit]
+              ) [MultipleConsts]
+            ) [ConstDeclarations]
+          ) [ConstDeclaration]
+        ) [VarDeclLists]
+        EnumDeclaration(
+          EnumDeclarations(
+           Broj
+            MultipleEnums(
+              MultipleEnums(
+                SingleEnum(
+                  NoInitEnum(
+                   NULA
+                  ) [NoInitEnum]
+                ) [SingleEnum]
+                InitEnum(
+                 TRI
+                 3
+                ) [InitEnum]
+              ) [MultipleEnums]
+              InitEnum(
+               PET
+               5
+              ) [InitEnum]
+            ) [MultipleEnums]
+          ) [EnumDeclarations]
+        ) [EnumDeclaration]
+      ) [VarDeclLists]
+      ClasstDeclaration(
+        ClassDeclaration(
+         B
+          SuperClass(
+            Type(
+             A
+            ) [Type]
+          ) [SuperClass]
+          ImplInteraces(
+            NoInterfList(
+              Type(
+               I
+              ) [Type]
+            ) [NoInterfList]
+          ) [ImplInteraces]
+          OptVars(
+            OptVars(
+              NoOptVars(
+              ) [NoOptVars]
+              VarDeclarations(
+                Type(
+                 int
+                ) [Type]
+                SingleVar(
+                  Var(
+                   i
+                    NoArrayVar(
+                    ) [NoArrayVar]
+                  ) [Var]
+                ) [SingleVar]
+              ) [VarDeclarations]
+            ) [OptVars]
+            VarDeclarations(
+              Type(
+               int
+              ) [Type]
+              SingleVar(
+                Var(
+                 x
+                  ArrayVar(
+                  ) [ArrayVar]
+                ) [Var]
+              ) [SingleVar]
+            ) [VarDeclarations]
+          ) [OptVars]
+          ClassMethodDecl(
+            OptMethods(
+              OptMethods(
+                NoOptMethods(
+                ) [NoOptMethods]
+                MethodDeclarations(
+                  TypeIdentificator(
+                    Type(
+                     int
+                    ) [Type]
+                  ) [TypeIdentificator]
+                 getValue
+                  OptionalFormPars(
+                    SingleFormPars(
+                      FormParam(
+                        Type(
+                         int
+                        ) [Type]
+                       a
+                      ) [FormParam]
+                    ) [SingleFormPars]
+                  ) [OptionalFormPars]
+                  OptVars(
+                    OptVars(
+                      NoOptVars(
+                      ) [NoOptVars]
+                      VarDeclarations(
+                        Type(
+                         int
+                        ) [Type]
+                        SingleVar(
+                          Var(
+                           b
+                            NoArrayVar(
+                            ) [NoArrayVar]
+                          ) [Var]
+                        ) [SingleVar]
+                      ) [VarDeclarations]
+                    ) [OptVars]
+                    VarDeclarations(
+                      Type(
+                       bool
+                      ) [Type]
+                      SingleVar(
+                        Var(
+                         c
+                          NoArrayVar(
+                          ) [NoArrayVar]
+                        ) [Var]
+                      ) [SingleVar]
+                    ) [VarDeclarations]
+                  ) [OptVars]
+                  OptionalStmt(
+                    NoOptionalStmt(
+                    ) [NoOptionalStmt]
+                    ReturnStmt(
+                      OptRetExprDerived1(
+                        Expression(
+                          Negative(
+                          ) [Negative]
+                          Terms(
+                            DesignFactor(
+                              Design(
+                               this
+                                OptDesignator(
+                                  NoDesignator(
+                                  ) [NoDesignator]
+                                  DesignField(
+                                   i
+                                  ) [DesignField]
+                                ) [OptDesignator]
+                              ) [Design]
+                              NoMethodCall(
+                              ) [NoMethodCall]
+                            ) [DesignFactor]
+                            NoMulFacts(
+                            ) [NoMulFacts]
+                          ) [Terms]
+                          WithAddTerms(
+                            WithAddTerms(
+                              NoAddTerms(
+                              ) [NoAddTerms]
+                              PlusOp(
+                              ) [PlusOp]
+                              Terms(
+                                DesignFactor(
+                                  Design(
+                                   this
+                                    OptDesignator(
+                                      OptDesignator(
+                                        NoDesignator(
+                                        ) [NoDesignator]
+                                        DesignField(
+                                         x
+                                        ) [DesignField]
+                                      ) [OptDesignator]
+                                      DesignArr(
+                                        Expression(
+                                          Negative(
+                                          ) [Negative]
+                                          Terms(
+                                            NumFactor(
+                                             0
+                                            ) [NumFactor]
+                                            NoMulFacts(
+                                            ) [NoMulFacts]
+                                          ) [Terms]
+                                          NoAddTerms(
+                                          ) [NoAddTerms]
+                                        ) [Expression]
+                                      ) [DesignArr]
+                                    ) [OptDesignator]
+                                  ) [Design]
+                                  NoMethodCall(
+                                  ) [NoMethodCall]
+                                ) [DesignFactor]
+                                NoMulFacts(
+                                ) [NoMulFacts]
+                              ) [Terms]
+                            ) [WithAddTerms]
+                            PlusOp(
+                            ) [PlusOp]
+                            Terms(
+                              DesignFactor(
+                                Design(
+                                 a
+                                  NoDesignator(
+                                  ) [NoDesignator]
+                                ) [Design]
+                                NoMethodCall(
+                                ) [NoMethodCall]
+                              ) [DesignFactor]
+                              NoMulFacts(
+                              ) [NoMulFacts]
+                            ) [Terms]
+                          ) [WithAddTerms]
+                        ) [Expression]
+                      ) [OptRetExprDerived1]
+                    ) [ReturnStmt]
+                  ) [OptionalStmt]
+                ) [MethodDeclarations]
+              ) [OptMethods]
+              MethodDeclarations(
+                VoidIdentificator(
+                ) [VoidIdentificator]
+               m
+                NoOptionalFormPars(
+                ) [NoOptionalFormPars]
+                NoOptVars(
+                ) [NoOptVars]
+                NoOptionalStmt(
+                ) [NoOptionalStmt]
+              ) [MethodDeclarations]
+            ) [OptMethods]
+          ) [ClassMethodDecl]
+        ) [ClassDeclaration]
+      ) [ClasstDeclaration]
+    ) [VarDeclLists]
+    ClasstDeclaration(
+      ClassDeclaration(
+       C
+        SuperClass(
+          Type(
+           B
+          ) [Type]
+        ) [SuperClass]
+        NoImplInteraces(
+        ) [NoImplInteraces]
+        OptVars(
+          OptVars(
+            NoOptVars(
+            ) [NoOptVars]
+            VarDeclarations(
+              Type(
+               A
+              ) [Type]
+              SingleVar(
+                Var(
+                 theA
+                  NoArrayVar(
+                  ) [NoArrayVar]
+                ) [Var]
+              ) [SingleVar]
+            ) [VarDeclarations]
+          ) [OptVars]
+          VarDeclarations(
+            Type(
+             int
+            ) [Type]
+            SingleVar(
+              Var(
+               a
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [OptVars]
+        NoClassMethodDecl(
+        ) [NoClassMethodDecl]
+      ) [ClassDeclaration]
+    ) [ClasstDeclaration]
+  ) [VarDeclLists]
+  OptMethods(
+    NoOptMethods(
+    ) [NoOptMethods]
+    MethodDeclarations(
+      VoidIdentificator(
+      ) [VoidIdentificator]
+     main
+      NoOptionalFormPars(
+      ) [NoOptionalFormPars]
+      OptVars(
+        OptVars(
+          OptVars(
+            OptVars(
+              NoOptVars(
+              ) [NoOptVars]
+              VarDeclarations(
+                Type(
+                 A
+                ) [Type]
+                SingleVar(
+                  Var(
+                   a
+                    NoArrayVar(
+                    ) [NoArrayVar]
+                  ) [Var]
+                ) [SingleVar]
+              ) [VarDeclarations]
+            ) [OptVars]
+            VarDeclarations(
+              Type(
+               C
+              ) [Type]
+              SingleVar(
+                Var(
+                 c
+                  NoArrayVar(
+                  ) [NoArrayVar]
+                ) [Var]
+              ) [SingleVar]
+            ) [VarDeclarations]
+          ) [OptVars]
+          VarDeclarations(
+            Type(
+             int
+            ) [Type]
+            SingleVar(
+              Var(
+               i
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [OptVars]
+        VarDeclarations(
+          Type(
+           int
+          ) [Type]
+          SingleVar(
+            Var(
+             x
+              ArrayVar(
+              ) [ArrayVar]
+            ) [Var]
+          ) [SingleVar]
+        ) [VarDeclarations]
+      ) [OptVars]
+      OptionalStmt(
+        OptionalStmt(
+          OptionalStmt(
+            OptionalStmt(
+              OptionalStmt(
+                OptionalStmt(
+                  OptionalStmt(
+                    OptionalStmt(
+                      OptionalStmt(
+                        OptionalStmt(
+                          OptionalStmt(
+                            NoOptionalStmt(
+                            ) [NoOptionalStmt]
+                            DesignatorStmt(
+                              DesignStmt(
+                                Design(
+                                 a
+                                  NoDesignator(
+                                  ) [NoDesignator]
+                                ) [Design]
+                                AddSideEff(
+                                  AssignOperation(
+                                  ) [AssignOperation]
+                                  Expression(
+                                    Negative(
+                                    ) [Negative]
+                                    Terms(
+                                      NewFactor(
+                                        Type(
+                                         A
+                                        ) [Type]
+                                        NoExpr(
+                                        ) [NoExpr]
+                                      ) [NewFactor]
+                                      NoMulFacts(
+                                      ) [NoMulFacts]
+                                    ) [Terms]
+                                    NoAddTerms(
+                                    ) [NoAddTerms]
+                                  ) [Expression]
+                                ) [AddSideEff]
+                              ) [DesignStmt]
+                            ) [DesignatorStmt]
+                          ) [OptionalStmt]
+                          DesignatorStmt(
+                            DesignStmt(
+                              Design(
+                               a
+                                OptDesignator(
+                                  NoDesignator(
+                                  ) [NoDesignator]
+                                  DesignField(
+                                   x
+                                  ) [DesignField]
+                                ) [OptDesignator]
+                              ) [Design]
+                              AddSideEff(
+                                AssignOperation(
+                                ) [AssignOperation]
+                                Expression(
+                                  Negative(
+                                  ) [Negative]
+                                  Terms(
+                                    NewFactor(
+                                      Type(
+                                       int
+                                      ) [Type]
+                                      WithExpr(
+                                        Expression(
+                                          Negative(
+                                          ) [Negative]
+                                          Terms(
+                                            DesignFactor(
+                                              Design(
+                                               Broj
+                                                OptDesignator(
+                                                  NoDesignator(
+                                                  ) [NoDesignator]
+                                                  DesignField(
+                                                   PET
+                                                  ) [DesignField]
+                                                ) [OptDesignator]
+                                              ) [Design]
+                                              NoMethodCall(
+                                              ) [NoMethodCall]
+                                            ) [DesignFactor]
+                                            NoMulFacts(
+                                            ) [NoMulFacts]
+                                          ) [Terms]
+                                          NoAddTerms(
+                                          ) [NoAddTerms]
+                                        ) [Expression]
+                                      ) [WithExpr]
+                                    ) [NewFactor]
+                                    NoMulFacts(
+                                    ) [NoMulFacts]
+                                  ) [Terms]
+                                  NoAddTerms(
+                                  ) [NoAddTerms]
+                                ) [Expression]
+                              ) [AddSideEff]
+                            ) [DesignStmt]
+                          ) [DesignatorStmt]
+                        ) [OptionalStmt]
+                        DesignatorStmt(
+                          DesignStmt(
+                            Design(
+                             a
+                              OptDesignator(
+                                NoDesignator(
+                                ) [NoDesignator]
+                                DesignField(
+                                 y
+                                ) [DesignField]
+                              ) [OptDesignator]
+                            ) [Design]
+                            AddSideEff(
+                              AssignOperation(
+                              ) [AssignOperation]
+                              Expression(
+                                Negative(
+                                ) [Negative]
+                                Terms(
+                                  NewFactor(
+                                    Type(
+                                     int
+                                    ) [Type]
+                                    WithExpr(
+                                      Expression(
+                                        Negative(
+                                        ) [Negative]
+                                        Terms(
+                                          NumFactor(
+                                           5
+                                          ) [NumFactor]
+                                          NoMulFacts(
+                                          ) [NoMulFacts]
+                                        ) [Terms]
+                                        NoAddTerms(
+                                        ) [NoAddTerms]
+                                      ) [Expression]
+                                    ) [WithExpr]
+                                  ) [NewFactor]
+                                  NoMulFacts(
+                                  ) [NoMulFacts]
+                                ) [Terms]
+                                NoAddTerms(
+                                ) [NoAddTerms]
+                              ) [Expression]
+                            ) [AddSideEff]
+                          ) [DesignStmt]
+                        ) [DesignatorStmt]
+                      ) [OptionalStmt]
+                      DesignatorStmt(
+                        DesignStmt(
+                          Design(
+                           c
+                            NoDesignator(
+                            ) [NoDesignator]
+                          ) [Design]
+                          AddSideEff(
+                            AssignOperation(
+                            ) [AssignOperation]
+                            Expression(
+                              Negative(
+                              ) [Negative]
+                              Terms(
+                                NewFactor(
+                                  Type(
+                                   C
+                                  ) [Type]
+                                  NoExpr(
+                                  ) [NoExpr]
+                                ) [NewFactor]
+                                NoMulFacts(
+                                ) [NoMulFacts]
+                              ) [Terms]
+                              NoAddTerms(
+                              ) [NoAddTerms]
+                            ) [Expression]
+                          ) [AddSideEff]
+                        ) [DesignStmt]
+                      ) [DesignatorStmt]
+                    ) [OptionalStmt]
+                    DesignatorStmt(
+                      DesignStmt(
+                        Design(
+                         c
+                          OptDesignator(
+                            NoDesignator(
+                            ) [NoDesignator]
+                            DesignField(
+                             theA
+                            ) [DesignField]
+                          ) [OptDesignator]
+                        ) [Design]
+                        AddSideEff(
+                          AssignOperation(
+                          ) [AssignOperation]
+                          Expression(
+                            Negative(
+                            ) [Negative]
+                            Terms(
+                              DesignFactor(
+                                Design(
+                                 a
+                                  NoDesignator(
+                                  ) [NoDesignator]
+                                ) [Design]
+                                NoMethodCall(
+                                ) [NoMethodCall]
+                              ) [DesignFactor]
+                              NoMulFacts(
+                              ) [NoMulFacts]
+                            ) [Terms]
+                            NoAddTerms(
+                            ) [NoAddTerms]
+                          ) [Expression]
+                        ) [AddSideEff]
+                      ) [DesignStmt]
+                    ) [DesignatorStmt]
+                  ) [OptionalStmt]
+                  DesignatorStmt(
+                    DesignStmt(
+                      Design(
+                       c
+                        OptDesignator(
+                          NoDesignator(
+                          ) [NoDesignator]
+                          DesignField(
+                           x
+                          ) [DesignField]
+                        ) [OptDesignator]
+                      ) [Design]
+                      AddSideEff(
+                        AssignOperation(
+                        ) [AssignOperation]
+                        Expression(
+                          Negative(
+                          ) [Negative]
+                          Terms(
+                            NewFactor(
+                              Type(
+                               int
+                              ) [Type]
+                              WithExpr(
+                                Expression(
+                                  Negative(
+                                  ) [Negative]
+                                  Terms(
+                                    NumFactor(
+                                     5
+                                    ) [NumFactor]
+                                    NoMulFacts(
+                                    ) [NoMulFacts]
+                                  ) [Terms]
+                                  NoAddTerms(
+                                  ) [NoAddTerms]
+                                ) [Expression]
+                              ) [WithExpr]
+                            ) [NewFactor]
+                            NoMulFacts(
+                            ) [NoMulFacts]
+                          ) [Terms]
+                          NoAddTerms(
+                          ) [NoAddTerms]
+                        ) [Expression]
+                      ) [AddSideEff]
+                    ) [DesignStmt]
+                  ) [DesignatorStmt]
+                ) [OptionalStmt]
+                DesignatorStmt(
+                  DesignStmt(
+                    Design(
+                     x
+                      NoDesignator(
+                      ) [NoDesignator]
+                    ) [Design]
+                    AddSideEff(
+                      AssignOperation(
+                      ) [AssignOperation]
+                      Expression(
+                        Negative(
+                        ) [Negative]
+                        Terms(
+                          NewFactor(
+                            Type(
+                             int
+                            ) [Type]
+                            WithExpr(
+                              Expression(
+                                Negative(
+                                ) [Negative]
+                                Terms(
+                                  DesignFactor(
+                                    Design(
+                                     Broj
+                                      OptDesignator(
+                                        NoDesignator(
+                                        ) [NoDesignator]
+                                        DesignField(
+                                         TRI
+                                        ) [DesignField]
+                                      ) [OptDesignator]
+                                    ) [Design]
+                                    NoMethodCall(
+                                    ) [NoMethodCall]
+                                  ) [DesignFactor]
+                                  NoMulFacts(
+                                  ) [NoMulFacts]
+                                ) [Terms]
+                                NoAddTerms(
+                                ) [NoAddTerms]
+                              ) [Expression]
+                            ) [WithExpr]
+                          ) [NewFactor]
+                          NoMulFacts(
+                          ) [NoMulFacts]
+                        ) [Terms]
+                        NoAddTerms(
+                        ) [NoAddTerms]
+                      ) [Expression]
+                    ) [AddSideEff]
+                  ) [DesignStmt]
+                ) [DesignatorStmt]
+              ) [OptionalStmt]
+              ReadStmt(
+                Design(
+                 c
+                  OptDesignator(
+                    NoDesignator(
+                    ) [NoDesignator]
+                    DesignField(
+                     i
+                    ) [DesignField]
+                  ) [OptDesignator]
+                ) [Design]
+              ) [ReadStmt]
+            ) [OptionalStmt]
+            ForStmt(
+              OptDesignStmtDerived1(
+                DesignStmt(
+                  Design(
+                   i
+                    NoDesignator(
+                    ) [NoDesignator]
+                  ) [Design]
+                  AddSideEff(
+                    AssignOperation(
+                    ) [AssignOperation]
+                    Expression(
+                      Negative(
+                      ) [Negative]
+                      Terms(
+                        NumFactor(
+                         0
+                        ) [NumFactor]
+                        NoMulFacts(
+                        ) [NoMulFacts]
+                      ) [Terms]
+                      NoAddTerms(
+                      ) [NoAddTerms]
+                    ) [Expression]
+                  ) [AddSideEff]
+                ) [DesignStmt]
+              ) [OptDesignStmtDerived1]
+              OptCondDerived1(
+                ConditionDerived2(
+                  CondTermDerived2(
+                    CondFactDerived1(
+                      Expression(
+                        Negative(
+                        ) [Negative]
+                        Terms(
+                          DesignFactor(
+                            Design(
+                             i
+                              NoDesignator(
+                              ) [NoDesignator]
+                            ) [Design]
+                            NoMethodCall(
+                            ) [NoMethodCall]
+                          ) [DesignFactor]
+                          NoMulFacts(
+                          ) [NoMulFacts]
+                        ) [Terms]
+                        NoAddTerms(
+                        ) [NoAddTerms]
+                      ) [Expression]
+                      OptRelExprDerived1(
+                        RelLess(
+                        ) [RelLess]
+                        Expression(
+                          Negative(
+                          ) [Negative]
+                          Terms(
+                            NumFactor(
+                             5
+                            ) [NumFactor]
+                            NoMulFacts(
+                            ) [NoMulFacts]
+                          ) [Terms]
+                          NoAddTerms(
+                          ) [NoAddTerms]
+                        ) [Expression]
+                      ) [OptRelExprDerived1]
+                    ) [CondFactDerived1]
+                  ) [CondTermDerived2]
+                ) [ConditionDerived2]
+              ) [OptCondDerived1]
+              OptDesignStmtDerived1(
+                DesignStmt(
+                  Design(
+                   i
+                    NoDesignator(
+                    ) [NoDesignator]
+                  ) [Design]
+                  PlusPlusSideEff(
+                  ) [PlusPlusSideEff]
+                ) [DesignStmt]
+              ) [OptDesignStmtDerived1]
+              BlockStmt(
+                OptionalStmt(
+                  OptionalStmt(
+                    NoOptionalStmt(
+                    ) [NoOptionalStmt]
+                    ReadStmt(
+                      Design(
+                       c
+                        OptDesignator(
+                          OptDesignator(
+                            NoDesignator(
+                            ) [NoDesignator]
+                            DesignField(
+                             x
+                            ) [DesignField]
+                          ) [OptDesignator]
+                          DesignArr(
+                            Expression(
+                              Negative(
+                              ) [Negative]
+                              Terms(
+                                DesignFactor(
+                                  Design(
+                                   i
+                                    NoDesignator(
+                                    ) [NoDesignator]
+                                  ) [Design]
+                                  NoMethodCall(
+                                  ) [NoMethodCall]
+                                ) [DesignFactor]
+                                NoMulFacts(
+                                ) [NoMulFacts]
+                              ) [Terms]
+                              NoAddTerms(
+                              ) [NoAddTerms]
+                            ) [Expression]
+                          ) [DesignArr]
+                        ) [OptDesignator]
+                      ) [Design]
+                    ) [ReadStmt]
+                  ) [OptionalStmt]
+                  ReadStmt(
+                    Design(
+                     c
+                      OptDesignator(
+                        OptDesignator(
+                          OptDesignator(
+                            NoDesignator(
+                            ) [NoDesignator]
+                            DesignField(
+                             theA
+                            ) [DesignField]
+                          ) [OptDesignator]
+                          DesignField(
+                           x
+                          ) [DesignField]
+                        ) [OptDesignator]
+                        DesignArr(
+                          Expression(
+                            Negative(
+                            ) [Negative]
+                            Terms(
+                              DesignFactor(
+                                Design(
+                                 i
+                                  NoDesignator(
+                                  ) [NoDesignator]
+                                ) [Design]
+                                NoMethodCall(
+                                ) [NoMethodCall]
+                              ) [DesignFactor]
+                              NoMulFacts(
+                              ) [NoMulFacts]
+                            ) [Terms]
+                            NoAddTerms(
+                            ) [NoAddTerms]
+                          ) [Expression]
+                        ) [DesignArr]
+                      ) [OptDesignator]
+                    ) [Design]
+                  ) [ReadStmt]
+                ) [OptionalStmt]
+              ) [BlockStmt]
+            ) [ForStmt]
+          ) [OptionalStmt]
+          PrintStmt(
+            Expression(
+              Negative(
+              ) [Negative]
+              Terms(
+                DesignFactor(
+                  Design(
+                   c
+                    OptDesignator(
+                      NoDesignator(
+                      ) [NoDesignator]
+                      DesignField(
+                       getValue
+                      ) [DesignField]
+                    ) [OptDesignator]
+                  ) [Design]
+                  WithMethodCall(
+                    WithActPars(
+                      SingleActPars(
+                        Expression(
+                          Negative(
+                          ) [Negative]
+                          Terms(
+                            DesignFactor(
+                              Design(
+                               c
+                                OptDesignator(
+                                  OptDesignator(
+                                    OptDesignator(
+                                      NoDesignator(
+                                      ) [NoDesignator]
+                                      DesignField(
+                                       theA
+                                      ) [DesignField]
+                                    ) [OptDesignator]
+                                    DesignField(
+                                     x
+                                    ) [DesignField]
+                                  ) [OptDesignator]
+                                  DesignArr(
+                                    Expression(
+                                      Negative(
+                                      ) [Negative]
+                                      Terms(
+                                        DesignFactor(
+                                          Design(
+                                           Broj
+                                            OptDesignator(
+                                              NoDesignator(
+                                              ) [NoDesignator]
+                                              DesignField(
+                                               NULA
+                                              ) [DesignField]
+                                            ) [OptDesignator]
+                                          ) [Design]
+                                          NoMethodCall(
+                                          ) [NoMethodCall]
+                                        ) [DesignFactor]
+                                        NoMulFacts(
+                                        ) [NoMulFacts]
+                                      ) [Terms]
+                                      NoAddTerms(
+                                      ) [NoAddTerms]
+                                    ) [Expression]
+                                  ) [DesignArr]
+                                ) [OptDesignator]
+                              ) [Design]
+                              NoMethodCall(
+                              ) [NoMethodCall]
+                            ) [DesignFactor]
+                            NoMulFacts(
+                            ) [NoMulFacts]
+                          ) [Terms]
+                          NoAddTerms(
+                          ) [NoAddTerms]
+                        ) [Expression]
+                      ) [SingleActPars]
+                    ) [WithActPars]
+                  ) [WithMethodCall]
+                ) [DesignFactor]
+                NoMulFacts(
+                ) [NoMulFacts]
+              ) [Terms]
+              NoAddTerms(
+              ) [NoAddTerms]
+            ) [Expression]
+            OptNumConstDerived2(
+            ) [OptNumConstDerived2]
+          ) [PrintStmt]
+        ) [OptionalStmt]
+        DesignatorStmt(
+          DesignStmt(
+            Design(
+             c
+              OptDesignator(
+                NoDesignator(
+                ) [NoDesignator]
+                DesignField(
+                 m
+                ) [DesignField]
+              ) [OptDesignator]
+            ) [Design]
+            ActParsSideEff(
+              NoActPars(
+              ) [NoActPars]
+            ) [ActParsSideEff]
+          ) [DesignStmt]
+        ) [DesignatorStmt]
+      ) [OptionalStmt]
+    ) [MethodDeclarations]
+  ) [OptMethods]
+) [Program]
+INFO  02:56:50,353 - ===================================
+INFO  02:56:50,354 -  Print count calls = 1
+INFO  02:56:50,354 -  Read count calls = 3
