@@ -131,7 +131,7 @@ nonterminal OptDesignStmt OptDesignStmt;
 nonterminal OptCond OptCond;
 nonterminal IfCondition IfCondition ;
 
-nonterminal ProgName ProgName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName;
 
 precedence left ELSE;
 /**************************************************************

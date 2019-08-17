@@ -81,7 +81,7 @@ nonterminal Mulop, Addop, Relop, Assignop ;
 nonterminal OptRetExpr, OptNumConst ;
 nonterminal Condition, CondTerm, CondFact, OptRelExpr, OptElse, OptDesignStmt, OptCond, IfCondition ;
 
-nonterminal ProgName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName;
 
 precedence left ELSE;
 /**************************************************************
