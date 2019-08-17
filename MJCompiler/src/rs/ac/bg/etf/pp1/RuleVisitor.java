@@ -22,5 +22,6 @@ public class RuleVisitor extends VisitorAdaptor{
     public void visit(ReadStmt read) {
     	readCallCount++;
 	}
+    
 
 }

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/7/2019 11:6:16
+// 17/7/2019 13:16:34
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -34,6 +34,7 @@ public interface Visitor {
     public void visit(OptElse OptElse);
     public void visit(VarItem VarItem);
     public void visit(ConstDeclList ConstDeclList);
+    public void visit(IfCondition IfCondition);
     public void visit(ConstItem ConstItem);
     public void visit(OptMethodCall OptMethodCall);
     public void visit(DeclItem DeclItem);
@@ -113,6 +114,8 @@ public interface Visitor {
     public void visit(MultiActPars MultiActPars);
     public void visit(NoActPars NoActPars);
     public void visit(WithActPars WithActPars);
+    public void visit(AssignError AssignError);
+    public void visit(AssignErr AssignErr);
     public void visit(MinusMinusSideEff MinusMinusSideEff);
     public void visit(PlusPlusSideEff PlusPlusSideEff);
     public void visit(ActParsSideEff ActParsSideEff);
@@ -128,6 +131,8 @@ public interface Visitor {
     public void visit(OptNumConstDerived1 OptNumConstDerived1);
     public void visit(OptRetExprDerived2 OptRetExprDerived2);
     public void visit(OptRetExprDerived1 OptRetExprDerived1);
+    public void visit(IfError IfError);
+    public void visit(IfCond IfCond);
     public void visit(BlockStmt BlockStmt);
     public void visit(PrintStmt PrintStmt);
     public void visit(ReadStmt ReadStmt);
@@ -137,8 +142,9 @@ public interface Visitor {
     public void visit(ForStmt ForStmt);
     public void visit(IfStmt IfStmt);
     public void visit(DesignatorStmt DesignatorStmt);
-    public void visit(FormParam FormParam);
+    public void visit(FormParamFormParam FormParamFormParam);
     public void visit(FormParArray FormParArray);
+    public void visit(FormParamError FormParamError);
     public void visit(SingleFormPars SingleFormPars);
     public void visit(MultipleFormPars MultipleFormPars);
     public void visit(NoOptionalStmt NoOptionalStmt);
@@ -163,6 +169,7 @@ public interface Visitor {
     public void visit(NoImplInteraces NoImplInteraces);
     public void visit(ImplInteraces ImplInteraces);
     public void visit(NoSuperClass NoSuperClass);
+    public void visit(ExtendsError ExtendsError);
     public void visit(SuperClass SuperClass);
     public void visit(NoClassMethodDecl NoClassMethodDecl);
     public void visit(ClassMethodDecl ClassMethodDecl);

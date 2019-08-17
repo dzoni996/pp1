@@ -128,7 +128,8 @@ nonterminal CondFact CondFact;
 nonterminal OptRelExpr OptRelExpr;
 nonterminal OptElse OptElse;
 nonterminal OptDesignStmt OptDesignStmt;
-nonterminal OptCond OptCond ;
+nonterminal OptCond OptCond;
+nonterminal IfCondition IfCondition ;
 
 nonterminal ProgName ProgName;
 
@@ -226,6 +227,9 @@ ClassMethods ::= (ClassMethodDecl) LBRACE OptMethodDecl:O1 RBRACE {: RESULT=new 
 
 Extend ::= (SuperClass) EXTENDS Type:T1 {: RESULT=new SuperClass(T1); RESULT.setLine(T1left); :}
 		   |
+		   (ExtendsError) error:e
+		   {: parser.report_error("Greska pri deklaraciji prosirenja natklase. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new ExtendsError(); :}
+		   |
 		   (NoSuperClass) {: RESULT=new NoSuperClass(); :} /* epsilon */
 		   ;
 
@@ -291,11 +295,14 @@ OptStmt ::= (OptionalStmt) OptStmt:O1 Statement:S2 {: RESULT=new OptionalStmt(O1
 FormPars ::= (MultipleFormPars) FormPars:F1 COMMA FormParsItem:F2 {: RESULT=new MultipleFormPars(F1, F2); RESULT.setLine(F1left); :}
 			 |
 			 (SingleFormPars) FormParsItem:F1 {: RESULT=new SingleFormPars(F1); RESULT.setLine(F1left); :}
+			 |
+			 (FormParamError) error:e
+			 {: parser.report_error("Greska pri deklaraciji formalnog parametra funkcije. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new FormParamError(); :}
 			 ;
 			 
 FormParsItem ::= (FormParArray) Type:T1 IDENT:I2 LSQUARE RSQUARE {: RESULT=new FormParArray(T1, I2); RESULT.setLine(T1left); :}
 				 |
-				 (FormParam) Type:T1 IDENT:I2 {: RESULT=new FormParam(T1, I2); RESULT.setLine(T1left); :}
+				 (FormParamFormParam) Type:T1 IDENT:I2 {: RESULT=new FormParamFormParam(T1, I2); RESULT.setLine(T1left); :}
 				 ;				  	
 			 
 
@@ -303,9 +310,10 @@ FormParsItem ::= (FormParArray) Type:T1 IDENT:I2 LSQUARE RSQUARE {: RESULT=new F
 *********************** Statements ****************************
 **************************************************************/
 
+
 Statement ::= (DesignatorStmt) DesignatorStatement:D1 SEMI {: RESULT=new DesignatorStmt(D1); RESULT.setLine(D1left); :}
 			  |
-			  (IfStmt) IF LPAREN Condition:C1 RPAREN Statement:S2 OptElse:O3 {: RESULT=new IfStmt(C1, S2, O3); RESULT.setLine(C1left); :}
+			  (IfStmt) IF LPAREN IfCondition:I1 RPAREN Statement:S2 OptElse:O3 {: RESULT=new IfStmt(I1, S2, O3); RESULT.setLine(I1left); :}
 			  |
 			  (ForStmt) FOR LPAREN OptDesignStmt:O1 SEMI OptCond:O2 SEMI OptDesignStmt:O3 RPAREN Statement:S4 {: RESULT=new ForStmt(O1, O2, O3, S4); RESULT.setLine(O1left); :}
 			  |
@@ -322,6 +330,11 @@ Statement ::= (DesignatorStmt) DesignatorStatement:D1 SEMI {: RESULT=new Designa
 			  (BlockStmt) LBRACE OptStmt:O1 RBRACE {: RESULT=new BlockStmt(O1); RESULT.setLine(O1left); :}
 			  ;
 
+IfCondition ::= (IfCond) Condition:C1 {: RESULT=new IfCond(C1); RESULT.setLine(C1left); :}
+				|
+				(IfError) error:e
+				{: parser.report_error("Greska u logickom iskazu IF konstrukcije. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new IfError(); :}
+				;
 
 OptRetExpr ::= Expr:E1 {: RESULT=new OptRetExprDerived1(E1); RESULT.setLine(E1left); :}
 			   | {: RESULT=new OptRetExprDerived2(); :}
@@ -360,7 +373,14 @@ SideEffect ::= (AddSideEff) Assignop:A1 Expr:E2 {: RESULT=new AddSideEff(A1, E2)
 			  (PlusPlusSideEff) PP {: RESULT=new PlusPlusSideEff(); :}
 			  |
 			  (MinusMinusSideEff) MM {: RESULT=new MinusMinusSideEff(); :}
+			  |
+			  (AssignErr) Assignop:A1 error:e
+			  {: parser.report_error("Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new AssignErr(A1); RESULT.setLine(A1left); :}
+			  |
+			  (AssignError) error:e
+			  {: parser.report_error("Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new AssignError(); :}
 			  ;
+
 
 OptActPars ::= (WithActPars) ActPars:A1 {: RESULT=new WithActPars(A1); RESULT.setLine(A1left); :}
 			   |

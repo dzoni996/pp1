@@ -79,7 +79,7 @@ nonterminal DesignatorStatement, Designator, OptDesign, DesignItem, SideEffect ;
 nonterminal Expr, OptActPars, ActPars, OptMinus, OptAddTerms, Term, OptMulTerms, Factor, OptMethodCall, OptExpr ;
 nonterminal Mulop, Addop, Relop, Assignop ;
 nonterminal OptRetExpr, OptNumConst ;
-nonterminal Condition, CondTerm, CondFact, OptRelExpr, OptElse, OptDesignStmt, OptCond ;
+nonterminal Condition, CondTerm, CondFact, OptRelExpr, OptElse, OptDesignStmt, OptCond, IfCondition ;
 
 nonterminal ProgName;
 
@@ -177,6 +177,9 @@ ClassMethods ::= (ClassMethodDecl) LBRACE OptMethodDecl RBRACE
 
 Extend ::= (SuperClass) EXTENDS Type
 		   |
+		   (ExtendsError) error:e
+		   {: parser.report_error("Greska pri deklaraciji prosirenja natklase. Izvrsen oporavak u liniji " + eleft , null); :}
+		   |
 		   (NoSuperClass) /* epsilon */
 		   ;
 
@@ -242,11 +245,14 @@ OptStmt ::= (OptionalStmt) OptStmt Statement
 FormPars ::= (MultipleFormPars) FormPars COMMA FormParsItem
 			 |
 			 (SingleFormPars) FormParsItem
+			 |
+			 (FormParamError) error:e
+			 {: parser.report_error("Greska pri deklaraciji formalnog parametra funkcije. Izvrsen oporavak u liniji " + eleft , null); :}
 			 ;
 			 
 FormParsItem ::= (FormParArray) Type IDENT LSQUARE RSQUARE
 				 |
-				 (FormParam) Type IDENT
+				 (FormParamFormParam) Type IDENT
 				 ;				  	
 			 
 
@@ -254,9 +260,10 @@ FormParsItem ::= (FormParArray) Type IDENT LSQUARE RSQUARE
 *********************** Statements ****************************
 **************************************************************/
 
+
 Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  |
-			  (IfStmt) IF LPAREN Condition RPAREN Statement OptElse
+			  (IfStmt) IF LPAREN IfCondition RPAREN Statement OptElse
 			  |
 			  (ForStmt) FOR LPAREN OptDesignStmt SEMI OptCond SEMI OptDesignStmt RPAREN Statement
 			  |
@@ -273,6 +280,11 @@ Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  (BlockStmt) LBRACE OptStmt RBRACE
 			  ;
 
+IfCondition ::= (IfCond) Condition
+				|
+				(IfError) error:e
+				{: parser.report_error("Greska u logickom iskazu IF konstrukcije. Izvrsen oporavak u liniji " + eleft , null); :}
+				;
 
 OptRetExpr ::= Expr
 			   |
@@ -311,7 +323,14 @@ SideEffect ::= (AddSideEff) Assignop Expr
 			  (PlusPlusSideEff) PP
 			  |
 			  (MinusMinusSideEff) MM
+			  |
+			  (AssignErr) Assignop error:e
+			  {: parser.report_error("Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji " + eleft , null); :}
+			  |
+			  (AssignError) error:e
+			  {: parser.report_error("Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji " + eleft , null); :}
 			  ;
+
 
 OptActPars ::= (WithActPars) ActPars
 			   |

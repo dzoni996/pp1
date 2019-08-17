@@ -1,16 +1,16 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/7/2019 11:6:14
+// 17/7/2019 13:16:32
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class FormParam extends FormParsItem {
+public class FormParamFormParam extends FormParsItem {
 
     private Type Type;
     private String I2;
 
-    public FormParam (Type Type, String I2) {
+    public FormParamFormParam (Type Type, String I2) {
         this.Type=Type;
         if(Type!=null) Type.setParent(this);
         this.I2=I2;
@@ -53,7 +53,7 @@ public class FormParam extends FormParsItem {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("FormParam(\n");
+        buffer.append("FormParamFormParam(\n");
 
         if(Type!=null)
             buffer.append(Type.toString("  "+tab));
@@ -65,7 +65,7 @@ public class FormParam extends FormParsItem {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [FormParam]");
+        buffer.append(") [FormParamFormParam]");
         return buffer.toString();
     }
 }

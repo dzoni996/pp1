@@ -1,273 +1,311 @@
-INFO  11:07:09,469 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\test01.mj
-INFO  11:07:09,566 - #2 program
-INFO  11:07:09,566 - #45 Program
-INFO  11:07:09,566 - #45 int
-INFO  11:07:09,569 - #45 x
-INFO  11:07:09,570 - #12 =
-ERROR 11:07:09,571 - 
+INFO  13:17:10,936 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\test01.mj
+INFO  13:17:11,031 - #2 program
+INFO  13:17:11,031 - #45 Program
+INFO  13:17:11,031 - #45 int
+INFO  13:17:11,032 - #45 x
+INFO  13:17:11,032 - #8 ,
+INFO  13:17:11,035 - #45 y
+INFO  13:17:11,035 - #12 =
+ERROR 13:17:11,035 - 
 Sintaksna greska na liniji 3
-INFO  11:07:09,571 - #44 4
-INFO  11:07:09,571 - #5 ;
-INFO  11:07:09,571 - #14 interface
-INFO  11:07:09,572 - #45 I
-INFO  11:07:09,572 - #3 {
-ERROR 11:07:09,572 - Greska pri definiciji globalne promenljive. Izvrsen oporavak u liniji 3
-INFO  11:07:09,574 - #13 void
-INFO  11:07:09,574 - #45 m
-INFO  11:07:09,575 - #6 (
-INFO  11:07:09,575 - #7 )
-INFO  11:07:09,577 - #5 ;
-INFO  11:07:09,577 - #4 }
-INFO  11:07:09,577 - #16 class
-INFO  11:07:09,578 - #45 A
-INFO  11:07:09,578 - #3 {
-INFO  11:07:09,580 - #45 int
-INFO  11:07:09,581 - #45 x
-INFO  11:07:09,581 - #26 [
-INFO  11:07:09,581 - #36 ]
-INFO  11:07:09,582 - #8 ,
-INFO  11:07:09,583 - #45 y
-INFO  11:07:09,583 - #26 [
-INFO  11:07:09,585 - #36 ]
-INFO  11:07:09,585 - #5 ;
-INFO  11:07:09,585 - #4 }
-INFO  11:07:09,586 - #23 const
-INFO  11:07:09,587 - #45 int
-INFO  11:07:09,587 - #45 pi
-INFO  11:07:09,587 - #12 =
-INFO  11:07:09,587 - #44 3
-INFO  11:07:09,587 - #8 ,
-INFO  11:07:09,588 - #45 e
-INFO  11:07:09,588 - #12 =
-INFO  11:07:09,589 - #44 2
-INFO  11:07:09,589 - #5 ;
-INFO  11:07:09,589 - #31 enum
-INFO  11:07:09,589 - #45 Broj
-INFO  11:07:09,590 - #3 {
-INFO  11:07:09,590 - #45 NULA
-INFO  11:07:09,590 - #8 ,
-INFO  11:07:09,590 - #45 TRI
-INFO  11:07:09,590 - #12 =
-INFO  11:07:09,590 - #44 3
-INFO  11:07:09,590 - #8 ,
-INFO  11:07:09,591 - #45 PET
-INFO  11:07:09,591 - #12 =
-INFO  11:07:09,591 - #44 5
-INFO  11:07:09,591 - #4 }
-INFO  11:07:09,591 - #16 class
-INFO  11:07:09,591 - #45 B
-INFO  11:07:09,591 - #41 extends
-INFO  11:07:09,591 - #45 A
-INFO  11:07:09,592 - #42 implements
-INFO  11:07:09,592 - #45 I
-INFO  11:07:09,592 - #3 {
-INFO  11:07:09,592 - #45 int
-INFO  11:07:09,592 - #45 i
-INFO  11:07:09,593 - #5 ;
-INFO  11:07:09,594 - #45 int
-INFO  11:07:09,594 - #45 x
-INFO  11:07:09,594 - #26 [
-INFO  11:07:09,594 - #36 ]
-INFO  11:07:09,594 - #5 ;
-INFO  11:07:09,594 - #3 {
-INFO  11:07:09,594 - #45 int
-INFO  11:07:09,595 - #45 getValue
-INFO  11:07:09,596 - #6 (
-INFO  11:07:09,596 - #45 int
-INFO  11:07:09,596 - #45 a
-INFO  11:07:09,596 - #7 )
-INFO  11:07:09,597 - #45 int
-INFO  11:07:09,597 - #45 b
-INFO  11:07:09,597 - #5 ;
-INFO  11:07:09,597 - #45 bool
-INFO  11:07:09,597 - #45 c
-INFO  11:07:09,597 - #5 ;
-INFO  11:07:09,597 - #3 {
-INFO  11:07:09,598 - #10 return
-INFO  11:07:09,599 - #45 this
-INFO  11:07:09,600 - #15 .
-INFO  11:07:09,602 - #45 i
-INFO  11:07:09,602 - #11 +
-INFO  11:07:09,606 - #45 this
-INFO  11:07:09,607 - #15 .
-INFO  11:07:09,607 - #45 x
-INFO  11:07:09,608 - #26 [
-INFO  11:07:09,608 - #44 0
-INFO  11:07:09,608 - #36 ]
-INFO  11:07:09,608 - #11 +
-INFO  11:07:09,609 - #45 a
-INFO  11:07:09,609 - #5 ;
-INFO  11:07:09,609 - #4 }
-INFO  11:07:09,611 - #13 void
-INFO  11:07:09,611 - #45 m
-INFO  11:07:09,619 - #6 (
-INFO  11:07:09,619 - #7 )
-INFO  11:07:09,619 - #3 {
-INFO  11:07:09,619 - #4 }
-INFO  11:07:09,619 - #4 }
-INFO  11:07:09,619 - #4 }
-INFO  11:07:09,619 - #16 class
-INFO  11:07:09,620 - #45 C
-INFO  11:07:09,620 - #41 extends
-INFO  11:07:09,620 - #45 B
-INFO  11:07:09,620 - #3 {
-INFO  11:07:09,620 - #45 A
-INFO  11:07:09,620 - #45 theA
-INFO  11:07:09,620 - #5 ;
-INFO  11:07:09,620 - #45 int
-INFO  11:07:09,620 - #45 a
-INFO  11:07:09,621 - #5 ;
-INFO  11:07:09,621 - #4 }
-INFO  11:07:09,621 - #3 {
-INFO  11:07:09,621 - #13 void
-INFO  11:07:09,621 - #45 main
-INFO  11:07:09,621 - #6 (
-INFO  11:07:09,621 - #7 )
-INFO  11:07:09,621 - #45 A
-INFO  11:07:09,621 - #45 a
-INFO  11:07:09,622 - #5 ;
-INFO  11:07:09,622 - #45 C
-INFO  11:07:09,622 - #45 c
-INFO  11:07:09,622 - #5 ;
-INFO  11:07:09,622 - #45 int
-INFO  11:07:09,622 - #45 i
-INFO  11:07:09,622 - #5 ;
-INFO  11:07:09,623 - #45 int
-INFO  11:07:09,623 - #45 x
-INFO  11:07:09,623 - #26 [
-INFO  11:07:09,623 - #36 ]
-INFO  11:07:09,623 - #5 ;
-INFO  11:07:09,623 - #3 {
-INFO  11:07:09,623 - #45 a
-INFO  11:07:09,624 - #12 =
-INFO  11:07:09,624 - #18 new
-INFO  11:07:09,625 - #45 A
-INFO  11:07:09,625 - #5 ;
-INFO  11:07:09,627 - #45 a
-INFO  11:07:09,628 - #15 .
-INFO  11:07:09,628 - #45 x
-INFO  11:07:09,628 - #12 =
-INFO  11:07:09,628 - #18 new
-INFO  11:07:09,628 - #45 int
-INFO  11:07:09,628 - #26 [
-INFO  11:07:09,628 - #45 Broj
-INFO  11:07:09,628 - #15 .
-INFO  11:07:09,628 - #45 PET
-INFO  11:07:09,628 - #36 ]
-INFO  11:07:09,628 - #5 ;
-INFO  11:07:09,630 - #45 a
-INFO  11:07:09,631 - #15 .
-INFO  11:07:09,631 - #45 y
-INFO  11:07:09,631 - #12 =
-INFO  11:07:09,632 - #18 new
-INFO  11:07:09,632 - #45 int
-INFO  11:07:09,632 - #26 [
-INFO  11:07:09,632 - #44 5
-INFO  11:07:09,632 - #36 ]
-INFO  11:07:09,632 - #5 ;
-INFO  11:07:09,633 - #45 c
-INFO  11:07:09,633 - #12 =
-INFO  11:07:09,633 - #18 new
-INFO  11:07:09,633 - #45 C
-INFO  11:07:09,634 - #5 ;
-INFO  11:07:09,634 - #45 c
-INFO  11:07:09,634 - #15 .
-INFO  11:07:09,634 - #45 theA
-INFO  11:07:09,634 - #12 =
-INFO  11:07:09,634 - #45 a
-INFO  11:07:09,634 - #5 ;
-INFO  11:07:09,634 - #45 c
-INFO  11:07:09,634 - #15 .
-INFO  11:07:09,634 - #45 x
-INFO  11:07:09,634 - #12 =
-INFO  11:07:09,634 - #18 new
-INFO  11:07:09,634 - #45 int
-INFO  11:07:09,635 - #26 [
-INFO  11:07:09,635 - #44 5
-INFO  11:07:09,635 - #36 ]
-INFO  11:07:09,635 - #5 ;
-INFO  11:07:09,635 - #45 x
-INFO  11:07:09,635 - #12 =
-INFO  11:07:09,635 - #18 new
-INFO  11:07:09,635 - #45 int
-INFO  11:07:09,635 - #26 [
-INFO  11:07:09,635 - #45 Broj
-INFO  11:07:09,635 - #15 .
-INFO  11:07:09,636 - #45 TRI
-INFO  11:07:09,636 - #36 ]
-INFO  11:07:09,636 - #5 ;
-INFO  11:07:09,636 - #27 read
-INFO  11:07:09,636 - #6 (
-INFO  11:07:09,636 - #45 c
-INFO  11:07:09,636 - #15 .
-INFO  11:07:09,636 - #45 i
-INFO  11:07:09,636 - #7 )
-INFO  11:07:09,636 - #5 ;
-INFO  11:07:09,636 - #43 for
-INFO  11:07:09,636 - #6 (
-INFO  11:07:09,637 - #45 i
-INFO  11:07:09,637 - #12 =
-INFO  11:07:09,637 - #44 0
-INFO  11:07:09,637 - #5 ;
-INFO  11:07:09,637 - #45 i
-INFO  11:07:09,637 - #19 <
-INFO  11:07:09,637 - #44 5
-INFO  11:07:09,639 - #5 ;
-INFO  11:07:09,639 - #45 i
-INFO  11:07:09,639 - #40 ++
-INFO  11:07:09,639 - #7 )
-INFO  11:07:09,642 - #3 {
-INFO  11:07:09,642 - #27 read
-INFO  11:07:09,642 - #6 (
-INFO  11:07:09,642 - #45 c
-INFO  11:07:09,642 - #15 .
-INFO  11:07:09,642 - #45 x
-INFO  11:07:09,642 - #26 [
-INFO  11:07:09,642 - #45 i
-INFO  11:07:09,642 - #36 ]
-INFO  11:07:09,642 - #7 )
-INFO  11:07:09,642 - #5 ;
-INFO  11:07:09,642 - #27 read
-INFO  11:07:09,643 - #6 (
-INFO  11:07:09,643 - #45 c
-INFO  11:07:09,643 - #15 .
-INFO  11:07:09,643 - #45 theA
-INFO  11:07:09,643 - #15 .
-INFO  11:07:09,643 - #45 x
-INFO  11:07:09,643 - #26 [
-INFO  11:07:09,643 - #45 i
-INFO  11:07:09,643 - #36 ]
-INFO  11:07:09,643 - #7 )
-INFO  11:07:09,643 - #5 ;
-INFO  11:07:09,643 - #4 }
-INFO  11:07:09,643 - #9 print
-INFO  11:07:09,644 - #6 (
-INFO  11:07:09,644 - #45 c
-INFO  11:07:09,644 - #15 .
-INFO  11:07:09,644 - #45 getValue
-INFO  11:07:09,644 - #6 (
-INFO  11:07:09,644 - #45 c
-INFO  11:07:09,644 - #15 .
-INFO  11:07:09,644 - #45 theA
-INFO  11:07:09,644 - #15 .
-INFO  11:07:09,644 - #45 x
-INFO  11:07:09,644 - #26 [
-INFO  11:07:09,644 - #45 Broj
-INFO  11:07:09,644 - #15 .
-INFO  11:07:09,644 - #45 NULA
-INFO  11:07:09,645 - #36 ]
-INFO  11:07:09,645 - #7 )
-INFO  11:07:09,645 - #7 )
-INFO  11:07:09,647 - #5 ;
-INFO  11:07:09,647 - #45 c
-INFO  11:07:09,647 - #15 .
-INFO  11:07:09,647 - #45 m
-INFO  11:07:09,647 - #6 (
-INFO  11:07:09,647 - #7 )
-INFO  11:07:09,648 - #5 ;
-INFO  11:07:09,648 - #4 }
-INFO  11:07:09,648 - #4 }
-INFO  11:07:09,654 - Program(
+INFO  13:17:11,035 - #44 5
+INFO  13:17:11,035 - #5 ;
+INFO  13:17:11,035 - #14 interface
+INFO  13:17:11,036 - #45 I
+INFO  13:17:11,036 - #3 {
+ERROR 13:17:11,037 - Greska pri definiciji globalne promenljive. Izvrsen oporavak u liniji 3
+INFO  13:17:11,038 - #13 void
+INFO  13:17:11,038 - #45 m
+INFO  13:17:11,039 - #6 (
+INFO  13:17:11,039 - #7 )
+INFO  13:17:11,039 - #5 ;
+INFO  13:17:11,039 - #4 }
+INFO  13:17:11,041 - #16 class
+INFO  13:17:11,041 - #45 A
+INFO  13:17:11,042 - #3 {
+INFO  13:17:11,044 - #45 int
+INFO  13:17:11,044 - #45 x
+INFO  13:17:11,044 - #26 [
+INFO  13:17:11,044 - #36 ]
+INFO  13:17:11,044 - #8 ,
+INFO  13:17:11,045 - #45 y
+INFO  13:17:11,045 - #26 [
+INFO  13:17:11,045 - #36 ]
+INFO  13:17:11,045 - #5 ;
+INFO  13:17:11,045 - #4 }
+INFO  13:17:11,046 - #23 const
+INFO  13:17:11,047 - #45 int
+INFO  13:17:11,047 - #45 pi
+INFO  13:17:11,047 - #12 =
+INFO  13:17:11,047 - #44 3
+INFO  13:17:11,047 - #8 ,
+INFO  13:17:11,048 - #45 e
+INFO  13:17:11,048 - #12 =
+INFO  13:17:11,048 - #44 2
+INFO  13:17:11,048 - #5 ;
+INFO  13:17:11,048 - #31 enum
+INFO  13:17:11,048 - #45 Broj
+INFO  13:17:11,048 - #3 {
+INFO  13:17:11,048 - #45 NULA
+INFO  13:17:11,048 - #8 ,
+INFO  13:17:11,049 - #45 TRI
+INFO  13:17:11,049 - #12 =
+INFO  13:17:11,049 - #44 3
+INFO  13:17:11,049 - #8 ,
+INFO  13:17:11,049 - #45 PET
+INFO  13:17:11,049 - #12 =
+INFO  13:17:11,049 - #44 5
+INFO  13:17:11,050 - #4 }
+INFO  13:17:11,050 - #16 class
+INFO  13:17:11,050 - #45 B
+INFO  13:17:11,050 - #41 extends
+INFO  13:17:11,050 - #45 A
+INFO  13:17:11,050 - #42 implements
+INFO  13:17:11,050 - #45 I
+INFO  13:17:11,050 - #3 {
+INFO  13:17:11,050 - #45 int
+INFO  13:17:11,051 - #45 i
+INFO  13:17:11,051 - #5 ;
+INFO  13:17:11,051 - #45 int
+INFO  13:17:11,051 - #45 x
+INFO  13:17:11,051 - #26 [
+INFO  13:17:11,051 - #36 ]
+INFO  13:17:11,051 - #5 ;
+INFO  13:17:11,051 - #3 {
+INFO  13:17:11,051 - #45 int
+INFO  13:17:11,051 - #45 getValue
+INFO  13:17:11,053 - #6 (
+INFO  13:17:11,053 - #45 int
+INFO  13:17:11,053 - #45 a
+INFO  13:17:11,053 - #7 )
+INFO  13:17:11,053 - #45 int
+INFO  13:17:11,053 - #45 b
+INFO  13:17:11,053 - #5 ;
+INFO  13:17:11,054 - #45 bool
+INFO  13:17:11,054 - #45 c
+INFO  13:17:11,054 - #5 ;
+INFO  13:17:11,054 - #3 {
+INFO  13:17:11,054 - #10 return
+INFO  13:17:11,054 - #45 this
+INFO  13:17:11,055 - #15 .
+INFO  13:17:11,055 - #45 i
+INFO  13:17:11,055 - #11 +
+INFO  13:17:11,058 - #45 this
+INFO  13:17:11,060 - #15 .
+INFO  13:17:11,061 - #45 x
+INFO  13:17:11,061 - #26 [
+INFO  13:17:11,061 - #44 0
+INFO  13:17:11,061 - #36 ]
+INFO  13:17:11,061 - #11 +
+INFO  13:17:11,061 - #45 a
+INFO  13:17:11,061 - #5 ;
+INFO  13:17:11,061 - #4 }
+INFO  13:17:11,067 - #13 void
+INFO  13:17:11,069 - #45 m
+INFO  13:17:11,069 - #6 (
+INFO  13:17:11,069 - #7 )
+INFO  13:17:11,069 - #3 {
+INFO  13:17:11,069 - #4 }
+INFO  13:17:11,069 - #4 }
+INFO  13:17:11,069 - #4 }
+INFO  13:17:11,069 - #16 class
+INFO  13:17:11,070 - #45 C
+INFO  13:17:11,070 - #41 extends
+INFO  13:17:11,070 - #45 B
+INFO  13:17:11,070 - #3 {
+INFO  13:17:11,070 - #45 A
+INFO  13:17:11,070 - #45 theA
+INFO  13:17:11,070 - #5 ;
+INFO  13:17:11,070 - #45 int
+INFO  13:17:11,070 - #45 a
+INFO  13:17:11,070 - #5 ;
+INFO  13:17:11,071 - #4 }
+INFO  13:17:11,071 - #3 {
+INFO  13:17:11,071 - #13 void
+INFO  13:17:11,071 - #45 main
+INFO  13:17:11,071 - #6 (
+INFO  13:17:11,071 - #45 int
+INFO  13:17:11,071 - #45 x
+INFO  13:17:11,072 - #8 ,
+INFO  13:17:11,072 - #45 y
+INFO  13:17:11,072 - #7 )
+ERROR 13:17:11,072 - 
+Sintaksna greska na liniji 19
+INFO  13:17:11,072 - #45 A
+INFO  13:17:11,072 - #45 a
+INFO  13:17:11,072 - #5 ;
+ERROR 13:17:11,072 - Greska pri deklaraciji formalnog parametra funkcije. Izvrsen oporavak u liniji 19
+INFO  13:17:11,073 - #45 C
+INFO  13:17:11,073 - #45 c
+INFO  13:17:11,073 - #5 ;
+INFO  13:17:11,074 - #45 int
+INFO  13:17:11,074 - #45 i
+INFO  13:17:11,074 - #5 ;
+INFO  13:17:11,074 - #45 int
+INFO  13:17:11,074 - #45 x
+INFO  13:17:11,074 - #26 [
+INFO  13:17:11,074 - #36 ]
+INFO  13:17:11,074 - #5 ;
+INFO  13:17:11,074 - #3 {
+INFO  13:17:11,074 - #45 a
+INFO  13:17:11,074 - #12 =
+INFO  13:17:11,074 - #18 new
+INFO  13:17:11,075 - #45 A
+INFO  13:17:11,075 - #5 ;
+INFO  13:17:11,077 - #45 a
+INFO  13:17:11,077 - #12 =
+INFO  13:17:11,077 - #16 class
+ERROR 13:17:11,078 - 
+Sintaksna greska na liniji 21
+INFO  13:17:11,078 - #45 B
+INFO  13:17:11,078 - #3 {
+INFO  13:17:11,078 - #4 }
+INFO  13:17:11,078 - #5 ;
+INFO  13:17:11,078 - #45 a
+INFO  13:17:11,078 - #15 .
+INFO  13:17:11,078 - #45 x
+ERROR 13:17:11,078 - Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji 21
+INFO  13:17:11,079 - #12 =
+INFO  13:17:11,079 - #18 new
+INFO  13:17:11,079 - #45 int
+INFO  13:17:11,079 - #26 [
+INFO  13:17:11,079 - #45 Broj
+INFO  13:17:11,079 - #15 .
+INFO  13:17:11,079 - #45 PET
+INFO  13:17:11,079 - #36 ]
+INFO  13:17:11,079 - #5 ;
+INFO  13:17:11,079 - #45 a
+INFO  13:17:11,079 - #15 .
+INFO  13:17:11,079 - #45 y
+INFO  13:17:11,079 - #12 =
+INFO  13:17:11,079 - #18 new
+INFO  13:17:11,079 - #45 int
+INFO  13:17:11,079 - #26 [
+INFO  13:17:11,079 - #44 5
+INFO  13:17:11,079 - #36 ]
+INFO  13:17:11,079 - #5 ;
+INFO  13:17:11,079 - #45 c
+INFO  13:17:11,079 - #12 =
+INFO  13:17:11,079 - #18 new
+INFO  13:17:11,079 - #45 C
+INFO  13:17:11,079 - #5 ;
+INFO  13:17:11,079 - #45 c
+INFO  13:17:11,079 - #15 .
+INFO  13:17:11,079 - #45 theA
+INFO  13:17:11,079 - #12 =
+INFO  13:17:11,079 - #45 a
+INFO  13:17:11,079 - #5 ;
+INFO  13:17:11,079 - #45 c
+INFO  13:17:11,079 - #15 .
+INFO  13:17:11,079 - #45 x
+INFO  13:17:11,079 - #12 =
+INFO  13:17:11,079 - #18 new
+INFO  13:17:11,082 - #45 int
+INFO  13:17:11,082 - #26 [
+INFO  13:17:11,082 - #44 5
+INFO  13:17:11,082 - #36 ]
+INFO  13:17:11,082 - #5 ;
+INFO  13:17:11,082 - #45 x
+INFO  13:17:11,083 - #12 =
+INFO  13:17:11,083 - #18 new
+INFO  13:17:11,083 - #45 int
+INFO  13:17:11,083 - #26 [
+INFO  13:17:11,083 - #45 Broj
+INFO  13:17:11,083 - #15 .
+INFO  13:17:11,083 - #45 TRI
+INFO  13:17:11,083 - #36 ]
+INFO  13:17:11,083 - #5 ;
+INFO  13:17:11,083 - #27 read
+INFO  13:17:11,083 - #6 (
+INFO  13:17:11,083 - #45 c
+INFO  13:17:11,083 - #15 .
+INFO  13:17:11,083 - #45 i
+INFO  13:17:11,083 - #7 )
+INFO  13:17:11,083 - #5 ;
+INFO  13:17:11,083 - #43 for
+INFO  13:17:11,083 - #6 (
+INFO  13:17:11,083 - #45 i
+INFO  13:17:11,083 - #12 =
+INFO  13:17:11,083 - #44 0
+INFO  13:17:11,083 - #5 ;
+INFO  13:17:11,083 - #45 i
+INFO  13:17:11,083 - #19 <
+INFO  13:17:11,083 - #44 5
+INFO  13:17:11,088 - #5 ;
+INFO  13:17:11,088 - #45 i
+INFO  13:17:11,088 - #40 ++
+INFO  13:17:11,090 - #7 )
+INFO  13:17:11,090 - #3 {
+INFO  13:17:11,090 - #27 read
+INFO  13:17:11,091 - #6 (
+INFO  13:17:11,091 - #45 c
+INFO  13:17:11,091 - #15 .
+INFO  13:17:11,091 - #45 x
+INFO  13:17:11,091 - #26 [
+INFO  13:17:11,091 - #45 i
+INFO  13:17:11,091 - #36 ]
+INFO  13:17:11,091 - #7 )
+INFO  13:17:11,091 - #5 ;
+INFO  13:17:11,091 - #27 read
+INFO  13:17:11,091 - #6 (
+INFO  13:17:11,091 - #45 c
+INFO  13:17:11,092 - #15 .
+INFO  13:17:11,092 - #45 theA
+INFO  13:17:11,092 - #15 .
+INFO  13:17:11,092 - #45 x
+INFO  13:17:11,092 - #26 [
+INFO  13:17:11,092 - #45 i
+INFO  13:17:11,092 - #36 ]
+INFO  13:17:11,092 - #7 )
+INFO  13:17:11,092 - #5 ;
+INFO  13:17:11,092 - #46 if
+INFO  13:17:11,092 - #6 (
+INFO  13:17:11,092 - #45 int
+INFO  13:17:11,093 - #45 x
+ERROR 13:17:11,093 - 
+Sintaksna greska na liniji 31
+INFO  13:17:11,093 - #7 )
+INFO  13:17:11,093 - #27 read
+INFO  13:17:11,093 - #6 (
+INFO  13:17:11,093 - #45 a
+ERROR 13:17:11,093 - Greska u logickom iskazu IF konstrukcije. Izvrsen oporavak u liniji 31
+INFO  13:17:11,094 - #7 )
+INFO  13:17:11,094 - #5 ;
+INFO  13:17:11,094 - #47 else
+INFO  13:17:11,094 - #27 read
+INFO  13:17:11,094 - #6 (
+INFO  13:17:11,094 - #45 b
+INFO  13:17:11,095 - #7 )
+INFO  13:17:11,095 - #5 ;
+INFO  13:17:11,095 - #4 }
+INFO  13:17:11,095 - #9 print
+INFO  13:17:11,096 - #6 (
+INFO  13:17:11,096 - #45 c
+INFO  13:17:11,096 - #15 .
+INFO  13:17:11,096 - #45 getValue
+INFO  13:17:11,096 - #6 (
+INFO  13:17:11,096 - #45 c
+INFO  13:17:11,096 - #15 .
+INFO  13:17:11,096 - #45 theA
+INFO  13:17:11,096 - #15 .
+INFO  13:17:11,096 - #45 x
+INFO  13:17:11,096 - #26 [
+INFO  13:17:11,096 - #45 Broj
+INFO  13:17:11,096 - #15 .
+INFO  13:17:11,096 - #45 NULA
+INFO  13:17:11,098 - #36 ]
+INFO  13:17:11,098 - #7 )
+INFO  13:17:11,098 - #7 )
+INFO  13:17:11,099 - #5 ;
+INFO  13:17:11,099 - #45 c
+INFO  13:17:11,099 - #15 .
+INFO  13:17:11,099 - #45 m
+INFO  13:17:11,099 - #6 (
+INFO  13:17:11,099 - #7 )
+INFO  13:17:11,100 - #5 ;
+INFO  13:17:11,100 - #4 }
+INFO  13:17:11,100 - #4 }
+INFO  13:17:11,106 - Program(
   ProgramName(
    Program
   ) [ProgramName]
@@ -285,10 +323,17 @@ INFO  11:07:09,654 - Program(
                     Type(
                      int
                     ) [Type]
-                    SingleVar(
+                    MultipleVars(
+                      SingleVar(
+                        Var(
+                         x
+                          NoArrayVar(
+                          ) [NoArrayVar]
+                        ) [Var]
+                      ) [SingleVar]
                       VarDefError(
                       ) [VarDefError]
-                    ) [SingleVar]
+                    ) [MultipleVars]
                   ) [VarDeclarations]
                 ) [VarDeclaration]
               ) [VarDeclLists]
@@ -450,12 +495,12 @@ INFO  11:07:09,654 - Program(
                  getValue
                   OptionalFormPars(
                     SingleFormPars(
-                      FormParam(
+                      FormParamFormParam(
                         Type(
                          int
                         ) [Type]
                        a
-                      ) [FormParam]
+                      ) [FormParamFormParam]
                     ) [SingleFormPars]
                   ) [OptionalFormPars]
                   OptVars(
@@ -646,8 +691,10 @@ INFO  11:07:09,654 - Program(
       VoidIdentificator(
       ) [VoidIdentificator]
      main
-      NoOptionalFormPars(
-      ) [NoOptionalFormPars]
+      OptionalFormPars(
+        FormParamError(
+        ) [FormParamError]
+      ) [OptionalFormPars]
       OptVars(
         OptVars(
           OptVars(
@@ -717,8 +764,40 @@ INFO  11:07:09,654 - Program(
                       OptionalStmt(
                         OptionalStmt(
                           OptionalStmt(
-                            NoOptionalStmt(
-                            ) [NoOptionalStmt]
+                            OptionalStmt(
+                              NoOptionalStmt(
+                              ) [NoOptionalStmt]
+                              DesignatorStmt(
+                                DesignStmt(
+                                  Design(
+                                   a
+                                    NoDesignator(
+                                    ) [NoDesignator]
+                                  ) [Design]
+                                  AddSideEff(
+                                    AssignOperation(
+                                    ) [AssignOperation]
+                                    Expression(
+                                      Negative(
+                                      ) [Negative]
+                                      Terms(
+                                        NewFactor(
+                                          Type(
+                                           A
+                                          ) [Type]
+                                          NoExpr(
+                                          ) [NoExpr]
+                                        ) [NewFactor]
+                                        NoMulFacts(
+                                        ) [NoMulFacts]
+                                      ) [Terms]
+                                      NoAddTerms(
+                                      ) [NoAddTerms]
+                                    ) [Expression]
+                                  ) [AddSideEff]
+                                ) [DesignStmt]
+                              ) [DesignatorStmt]
+                            ) [OptionalStmt]
                             DesignatorStmt(
                               DesignStmt(
                                 Design(
@@ -726,27 +805,8 @@ INFO  11:07:09,654 - Program(
                                   NoDesignator(
                                   ) [NoDesignator]
                                 ) [Design]
-                                AddSideEff(
-                                  AssignOperation(
-                                  ) [AssignOperation]
-                                  Expression(
-                                    Negative(
-                                    ) [Negative]
-                                    Terms(
-                                      NewFactor(
-                                        Type(
-                                         A
-                                        ) [Type]
-                                        NoExpr(
-                                        ) [NoExpr]
-                                      ) [NewFactor]
-                                      NoMulFacts(
-                                      ) [NoMulFacts]
-                                    ) [Terms]
-                                    NoAddTerms(
-                                    ) [NoAddTerms]
-                                  ) [Expression]
-                                ) [AddSideEff]
+                                AssignError(
+                                ) [AssignError]
                               ) [DesignStmt]
                             ) [DesignatorStmt]
                           ) [OptionalStmt]
@@ -1130,15 +1190,57 @@ INFO  11:07:09,654 - Program(
               BlockStmt(
                 OptionalStmt(
                   OptionalStmt(
-                    NoOptionalStmt(
-                    ) [NoOptionalStmt]
+                    OptionalStmt(
+                      NoOptionalStmt(
+                      ) [NoOptionalStmt]
+                      ReadStmt(
+                        Design(
+                         c
+                          OptDesignator(
+                            OptDesignator(
+                              NoDesignator(
+                              ) [NoDesignator]
+                              DesignField(
+                               x
+                              ) [DesignField]
+                            ) [OptDesignator]
+                            DesignArr(
+                              Expression(
+                                Negative(
+                                ) [Negative]
+                                Terms(
+                                  DesignFactor(
+                                    Design(
+                                     i
+                                      NoDesignator(
+                                      ) [NoDesignator]
+                                    ) [Design]
+                                    NoMethodCall(
+                                    ) [NoMethodCall]
+                                  ) [DesignFactor]
+                                  NoMulFacts(
+                                  ) [NoMulFacts]
+                                ) [Terms]
+                                NoAddTerms(
+                                ) [NoAddTerms]
+                              ) [Expression]
+                            ) [DesignArr]
+                          ) [OptDesignator]
+                        ) [Design]
+                      ) [ReadStmt]
+                    ) [OptionalStmt]
                     ReadStmt(
                       Design(
                        c
                         OptDesignator(
                           OptDesignator(
-                            NoDesignator(
-                            ) [NoDesignator]
+                            OptDesignator(
+                              NoDesignator(
+                              ) [NoDesignator]
+                              DesignField(
+                               theA
+                              ) [DesignField]
+                            ) [OptDesignator]
                             DesignField(
                              x
                             ) [DesignField]
@@ -1168,46 +1270,26 @@ INFO  11:07:09,654 - Program(
                       ) [Design]
                     ) [ReadStmt]
                   ) [OptionalStmt]
-                  ReadStmt(
-                    Design(
-                     c
-                      OptDesignator(
-                        OptDesignator(
-                          OptDesignator(
-                            NoDesignator(
-                            ) [NoDesignator]
-                            DesignField(
-                             theA
-                            ) [DesignField]
-                          ) [OptDesignator]
-                          DesignField(
-                           x
-                          ) [DesignField]
-                        ) [OptDesignator]
-                        DesignArr(
-                          Expression(
-                            Negative(
-                            ) [Negative]
-                            Terms(
-                              DesignFactor(
-                                Design(
-                                 i
-                                  NoDesignator(
-                                  ) [NoDesignator]
-                                ) [Design]
-                                NoMethodCall(
-                                ) [NoMethodCall]
-                              ) [DesignFactor]
-                              NoMulFacts(
-                              ) [NoMulFacts]
-                            ) [Terms]
-                            NoAddTerms(
-                            ) [NoAddTerms]
-                          ) [Expression]
-                        ) [DesignArr]
-                      ) [OptDesignator]
-                    ) [Design]
-                  ) [ReadStmt]
+                  IfStmt(
+                    IfError(
+                    ) [IfError]
+                    ReadStmt(
+                      Design(
+                       a
+                        NoDesignator(
+                        ) [NoDesignator]
+                      ) [Design]
+                    ) [ReadStmt]
+                    OptElseDerived1(
+                      ReadStmt(
+                        Design(
+                         b
+                          NoDesignator(
+                          ) [NoDesignator]
+                        ) [Design]
+                      ) [ReadStmt]
+                    ) [OptElseDerived1]
+                  ) [IfStmt]
                 ) [OptionalStmt]
               ) [BlockStmt]
             ) [ForStmt]
@@ -1324,6 +1406,6 @@ INFO  11:07:09,654 - Program(
     ) [MethodDeclarations]
   ) [OptMethods]
 ) [Program]
-INFO  11:07:09,657 - ===================================
-INFO  11:07:09,661 -  Print count calls = 1
-INFO  11:07:09,661 -  Read count calls = 3
+INFO  13:17:11,109 - ===================================
+INFO  13:17:11,113 -  Print count calls = 1
+INFO  13:17:11,113 -  Read count calls = 5

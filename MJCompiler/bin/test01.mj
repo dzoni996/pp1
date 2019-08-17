@@ -1,6 +1,6 @@
 program Program
 	
-	int x = 4;
+	int x, y = 5;
 	interface I{void m();}
 	class A{int x[],y[];}
 	const int pi = 3, e = 2;
@@ -16,8 +16,9 @@ program Program
 	}
 	class C extends B{A theA;int a;}
 	{
-		void main() A a; C c; int i; int x[];{
+		void main(int x, y) A a; C c; int i; int x[];{
 			a = new A;
+			a = class B{};
 			a.x = new int[Broj.PET];
 			a.y = new int[5];
 			c = new C;
@@ -27,6 +28,7 @@ program Program
 			read(c.i);
 			for(i=0; i<5; i++){
 			read(c.x[i]); read(c.theA.x[i]);
+			if (int x) read(a); else read(b);
 		}
 		print(c.getValue(c.theA.x[Broj.NULA]));
 		c.m();
