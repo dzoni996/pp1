@@ -49,6 +49,7 @@ public class MJParserTest {
 			log.info(" Print count calls = " + v.printCallCount);
 			
 			log.info(" Read count calls = " + v.readCallCount);
+			
 
 			//log.info(" Deklarisanih promenljivih ima = " + v.varDeclCount);
 			
