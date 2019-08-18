@@ -1,22 +1,20 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/7/2019 20:52:6
+// 18/7/2019 13:56:54
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class MethodDeclarations extends MethodDeclList {
 
-    private TypeIdent TypeIdent;
-    private String I2;
+    private MethodDeclTypeName MethodDeclTypeName;
     private OptFormPars OptFormPars;
     private OptVarDecl OptVarDecl;
     private OptStmt OptStmt;
 
-    public MethodDeclarations (TypeIdent TypeIdent, String I2, OptFormPars OptFormPars, OptVarDecl OptVarDecl, OptStmt OptStmt) {
-        this.TypeIdent=TypeIdent;
-        if(TypeIdent!=null) TypeIdent.setParent(this);
-        this.I2=I2;
+    public MethodDeclarations (MethodDeclTypeName MethodDeclTypeName, OptFormPars OptFormPars, OptVarDecl OptVarDecl, OptStmt OptStmt) {
+        this.MethodDeclTypeName=MethodDeclTypeName;
+        if(MethodDeclTypeName!=null) MethodDeclTypeName.setParent(this);
         this.OptFormPars=OptFormPars;
         if(OptFormPars!=null) OptFormPars.setParent(this);
         this.OptVarDecl=OptVarDecl;
@@ -25,20 +23,12 @@ public class MethodDeclarations extends MethodDeclList {
         if(OptStmt!=null) OptStmt.setParent(this);
     }
 
-    public TypeIdent getTypeIdent() {
-        return TypeIdent;
+    public MethodDeclTypeName getMethodDeclTypeName() {
+        return MethodDeclTypeName;
     }
 
-    public void setTypeIdent(TypeIdent TypeIdent) {
-        this.TypeIdent=TypeIdent;
-    }
-
-    public String getI2() {
-        return I2;
-    }
-
-    public void setI2(String I2) {
-        this.I2=I2;
+    public void setMethodDeclTypeName(MethodDeclTypeName MethodDeclTypeName) {
+        this.MethodDeclTypeName=MethodDeclTypeName;
     }
 
     public OptFormPars getOptFormPars() {
@@ -70,7 +60,7 @@ public class MethodDeclarations extends MethodDeclList {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(TypeIdent!=null) TypeIdent.accept(visitor);
+        if(MethodDeclTypeName!=null) MethodDeclTypeName.accept(visitor);
         if(OptFormPars!=null) OptFormPars.accept(visitor);
         if(OptVarDecl!=null) OptVarDecl.accept(visitor);
         if(OptStmt!=null) OptStmt.accept(visitor);
@@ -78,14 +68,14 @@ public class MethodDeclarations extends MethodDeclList {
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(TypeIdent!=null) TypeIdent.traverseTopDown(visitor);
+        if(MethodDeclTypeName!=null) MethodDeclTypeName.traverseTopDown(visitor);
         if(OptFormPars!=null) OptFormPars.traverseTopDown(visitor);
         if(OptVarDecl!=null) OptVarDecl.traverseTopDown(visitor);
         if(OptStmt!=null) OptStmt.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(TypeIdent!=null) TypeIdent.traverseBottomUp(visitor);
+        if(MethodDeclTypeName!=null) MethodDeclTypeName.traverseBottomUp(visitor);
         if(OptFormPars!=null) OptFormPars.traverseBottomUp(visitor);
         if(OptVarDecl!=null) OptVarDecl.traverseBottomUp(visitor);
         if(OptStmt!=null) OptStmt.traverseBottomUp(visitor);
@@ -97,13 +87,10 @@ public class MethodDeclarations extends MethodDeclList {
         buffer.append(tab);
         buffer.append("MethodDeclarations(\n");
 
-        if(TypeIdent!=null)
-            buffer.append(TypeIdent.toString("  "+tab));
+        if(MethodDeclTypeName!=null)
+            buffer.append(MethodDeclTypeName.toString("  "+tab));
         else
             buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        buffer.append(" "+tab+I2);
         buffer.append("\n");
 
         if(OptFormPars!=null)

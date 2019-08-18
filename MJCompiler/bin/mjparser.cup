@@ -68,20 +68,21 @@ terminal Integer NUMCONST ;
 terminal String IDENT ;
 terminal IF, ELSE;
 
-nonterminal Program, DeclList, DeclItem, Type ;
+nonterminal DeclList, DeclItem ;
 nonterminal ConstDecl, ConstDeclList, ConstItem, Initializer ;
 nonterminal EnumDecl, EnumDeclList, EnumItem ;
 nonterminal VarDecl, VarDeclList, VarItem, OptArraySq ; 
 nonterminal ClassDecl, Extend, Implement, InterfaceList, OptVarDecl, OptMethodDecl, ClassMethods ;
 nonterminal InterfaceDecl, InterfaceMethodDeclList, OptInterfaceMethodDeclList, InterfaceMethodDecl, OptFormPars, TypeIdent ;
-nonterminal MethodDeclList, OptStmt, Statement, FormParsItem, FormPars ;
+nonterminal OptStmt, Statement, FormParsItem, FormPars ;
 nonterminal DesignatorStatement, Designator, OptDesign, DesignItem, SideEffect ;
 nonterminal Expr, OptActPars, ActPars, OptMinus, OptAddTerms, Term, OptMulTerms, Factor, OptMethodCall, OptExpr ;
 nonterminal Mulop, Addop, Relop, Assignop ;
 nonterminal OptRetExpr, OptNumConst ;
 nonterminal Condition, CondTerm, CondFact, OptRelExpr, OptElse, OptDesignStmt, OptCond, IfCondition ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName, MethodDeclList, MethodDeclTypeName;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 
 precedence left ELSE;
 /**************************************************************
@@ -91,7 +92,7 @@ precedence left ELSE;
 Program ::= (Program) PROG ProgName:p DeclList LBRACE OptMethodDecl  RBRACE 
 ;
 
-ProgName ::= (ProgramName) IDENT:pName
+ProgName ::= (ProgName) IDENT:pName
 ;
 
 /********************** Var Declaration ***********************
@@ -148,7 +149,7 @@ EnumItem ::= (InitEnum) IDENT EQUAL NUMCONST
 			 ;
 
 
-VarDecl ::= (VarDeclarations) Type VarDeclList SEMI
+VarDecl ::= (VarDeclarations) Type:varType VarDeclList SEMI
 ;
 
 VarDeclList ::= (MultipleVars) VarDeclList COMMA VarItem
@@ -156,7 +157,7 @@ VarDeclList ::= (MultipleVars) VarDeclList COMMA VarItem
 				(SingleVar) VarItem
 				;
 
-VarItem ::= (Var) IDENT OptArraySq
+VarItem ::= (Var) IDENT:varName OptArraySq
 			|
 			(VarDefError) error:e
 			{: parser.report_error("Greska pri definiciji globalne promenljive. Izvrsen oporavak u liniji " + eleft , null); :}
@@ -219,9 +220,9 @@ InterfaceMethodDeclList ::= (InterfaceMethodDeclarations) InterfaceMethodDeclLis
 InterfaceMethodDecl ::= (InterfaceMethodDeclaration) TypeIdent IDENT LPAREN OptFormPars RPAREN SEMI
 ;
 
-TypeIdent ::= (TypeIdentificator) Type 
+TypeIdent ::= (TypeIdentificator) Type:retType
 			  | 
-			  (VoidIdentificator) VOID
+			  (VoidIdentificator) VOID:retType
 			  ;
 
 OptFormPars ::= (OptionalFormPars) FormPars
@@ -233,7 +234,10 @@ OptFormPars ::= (OptionalFormPars) FormPars
 /********************** Method Declaration ********************
 **************************************************************/
 
-MethodDeclList ::= (MethodDeclarations) TypeIdent IDENT LPAREN OptFormPars RPAREN OptVarDecl LBRACE OptStmt RBRACE
+MethodDeclList ::= (MethodDeclarations) MethodDeclTypeName LPAREN OptFormPars RPAREN OptVarDecl LBRACE OptStmt RBRACE
+;
+
+MethodDeclTypeName ::= (MethodDeclTypeName) TypeIdent:retType IDENT:methodName
 ;
 
 OptStmt ::= (OptionalStmt) OptStmt Statement

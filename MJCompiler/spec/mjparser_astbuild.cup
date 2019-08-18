@@ -68,10 +68,8 @@ terminal Integer NUMCONST ;
 terminal String IDENT ;
 terminal IF, ELSE;
 
-nonterminal Program Program;
 nonterminal DeclList DeclList;
-nonterminal DeclItem DeclItem;
-nonterminal Type Type ;
+nonterminal DeclItem DeclItem ;
 nonterminal ConstDecl ConstDecl;
 nonterminal ConstDeclList ConstDeclList;
 nonterminal ConstItem ConstItem;
@@ -96,7 +94,6 @@ nonterminal OptInterfaceMethodDeclList OptInterfaceMethodDeclList;
 nonterminal InterfaceMethodDecl InterfaceMethodDecl;
 nonterminal OptFormPars OptFormPars;
 nonterminal TypeIdent TypeIdent ;
-nonterminal MethodDeclList MethodDeclList;
 nonterminal OptStmt OptStmt;
 nonterminal Statement Statement;
 nonterminal FormParsItem FormParsItem;
@@ -131,7 +128,8 @@ nonterminal OptDesignStmt OptDesignStmt;
 nonterminal OptCond OptCond;
 nonterminal IfCondition IfCondition ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName, MethodDeclList, MethodDeclTypeName;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 
 precedence left ELSE;
 /**************************************************************
@@ -141,7 +139,7 @@ precedence left ELSE;
 Program ::= (Program) PROG ProgName:p DeclList:D1 LBRACE OptMethodDecl:O2  RBRACE {: RESULT=new Program(p, D1, O2); RESULT.setLine(pleft); :} 
 ;
 
-ProgName ::= (ProgramName) IDENT:pName {: RESULT=new ProgramName(pName); RESULT.setLine(pNameleft); :}
+ProgName ::= (ProgName) IDENT:pName {: RESULT=new ProgName(pName); RESULT.setLine(pNameleft); :}
 ;
 
 /********************** Var Declaration ***********************
@@ -198,7 +196,7 @@ EnumItem ::= (InitEnum) IDENT:I1 EQUAL NUMCONST:N2 {: RESULT=new InitEnum(I1, N2
 			 ;
 
 
-VarDecl ::= (VarDeclarations) Type:T1 VarDeclList:V2 SEMI {: RESULT=new VarDeclarations(T1, V2); RESULT.setLine(T1left); :}
+VarDecl ::= (VarDeclarations) Type:varType VarDeclList:V1 SEMI {: RESULT=new VarDeclarations(varType, V1); RESULT.setLine(varTypeleft); :}
 ;
 
 VarDeclList ::= (MultipleVars) VarDeclList:V1 COMMA VarItem:V2 {: RESULT=new MultipleVars(V1, V2); RESULT.setLine(V1left); :}
@@ -206,7 +204,7 @@ VarDeclList ::= (MultipleVars) VarDeclList:V1 COMMA VarItem:V2 {: RESULT=new Mul
 				(SingleVar) VarItem:V1 {: RESULT=new SingleVar(V1); RESULT.setLine(V1left); :}
 				;
 
-VarItem ::= (Var) IDENT:I1 OptArraySq:O2 {: RESULT=new Var(I1, O2); RESULT.setLine(I1left); :}
+VarItem ::= (Var) IDENT:varName OptArraySq:O1 {: RESULT=new Var(varName, O1); RESULT.setLine(varNameleft); :}
 			|
 			(VarDefError) error:e
 			{: parser.report_error("Greska pri definiciji globalne promenljive. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new VarDefError(); :}
@@ -269,9 +267,9 @@ InterfaceMethodDeclList ::= (InterfaceMethodDeclarations) InterfaceMethodDeclLis
 InterfaceMethodDecl ::= (InterfaceMethodDeclaration) TypeIdent:T1 IDENT:I2 LPAREN OptFormPars:O3 RPAREN SEMI {: RESULT=new InterfaceMethodDeclaration(T1, I2, O3); RESULT.setLine(T1left); :}
 ;
 
-TypeIdent ::= (TypeIdentificator) Type:T1 {: RESULT=new TypeIdentificator(T1); RESULT.setLine(T1left); :} 
+TypeIdent ::= (TypeIdentificator) Type:retType {: RESULT=new TypeIdentificator(retType); RESULT.setLine(retTypeleft); :}
 			  | 
-			  (VoidIdentificator) VOID {: RESULT=new VoidIdentificator(); :}
+			  (VoidIdentificator) VOID:retType {: RESULT=new VoidIdentificator(); :}
 			  ;
 
 OptFormPars ::= (OptionalFormPars) FormPars:F1 {: RESULT=new OptionalFormPars(F1); RESULT.setLine(F1left); :}
@@ -283,7 +281,10 @@ OptFormPars ::= (OptionalFormPars) FormPars:F1 {: RESULT=new OptionalFormPars(F1
 /********************** Method Declaration ********************
 **************************************************************/
 
-MethodDeclList ::= (MethodDeclarations) TypeIdent:T1 IDENT:I2 LPAREN OptFormPars:O3 RPAREN OptVarDecl:O4 LBRACE OptStmt:O5 RBRACE {: RESULT=new MethodDeclarations(T1, I2, O3, O4, O5); RESULT.setLine(T1left); :}
+MethodDeclList ::= (MethodDeclarations) MethodDeclTypeName:M1 LPAREN OptFormPars:O2 RPAREN OptVarDecl:O3 LBRACE OptStmt:O4 RBRACE {: RESULT=new MethodDeclarations(M1, O2, O3, O4); RESULT.setLine(M1left); :}
+;
+
+MethodDeclTypeName ::= (MethodDeclTypeName) TypeIdent:retType IDENT:methodName {: RESULT=new MethodDeclTypeName(retType, methodName); RESULT.setLine(retTypeleft); :}
 ;
 
 OptStmt ::= (OptionalStmt) OptStmt:O1 Statement:S2 {: RESULT=new OptionalStmt(O1, S2); RESULT.setLine(O1left); :}

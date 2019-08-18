@@ -1,27 +1,27 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/7/2019 20:52:6
+// 18/7/2019 13:56:53
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class Var extends VarItem {
 
-    private String I1;
+    private String varName;
     private OptArraySq OptArraySq;
 
-    public Var (String I1, OptArraySq OptArraySq) {
-        this.I1=I1;
+    public Var (String varName, OptArraySq OptArraySq) {
+        this.varName=varName;
         this.OptArraySq=OptArraySq;
         if(OptArraySq!=null) OptArraySq.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public String getVarName() {
+        return varName;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setVarName(String varName) {
+        this.varName=varName;
     }
 
     public OptArraySq getOptArraySq() {
@@ -55,7 +55,7 @@ public class Var extends VarItem {
         buffer.append(tab);
         buffer.append("Var(\n");
 
-        buffer.append(" "+tab+I1);
+        buffer.append(" "+tab+varName);
         buffer.append("\n");
 
         if(OptArraySq!=null)

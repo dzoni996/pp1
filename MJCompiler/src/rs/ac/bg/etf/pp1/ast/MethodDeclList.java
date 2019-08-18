@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/7/2019 20:52:7
+// 18/7/2019 13:56:55
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -10,6 +10,8 @@ public abstract class MethodDeclList implements SyntaxNode {
     private SyntaxNode parent;
 
     private int line;
+
+    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
 
     public SyntaxNode getParent() {
         return parent;
