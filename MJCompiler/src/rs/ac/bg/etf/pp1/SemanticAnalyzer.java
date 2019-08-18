@@ -23,6 +23,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	Obj currentMethod = null;
 	
 	private int currentLevel = -1;
+	private Struct currentType = noType;
 	
 	
 	Logger log = Logger.getLogger(getClass());
@@ -97,15 +98,18 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		// if this type does not exist
     	if(typeNode == Tab.noObj){
-    		report_error("Nije pronadjen tip " + type.getTypeName() + " u tabeli simbola! ", null);
+    		report_error("ERROR: Nije pronadjen tip " + type.getTypeName() + " u tabeli simbola! ", null);
     		type.struct = Tab.noType;
-    	}else{
+    	}
+    	else {
         	// if type is found in table
     		if(Obj.Type == typeNode.getKind()){
     			type.struct = typeNode.getType();
+    			// for later checks
+    			currentType = typeNode.getType();
     		// if this is not type
     		}else{
-    			report_error("GREASKA: Ime " + type.getTypeName() + " ne predstavlja tip!", type);
+    			report_error("ERROR: Ime " + type.getTypeName() + " ne predstavlja tip!", type);
     			type.struct = Tab.noType;
     		}
     	}
