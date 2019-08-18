@@ -1,27 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 18/7/2019 22:44:15
+// 19/7/2019 0:33:3
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class EnumDeclarations extends EnumDecl {
 
-    private String name;
+    private EnumName EnumName;
     private EnumDeclList EnumDeclList;
 
-    public EnumDeclarations (String name, EnumDeclList EnumDeclList) {
-        this.name=name;
+    public EnumDeclarations (EnumName EnumName, EnumDeclList EnumDeclList) {
+        this.EnumName=EnumName;
+        if(EnumName!=null) EnumName.setParent(this);
         this.EnumDeclList=EnumDeclList;
         if(EnumDeclList!=null) EnumDeclList.setParent(this);
     }
 
-    public String getName() {
-        return name;
+    public EnumName getEnumName() {
+        return EnumName;
     }
 
-    public void setName(String name) {
-        this.name=name;
+    public void setEnumName(EnumName EnumName) {
+        this.EnumName=EnumName;
     }
 
     public EnumDeclList getEnumDeclList() {
@@ -37,15 +38,18 @@ public class EnumDeclarations extends EnumDecl {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(EnumName!=null) EnumName.accept(visitor);
         if(EnumDeclList!=null) EnumDeclList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(EnumName!=null) EnumName.traverseTopDown(visitor);
         if(EnumDeclList!=null) EnumDeclList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(EnumName!=null) EnumName.traverseBottomUp(visitor);
         if(EnumDeclList!=null) EnumDeclList.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -55,7 +59,10 @@ public class EnumDeclarations extends EnumDecl {
         buffer.append(tab);
         buffer.append("EnumDeclarations(\n");
 
-        buffer.append(" "+tab+name);
+        if(EnumName!=null)
+            buffer.append(EnumName.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(EnumDeclList!=null)

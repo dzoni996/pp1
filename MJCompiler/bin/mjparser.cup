@@ -84,7 +84,7 @@ nonterminal ConstItem;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumDecl, EnumDeclList, EnumItem ;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumDecl, EnumDeclList, EnumItem, EnumName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 
@@ -145,7 +145,10 @@ Initializer ::= (InitializerNum) NUMCONST:value
 
 /********************** Enums Declaration ***********************/
 
-EnumDecl ::= (EnumDeclarations) ENUM IDENT:name LBRACE EnumDeclList RBRACE
+EnumDecl ::= (EnumDeclarations) ENUM EnumName LBRACE EnumDeclList RBRACE
+;
+
+EnumName ::= (EnumNamed) IDENT:name
 ;
 
 EnumDeclList ::= (MultipleEnums) EnumDeclList COMMA EnumItem

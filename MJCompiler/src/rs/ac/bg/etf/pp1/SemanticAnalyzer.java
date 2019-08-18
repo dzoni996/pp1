@@ -2,20 +2,7 @@ package rs.ac.bg.etf.pp1;
 
 import org.apache.log4j.Logger;
 
-import rs.ac.bg.etf.pp1.ast.ArrayVar;
-import rs.ac.bg.etf.pp1.ast.ConstItem;
-import rs.ac.bg.etf.pp1.ast.Initializer;
-import rs.ac.bg.etf.pp1.ast.InitializerBool;
-import rs.ac.bg.etf.pp1.ast.InitializerChar;
-import rs.ac.bg.etf.pp1.ast.InitializerNum;
-import rs.ac.bg.etf.pp1.ast.MethodDeclList;
-import rs.ac.bg.etf.pp1.ast.MethodDeclTypeName;
-import rs.ac.bg.etf.pp1.ast.ProgName;
-import rs.ac.bg.etf.pp1.ast.Program;
-import rs.ac.bg.etf.pp1.ast.SyntaxNode;
-import rs.ac.bg.etf.pp1.ast.Type;
-import rs.ac.bg.etf.pp1.ast.Var;
-import rs.ac.bg.etf.pp1.ast.VisitorAdaptor;
+import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
@@ -28,9 +15,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	Obj currentMethod = null;
 	
-	private int currentLevel = -1;
-	private Struct currentType = noType;
-	
+	protected int currentLevel = -1;
+	protected Struct currentType = noType;
+	protected int enumInit = -1;
+	protected Obj enumNode;
 	
 	Logger log = Logger.getLogger(getClass());
 	
@@ -172,8 +160,60 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	/*
 	 * ENUM *****************************************************************************
 	 */
+
+	public void visit(EnumNamed name) {
+		Obj enumNode = Tab.find(name.getName());
+		if (enumNode != Tab.noObj) {
+			report_error("ERROR: Enum tip sa imenom " + name.getName() + " je vec deklarisan!", null); 
+		}
+		else {
+			enumInit = -1;
+			enumNode = Tab.insert(Obj.Type, name.getName(), intType);
+			name.obj = enumNode;
+			this.enumNode = enumNode;
+			
+			Tab.openScope();
+			currentLevel++;
+		}
+	}
 	
+	@Override
+	public void visit(InitEnum init) {
+		if (Tab.currentScope.findSymbol(init.getName()) != null) {
+			report_error("ERROR: Vec je deklarisana konstanta sa imenom " + init.getName(), init);
+			return;
+		}
+		
+		enumInit = init.getValue();
+		Obj node = Tab.insert(Obj.Con, init.getName(), intType);
+		node.setAdr(enumInit);
+		
+		node.setLevel(currentLevel);
+	}
 	
+	@Override
+	public void visit(NoInitEnum init) {		
+		if (Tab.currentScope.findSymbol(init.getName()) != null) {
+			report_error("ERROR: Vec je deklarisana konstanta sa imenom " + init.getName(), init);
+			return;
+		}
+		
+		++enumInit;
+		Obj node = Tab.insert(Obj.Con, init.getName(), intType);
+		node.setAdr(enumInit);
+		
+		node.setLevel(currentLevel);
+	}
+
+
+	@Override
+	public void visit(EnumDeclarations EnumDeclarations) {
+		Tab.chainLocalSymbols(enumNode);
+		
+		report_info("INFO:  Definisan enum tip " + this.enumNode.getName(), EnumDeclarations);
+		Tab.closeScope();
+		currentLevel--;
+	}
 	
 	/*
 	 * VAR ******************************************************************************
@@ -202,7 +242,20 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			}
 		}
 	}
+
+	
+	/*
+	 * CLASS ****************************************************************************
+	 */
 		
+	
+	
+	
+	/*
+	 * INTERFACE ************************************************************************
+	 */
+	
+	
 	
 	/*
 	 * METHOD DECLARATION ***************************************************************

@@ -127,7 +127,7 @@ nonterminal ConstItem ConstItem;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumDecl, EnumDeclList, EnumItem ;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumDecl, EnumDeclList, EnumItem, EnumName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 
@@ -188,7 +188,10 @@ Initializer ::= (InitializerNum) NUMCONST:value {: RESULT=new InitializerNum(val
 
 /********************** Enums Declaration ***********************/
 
-EnumDecl ::= (EnumDeclarations) ENUM IDENT:name LBRACE EnumDeclList:E1 RBRACE {: RESULT=new EnumDeclarations(name, E1); RESULT.setLine(nameleft); :}
+EnumDecl ::= (EnumDeclarations) ENUM EnumName:E1 LBRACE EnumDeclList:E2 RBRACE {: RESULT=new EnumDeclarations(E1, E2); RESULT.setLine(E1left); :}
+;
+
+EnumName ::= (EnumNamed) IDENT:name {: RESULT=new EnumNamed(name); RESULT.setLine(nameleft); :}
 ;
 
 EnumDeclList ::= (MultipleEnums) EnumDeclList:E1 COMMA EnumItem:E2 {: RESULT=new MultipleEnums(E1, E2); RESULT.setLine(E1left); :}
@@ -212,7 +215,7 @@ VarDeclList ::= (MultipleVars) VarDeclList:V1 COMMA VarItem:V2 {: RESULT=new Mul
 				(SingleVar) VarItem:V1 {: RESULT=new SingleVar(V1); RESULT.setLine(V1left); :}
 				;
 
-VarItem ::= (Var) IDENT:varName OptArraySq:array {: RESULT=new Var(varName, array); RESULT.setLine(varNameleft); :}
+VarItem ::= (Var) IDENT:varName OptArraySq:O1 {: RESULT=new Var(varName, O1); RESULT.setLine(varNameleft); :}
 			|
 			(VarDefError) error:e
 			{: parser.report_error("Greska pri definiciji globalne promenljive. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new VarDefError(); :}
