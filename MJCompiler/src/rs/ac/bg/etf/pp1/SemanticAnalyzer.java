@@ -243,12 +243,41 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 	}
 
+
 	
 	/*
 	 * CLASS ****************************************************************************
 	 */
 		
+	@Override
+	public void visit(ClassName name) {
+		if (Tab.find(name.getName()) != Tab.noObj) {
+			report_error("ERROR: Klasa " + name.getName() + " je vec deklarisana!", null);
+			return;
+		}
+
+		Obj classNode = Tab.insert(Obj.Type, name.getName(), intType);
+		name.obj = classNode;
+		
+		Tab.openScope();
+		currentLevel++;
+		
+	}
+
+	@Override
+	public void visit(ClassDeclaration classtDeclaration) {
+		Tab.chainLocalSymbols(classtDeclaration.getClassName().obj);
+		
+		report_info("INFO:  Definisana klasa " +classtDeclaration.getClassName().obj.getName(), classtDeclaration);
+		Tab.closeScope();
+		currentLevel--;
+	}
 	
+	// 1. TODO: provera klase koja se implemetira:
+	//			- da li postoji i proveriti level
+	// 2. TODO: provera instefejsa koji se nasledjuju
+	//			- da li su intefejsi
+	//			- da se ne ponovi neki...
 	
 	
 	/*

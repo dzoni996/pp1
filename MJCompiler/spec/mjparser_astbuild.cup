@@ -128,6 +128,7 @@ nonterminal ConstItem ConstItem;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumDecl, EnumDeclList, EnumItem, EnumName ;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 
@@ -228,7 +229,10 @@ OptArraySq ::= (ArrayVar) LSQUARE RSQUARE {: RESULT=new ArrayVar(); :}
 
 /********************** Class Declaration ***********************/
 
-ClassDecl ::= (ClassDeclaration) CLASS IDENT:I1 Extend:E2 Implement:I3 LBRACE OptVarDecl:O4 ClassMethods:C5 RBRACE {: RESULT=new ClassDeclaration(I1, E2, I3, O4, C5); RESULT.setLine(I1left); :}
+ClassDecl ::= (ClassDeclaration) CLASS ClassName:cname Extend:E1 Implement:I2 LBRACE OptVarDecl:O3 ClassMethods:C4 RBRACE {: RESULT=new ClassDeclaration(cname, E1, I2, O3, C4); RESULT.setLine(cnameleft); :}
+;
+
+ClassName ::= (ClassName) IDENT:name {: RESULT=new ClassName(name); RESULT.setLine(nameleft); :}
 ;
 
 ClassMethods ::= (ClassMethodDecl) LBRACE OptMethodDecl:O1 RBRACE {: RESULT=new ClassMethodDecl(O1); RESULT.setLine(O1left); :}

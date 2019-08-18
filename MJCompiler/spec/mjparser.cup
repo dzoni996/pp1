@@ -85,6 +85,7 @@ nonterminal ConstItem;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumDecl, EnumDeclList, EnumItem, EnumName ;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 
@@ -185,7 +186,10 @@ OptArraySq ::= (ArrayVar) LSQUARE RSQUARE
 
 /********************** Class Declaration ***********************/
 
-ClassDecl ::= (ClassDeclaration) CLASS IDENT Extend Implement LBRACE OptVarDecl ClassMethods RBRACE
+ClassDecl ::= (ClassDeclaration) CLASS ClassName:cname Extend Implement LBRACE OptVarDecl ClassMethods RBRACE
+;
+
+ClassName ::= (ClassName) IDENT:name
 ;
 
 ClassMethods ::= (ClassMethodDecl) LBRACE OptMethodDecl RBRACE

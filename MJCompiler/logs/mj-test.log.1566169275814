@@ -1,0 +1,143 @@
+INFO  01:00:17,212 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  01:00:17,304 - #2 program
+INFO  01:00:17,304 - #45 SemanticTest
+INFO  01:00:17,305 - #23 const
+INFO  01:00:17,307 - #45 int
+INFO  01:00:17,307 - #45 x
+INFO  01:00:17,308 - #12 =
+INFO  01:00:17,308 - #44 5
+INFO  01:00:17,308 - #8 ,
+INFO  01:00:17,310 - #45 f
+INFO  01:00:17,310 - #12 =
+INFO  01:00:17,310 - #44 6
+INFO  01:00:17,311 - #5 ;
+INFO  01:00:17,311 - #23 const
+INFO  01:00:17,312 - #45 bool
+INFO  01:00:17,312 - #45 b
+INFO  01:00:17,312 - #12 =
+INFO  01:00:17,312 - #28 false
+INFO  01:00:17,312 - #5 ;
+INFO  01:00:17,314 - #45 int
+INFO  01:00:17,315 - #45 x1
+INFO  01:00:17,315 - #8 ,
+INFO  01:00:17,316 - #45 x2
+INFO  01:00:17,317 - #26 [
+INFO  01:00:17,317 - #36 ]
+INFO  01:00:17,317 - #5 ;
+INFO  01:00:17,318 - #31 enum
+INFO  01:00:17,318 - #45 nums
+INFO  01:00:17,318 - #3 {
+INFO  01:00:17,318 - #45 ONE
+INFO  01:00:17,318 - #8 ,
+INFO  01:00:17,318 - #45 TWO
+INFO  01:00:17,318 - #8 ,
+INFO  01:00:17,319 - #45 THREE
+INFO  01:00:17,319 - #4 }
+INFO  01:00:17,319 - #3 {
+INFO  01:00:17,319 - #4 }
+INFO  01:00:17,330 - Program(
+  ProgName(
+   SemanticTest
+  ) [ProgName]
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        VarDeclLists(
+          NoVarDecl(
+          ) [NoVarDecl]
+          ConstDeclaration(
+            ConstDeclarations(
+              Type(
+               int
+              ) [Type]
+              MultipleConsts(
+                SingleConst(
+                  ConstItem(
+                   x
+                    InitializerNum(
+                     5
+                    ) [InitializerNum]
+                  ) [ConstItem]
+                ) [SingleConst]
+                ConstItem(
+                 f
+                  InitializerNum(
+                   6
+                  ) [InitializerNum]
+                ) [ConstItem]
+              ) [MultipleConsts]
+            ) [ConstDeclarations]
+          ) [ConstDeclaration]
+        ) [VarDeclLists]
+        ConstDeclaration(
+          ConstDeclarations(
+            Type(
+             bool
+            ) [Type]
+            SingleConst(
+              ConstItem(
+               b
+                InitializerBool(
+                ) [InitializerBool]
+              ) [ConstItem]
+            ) [SingleConst]
+          ) [ConstDeclarations]
+        ) [ConstDeclaration]
+      ) [VarDeclLists]
+      VarDeclaration(
+        VarDeclarations(
+          Type(
+           int
+          ) [Type]
+          MultipleVars(
+            SingleVar(
+              Var(
+               x1
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [SingleVar]
+            Var(
+             x2
+              ArrayVar(
+              ) [ArrayVar]
+            ) [Var]
+          ) [MultipleVars]
+        ) [VarDeclarations]
+      ) [VarDeclaration]
+    ) [VarDeclLists]
+    EnumDeclaration(
+      EnumDeclarations(
+        EnumNamed(
+         nums
+        ) [EnumNamed]
+        MultipleEnums(
+          MultipleEnums(
+            SingleEnum(
+              NoInitEnum(
+               ONE
+              ) [NoInitEnum]
+            ) [SingleEnum]
+            NoInitEnum(
+             TWO
+            ) [NoInitEnum]
+          ) [MultipleEnums]
+          NoInitEnum(
+           THREE
+          ) [NoInitEnum]
+        ) [MultipleEnums]
+      ) [EnumDeclarations]
+    ) [EnumDeclaration]
+  ) [VarDeclLists]
+  NoOptMethods(
+  ) [NoOptMethods]
+) [Program]
+INFO  01:00:17,331 - ===================================
+INFO  01:00:17,331 - INFO:  Pocetak programa SemanticTest na liniji 4
+INFO  01:00:17,331 - INFO:  Deklarisana konstanta x na liniji 6
+INFO  01:00:17,331 - INFO:  Deklarisana konstanta f na liniji 6
+INFO  01:00:17,331 - INFO:  Deklarisana konstanta b na liniji 7
+INFO  01:00:17,331 - INFO:  Deklarisana promenljiva 8 na liniji 8
+INFO  01:00:17,332 - INFO:  Deklarisan niz 8 na liniji 8
+INFO  01:00:17,332 - INFO:  Definisan enum tip nums na liniji 10
+INFO  01:00:17,332 - ===================================
