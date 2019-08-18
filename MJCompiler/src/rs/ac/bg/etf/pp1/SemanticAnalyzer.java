@@ -2,6 +2,7 @@ package rs.ac.bg.etf.pp1;
 
 import org.apache.log4j.Logger;
 
+import rs.ac.bg.etf.pp1.ast.ArrayVar;
 import rs.ac.bg.etf.pp1.ast.ConstItem;
 import rs.ac.bg.etf.pp1.ast.Initializer;
 import rs.ac.bg.etf.pp1.ast.InitializerBool;
@@ -166,9 +167,42 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		num.obj = new Obj(Obj.Con, "", intType);
 		num.obj.setAdr(0); // TODO: dohvatiti vrednost
 	}
+
+
+	/*
+	 * ENUM *****************************************************************************
+	 */
 	
 	
 	
+	/*
+	 * VAR ******************************************************************************
+	 */
+	
+	@Override
+	public void visit(Var var) {
+		Obj varNode = Tab.find(var.getVarName());
+		if (varNode == Tab.noObj) {
+			if (var.getOptArraySq() instanceof ArrayVar) {
+				Struct array = new Struct(Struct.Array, currentType);
+				// TODO: Tab.currentScope.addToLocals(new Obj(Obj.Type, "", array)); ???
+				varNode = Tab.insert(Obj.Var, var.getVarName(), array);
+				report_info("INFO:  Deklarisan niz " + var.getLine(), var);
+			}
+			else {
+				varNode = Tab.insert(Obj.Var, var.getVarName(), currentType);
+				report_info("INFO:  Deklarisana promenljiva " + var.getLine(), var);
+			}
+		}
+		else {
+			if (varNode.getLevel() == currentLevel) {
+				report_error("ERROR: Postoji definisana promenljiva sa imenom " + var.getVarName(), var);
+			} else {
+				// TODO: redefinisanje simbola?
+			}
+		}
+	}
+		
 	
 	/*
 	 * METHOD DECLARATION ***************************************************************

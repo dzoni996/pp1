@@ -169,7 +169,7 @@ VarDeclList ::= (MultipleVars) VarDeclList COMMA VarItem
 				(SingleVar) VarItem
 				;
 
-VarItem ::= (Var) IDENT:varName OptArraySq:array
+VarItem ::= (Var) IDENT:varName OptArraySq
 			|
 			(VarDefError) error:e
 			{: parser.report_error("Greska pri definiciji globalne promenljive. Izvrsen oporavak u liniji " + eleft , null); :}
