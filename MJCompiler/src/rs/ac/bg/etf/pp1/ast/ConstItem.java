@@ -1,17 +1,38 @@
 // generated with ast extension for cup
 // version 0.8
-// 18/7/2019 22:9:24
+// 18/7/2019 22:44:15
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public abstract class ConstItem implements SyntaxNode {
+public class ConstItem implements SyntaxNode {
 
     private SyntaxNode parent;
-
     private int line;
+    private String id;
+    private Initializer Initializer;
 
-    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
+    public ConstItem (String id, Initializer Initializer) {
+        this.id=id;
+        this.Initializer=Initializer;
+        if(Initializer!=null) Initializer.setParent(this);
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id=id;
+    }
+
+    public Initializer getInitializer() {
+        return Initializer;
+    }
+
+    public void setInitializer(Initializer Initializer) {
+        this.Initializer=Initializer;
+    }
 
     public SyntaxNode getParent() {
         return parent;
@@ -29,11 +50,40 @@ public abstract class ConstItem implements SyntaxNode {
         this.line=line;
     }
 
-    public abstract void accept(Visitor visitor);
-    public abstract void childrenAccept(Visitor visitor);
-    public abstract void traverseTopDown(Visitor visitor);
-    public abstract void traverseBottomUp(Visitor visitor);
+    public void accept(Visitor visitor) {
+        visitor.visit(this);
+    }
 
-    public String toString() { return toString(""); }
-    public abstract String toString(String tab);
+    public void childrenAccept(Visitor visitor) {
+        if(Initializer!=null) Initializer.accept(visitor);
+    }
+
+    public void traverseTopDown(Visitor visitor) {
+        accept(visitor);
+        if(Initializer!=null) Initializer.traverseTopDown(visitor);
+    }
+
+    public void traverseBottomUp(Visitor visitor) {
+        if(Initializer!=null) Initializer.traverseBottomUp(visitor);
+        accept(visitor);
+    }
+
+    public String toString(String tab) {
+        StringBuffer buffer=new StringBuffer();
+        buffer.append(tab);
+        buffer.append("ConstItem(\n");
+
+        buffer.append(" "+tab+id);
+        buffer.append("\n");
+
+        if(Initializer!=null)
+            buffer.append(Initializer.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        buffer.append(tab);
+        buffer.append(") [ConstItem]");
+        return buffer.toString();
+    }
 }

@@ -2,6 +2,11 @@ package rs.ac.bg.etf.pp1;
 
 import org.apache.log4j.Logger;
 
+import rs.ac.bg.etf.pp1.ast.ConstItem;
+import rs.ac.bg.etf.pp1.ast.Initializer;
+import rs.ac.bg.etf.pp1.ast.InitializerBool;
+import rs.ac.bg.etf.pp1.ast.InitializerChar;
+import rs.ac.bg.etf.pp1.ast.InitializerNum;
 import rs.ac.bg.etf.pp1.ast.MethodDeclList;
 import rs.ac.bg.etf.pp1.ast.MethodDeclTypeName;
 import rs.ac.bg.etf.pp1.ast.ProgName;
@@ -114,6 +119,56 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     		}
     	}
 	}
+	
+	/*
+	 * CONST ****************************************************************************
+	 */
+	
+	@Override
+	public void visit(ConstItem con) {
+		Obj node = Tab.find(con.getId());
+		// symbol is NOT in table - new constant
+		if (node == Tab.noObj) {
+			if (currentType.isRefType()) {
+				report_error("ERROR: Konstante ne mogu biti tipa referenci ", con);
+			} else {
+				Struct type = con.getInitializer().obj.getType();
+				if (!type.assignableTo(currentType)) {
+					report_error("ERROR: Nekompatibilnost tipova ", con);
+				} else {
+					node = Tab.insert(Obj.Con, con.getId(), currentType);
+					node.setAdr(con.getInitializer().obj.getAdr()); // TODO: check!
+					node.setLevel(currentLevel); // TODO: check!
+					report_info("INFO:  Deklarisana konstanta " + con.getId(), con);
+				}
+			}
+		} 
+		// symbol is already defined - error
+		else {
+			report_error("ERROR: Konstanta " + con.getId() + " je vec deklarisana!", null);
+		}
+	}
+	
+	@Override
+	public void visit(InitializerBool bool) {
+		bool.obj = new Obj(Obj.Con, "", boolType);
+		bool.obj.setAdr(0); // TODO: dohvatiti vrednost
+	}
+
+	@Override
+	public void visit(InitializerChar chr) {
+		chr.obj = new Obj(Obj.Con, "", charType);
+		chr.obj.setAdr(0); // TODO: dohvatiti vrednost
+	}
+
+	@Override
+	public void visit(InitializerNum num) {
+		num.obj = new Obj(Obj.Con, "", intType);
+		num.obj.setAdr(0); // TODO: dohvatiti vrednost
+	}
+	
+	
+	
 	
 	/*
 	 * METHOD DECLARATION ***************************************************************

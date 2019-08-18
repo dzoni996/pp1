@@ -123,8 +123,10 @@ nonterminal OptDesignStmt OptDesignStmt;
 nonterminal OptCond OptCond;
 nonterminal IfCondition IfCondition ;
 
+nonterminal ConstItem ConstItem;
+
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj ConstItem, Initializer ;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumDecl, EnumDeclList, EnumItem ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
@@ -173,7 +175,7 @@ ConstDeclList ::= (MultipleConsts) ConstDeclList:C1 COMMA ConstItem:C2 {: RESULT
 				  (SingleConst) ConstItem:C1 {: RESULT=new SingleConst(C1); RESULT.setLine(C1left); :}
 				  ;
 
-ConstItem ::= (ConstInit) IDENT:id EQUAL Initializer:value {: RESULT=new ConstInit(id, value); RESULT.setLine(idleft); :}
+ConstItem ::= (ConstItem) IDENT:id EQUAL Initializer:I1 {: RESULT=new ConstItem(id, I1); RESULT.setLine(idleft); :}
 ;
 
 Initializer ::= (InitializerNum) NUMCONST:value {: RESULT=new InitializerNum(value); RESULT.setLine(valueleft); :}
