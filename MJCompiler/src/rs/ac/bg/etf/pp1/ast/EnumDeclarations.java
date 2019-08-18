@@ -1,27 +1,27 @@
 // generated with ast extension for cup
 // version 0.8
-// 18/7/2019 13:56:53
+// 18/7/2019 22:9:22
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class EnumDeclarations extends EnumDecl {
 
-    private String I1;
+    private String name;
     private EnumDeclList EnumDeclList;
 
-    public EnumDeclarations (String I1, EnumDeclList EnumDeclList) {
-        this.I1=I1;
+    public EnumDeclarations (String name, EnumDeclList EnumDeclList) {
+        this.name=name;
         this.EnumDeclList=EnumDeclList;
         if(EnumDeclList!=null) EnumDeclList.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public String getName() {
+        return name;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setName(String name) {
+        this.name=name;
     }
 
     public EnumDeclList getEnumDeclList() {
@@ -55,7 +55,7 @@ public class EnumDeclarations extends EnumDecl {
         buffer.append(tab);
         buffer.append("EnumDeclarations(\n");
 
-        buffer.append(" "+tab+I1);
+        buffer.append(" "+tab+name);
         buffer.append("\n");
 
         if(EnumDeclList!=null)

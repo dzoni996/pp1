@@ -1,27 +1,27 @@
 // generated with ast extension for cup
 // version 0.8
-// 18/7/2019 13:56:52
+// 18/7/2019 22:9:22
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class ConstInit extends ConstItem {
 
-    private String I1;
+    private String id;
     private Initializer Initializer;
 
-    public ConstInit (String I1, Initializer Initializer) {
-        this.I1=I1;
+    public ConstInit (String id, Initializer Initializer) {
+        this.id=id;
         this.Initializer=Initializer;
         if(Initializer!=null) Initializer.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public String getId() {
+        return id;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setId(String id) {
+        this.id=id;
     }
 
     public Initializer getInitializer() {
@@ -55,7 +55,7 @@ public class ConstInit extends ConstItem {
         buffer.append(tab);
         buffer.append("ConstInit(\n");
 
-        buffer.append(" "+tab+I1);
+        buffer.append(" "+tab+id);
         buffer.append("\n");
 
         if(Initializer!=null)

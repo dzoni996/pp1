@@ -69,8 +69,7 @@ terminal String IDENT ;
 terminal IF, ELSE;
 
 nonterminal DeclList, DeclItem ;
-nonterminal ConstDecl, ConstDeclList, ConstItem, Initializer ;
-nonterminal EnumDecl, EnumDeclList, EnumItem ;
+nonterminal ConstDecl, ConstDeclList ;
 nonterminal VarDecl, VarDeclList, VarItem, OptArraySq ; 
 nonterminal ClassDecl, Extend, Implement, InterfaceList, OptVarDecl, OptMethodDecl, ClassMethods ;
 nonterminal InterfaceDecl, InterfaceMethodDeclList, OptInterfaceMethodDeclList, InterfaceMethodDecl, OptFormPars, TypeIdent ;
@@ -81,10 +80,14 @@ nonterminal Mulop, Addop, Relop, Assignop ;
 nonterminal OptRetExpr, OptNumConst ;
 nonterminal Condition, CondTerm, CondFact, OptRelExpr, OptElse, OptDesignStmt, OptCond, IfCondition ;
 
-nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName, MethodDeclList, MethodDeclTypeName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj ConstItem, Initializer ;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumDecl, EnumDeclList, EnumItem ;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 
 precedence left ELSE;
+
 /**************************************************************
 *********************** Program *******************************
 **************************************************************/
@@ -117,6 +120,8 @@ DeclItem ::= (ConstDeclaration) ConstDecl
 Type ::= (Type) IDENT:typeName 
 ;
 
+/********************** Consts Declaration ***********************/
+
 ConstDecl ::= (ConstDeclarations) CONST Type ConstDeclList SEMI
 ;
 
@@ -125,17 +130,20 @@ ConstDeclList ::= (MultipleConsts) ConstDeclList COMMA ConstItem
 				  (SingleConst) ConstItem
 				  ;
 
-ConstItem ::= (ConstInit) IDENT EQUAL Initializer;
+ConstItem ::= (ConstInit) IDENT:id EQUAL Initializer:value
+;
 
-Initializer ::= (InitializerNum) NUMCONST
-			   |
-			   (InitializerChar) CHARCONST
-			   |
-			   (InitializerBool) BOOLCONST
-			   ;
+Initializer ::= (InitializerNum) NUMCONST:value
+			    |
+			    (InitializerChar) CHARCONST:value
+			    |
+			    (InitializerBool) BOOLCONST:value
+			    ;
 			   
 
-EnumDecl ::= (EnumDeclarations) ENUM IDENT LBRACE EnumDeclList RBRACE
+/********************** Enums Declaration ***********************/
+
+EnumDecl ::= (EnumDeclarations) ENUM IDENT:name LBRACE EnumDeclList RBRACE
 ;
 
 EnumDeclList ::= (MultipleEnums) EnumDeclList COMMA EnumItem
@@ -143,11 +151,13 @@ EnumDeclList ::= (MultipleEnums) EnumDeclList COMMA EnumItem
 				 (SingleEnum) EnumItem
 				 ;
 
-EnumItem ::= (InitEnum) IDENT EQUAL NUMCONST
+EnumItem ::= (InitEnum) IDENT:name EQUAL NUMCONST:value
 			 |
-			 (NoInitEnum) IDENT
+			 (NoInitEnum) IDENT:name
 			 ;
 
+
+/********************** Vars Declaration ***********************/
 
 VarDecl ::= (VarDeclarations) Type:varType VarDeclList SEMI
 ;
@@ -157,7 +167,7 @@ VarDeclList ::= (MultipleVars) VarDeclList COMMA VarItem
 				(SingleVar) VarItem
 				;
 
-VarItem ::= (Var) IDENT:varName OptArraySq
+VarItem ::= (Var) IDENT:varName OptArraySq:array
 			|
 			(VarDefError) error:e
 			{: parser.report_error("Greska pri definiciji globalne promenljive. Izvrsen oporavak u liniji " + eleft , null); :}
@@ -167,6 +177,8 @@ OptArraySq ::= (ArrayVar) LSQUARE RSQUARE
 			   | 
 			   (NoArrayVar) /* epsilon */
 			   ;
+
+/********************** Class Declaration ***********************/
 
 ClassDecl ::= (ClassDeclaration) CLASS IDENT Extend Implement LBRACE OptVarDecl ClassMethods RBRACE
 ;
@@ -203,6 +215,8 @@ OptMethodDecl ::= (OptMethods) OptMethodDecl MethodDeclList
 				  |
 				  (NoOptMethods) /* epsilon */
 				  ;
+
+/********************** Interface Declaration ***********************/				  
 
 InterfaceDecl ::= (InterfaceDeclarations) INTERFACE IDENT LBRACE OptInterfaceMethodDeclList RBRACE
 ;

@@ -3,7 +3,7 @@ program Program
 	int x, y = 5;
 	interface I{void m();}
 	class A{int x[],y[];}
-	const int pi = 3, e = 2;
+	//const int pi = 3, e = 2;
 	enum Broj { NULA, TRI = 3, PET = 5 }
 	class B extends A implements I{
 		int i; int x[];

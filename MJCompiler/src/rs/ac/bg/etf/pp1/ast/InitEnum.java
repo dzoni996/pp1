@@ -1,34 +1,34 @@
 // generated with ast extension for cup
 // version 0.8
-// 18/7/2019 13:56:53
+// 18/7/2019 22:9:22
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class InitEnum extends EnumItem {
 
-    private String I1;
-    private Integer N2;
+    private String name;
+    private Integer value;
 
-    public InitEnum (String I1, Integer N2) {
-        this.I1=I1;
-        this.N2=N2;
+    public InitEnum (String name, Integer value) {
+        this.name=name;
+        this.value=value;
     }
 
-    public String getI1() {
-        return I1;
+    public String getName() {
+        return name;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setName(String name) {
+        this.name=name;
     }
 
-    public Integer getN2() {
-        return N2;
+    public Integer getValue() {
+        return value;
     }
 
-    public void setN2(Integer N2) {
-        this.N2=N2;
+    public void setValue(Integer value) {
+        this.value=value;
     }
 
     public void accept(Visitor visitor) {
@@ -51,10 +51,10 @@ public class InitEnum extends EnumItem {
         buffer.append(tab);
         buffer.append("InitEnum(\n");
 
-        buffer.append(" "+tab+I1);
+        buffer.append(" "+tab+name);
         buffer.append("\n");
 
-        buffer.append(" "+tab+N2);
+        buffer.append(" "+tab+value);
         buffer.append("\n");
 
         buffer.append(tab);

@@ -1,0 +1,109 @@
+INFO  20:54:39,669 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  20:54:39,730 - #2 program
+INFO  20:54:39,730 - #45 SemanticTest
+INFO  20:54:39,730 - #23 const
+INFO  20:54:39,731 - #45 int
+INFO  20:54:39,731 - #45 x
+INFO  20:54:39,732 - #12 =
+INFO  20:54:39,732 - #44 5
+INFO  20:54:39,732 - #8 ,
+INFO  20:54:39,733 - #45 f
+INFO  20:54:39,733 - #12 =
+INFO  20:54:39,733 - #44 6
+INFO  20:54:39,733 - #5 ;
+INFO  20:54:39,734 - #23 const
+INFO  20:54:39,734 - #45 bool
+INFO  20:54:39,734 - #45 b
+INFO  20:54:39,734 - #12 =
+INFO  20:54:39,735 - #28 false
+INFO  20:54:39,735 - #5 ;
+INFO  20:54:39,735 - #45 int
+INFO  20:54:39,735 - #45 x1
+INFO  20:54:39,735 - #8 ,
+INFO  20:54:39,737 - #45 x2
+INFO  20:54:39,738 - #26 [
+INFO  20:54:39,738 - #36 ]
+INFO  20:54:39,739 - #5 ;
+INFO  20:54:39,739 - #3 {
+INFO  20:54:39,739 - #4 }
+INFO  20:54:39,748 - Program(
+  ProgName(
+   SemanticTest
+  ) [ProgName]
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        NoVarDecl(
+        ) [NoVarDecl]
+        ConstDeclaration(
+          ConstDeclarations(
+            Type(
+             int
+            ) [Type]
+            MultipleConsts(
+              SingleConst(
+                ConstInit(
+                 x
+                  InitializerNum(
+                   5
+                  ) [InitializerNum]
+                ) [ConstInit]
+              ) [SingleConst]
+              ConstInit(
+               f
+                InitializerNum(
+                 6
+                ) [InitializerNum]
+              ) [ConstInit]
+            ) [MultipleConsts]
+          ) [ConstDeclarations]
+        ) [ConstDeclaration]
+      ) [VarDeclLists]
+      ConstDeclaration(
+        ConstDeclarations(
+          Type(
+           bool
+          ) [Type]
+          SingleConst(
+            ConstInit(
+             b
+              InitializerBool(
+              ) [InitializerBool]
+            ) [ConstInit]
+          ) [SingleConst]
+        ) [ConstDeclarations]
+      ) [ConstDeclaration]
+    ) [VarDeclLists]
+    VarDeclaration(
+      VarDeclarations(
+        Type(
+         int
+        ) [Type]
+        MultipleVars(
+          SingleVar(
+            Var(
+             x1
+              NoArrayVar(
+              ) [NoArrayVar]
+            ) [Var]
+          ) [SingleVar]
+          Var(
+           x2
+            ArrayVar(
+            ) [ArrayVar]
+          ) [Var]
+        ) [MultipleVars]
+      ) [VarDeclarations]
+    ) [VarDeclaration]
+  ) [VarDeclLists]
+  NoOptMethods(
+  ) [NoOptMethods]
+) [Program]
+INFO  20:54:39,748 - ===================================
+INFO  20:54:39,749 - INFO:  Pocetak programa SemanticTest na liniji 4
+INFO  20:54:39,749 - INFO:  Definisana konstanta x na liniji 6
+INFO  20:54:39,749 - INFO:  Definisana konstanta f na liniji 6
+INFO  20:54:39,749 - INFO:  Definisana konstanta b na liniji 7
+INFO  20:54:39,749 - INFO:  Deklarisana promenljiva x1 na liniji 8
+INFO  20:54:39,749 - INFO:  Deklarisan niz x2 na liniji 8
+INFO  20:54:39,749 - ===================================

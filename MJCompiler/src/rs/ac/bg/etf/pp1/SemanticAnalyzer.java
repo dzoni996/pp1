@@ -12,18 +12,41 @@ import rs.ac.bg.etf.pp1.ast.Var;
 import rs.ac.bg.etf.pp1.ast.VisitorAdaptor;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
+import rs.etf.pp1.symboltable.concepts.Struct;
 
-public class SemanticPars extends VisitorAdaptor {
+public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	/*
 	 * LOCAL VARS ***********************************************************************
 	 */
+	
 	Obj currentMethod = null;
 	
-	private int curLevel = -1;
+	private int currentLevel = -1;
 	
 	
 	Logger log = Logger.getLogger(getClass());
+	
+	/*
+	 * TYPES ****************************************************************************
+	 */
+	
+	protected static Struct intType = null;
+	protected static Struct charType = null;
+	protected static Struct boolType = null;
+	protected static Struct nullType = null;
+	protected static Struct noType = null;
+	
+	public static void initTypes() {
+		intType = Tab.intType;
+		charType = Tab.charType;
+		if (boolType == null) {
+			boolType = new Struct(Struct.Bool);
+			Tab.currentScope.addToLocals(new Obj(Obj.Type, "bool", boolType));
+		}
+		nullType = Tab.nullType;
+		noType = Tab.noType;
+	}
 	
 	/*
 	 * METHODS FOR ERROR INFO ***********************************************************
@@ -51,10 +74,10 @@ public class SemanticPars extends VisitorAdaptor {
 	
 	@Override
 	public void  visit(ProgName pname) {
-		report_info("Pocetak programa "+pname.getPName(), pname);
-		pname.obj = Tab.insert(Obj.Prog, pname.getPName(), Tab.noType);
+		report_info("INFO:  Pocetak programa "+ pname.getPName(), pname);
+		pname.obj = Tab.insert(Obj.Prog, pname.getPName(), noType);
 		Tab.openScope();
-		curLevel++;
+		currentLevel++;
 	}
 	
 	@Override
@@ -62,7 +85,7 @@ public class SemanticPars extends VisitorAdaptor {
 		// TODO: broj promenljivih - azurirati: nVars = Tab.currentScope.getnVars();
 		Tab.chainLocalSymbols(prog.getProgName().obj);
 		Tab.closeScope();
-		curLevel--;
+		currentLevel--;
 	}
 	
 	/*

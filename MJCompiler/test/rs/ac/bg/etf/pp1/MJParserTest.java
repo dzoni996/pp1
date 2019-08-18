@@ -29,7 +29,7 @@ public class MJParserTest {
 		
 		Reader br = null;
 		try {
-			File sourceCode = new File("test/test01.mj");
+			File sourceCode = new File("test/mytest.mj");
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 			
 			br = new BufferedReader(new FileReader(sourceCode));
@@ -39,8 +39,10 @@ public class MJParserTest {
 	        Symbol s = p.parse();  //pocetak parsiranja
 	        
 	        Program prog = (Program)(s.value); 
+	        
 	        // DODATO
 	        Tab.init();
+	        SemanticAnalyzer.initTypes();
 	        
 			// ispis sintaksnog stabla
 			log.info(prog.toString(""));
@@ -48,7 +50,7 @@ public class MJParserTest {
 
 			// ispis prepoznatih programskih konstrukcija
 			//RuleVisitor v = new RuleVisitor();
-			SemanticPars v = new SemanticPars();
+			SemanticAnalyzer v = new SemanticAnalyzer();
 			prog.traverseBottomUp(v); 
 	      
 			//log.info(" Print count calls = " + v.printCallCount);

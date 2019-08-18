@@ -1,0 +1,39 @@
+INFO  18:59:51,178 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  18:59:51,336 - #2 program
+INFO  18:59:51,336 - #45 SemanticTest
+INFO  18:59:51,337 - #23 const
+INFO  18:59:51,339 - #45 int
+INFO  18:59:51,339 - #45 x
+INFO  18:59:51,340 - #12 =
+INFO  18:59:51,340 - #44 5
+INFO  18:59:51,341 - #5 ;
+INFO  18:59:51,342 - #3 {
+INFO  18:59:51,342 - #4 }
+INFO  18:59:51,371 - Program(
+  ProgName(
+   SemanticTest
+  ) [ProgName]
+  VarDeclLists(
+    NoVarDecl(
+    ) [NoVarDecl]
+    ConstDeclaration(
+      ConstDeclarations(
+        Type(
+         int
+        ) [Type]
+        SingleConst(
+          ConstInit(
+           x
+            InitializerNum(
+             5
+            ) [InitializerNum]
+          ) [ConstInit]
+        ) [SingleConst]
+      ) [ConstDeclarations]
+    ) [ConstDeclaration]
+  ) [VarDeclLists]
+  NoOptMethods(
+  ) [NoOptMethods]
+) [Program]
+INFO  18:59:51,372 - ===================================
+INFO  18:59:51,372 - INFO:   Pocetak programa SemanticTest na liniji 4
