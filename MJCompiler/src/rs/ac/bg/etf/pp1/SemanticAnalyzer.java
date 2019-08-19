@@ -347,13 +347,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     /*
      * FORMPARS *************************************************************************
      */
-//    public void visit(OptionalFormPars item) {
-//    	report_info("INFO:  Deklarisan formalni parametar", null);
-//    }
-//    
-//    public void visit(FormParamError item) {
-//    	report_info("INFO:  Deklarisan formalni parametar 2", null);
-//    }
     
     public void visit(FormParItem item) {
 		
@@ -371,10 +364,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Obj node = Tab.insert(Obj.Var, item.getParamName(), str);
 		item.obj = node;
 		// TODO: CHECK!!!
-		int level = currentMethod.getLevel();
-		node.setFpPos(level++);
-		currentMethod.setLevel(level);
-		//node.setLevel(currentLevel); ???
+		currentMethod.setLevel(currentMethod.getLevel() + 1);
+		node.setFpPos(currentMethod.getLevel());
+
 		report_info("INFO:  Deklarisan formalni parametar " + item.getParamName(), item);
     }
     
