@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2019 1:24:44
+// 19/7/2019 3:15:53
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -10,6 +10,8 @@ public abstract class FormParsItem implements SyntaxNode {
     private SyntaxNode parent;
 
     private int line;
+
+    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
 
     public SyntaxNode getParent() {
         return parent;

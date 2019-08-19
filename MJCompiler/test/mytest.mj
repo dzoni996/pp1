@@ -12,8 +12,11 @@ enum nums {ONE, TWO = 5, THREE}
 class A {}
 
 {
-	int metod1 () {}
+	int metod1 () {
+		
+		return 3;
+	}
 	
-	void metod2() {}
+	void metod2 (int x[], char y, bool z) {}
 
 }

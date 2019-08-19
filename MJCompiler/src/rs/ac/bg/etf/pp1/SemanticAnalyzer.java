@@ -111,6 +111,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	}
 	}
 	
+	public void visit(VoidIdentificator v) {
+		currentType = noType;
+	}
+	
 	/*
 	 * CONST ****************************************************************************
 	 */
@@ -332,12 +336,65 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
     
     public void visit(ReturnStmt returnExpr){
- //   	this.returnFound = true;
+    	this.returnFound = true;
     	Struct currMethType = currentMethod.getType();
     	// TODO:
 //    	if(!currMethType.compatibleWith(returnExpr.getExpr().struct)){
 //			report_error("Greska na liniji " + returnExpr.getLine() + " : " + "tip izraza u return naredbi ne slaze se sa tipom povratne vrednosti funkcije " + currentMethod.getName(), null);
 //    	}
     }
+    
+    /*
+     * FORMPARS *************************************************************************
+     */
+//    public void visit(OptionalFormPars item) {
+//    	report_info("INFO:  Deklarisan formalni parametar", null);
+//    }
+//    
+//    public void visit(FormParamError item) {
+//    	report_info("INFO:  Deklarisan formalni parametar 2", null);
+//    }
+    
+    public void visit(FormParItem item) {
+		
+    	if (Tab.currentScope.findSymbol(item.getParamName()) != null) {
+			report_error("ERROR: Vec je deklarisan formalni parametar sa imenom " + item.getParamName(), item);
+			return;
+		}
+    	Struct str;
+		if (item.getOptArraySq() instanceof ArrayVar) {
+			str = new Struct(Struct.Array, currentType);
+		} else {
+			str = currentType;
+		}
+		
+		Obj node = Tab.insert(Obj.Var, item.getParamName(), str);
+		item.obj = node;
+		// TODO: CHECK!!!
+		int level = currentMethod.getLevel();
+		node.setFpPos(level++);
+		currentMethod.setLevel(level);
+		//node.setLevel(currentLevel); ???
+		report_info("INFO:  Deklarisan formalni parametar " + item.getParamName(), item);
+    }
+    
+
+		
+		
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2019 1:24:45
+// 19/7/2019 3:15:53
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -39,8 +39,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(OptMethodCall OptMethodCall) { }
     public void visit(DeclItem DeclItem) { }
     public void visit(OptArraySq OptArraySq) { }
-    public void visit(OptNumConst OptNumConst) { }
     public void visit(FormParsItem FormParsItem) { }
+    public void visit(OptNumConst OptNumConst) { }
     public void visit(InterfaceList InterfaceList) { }
     public void visit(OptAddTerms OptAddTerms) { }
     public void visit(OptRelExpr OptRelExpr) { }
@@ -141,17 +141,16 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ForStmt ForStmt) { visit(); }
     public void visit(IfStmt IfStmt) { visit(); }
     public void visit(DesignatorStmt DesignatorStmt) { visit(); }
-    public void visit(FormParamFormParam FormParamFormParam) { visit(); }
-    public void visit(FormParArray FormParArray) { visit(); }
+    public void visit(FormParItem FormParItem) { visit(); }
     public void visit(FormParamError FormParamError) { visit(); }
     public void visit(SingleFormPars SingleFormPars) { visit(); }
     public void visit(MultipleFormPars MultipleFormPars) { visit(); }
+    public void visit(NoOptionalFormPars NoOptionalFormPars) { visit(); }
+    public void visit(OptionalFormPars OptionalFormPars) { visit(); }
     public void visit(NoOptionalStmt NoOptionalStmt) { visit(); }
     public void visit(OptionalStmt OptionalStmt) { visit(); }
     public void visit(MethodDeclTypeName MethodDeclTypeName) { visit(); }
     public void visit(MethodDeclarations MethodDeclarations) { visit(); }
-    public void visit(NoOptionalFormPars NoOptionalFormPars) { visit(); }
-    public void visit(OptionalFormPars OptionalFormPars) { visit(); }
     public void visit(VoidIdentificator VoidIdentificator) { visit(); }
     public void visit(TypeIdentificator TypeIdentificator) { visit(); }
     public void visit(InterfaceMethodDeclaration InterfaceMethodDeclaration) { visit(); }

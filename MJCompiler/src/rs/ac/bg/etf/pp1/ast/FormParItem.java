@@ -1,19 +1,22 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2019 1:24:44
+// 19/7/2019 3:15:52
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class FormParamFormParam extends FormParsItem {
+public class FormParItem extends FormParsItem {
 
     private Type Type;
-    private String I2;
+    private String paramName;
+    private OptArraySq OptArraySq;
 
-    public FormParamFormParam (Type Type, String I2) {
+    public FormParItem (Type Type, String paramName, OptArraySq OptArraySq) {
         this.Type=Type;
         if(Type!=null) Type.setParent(this);
-        this.I2=I2;
+        this.paramName=paramName;
+        this.OptArraySq=OptArraySq;
+        if(OptArraySq!=null) OptArraySq.setParent(this);
     }
 
     public Type getType() {
@@ -24,12 +27,20 @@ public class FormParamFormParam extends FormParsItem {
         this.Type=Type;
     }
 
-    public String getI2() {
-        return I2;
+    public String getParamName() {
+        return paramName;
     }
 
-    public void setI2(String I2) {
-        this.I2=I2;
+    public void setParamName(String paramName) {
+        this.paramName=paramName;
+    }
+
+    public OptArraySq getOptArraySq() {
+        return OptArraySq;
+    }
+
+    public void setOptArraySq(OptArraySq OptArraySq) {
+        this.OptArraySq=OptArraySq;
     }
 
     public void accept(Visitor visitor) {
@@ -38,22 +49,25 @@ public class FormParamFormParam extends FormParsItem {
 
     public void childrenAccept(Visitor visitor) {
         if(Type!=null) Type.accept(visitor);
+        if(OptArraySq!=null) OptArraySq.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(Type!=null) Type.traverseTopDown(visitor);
+        if(OptArraySq!=null) OptArraySq.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Type!=null) Type.traverseBottomUp(visitor);
+        if(OptArraySq!=null) OptArraySq.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("FormParamFormParam(\n");
+        buffer.append("FormParItem(\n");
 
         if(Type!=null)
             buffer.append(Type.toString("  "+tab));
@@ -61,11 +75,17 @@ public class FormParamFormParam extends FormParsItem {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        buffer.append(" "+tab+I2);
+        buffer.append(" "+tab+paramName);
+        buffer.append("\n");
+
+        if(OptArraySq!=null)
+            buffer.append(OptArraySq.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [FormParamFormParam]");
+        buffer.append(") [FormParItem]");
         return buffer.toString();
     }
 }

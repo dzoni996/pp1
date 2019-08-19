@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2019 1:24:45
+// 19/7/2019 3:15:53
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -39,8 +39,8 @@ public interface Visitor {
     public void visit(OptMethodCall OptMethodCall);
     public void visit(DeclItem DeclItem);
     public void visit(OptArraySq OptArraySq);
-    public void visit(OptNumConst OptNumConst);
     public void visit(FormParsItem FormParsItem);
+    public void visit(OptNumConst OptNumConst);
     public void visit(InterfaceList InterfaceList);
     public void visit(OptAddTerms OptAddTerms);
     public void visit(OptRelExpr OptRelExpr);
@@ -141,17 +141,16 @@ public interface Visitor {
     public void visit(ForStmt ForStmt);
     public void visit(IfStmt IfStmt);
     public void visit(DesignatorStmt DesignatorStmt);
-    public void visit(FormParamFormParam FormParamFormParam);
-    public void visit(FormParArray FormParArray);
+    public void visit(FormParItem FormParItem);
     public void visit(FormParamError FormParamError);
     public void visit(SingleFormPars SingleFormPars);
     public void visit(MultipleFormPars MultipleFormPars);
+    public void visit(NoOptionalFormPars NoOptionalFormPars);
+    public void visit(OptionalFormPars OptionalFormPars);
     public void visit(NoOptionalStmt NoOptionalStmt);
     public void visit(OptionalStmt OptionalStmt);
     public void visit(MethodDeclTypeName MethodDeclTypeName);
     public void visit(MethodDeclarations MethodDeclarations);
-    public void visit(NoOptionalFormPars NoOptionalFormPars);
-    public void visit(OptionalFormPars OptionalFormPars);
     public void visit(VoidIdentificator VoidIdentificator);
     public void visit(TypeIdentificator TypeIdentificator);
     public void visit(InterfaceMethodDeclaration InterfaceMethodDeclaration);

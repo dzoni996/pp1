@@ -91,7 +91,6 @@ nonterminal OptFormPars OptFormPars;
 nonterminal TypeIdent TypeIdent ;
 nonterminal OptStmt OptStmt;
 nonterminal Statement Statement;
-nonterminal FormParsItem FormParsItem;
 nonterminal FormPars FormPars ;
 nonterminal DesignatorStatement DesignatorStatement;
 nonterminal Designator Designator;
@@ -129,7 +128,8 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumDecl, EnumDeclList, EnumItem, EnumName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName, FormParsItem;
+
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 
 precedence left ELSE;
@@ -291,11 +291,6 @@ TypeIdent ::= (TypeIdentificator) Type:retType {: RESULT=new TypeIdentificator(r
 			  (VoidIdentificator) VOID:retType {: RESULT=new VoidIdentificator(); :}
 			  ;
 
-OptFormPars ::= (OptionalFormPars) FormPars:F1 {: RESULT=new OptionalFormPars(F1); RESULT.setLine(F1left); :}
-				|
-				(NoOptionalFormPars) {: RESULT=new NoOptionalFormPars(); :} /* epsilon */
-				;
-
 
 /********************** Method Declaration ********************
 **************************************************************/
@@ -310,6 +305,11 @@ OptStmt ::= (OptionalStmt) OptStmt:O1 Statement:S2 {: RESULT=new OptionalStmt(O1
 			| 
 			(NoOptionalStmt) {: RESULT=new NoOptionalStmt(); :} /* epsilon */
 			;
+
+OptFormPars ::= (OptionalFormPars) FormPars:F1 {: RESULT=new OptionalFormPars(F1); RESULT.setLine(F1left); :}
+				|
+				(NoOptionalFormPars) {: RESULT=new NoOptionalFormPars(); :} /* epsilon */
+				;			
 			
 			
 FormPars ::= (MultipleFormPars) FormPars:F1 COMMA FormParsItem:F2 {: RESULT=new MultipleFormPars(F1, F2); RESULT.setLine(F1left); :}
@@ -320,10 +320,8 @@ FormPars ::= (MultipleFormPars) FormPars:F1 COMMA FormParsItem:F2 {: RESULT=new 
 			 {: parser.report_error("Greska pri deklaraciji formalnog parametra funkcije. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new FormParamError(); :}
 			 ;
 			 
-FormParsItem ::= (FormParArray) Type:T1 IDENT:I2 LSQUARE RSQUARE {: RESULT=new FormParArray(T1, I2); RESULT.setLine(T1left); :}
-				 |
-				 (FormParamFormParam) Type:T1 IDENT:I2 {: RESULT=new FormParamFormParam(T1, I2); RESULT.setLine(T1left); :}
-				 ;				  	
+FormParsItem ::= (FormParItem) Type:typeIdent IDENT:paramName OptArraySq:O1 {: RESULT=new FormParItem(typeIdent, paramName, O1); RESULT.setLine(typeIdentleft); :}
+;				  	
 			 
 
 /**************************************************************
