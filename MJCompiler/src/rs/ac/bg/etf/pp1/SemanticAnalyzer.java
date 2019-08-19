@@ -13,6 +13,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	 * LOCAL VARS ***********************************************************************
 	 */
 	
+	protected boolean errorDetected = false;
 	protected static int nVars;
 	protected int currentLevel = -1;
 	protected Struct currentType = noType;
@@ -49,6 +50,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	 */
 	
 	public void report_error(String message, SyntaxNode info) {
+		errorDetected = true;
 		StringBuilder msg = new StringBuilder(message);
 		int line = (info == null) ? 0: info.getLine();
 		if (line != 0)
@@ -147,19 +149,22 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(InitializerBool bool) {
 		bool.obj = new Obj(Obj.Con, "", boolType);
-		bool.obj.setAdr(0); // TODO: dohvatiti vrednost
+		int adr = 0;
+		if (bool.getValue().equals("true")) adr = 1;
+		bool.obj.setAdr(adr);
+		
 	}
 
 	@Override
 	public void visit(InitializerChar chr) {
 		chr.obj = new Obj(Obj.Con, "", charType);
-		chr.obj.setAdr(0); // TODO: dohvatiti vrednost
+		chr.obj.setAdr(chr.getValue()); 
 	}
 
 	@Override
 	public void visit(InitializerNum num) {
 		num.obj = new Obj(Obj.Con, "", intType);
-		num.obj.setAdr(0); // TODO: dohvatiti vrednost
+		num.obj.setAdr(num.getValue());
 	}
 
 
@@ -263,7 +268,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 
-		Obj classNode = Tab.insert(Obj.Type, name.getName(), intType);
+		Obj classNode = Tab.insert(Obj.Type, name.getName(), new Struct(Struct.Class));
 		name.obj = classNode;
 		
 		Tab.openScope();
@@ -291,14 +296,51 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	 * INTERFACE ************************************************************************
 	 */
 	
+    @Override
+	public void visit(InterName name) {
+		
+    	if (Tab.find(name.getName()) != Tab.noObj) {
+			report_error("ERROR: Interfejs " + name.getName() + " je vec deklarisan!", null);
+			return;
+		}
+
+		Obj interNode = Tab.insert(Obj.Type, name.getName(), new Struct(Struct.Interface));
+		name.obj = interNode;
+		
+		Tab.openScope();
+		currentLevel++;
+	}
 	
+    @Override
+	public void visit(InterfaceDeclarations inter) {		
+    	
+		Tab.chainLocalSymbols(inter.getInterfaceName().obj);
+		
+		report_info("INFO:  Definisan interfejs " + inter.getInterfaceName().obj.getName(), inter);
+		Tab.closeScope();
+		currentLevel--;
+	}
 	
-	
+    @Override
+	public void visit(InterfaceMethodDeclaration method ) {		
+    	
+    	if (Tab.currentScope.findSymbol(method.getName()) != null) {
+			report_error("ERROR: Metoda " + method.getName() + " je vec deklarisana u interfejsu!", null);
+			return;    	
+		}
+    	
+    	Obj node = Tab.insert(Obj.Meth, method.getName(), currentType);
+    	this.currentMethod = node;
+
+    	
+    	// TODO: FORM PARS???
+	}
+    
 	/*
 	 * METHOD DECLARATION ***************************************************************
 	 */
 
-	
+    @Override	
     public void visit(MethodDeclTypeName methodTypeName) {
     	if (Tab.find(methodTypeName.getMethodName()) != Tab.noObj) {
 			report_error("ERROR: Metoda " + methodTypeName.getMethodName() + " je vec deklarisana!", null);
@@ -320,8 +362,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		//report_info("Obradjuje se funkcija " + methodTypeName.getMethodName(), methodTypeName);
     }
  
-   
-    public void visit(MethodDeclarations methodDecl){
+    @Override
+	public void visit(MethodDeclarations methodDecl){
     	if(!this.returnFound && currentMethod.getType() != Tab.noType){
 			report_error("ERROR: Funkcija " + currentMethod.getName() + " nema return iskaz!", null);
     	}
@@ -334,7 +376,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	this.currentMethod = null;
     	this.currentLevel--;
     }
-    
+	
+    @Override
     public void visit(ReturnStmt returnExpr){
     	this.returnFound = true;
     	Struct currMethType = currentMethod.getType();
@@ -345,12 +388,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
     
     /*
-     * FORMPARS *************************************************************************
+     * FORMAL PARS **********************************************************************
      */
     
+    @Override
     public void visit(FormParItem item) {
-		
-    	if (Tab.currentScope.findSymbol(item.getParamName()) != null) {
+		Obj node = Tab.currentScope.findSymbol(item.getParamName());
+    	if (node != null) {
 			report_error("ERROR: Vec je deklarisan formalni parametar sa imenom " + item.getParamName(), item);
 			return;
 		}
@@ -361,9 +405,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			str = currentType;
 		}
 		
-		Obj node = Tab.insert(Obj.Var, item.getParamName(), str);
+		node = Tab.insert(Obj.Var, item.getParamName(), str);
 		item.obj = node;
-		// TODO: CHECK!!!
+		// TODO: Tab.currentScope.addToLocals()???
 		currentMethod.setLevel(currentMethod.getLevel() + 1);
 		node.setFpPos(currentMethod.getLevel());
 
@@ -371,13 +415,17 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     }
     
 
-		
-		
+    /*
+     * EXPR *****************************************************************************
+     */
 
     
     
     
     
+	/*
+	 * DESIGNATOR ***********************************************************************
+	 */ 
     
     
     
@@ -385,8 +433,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     
     
     
+    /*
+     * OTHRER METHODS *******************************************************************
+     */
     
-    
-    
+    public boolean passed(){
+    	return !errorDetected;
+    }
     
 }

@@ -61,11 +61,13 @@ init with {: errorDetected = false; :}
 **************************************************************/
 
 terminal PROG, LBRACE, RBRACE, SEMI, LPAREN, RPAREN, COMMA, PRINT, RETURN, PLUS, EQUAL, VOID;
-terminal INTERFACE, DOT, CLASS, BREAK, NEW, L, OR, MM, CHARCONST, CONST, LE, MOD, LSQUARE, READ, BOOLCONST, DIV, GE, ENUM, TIMES, DIF, G;
+terminal INTERFACE, DOT, CLASS, BREAK, NEW, L, OR, MM, CONST, LE, MOD, LSQUARE, READ, DIV, GE, ENUM, TIMES, DIF, G;
 terminal MINUS, RSQUARE, SAME, CONTINUE, AND, PP, EXTENDS, IMPLEMENTS, FOR;
 
-terminal Integer NUMCONST ;
-terminal String IDENT ;
+terminal Integer NUMCONST;
+terminal Character CHARCONST;
+terminal String BOOLCONST;
+terminal String IDENT;
 terminal IF, ELSE;
 
 nonterminal DeclList, DeclItem ;
@@ -75,20 +77,23 @@ nonterminal ClassDecl, Extend, Implement, InterfaceList, OptVarDecl, OptMethodDe
 nonterminal InterfaceDecl, InterfaceMethodDeclList, OptInterfaceMethodDeclList, InterfaceMethodDecl, OptFormPars, TypeIdent ;
 nonterminal OptStmt, Statement, FormPars ;
 nonterminal DesignatorStatement, Designator, OptDesign, DesignItem, SideEffect ;
-nonterminal Expr, OptActPars, ActPars, OptMinus, OptAddTerms, Term, OptMulTerms, Factor, OptMethodCall, OptExpr ;
+nonterminal OptActPars, ActPars, OptMinus, OptAddTerms, OptMulTerms, OptMethodCall, OptExpr ;
 nonterminal Mulop, Addop, Relop, Assignop ;
 nonterminal OptRetExpr, OptNumConst ;
 nonterminal Condition, CondTerm, CondFact, OptRelExpr, OptElse, OptDesignStmt, OptCond, IfCondition ;
 
 nonterminal ConstItem;
+nonterminal EnumDecl, EnumDeclList, EnumItem;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumDecl, EnumDeclList, EnumItem, EnumName ;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj InterfaceName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName, FormParsItem;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor;
 
 precedence left ELSE;
 
@@ -228,7 +233,10 @@ OptMethodDecl ::= (OptMethods) OptMethodDecl MethodDeclList
 
 /********************** Interface Declaration ***********************/				  
 
-InterfaceDecl ::= (InterfaceDeclarations) INTERFACE IDENT LBRACE OptInterfaceMethodDeclList RBRACE
+InterfaceDecl ::= (InterfaceDeclarations) INTERFACE InterfaceName LBRACE OptInterfaceMethodDeclList RBRACE
+;
+
+InterfaceName ::= (InterName) IDENT:name
 ;
 
 OptInterfaceMethodDeclList ::=  (OptInterMethodDeclList) InterfaceMethodDeclList
@@ -241,7 +249,7 @@ InterfaceMethodDeclList ::= (InterfaceMethodDeclarations) InterfaceMethodDeclLis
 							(SingleInterfaceMethodDeclaration) InterfaceMethodDecl
 							;
 							
-InterfaceMethodDecl ::= (InterfaceMethodDeclaration) TypeIdent IDENT LPAREN OptFormPars RPAREN SEMI
+InterfaceMethodDecl ::= (InterfaceMethodDeclaration) TypeIdent IDENT:name LPAREN OptFormPars RPAREN SEMI
 ;
 
 TypeIdent ::= (TypeIdentificator) Type:retType

@@ -1,0 +1,280 @@
+INFO  21:44:06,061 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  21:44:06,201 - #2 program
+INFO  21:44:06,201 - #45 SemanticTest
+INFO  21:44:06,201 - #23 const
+INFO  21:44:06,201 - #45 int
+INFO  21:44:06,201 - #45 x
+INFO  21:44:06,201 - #12 =
+INFO  21:44:06,201 - #44 5
+INFO  21:44:06,201 - #8 ,
+INFO  21:44:06,201 - #45 f
+INFO  21:44:06,201 - #12 =
+INFO  21:44:06,201 - #44 6
+INFO  21:44:06,201 - #5 ;
+INFO  21:44:06,201 - #23 const
+INFO  21:44:06,201 - #45 bool
+INFO  21:44:06,201 - #45 b
+INFO  21:44:06,201 - #12 =
+INFO  21:44:06,201 - #28 false
+INFO  21:44:06,201 - #5 ;
+INFO  21:44:06,201 - #45 int
+INFO  21:44:06,201 - #45 x1
+INFO  21:44:06,201 - #8 ,
+INFO  21:44:06,217 - #45 x2
+INFO  21:44:06,217 - #26 [
+INFO  21:44:06,217 - #36 ]
+INFO  21:44:06,217 - #5 ;
+INFO  21:44:06,217 - #31 enum
+INFO  21:44:06,217 - #45 nums
+INFO  21:44:06,217 - #3 {
+INFO  21:44:06,217 - #45 ONE
+INFO  21:44:06,217 - #8 ,
+INFO  21:44:06,217 - #45 TWO
+INFO  21:44:06,217 - #12 =
+INFO  21:44:06,217 - #44 5
+INFO  21:44:06,217 - #8 ,
+INFO  21:44:06,217 - #45 THREE
+INFO  21:44:06,217 - #4 }
+INFO  21:44:06,217 - #16 class
+INFO  21:44:06,217 - #45 A
+INFO  21:44:06,217 - #3 {
+INFO  21:44:06,217 - #4 }
+INFO  21:44:06,217 - #3 {
+INFO  21:44:06,217 - #45 int
+INFO  21:44:06,217 - #45 metod1
+INFO  21:44:06,217 - #6 (
+INFO  21:44:06,217 - #7 )
+INFO  21:44:06,217 - #3 {
+INFO  21:44:06,217 - #10 return
+INFO  21:44:06,217 - #44 3
+INFO  21:44:06,217 - #5 ;
+INFO  21:44:06,217 - #4 }
+INFO  21:44:06,217 - #13 void
+INFO  21:44:06,217 - #45 metod2
+INFO  21:44:06,217 - #6 (
+INFO  21:44:06,217 - #45 int
+INFO  21:44:06,217 - #45 x
+INFO  21:44:06,217 - #26 [
+INFO  21:44:06,217 - #36 ]
+INFO  21:44:06,217 - #8 ,
+INFO  21:44:06,217 - #45 char
+INFO  21:44:06,217 - #45 y
+INFO  21:44:06,217 - #8 ,
+INFO  21:44:06,217 - #45 bool
+INFO  21:44:06,217 - #45 z
+INFO  21:44:06,233 - #7 )
+INFO  21:44:06,233 - #3 {
+INFO  21:44:06,233 - #4 }
+INFO  21:44:06,233 - #4 }
+INFO  21:44:06,233 - Program(
+  ProgName(
+   SemanticTest
+  ) [ProgName]
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        VarDeclLists(
+          VarDeclLists(
+            NoVarDecl(
+            ) [NoVarDecl]
+            ConstDeclaration(
+              ConstDeclarations(
+                Type(
+                 int
+                ) [Type]
+                MultipleConsts(
+                  SingleConst(
+                    ConstItem(
+                     x
+                      InitializerNum(
+                       5
+                      ) [InitializerNum]
+                    ) [ConstItem]
+                  ) [SingleConst]
+                  ConstItem(
+                   f
+                    InitializerNum(
+                     6
+                    ) [InitializerNum]
+                  ) [ConstItem]
+                ) [MultipleConsts]
+              ) [ConstDeclarations]
+            ) [ConstDeclaration]
+          ) [VarDeclLists]
+          ConstDeclaration(
+            ConstDeclarations(
+              Type(
+               bool
+              ) [Type]
+              SingleConst(
+                ConstItem(
+                 b
+                  InitializerBool(
+                  ) [InitializerBool]
+                ) [ConstItem]
+              ) [SingleConst]
+            ) [ConstDeclarations]
+          ) [ConstDeclaration]
+        ) [VarDeclLists]
+        VarDeclaration(
+          VarDeclarations(
+            Type(
+             int
+            ) [Type]
+            MultipleVars(
+              SingleVar(
+                Var(
+                 x1
+                  NoArrayVar(
+                  ) [NoArrayVar]
+                ) [Var]
+              ) [SingleVar]
+              Var(
+               x2
+                ArrayVar(
+                ) [ArrayVar]
+              ) [Var]
+            ) [MultipleVars]
+          ) [VarDeclarations]
+        ) [VarDeclaration]
+      ) [VarDeclLists]
+      EnumDeclaration(
+        EnumDeclarations(
+          EnumNamed(
+           nums
+          ) [EnumNamed]
+          MultipleEnums(
+            MultipleEnums(
+              SingleEnum(
+                NoInitEnum(
+                 ONE
+                ) [NoInitEnum]
+              ) [SingleEnum]
+              InitEnum(
+               TWO
+               5
+              ) [InitEnum]
+            ) [MultipleEnums]
+            NoInitEnum(
+             THREE
+            ) [NoInitEnum]
+          ) [MultipleEnums]
+        ) [EnumDeclarations]
+      ) [EnumDeclaration]
+    ) [VarDeclLists]
+    ClasstDeclaration(
+      ClassDeclaration(
+        ClassName(
+         A
+        ) [ClassName]
+        NoSuperClass(
+        ) [NoSuperClass]
+        NoImplInteraces(
+        ) [NoImplInteraces]
+        NoOptVars(
+        ) [NoOptVars]
+        NoClassMethodDecl(
+        ) [NoClassMethodDecl]
+      ) [ClassDeclaration]
+    ) [ClasstDeclaration]
+  ) [VarDeclLists]
+  OptMethods(
+    OptMethods(
+      NoOptMethods(
+      ) [NoOptMethods]
+      MethodDeclarations(
+        MethodDeclTypeName(
+          TypeIdentificator(
+            Type(
+             int
+            ) [Type]
+          ) [TypeIdentificator]
+         metod1
+        ) [MethodDeclTypeName]
+        NoOptionalFormPars(
+        ) [NoOptionalFormPars]
+        NoOptVars(
+        ) [NoOptVars]
+        OptionalStmt(
+          NoOptionalStmt(
+          ) [NoOptionalStmt]
+          ReturnStmt(
+            OptRetExprDerived1(
+              Expression(
+                Negative(
+                ) [Negative]
+                Terms(
+                  NumFactor(
+                   3
+                  ) [NumFactor]
+                  NoMulFacts(
+                  ) [NoMulFacts]
+                ) [Terms]
+                NoAddTerms(
+                ) [NoAddTerms]
+              ) [Expression]
+            ) [OptRetExprDerived1]
+          ) [ReturnStmt]
+        ) [OptionalStmt]
+      ) [MethodDeclarations]
+    ) [OptMethods]
+    MethodDeclarations(
+      MethodDeclTypeName(
+        VoidIdentificator(
+        ) [VoidIdentificator]
+       metod2
+      ) [MethodDeclTypeName]
+      OptionalFormPars(
+        MultipleFormPars(
+          MultipleFormPars(
+            SingleFormPars(
+              FormParItem(
+                Type(
+                 int
+                ) [Type]
+               x
+                ArrayVar(
+                ) [ArrayVar]
+              ) [FormParItem]
+            ) [SingleFormPars]
+            FormParItem(
+              Type(
+               char
+              ) [Type]
+             y
+              NoArrayVar(
+              ) [NoArrayVar]
+            ) [FormParItem]
+          ) [MultipleFormPars]
+          FormParItem(
+            Type(
+             bool
+            ) [Type]
+           z
+            NoArrayVar(
+            ) [NoArrayVar]
+          ) [FormParItem]
+        ) [MultipleFormPars]
+      ) [OptionalFormPars]
+      NoOptVars(
+      ) [NoOptVars]
+      NoOptionalStmt(
+      ) [NoOptionalStmt]
+    ) [MethodDeclarations]
+  ) [OptMethods]
+) [Program]
+INFO  21:44:06,233 - ===================================
+INFO  21:44:06,233 - INFO:  Pocetak programa SemanticTest na liniji 4
+INFO  21:44:06,233 - INFO:  Deklarisana konstanta x na liniji 6
+INFO  21:44:06,233 - INFO:  Deklarisana konstanta f na liniji 6
+INFO  21:44:06,233 - INFO:  Deklarisana konstanta b na liniji 7
+INFO  21:44:06,233 - INFO:  Deklarisana promenljiva 8 na liniji 8
+INFO  21:44:06,233 - INFO:  Deklarisan niz 8 na liniji 8
+INFO  21:44:06,233 - INFO:  Definisan enum tip nums na liniji 10
+INFO  21:44:06,233 - INFO:  Definisana klasa A na liniji 12
+INFO  21:44:06,233 - INFO:  Deklarisan metod metod1 na liniji 15
+INFO  21:44:06,233 - INFO:  Deklarisan formalni parametar x na liniji 20
+INFO  21:44:06,233 - INFO:  Deklarisan formalni parametar y na liniji 20
+INFO  21:44:06,233 - INFO:  Deklarisan formalni parametar z na liniji 20
+INFO  21:44:06,233 - INFO:  Deklarisan metod metod2 na liniji 20
+INFO  21:44:06,233 - ===================================

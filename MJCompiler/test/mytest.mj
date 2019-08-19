@@ -10,6 +10,9 @@ int x1, x2[];
 enum nums {ONE, TWO = 5, THREE}
 
 class A {}
+interface I {
+	int x();
+}
 
 {
 	int metod1 () {

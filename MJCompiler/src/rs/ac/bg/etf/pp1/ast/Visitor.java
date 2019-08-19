@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2019 3:15:53
+// 19/7/2019 23:12:6
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -31,6 +31,7 @@ public interface Visitor {
     public void visit(Term Term);
     public void visit(OptRetExpr OptRetExpr);
     public void visit(OptDesign OptDesign);
+    public void visit(InterfaceName InterfaceName);
     public void visit(Condition Condition);
     public void visit(OptElse OptElse);
     public void visit(VarItem VarItem);
@@ -46,8 +47,8 @@ public interface Visitor {
     public void visit(OptRelExpr OptRelExpr);
     public void visit(EnumItem EnumItem);
     public void visit(VarDeclList VarDeclList);
-    public void visit(OptDesignStmt OptDesignStmt);
     public void visit(Expr Expr);
+    public void visit(OptDesignStmt OptDesignStmt);
     public void visit(ActPars ActPars);
     public void visit(Extend Extend);
     public void visit(OptMulTerms OptMulTerms);
@@ -158,6 +159,7 @@ public interface Visitor {
     public void visit(InterfaceMethodDeclarations InterfaceMethodDeclarations);
     public void visit(NoOptInterMethodDeclList NoOptInterMethodDeclList);
     public void visit(OptInterMethodDeclList OptInterMethodDeclList);
+    public void visit(InterName InterName);
     public void visit(InterfaceDeclarations InterfaceDeclarations);
     public void visit(NoOptMethods NoOptMethods);
     public void visit(OptMethods OptMethods);

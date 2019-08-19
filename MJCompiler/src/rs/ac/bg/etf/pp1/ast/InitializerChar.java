@@ -1,13 +1,24 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2019 3:15:52
+// 19/7/2019 23:12:5
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class InitializerChar extends Initializer {
 
-    public InitializerChar () {
+    private Character value;
+
+    public InitializerChar (Character value) {
+        this.value=value;
+    }
+
+    public Character getValue() {
+        return value;
+    }
+
+    public void setValue(Character value) {
+        this.value=value;
     }
 
     public void accept(Visitor visitor) {
@@ -29,6 +40,9 @@ public class InitializerChar extends Initializer {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("InitializerChar(\n");
+
+        buffer.append(" "+tab+value);
+        buffer.append("\n");
 
         buffer.append(tab);
         buffer.append(") [InitializerChar]");

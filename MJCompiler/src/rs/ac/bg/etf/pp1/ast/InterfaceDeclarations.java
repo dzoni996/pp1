@@ -1,27 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2019 3:15:52
+// 19/7/2019 23:12:5
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class InterfaceDeclarations extends InterfaceDecl {
 
-    private String I1;
+    private InterfaceName InterfaceName;
     private OptInterfaceMethodDeclList OptInterfaceMethodDeclList;
 
-    public InterfaceDeclarations (String I1, OptInterfaceMethodDeclList OptInterfaceMethodDeclList) {
-        this.I1=I1;
+    public InterfaceDeclarations (InterfaceName InterfaceName, OptInterfaceMethodDeclList OptInterfaceMethodDeclList) {
+        this.InterfaceName=InterfaceName;
+        if(InterfaceName!=null) InterfaceName.setParent(this);
         this.OptInterfaceMethodDeclList=OptInterfaceMethodDeclList;
         if(OptInterfaceMethodDeclList!=null) OptInterfaceMethodDeclList.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public InterfaceName getInterfaceName() {
+        return InterfaceName;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setInterfaceName(InterfaceName InterfaceName) {
+        this.InterfaceName=InterfaceName;
     }
 
     public OptInterfaceMethodDeclList getOptInterfaceMethodDeclList() {
@@ -37,15 +38,18 @@ public class InterfaceDeclarations extends InterfaceDecl {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(InterfaceName!=null) InterfaceName.accept(visitor);
         if(OptInterfaceMethodDeclList!=null) OptInterfaceMethodDeclList.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(InterfaceName!=null) InterfaceName.traverseTopDown(visitor);
         if(OptInterfaceMethodDeclList!=null) OptInterfaceMethodDeclList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(InterfaceName!=null) InterfaceName.traverseBottomUp(visitor);
         if(OptInterfaceMethodDeclList!=null) OptInterfaceMethodDeclList.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -55,7 +59,10 @@ public class InterfaceDeclarations extends InterfaceDecl {
         buffer.append(tab);
         buffer.append("InterfaceDeclarations(\n");
 
-        buffer.append(" "+tab+I1);
+        if(InterfaceName!=null)
+            buffer.append(InterfaceName.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
         buffer.append("\n");
 
         if(OptInterfaceMethodDeclList!=null)

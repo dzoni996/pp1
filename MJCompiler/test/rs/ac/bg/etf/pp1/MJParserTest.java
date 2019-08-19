@@ -64,6 +64,9 @@ public class MJParserTest {
 			
 			Tab.dump();
 			
+			if (!v.passed()) {
+				log.error("Postoji greska u generisanom kodu!");
+			}
 		} 
 		finally {
 			if (br != null) try { br.close(); } catch (IOException e1) { log.error(e1.getMessage(), e1); }

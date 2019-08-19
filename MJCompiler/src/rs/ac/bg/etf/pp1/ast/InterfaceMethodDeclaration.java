@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2019 3:15:52
+// 19/7/2019 23:12:5
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,13 +8,13 @@ package rs.ac.bg.etf.pp1.ast;
 public class InterfaceMethodDeclaration extends InterfaceMethodDecl {
 
     private TypeIdent TypeIdent;
-    private String I2;
+    private String name;
     private OptFormPars OptFormPars;
 
-    public InterfaceMethodDeclaration (TypeIdent TypeIdent, String I2, OptFormPars OptFormPars) {
+    public InterfaceMethodDeclaration (TypeIdent TypeIdent, String name, OptFormPars OptFormPars) {
         this.TypeIdent=TypeIdent;
         if(TypeIdent!=null) TypeIdent.setParent(this);
-        this.I2=I2;
+        this.name=name;
         this.OptFormPars=OptFormPars;
         if(OptFormPars!=null) OptFormPars.setParent(this);
     }
@@ -27,12 +27,12 @@ public class InterfaceMethodDeclaration extends InterfaceMethodDecl {
         this.TypeIdent=TypeIdent;
     }
 
-    public String getI2() {
-        return I2;
+    public String getName() {
+        return name;
     }
 
-    public void setI2(String I2) {
-        this.I2=I2;
+    public void setName(String name) {
+        this.name=name;
     }
 
     public OptFormPars getOptFormPars() {
@@ -75,7 +75,7 @@ public class InterfaceMethodDeclaration extends InterfaceMethodDecl {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        buffer.append(" "+tab+I2);
+        buffer.append(" "+tab+name);
         buffer.append("\n");
 
         if(OptFormPars!=null)

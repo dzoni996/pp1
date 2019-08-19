@@ -61,11 +61,13 @@ init with {: errorDetected = false; :}
 **************************************************************/
 
 terminal PROG, LBRACE, RBRACE, SEMI, LPAREN, RPAREN, COMMA, PRINT, RETURN, PLUS, EQUAL, VOID;
-terminal INTERFACE, DOT, CLASS, BREAK, NEW, L, OR, MM, CHARCONST, CONST, LE, MOD, LSQUARE, READ, BOOLCONST, DIV, GE, ENUM, TIMES, DIF, G;
+terminal INTERFACE, DOT, CLASS, BREAK, NEW, L, OR, MM, CONST, LE, MOD, LSQUARE, READ, DIV, GE, ENUM, TIMES, DIF, G;
 terminal MINUS, RSQUARE, SAME, CONTINUE, AND, PP, EXTENDS, IMPLEMENTS, FOR;
 
-terminal Integer NUMCONST ;
-terminal String IDENT ;
+terminal Integer NUMCONST;
+terminal Character CHARCONST;
+terminal String BOOLCONST;
+terminal String IDENT;
 terminal IF, ELSE;
 
 nonterminal DeclList DeclList;
@@ -97,14 +99,11 @@ nonterminal Designator Designator;
 nonterminal OptDesign OptDesign;
 nonterminal DesignItem DesignItem;
 nonterminal SideEffect SideEffect ;
-nonterminal Expr Expr;
 nonterminal OptActPars OptActPars;
 nonterminal ActPars ActPars;
 nonterminal OptMinus OptMinus;
 nonterminal OptAddTerms OptAddTerms;
-nonterminal Term Term;
 nonterminal OptMulTerms OptMulTerms;
-nonterminal Factor Factor;
 nonterminal OptMethodCall OptMethodCall;
 nonterminal OptExpr OptExpr ;
 nonterminal Mulop Mulop;
@@ -128,9 +127,11 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumDecl, EnumDeclList, EnumItem, EnumName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj InterfaceName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName, FormParsItem;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor;
 
 precedence left ELSE;
 
@@ -181,9 +182,9 @@ ConstItem ::= (ConstItem) IDENT:id EQUAL Initializer:I1 {: RESULT=new ConstItem(
 
 Initializer ::= (InitializerNum) NUMCONST:value {: RESULT=new InitializerNum(value); RESULT.setLine(valueleft); :}
 			    |
-			    (InitializerChar) CHARCONST:value {: RESULT=new InitializerChar(); :}
+			    (InitializerChar) CHARCONST:value {: RESULT=new InitializerChar(value); RESULT.setLine(valueleft); :}
 			    |
-			    (InitializerBool) BOOLCONST:value {: RESULT=new InitializerBool(); :}
+			    (InitializerBool) BOOLCONST:value {: RESULT=new InitializerBool(value); RESULT.setLine(valueleft); :}
 			    ;
 			   
 
@@ -270,7 +271,10 @@ OptMethodDecl ::= (OptMethods) OptMethodDecl:O1 MethodDeclList:M2 {: RESULT=new 
 
 /********************** Interface Declaration ***********************/				  
 
-InterfaceDecl ::= (InterfaceDeclarations) INTERFACE IDENT:I1 LBRACE OptInterfaceMethodDeclList:O2 RBRACE {: RESULT=new InterfaceDeclarations(I1, O2); RESULT.setLine(I1left); :}
+InterfaceDecl ::= (InterfaceDeclarations) INTERFACE InterfaceName:I1 LBRACE OptInterfaceMethodDeclList:O2 RBRACE {: RESULT=new InterfaceDeclarations(I1, O2); RESULT.setLine(I1left); :}
+;
+
+InterfaceName ::= (InterName) IDENT:name {: RESULT=new InterName(name); RESULT.setLine(nameleft); :}
 ;
 
 OptInterfaceMethodDeclList ::=  (OptInterMethodDeclList) InterfaceMethodDeclList:I1 {: RESULT=new OptInterMethodDeclList(I1); RESULT.setLine(I1left); :}
@@ -283,7 +287,7 @@ InterfaceMethodDeclList ::= (InterfaceMethodDeclarations) InterfaceMethodDeclLis
 							(SingleInterfaceMethodDeclaration) InterfaceMethodDecl:I1 {: RESULT=new SingleInterfaceMethodDeclaration(I1); RESULT.setLine(I1left); :}
 							;
 							
-InterfaceMethodDecl ::= (InterfaceMethodDeclaration) TypeIdent:T1 IDENT:I2 LPAREN OptFormPars:O3 RPAREN SEMI {: RESULT=new InterfaceMethodDeclaration(T1, I2, O3); RESULT.setLine(T1left); :}
+InterfaceMethodDecl ::= (InterfaceMethodDeclaration) TypeIdent:T1 IDENT:name LPAREN OptFormPars:O2 RPAREN SEMI {: RESULT=new InterfaceMethodDeclaration(T1, name, O2); RESULT.setLine(T1left); :}
 ;
 
 TypeIdent ::= (TypeIdentificator) Type:retType {: RESULT=new TypeIdentificator(retType); RESULT.setLine(retTypeleft); :}
@@ -449,9 +453,9 @@ Factor ::= (DesignFactor) Designator:D1 OptMethodCall:O2 {: RESULT=new DesignFac
 		   |
 		   (NumFactor) NUMCONST:N1 {: RESULT=new NumFactor(N1); RESULT.setLine(N1left); :}
 		   |
-		   (CharFactor) CHARCONST {: RESULT=new CharFactor(); :}
+		   (CharFactor) CHARCONST:C1 {: RESULT=new CharFactor(C1); RESULT.setLine(C1left); :}
 		   |
-		   (BoolFactor) BOOLCONST {: RESULT=new BoolFactor(); :}
+		   (BoolFactor) BOOLCONST:B1 {: RESULT=new BoolFactor(B1); RESULT.setLine(B1left); :}
 		   |
 		   (NewFactor) NEW Type:T1 OptExpr:O2 {: RESULT=new NewFactor(T1, O2); RESULT.setLine(T1left); :}
 		   |
