@@ -1,0 +1,167 @@
+INFO  01:29:25,599 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  01:29:25,662 - #2 program
+INFO  01:29:25,663 - #45 SemanticTest
+INFO  01:29:25,663 - #23 const
+INFO  01:29:25,664 - #45 int
+INFO  01:29:25,664 - #45 x
+INFO  01:29:25,665 - #12 =
+INFO  01:29:25,665 - #44 5
+INFO  01:29:25,665 - #8 ,
+INFO  01:29:25,667 - #45 f
+INFO  01:29:25,667 - #12 =
+INFO  01:29:25,667 - #44 6
+INFO  01:29:25,667 - #5 ;
+INFO  01:29:25,667 - #23 const
+INFO  01:29:25,668 - #45 bool
+INFO  01:29:25,668 - #45 b
+INFO  01:29:25,668 - #12 =
+INFO  01:29:25,668 - #28 false
+INFO  01:29:25,668 - #5 ;
+INFO  01:29:25,669 - #45 int
+INFO  01:29:25,669 - #45 x1
+INFO  01:29:25,669 - #8 ,
+INFO  01:29:25,671 - #45 x2
+INFO  01:29:25,672 - #26 [
+INFO  01:29:25,672 - #36 ]
+INFO  01:29:25,672 - #5 ;
+INFO  01:29:25,673 - #31 enum
+INFO  01:29:25,673 - #45 nums
+INFO  01:29:25,673 - #3 {
+INFO  01:29:25,673 - #45 ONE
+INFO  01:29:25,673 - #8 ,
+INFO  01:29:25,673 - #45 TWO
+INFO  01:29:25,673 - #12 =
+INFO  01:29:25,673 - #44 5
+INFO  01:29:25,673 - #8 ,
+INFO  01:29:25,674 - #45 THREE
+INFO  01:29:25,674 - #4 }
+INFO  01:29:25,674 - #16 class
+INFO  01:29:25,674 - #45 A
+INFO  01:29:25,674 - #3 {
+INFO  01:29:25,675 - #4 }
+INFO  01:29:25,676 - #3 {
+INFO  01:29:25,677 - #4 }
+INFO  01:29:25,686 - Program(
+  ProgName(
+   SemanticTest
+  ) [ProgName]
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        VarDeclLists(
+          VarDeclLists(
+            NoVarDecl(
+            ) [NoVarDecl]
+            ConstDeclaration(
+              ConstDeclarations(
+                Type(
+                 int
+                ) [Type]
+                MultipleConsts(
+                  SingleConst(
+                    ConstItem(
+                     x
+                      InitializerNum(
+                       5
+                      ) [InitializerNum]
+                    ) [ConstItem]
+                  ) [SingleConst]
+                  ConstItem(
+                   f
+                    InitializerNum(
+                     6
+                    ) [InitializerNum]
+                  ) [ConstItem]
+                ) [MultipleConsts]
+              ) [ConstDeclarations]
+            ) [ConstDeclaration]
+          ) [VarDeclLists]
+          ConstDeclaration(
+            ConstDeclarations(
+              Type(
+               bool
+              ) [Type]
+              SingleConst(
+                ConstItem(
+                 b
+                  InitializerBool(
+                  ) [InitializerBool]
+                ) [ConstItem]
+              ) [SingleConst]
+            ) [ConstDeclarations]
+          ) [ConstDeclaration]
+        ) [VarDeclLists]
+        VarDeclaration(
+          VarDeclarations(
+            Type(
+             int
+            ) [Type]
+            MultipleVars(
+              SingleVar(
+                Var(
+                 x1
+                  NoArrayVar(
+                  ) [NoArrayVar]
+                ) [Var]
+              ) [SingleVar]
+              Var(
+               x2
+                ArrayVar(
+                ) [ArrayVar]
+              ) [Var]
+            ) [MultipleVars]
+          ) [VarDeclarations]
+        ) [VarDeclaration]
+      ) [VarDeclLists]
+      EnumDeclaration(
+        EnumDeclarations(
+          EnumNamed(
+           nums
+          ) [EnumNamed]
+          MultipleEnums(
+            MultipleEnums(
+              SingleEnum(
+                NoInitEnum(
+                 ONE
+                ) [NoInitEnum]
+              ) [SingleEnum]
+              InitEnum(
+               TWO
+               5
+              ) [InitEnum]
+            ) [MultipleEnums]
+            NoInitEnum(
+             THREE
+            ) [NoInitEnum]
+          ) [MultipleEnums]
+        ) [EnumDeclarations]
+      ) [EnumDeclaration]
+    ) [VarDeclLists]
+    ClasstDeclaration(
+      ClassDeclaration(
+        ClassName(
+         A
+        ) [ClassName]
+        NoSuperClass(
+        ) [NoSuperClass]
+        NoImplInteraces(
+        ) [NoImplInteraces]
+        NoOptVars(
+        ) [NoOptVars]
+        NoClassMethodDecl(
+        ) [NoClassMethodDecl]
+      ) [ClassDeclaration]
+    ) [ClasstDeclaration]
+  ) [VarDeclLists]
+  NoOptMethods(
+  ) [NoOptMethods]
+) [Program]
+INFO  01:29:25,686 - ===================================
+INFO  01:29:25,687 - INFO:  Pocetak programa SemanticTest na liniji 4
+INFO  01:29:25,687 - INFO:  Deklarisana konstanta x na liniji 6
+INFO  01:29:25,687 - INFO:  Deklarisana konstanta f na liniji 6
+INFO  01:29:25,687 - INFO:  Deklarisana konstanta b na liniji 7
+INFO  01:29:25,687 - INFO:  Deklarisana promenljiva 8 na liniji 8
+INFO  01:29:25,687 - INFO:  Deklarisan niz 8 na liniji 8
+INFO  01:29:25,688 - INFO:  Definisan enum tip nums na liniji 10
+ERROR 01:29:25,688 - ERROR: Klasa A je vec deklarisana!

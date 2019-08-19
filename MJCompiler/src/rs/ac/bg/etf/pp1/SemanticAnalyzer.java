@@ -13,12 +13,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	 * LOCAL VARS ***********************************************************************
 	 */
 	
-	Obj currentMethod = null;
-	
+	protected static int nVars;
 	protected int currentLevel = -1;
 	protected Struct currentType = noType;
 	protected int enumInit = -1;
 	protected Obj enumNode;
+	protected Obj currentMethod = null;
+	protected boolean returnFound = false;
 	
 	Logger log = Logger.getLogger(getClass());
 	
@@ -52,6 +53,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		int line = (info == null) ? 0: info.getLine();
 		if (line != 0)
 			msg.append (" na liniji ").append(line);
+		msg.append("		<--------------- ERROR ");
 		log.error(msg.toString());
 	}
 
@@ -77,7 +79,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	@Override
 	public void visit(Program prog) {
-		// TODO: broj promenljivih - azurirati: nVars = Tab.currentScope.getnVars();
+		nVars = Tab.currentScope.getnVars();
 		Tab.chainLocalSymbols(prog.getProgName().obj);
 		Tab.closeScope();
 		currentLevel--;
@@ -213,6 +215,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		report_info("INFO:  Definisan enum tip " + this.enumNode.getName(), EnumDeclarations);
 		Tab.closeScope();
 		currentLevel--;
+		this.enumNode = null;
 	}
 	
 	/*
@@ -286,27 +289,55 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	
 	
+	
 	/*
 	 * METHOD DECLARATION ***************************************************************
 	 */
 
-	/*
-    public void visit(MethodDeclTypeName methodTypeName){
-    	//currentMethod = Tab.insert(Obj.Meth, methodTypeName.getMethodName(), methodTypeName.getTypeIdent().);
+	
+    public void visit(MethodDeclTypeName methodTypeName) {
+    	if (Tab.find(methodTypeName.getMethodName()) != Tab.noObj) {
+			report_error("ERROR: Metoda " + methodTypeName.getMethodName() + " je vec deklarisana!", null);
+			return;    	
+		}
+    	
+    	this.currentMethod = Tab.insert(Obj.Meth, methodTypeName.getMethodName(), currentType);
     	methodTypeName.obj = currentMethod;
+    	if (methodTypeName.getTypeIdent() instanceof VoidIdentificator){
+    		this.returnFound = true;
+    	} else {
+        	this.returnFound = false;
+    	}
+    	
     	Tab.openScope();
-		report_info("Obradjuje se funkcija " + methodTypeName.getMethodName(), methodTypeName);
+    	this.currentLevel++;
+
+    	// TODO: Povratna vrednost funkcije???
+		//report_info("Obradjuje se funkcija " + methodTypeName.getMethodName(), methodTypeName);
     }
  
-    public void visit(MethodDeclList methodDecl){
- //   	if(!returnFound && currentMethod.getType() != Tab.noType){
-//			report_error("Semanticka greska na liniji " + methodDecl.getLine() + ": funkcija " + currentMethod.getName() + " nema return iskaz!", null);
-  //  	}
-    	Tab.chainLocalSymbols(currentMethod);
-    	Tab.closeScope();
-    	
-  //  	returnFound = false;
-    	currentMethod = null;
    
-	*/
+    public void visit(MethodDeclarations methodDecl){
+    	if(!this.returnFound && currentMethod.getType() != Tab.noType){
+			report_error("ERROR: Funkcija " + currentMethod.getName() + " nema return iskaz!", null);
+    	}
+    	Tab.chainLocalSymbols(this.currentMethod);
+    	
+    	report_info("INFO:  Deklarisan metod "+ currentMethod.getName(), methodDecl);
+    	
+    	Tab.closeScope();    	
+    	this.returnFound = false;
+    	this.currentMethod = null;
+    	this.currentLevel--;
+    }
+    
+    public void visit(ReturnStmt returnExpr){
+ //   	this.returnFound = true;
+    	Struct currMethType = currentMethod.getType();
+    	// TODO:
+//    	if(!currMethType.compatibleWith(returnExpr.getExpr().struct)){
+//			report_error("Greska na liniji " + returnExpr.getLine() + " : " + "tip izraza u return naredbi ne slaze se sa tipom povratne vrednosti funkcije " + currentMethod.getName(), null);
+//    	}
+    }
+    
 }
