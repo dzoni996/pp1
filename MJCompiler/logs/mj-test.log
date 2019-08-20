@@ -1,81 +1,92 @@
-INFO  22:42:59,471 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
-INFO  22:42:59,674 - #2 program
-INFO  22:42:59,674 - #45 SemanticTest
-INFO  22:42:59,674 - #23 const
-INFO  22:42:59,674 - #45 int
-INFO  22:42:59,674 - #45 x
-INFO  22:42:59,674 - #12 =
-INFO  22:42:59,674 - #44 5
-INFO  22:42:59,674 - #8 ,
-INFO  22:42:59,674 - #45 f
-INFO  22:42:59,674 - #12 =
-INFO  22:42:59,674 - #44 6
-INFO  22:42:59,674 - #5 ;
-INFO  22:42:59,674 - #23 const
-INFO  22:42:59,689 - #45 bool
-INFO  22:42:59,689 - #45 b
-INFO  22:42:59,689 - #12 =
-INFO  22:42:59,689 - #28 false
-INFO  22:42:59,689 - #5 ;
-INFO  22:42:59,689 - #45 int
-INFO  22:42:59,689 - #45 x1
-INFO  22:42:59,689 - #8 ,
-INFO  22:42:59,689 - #45 x2
-INFO  22:42:59,689 - #26 [
-INFO  22:42:59,689 - #36 ]
-INFO  22:42:59,689 - #5 ;
-INFO  22:42:59,689 - #31 enum
-INFO  22:42:59,689 - #45 nums
-INFO  22:42:59,689 - #3 {
-INFO  22:42:59,689 - #45 ONE
-INFO  22:42:59,689 - #8 ,
-INFO  22:42:59,689 - #45 TWO
-INFO  22:42:59,689 - #12 =
-INFO  22:42:59,689 - #44 5
-INFO  22:42:59,689 - #8 ,
-INFO  22:42:59,689 - #45 THREE
-INFO  22:42:59,689 - #4 }
-INFO  22:42:59,689 - #16 class
-INFO  22:42:59,689 - #45 A
-INFO  22:42:59,689 - #3 {
-INFO  22:42:59,689 - #4 }
-INFO  22:42:59,689 - #14 interface
-INFO  22:42:59,689 - #45 I
-INFO  22:42:59,689 - #3 {
-INFO  22:42:59,689 - #45 int
-INFO  22:42:59,689 - #45 x
-INFO  22:42:59,689 - #6 (
-INFO  22:42:59,689 - #7 )
-INFO  22:42:59,689 - #5 ;
-INFO  22:42:59,705 - #4 }
-INFO  22:42:59,705 - #3 {
-INFO  22:42:59,705 - #45 int
-INFO  22:42:59,705 - #45 metod1
-INFO  22:42:59,705 - #6 (
-INFO  22:42:59,705 - #7 )
-INFO  22:42:59,705 - #3 {
-INFO  22:42:59,705 - #10 return
-INFO  22:42:59,705 - #44 3
-INFO  22:42:59,705 - #5 ;
-INFO  22:42:59,705 - #4 }
-INFO  22:42:59,705 - #13 void
-INFO  22:42:59,705 - #45 metod2
-INFO  22:42:59,705 - #6 (
-INFO  22:42:59,705 - #45 int
-INFO  22:42:59,705 - #45 x
-INFO  22:42:59,705 - #26 [
-INFO  22:42:59,705 - #36 ]
-INFO  22:42:59,705 - #8 ,
-INFO  22:42:59,705 - #45 char
-INFO  22:42:59,705 - #45 y
-INFO  22:42:59,705 - #8 ,
-INFO  22:42:59,705 - #45 bool
-INFO  22:42:59,705 - #45 z
-INFO  22:42:59,705 - #7 )
-INFO  22:42:59,705 - #3 {
-INFO  22:42:59,705 - #4 }
-INFO  22:42:59,705 - #4 }
-INFO  22:42:59,736 - Program(
+INFO  22:54:34,686 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  22:54:34,779 - #2 program
+INFO  22:54:34,779 - #45 SemanticTest
+INFO  22:54:34,779 - #22 const
+INFO  22:54:34,779 - #45 int
+INFO  22:54:34,779 - #45 x
+INFO  22:54:34,779 - #12 =
+INFO  22:54:34,779 - #42 5
+INFO  22:54:34,795 - #8 ,
+INFO  22:54:34,795 - #45 init
+INFO  22:54:34,795 - #12 =
+INFO  22:54:34,795 - #42 0
+INFO  22:54:34,795 - #5 ;
+INFO  22:54:34,795 - #22 const
+INFO  22:54:34,795 - #45 bool
+INFO  22:54:34,795 - #45 b
+INFO  22:54:34,795 - #12 =
+INFO  22:54:34,795 - #44 false
+INFO  22:54:34,795 - #5 ;
+INFO  22:54:34,795 - #45 int
+INFO  22:54:34,795 - #45 x1
+INFO  22:54:34,795 - #8 ,
+INFO  22:54:34,795 - #45 x2
+INFO  22:54:34,795 - #25 [
+INFO  22:54:34,795 - #34 ]
+INFO  22:54:34,795 - #5 ;
+INFO  22:54:34,795 - #29 enum
+INFO  22:54:34,795 - #45 nums
+INFO  22:54:34,795 - #3 {
+INFO  22:54:34,795 - #45 ONE
+INFO  22:54:34,795 - #8 ,
+INFO  22:54:34,795 - #45 TWO
+INFO  22:54:34,795 - #12 =
+INFO  22:54:34,795 - #42 5
+INFO  22:54:34,795 - #8 ,
+INFO  22:54:34,795 - #45 THREE
+INFO  22:54:34,795 - #4 }
+INFO  22:54:34,795 - #16 class
+INFO  22:54:34,795 - #45 A
+INFO  22:54:34,795 - #3 {
+INFO  22:54:34,795 - #45 int
+INFO  22:54:34,795 - #45 fld1
+INFO  22:54:34,795 - #5 ;
+INFO  22:54:34,795 - #13 void
+ERROR 22:54:34,795 - 
+Sintaksna greska na liniji 13
+INFO  22:54:34,795 - #45 meth1
+INFO  22:54:34,795 - #6 (
+INFO  22:54:34,795 - #7 )
+INFO  22:54:34,795 - #5 ;
+INFO  22:54:34,795 - #4 }
+INFO  22:54:34,795 - #14 interface
+INFO  22:54:34,795 - #45 I
+ERROR 22:54:34,795 - Greska pri definiciji globalne promenljive. Izvrsen oporavak u liniji 12
+INFO  22:54:34,795 - #3 {
+INFO  22:54:34,795 - #45 int
+INFO  22:54:34,795 - #45 x
+INFO  22:54:34,795 - #6 (
+INFO  22:54:34,810 - #7 )
+INFO  22:54:34,810 - #5 ;
+INFO  22:54:34,810 - #13 void
+INFO  22:54:34,810 - #45 p
+INFO  22:54:34,810 - #6 (
+INFO  22:54:34,810 - #7 )
+INFO  22:54:34,810 - #5 ;
+INFO  22:54:34,810 - #4 }
+INFO  22:54:34,810 - #3 {
+INFO  22:54:34,810 - #45 int
+INFO  22:54:34,810 - #45 main
+INFO  22:54:34,810 - #6 (
+INFO  22:54:34,810 - #7 )
+INFO  22:54:34,810 - #3 {
+INFO  22:54:34,810 - #45 x1
+INFO  22:54:34,810 - #12 =
+INFO  22:54:34,810 - #45 nums
+INFO  22:54:34,810 - #15 .
+INFO  22:54:34,810 - #45 TWO
+INFO  22:54:34,810 - #5 ;
+INFO  22:54:34,810 - #9 print
+INFO  22:54:34,810 - #6 (
+INFO  22:54:34,810 - #45 x1
+INFO  22:54:34,810 - #7 )
+INFO  22:54:34,810 - #5 ;
+INFO  22:54:34,810 - #10 return
+INFO  22:54:34,810 - #42 0
+INFO  22:54:34,810 - #5 ;
+INFO  22:54:34,810 - #4 }
+INFO  22:54:34,810 - #4 }
+INFO  22:54:34,826 - Program(
   ProgName(
    SemanticTest
   ) [ProgName]
@@ -102,9 +113,9 @@ INFO  22:42:59,736 - Program(
                       ) [ConstItem]
                     ) [SingleConst]
                     ConstItem(
-                     f
+                     init
                       InitializerNum(
-                       6
+                       0
                       ) [InitializerNum]
                     ) [ConstItem]
                   ) [MultipleConsts]
@@ -120,6 +131,7 @@ INFO  22:42:59,736 - Program(
                   ConstItem(
                    b
                     InitializerBool(
+                     false
                     ) [InitializerBool]
                   ) [ConstItem]
                 ) [SingleConst]
@@ -181,8 +193,19 @@ INFO  22:42:59,736 - Program(
           ) [NoSuperClass]
           NoImplInteraces(
           ) [NoImplInteraces]
-          NoOptVars(
-          ) [NoOptVars]
+          OptVars(
+            NoOptVars(
+            ) [NoOptVars]
+            VarDeclarations(
+              Type(
+               int
+              ) [Type]
+              SingleVar(
+                VarDefError(
+                ) [VarDefError]
+              ) [SingleVar]
+            ) [VarDeclarations]
+          ) [OptVars]
           NoClassMethodDecl(
           ) [NoClassMethodDecl]
         ) [ClassDeclaration]
@@ -194,120 +217,146 @@ INFO  22:42:59,736 - Program(
          I
         ) [InterName]
         OptInterMethodDeclList(
-          SingleInterfaceMethodDeclaration(
+          InterfaceMethodDeclarations(
+            SingleInterfaceMethodDeclaration(
+              InterfaceMethodDeclaration(
+                TypeIdentificator(
+                  Type(
+                   int
+                  ) [Type]
+                ) [TypeIdentificator]
+               x
+                NoOptionalFormPars(
+                ) [NoOptionalFormPars]
+              ) [InterfaceMethodDeclaration]
+            ) [SingleInterfaceMethodDeclaration]
             InterfaceMethodDeclaration(
-              TypeIdentificator(
-                Type(
-                 int
-                ) [Type]
-              ) [TypeIdentificator]
-             x
+              VoidIdentificator(
+              ) [VoidIdentificator]
+             p
               NoOptionalFormPars(
               ) [NoOptionalFormPars]
             ) [InterfaceMethodDeclaration]
-          ) [SingleInterfaceMethodDeclaration]
+          ) [InterfaceMethodDeclarations]
         ) [OptInterMethodDeclList]
       ) [InterfaceDeclarations]
     ) [InterfaceDeclaration]
   ) [VarDeclLists]
   OptMethods(
-    OptMethods(
-      NoOptMethods(
-      ) [NoOptMethods]
-      MethodDeclarations(
-        MethodDeclTypeName(
-          TypeIdentificator(
-            Type(
-             int
-            ) [Type]
-          ) [TypeIdentificator]
-         metod1
-        ) [MethodDeclTypeName]
-        NoOptionalFormPars(
-        ) [NoOptionalFormPars]
-        NoOptVars(
-        ) [NoOptVars]
-        OptionalStmt(
-          NoOptionalStmt(
-          ) [NoOptionalStmt]
-          ReturnStmt(
-            OptRetExprDerived1(
-              Expression(
-                Negative(
-                ) [Negative]
-                Terms(
-                  NumFactor(
-                   3
-                  ) [NumFactor]
-                  NoMulFacts(
-                  ) [NoMulFacts]
-                ) [Terms]
-                NoAddTerms(
-                ) [NoAddTerms]
-              ) [Expression]
-            ) [OptRetExprDerived1]
-          ) [ReturnStmt]
-        ) [OptionalStmt]
-      ) [MethodDeclarations]
-    ) [OptMethods]
+    NoOptMethods(
+    ) [NoOptMethods]
     MethodDeclarations(
       MethodDeclTypeName(
-        VoidIdentificator(
-        ) [VoidIdentificator]
-       metod2
+        TypeIdentificator(
+          Type(
+           int
+          ) [Type]
+        ) [TypeIdentificator]
+       main
       ) [MethodDeclTypeName]
-      OptionalFormPars(
-        MultipleFormPars(
-          MultipleFormPars(
-            SingleFormPars(
-              FormParItem(
-                Type(
-                 int
-                ) [Type]
-               x
-                ArrayVar(
-                ) [ArrayVar]
-              ) [FormParItem]
-            ) [SingleFormPars]
-            FormParItem(
-              Type(
-               char
-              ) [Type]
-             y
-              NoArrayVar(
-              ) [NoArrayVar]
-            ) [FormParItem]
-          ) [MultipleFormPars]
-          FormParItem(
-            Type(
-             bool
-            ) [Type]
-           z
-            NoArrayVar(
-            ) [NoArrayVar]
-          ) [FormParItem]
-        ) [MultipleFormPars]
-      ) [OptionalFormPars]
+      NoOptionalFormPars(
+      ) [NoOptionalFormPars]
       NoOptVars(
       ) [NoOptVars]
-      NoOptionalStmt(
-      ) [NoOptionalStmt]
+      OptionalStmt(
+        OptionalStmt(
+          OptionalStmt(
+            NoOptionalStmt(
+            ) [NoOptionalStmt]
+            DesignatorStmt(
+              DesignStmt(
+                Design(
+                 x1
+                  NoDesignator(
+                  ) [NoDesignator]
+                ) [Design]
+                AssignOper(
+                  AssignOperation(
+                  ) [AssignOperation]
+                  Expression(
+                    Positive(
+                    ) [Positive]
+                    Terms(
+                      DesignFactor(
+                        Design(
+                         nums
+                          OptDesignator(
+                            NoDesignator(
+                            ) [NoDesignator]
+                            DesignField(
+                             TWO
+                            ) [DesignField]
+                          ) [OptDesignator]
+                        ) [Design]
+                        NoMethodCall(
+                        ) [NoMethodCall]
+                      ) [DesignFactor]
+                      NoMulFacts(
+                      ) [NoMulFacts]
+                    ) [Terms]
+                    NoAddTerms(
+                    ) [NoAddTerms]
+                  ) [Expression]
+                ) [AssignOper]
+              ) [DesignStmt]
+            ) [DesignatorStmt]
+          ) [OptionalStmt]
+          PrintStmt(
+            Expression(
+              Positive(
+              ) [Positive]
+              Terms(
+                DesignFactor(
+                  Design(
+                   x1
+                    NoDesignator(
+                    ) [NoDesignator]
+                  ) [Design]
+                  NoMethodCall(
+                  ) [NoMethodCall]
+                ) [DesignFactor]
+                NoMulFacts(
+                ) [NoMulFacts]
+              ) [Terms]
+              NoAddTerms(
+              ) [NoAddTerms]
+            ) [Expression]
+            OptNumConstDerived2(
+            ) [OptNumConstDerived2]
+          ) [PrintStmt]
+        ) [OptionalStmt]
+        ReturnStmt(
+          OptRetExprDerived1(
+            Expression(
+              Positive(
+              ) [Positive]
+              Terms(
+                NumFactor(
+                 0
+                ) [NumFactor]
+                NoMulFacts(
+                ) [NoMulFacts]
+              ) [Terms]
+              NoAddTerms(
+              ) [NoAddTerms]
+            ) [Expression]
+          ) [OptRetExprDerived1]
+        ) [ReturnStmt]
+      ) [OptionalStmt]
     ) [MethodDeclarations]
   ) [OptMethods]
 ) [Program]
-INFO  22:42:59,736 - ===================================
-INFO  22:42:59,736 - INFO:  Pocetak programa SemanticTest na liniji 4
-INFO  22:42:59,736 - INFO:  Deklarisana konstanta x na liniji 6
-INFO  22:42:59,736 - INFO:  Deklarisana konstanta f na liniji 6
-INFO  22:42:59,736 - INFO:  Deklarisana konstanta b na liniji 7
-INFO  22:42:59,736 - INFO:  Deklarisana promenljiva 8 na liniji 8
-INFO  22:42:59,736 - INFO:  Deklarisan niz 8 na liniji 8
-INFO  22:42:59,736 - INFO:  Definisan enum tip nums na liniji 10
-INFO  22:42:59,736 - INFO:  Definisana klasa A na liniji 12
-INFO  22:43:02,782 - INFO:  Definisan interfejs I na liniji 13
-INFO  22:43:02,795 - INFO:  Deklarisan metod metod1 na liniji 18
-INFO  22:43:02,795 - INFO:  Deklarisan formalni parametar x na liniji 23
-INFO  22:43:02,795 - INFO:  Deklarisan formalni parametar y na liniji 23
-INFO  22:43:02,795 - INFO:  Deklarisan formalni parametar z na liniji 23
-INFO  22:43:02,795 - INFO:  Deklarisan metod metod2 na liniji 23
-INFO  22:43:02,795 - ===================================
+INFO  22:54:34,826 - ===================================
+INFO  22:54:34,826 - INFO:  Pocetak programa SemanticTest na liniji 4
+INFO  22:54:34,826 - INFO:  Deklarisana konstanta x na liniji 6
+INFO  22:54:34,826 - INFO:  Deklarisana konstanta init na liniji 6
+INFO  22:54:34,826 - INFO:  Deklarisana konstanta b na liniji 7
+INFO  22:54:34,826 - INFO:  Deklarisana globalna promenljiva x1 na liniji 8
+INFO  22:54:34,826 - INFO:  Deklarisan niz x2 na liniji 8
+INFO  22:54:34,826 - INFO:  Definisan enum tip nums na liniji 9
+INFO  22:54:34,826 - INFO:  Definisana klasa A na liniji 11
+INFO  22:54:34,826 - INFO:  Deklarisan metod x u interfejsu na liniji 17
+INFO  22:54:34,826 - INFO:  Deklarisan metod p u interfejsu na liniji 18
+INFO  22:54:34,826 - INFO:  Definisan interfejs I na liniji 16
+INFO  22:54:34,826 - INFO:  Deklarisan metod main na liniji 22
+INFO  22:54:34,826 - ===================================

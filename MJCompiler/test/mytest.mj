@@ -3,24 +3,26 @@
 
 program SemanticTest
 
-const int  x = 5, f = 6;
+const int  x = 5, init = 0;
 const bool b = false;
 int x1, x2[];
-
 enum nums {ONE, TWO = 5, THREE}
 
-class A {}
+class A {
+	int fld1;
+	void meth1();
+}
+
 interface I {
 	int x();
 	void p();
 }
 
 {
-	int metod1 () {
-		x = 1 + 5;
-		return 3;
+	int main(){
+		
+		x1 = nums.TWO;
+		print(x1);
+		return 0;
 	}
-	
-	void metod2 (int x[], char y, bool z) {}
-
 }

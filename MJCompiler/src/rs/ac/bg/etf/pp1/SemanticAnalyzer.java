@@ -22,6 +22,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	protected Obj currentMethod = null;
 	protected boolean returnFound = false;
 	protected Struct currentFactor = null;
+	protected Obj currentDesignator = null;
 	
 	Logger log = Logger.getLogger(getClass());
 	
@@ -451,7 +452,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	Struct str1 = expr.getTerm().struct;
     	Struct str2 = expr.getOptAddTerms().struct;
     	if (expr.getOptAddTerms() instanceof WithAddTerms)
-    		if (!str1.compatibleWith(str2) || (expr.getTerm().struct != intType)) {
+    		if (str1 != intType || str2 != intType) {
     			report_error("ERROR: Odgovarajuci tipovi kod sabiranja moraju biti int", expr);
     			return;
     	}
@@ -472,11 +473,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     public void visit(Terms term) {
 //    	if (term.getFactor().struct != intType) {
 //			report_error("ERROR: Odgovarajuci tip mora biti int", term);
+//			term.struct = Tab.noType;
 //			return;
 //    	}
     	if (term.getOptMulTerms() instanceof WithMulFacts)
     		if (term.getOptMulTerms().struct != intType) {
     			report_error("ERROR: Odgovarajuci tipovi kod mnozenja moraju biti int", term);
+    			term.struct = Tab.noType;
     			return;
     	}
     	
@@ -493,8 +496,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
      */
     
 	@Override
-	public void visit(DesignFactor DesignFactor) {
+	public void visit(DesignFactor design) {
 		// TODO: via DesignFactor.getDesignator !!!
+		
+		if (design.getOptMethodCall() instanceof NoMethodCall) {
+			 // method calls
+		} else {
+			// no method call
+		}
 	}
     
 	@Override
@@ -522,6 +531,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(NewArrFactor newFactor) {
+		
 		if (newFactor.getExpr().struct != intType) {
 			report_error("ERROR: Odgovarajuci tip velicine niza mora biti int ", newFactor);
 			return;
@@ -531,6 +541,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	@Override
 	public void visit(NewFactor newFactor) {
+		
 		if (newFactor.getType().struct.getKind() != Struct.Class || 
 			Tab.find(newFactor.getType().getTypeName()) == Tab.noObj) {
 				report_error("ERROR: Nije uspelo alociranje pokazivaca na tip "+newFactor.getType().getTypeName(), newFactor);
@@ -538,7 +549,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			}
 			
 		newFactor.struct = newFactor.getType().struct;
-		// TODO: or nullType???
 			
 	}
     
