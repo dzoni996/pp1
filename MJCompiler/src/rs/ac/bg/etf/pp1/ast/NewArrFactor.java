@@ -1,28 +1,28 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2019 23:12:6
+// 20/7/2019 2:50:17
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class AddSideEff extends SideEffect {
+public class NewArrFactor extends Factor {
 
-    private Assignop Assignop;
+    private Type Type;
     private Expr Expr;
 
-    public AddSideEff (Assignop Assignop, Expr Expr) {
-        this.Assignop=Assignop;
-        if(Assignop!=null) Assignop.setParent(this);
+    public NewArrFactor (Type Type, Expr Expr) {
+        this.Type=Type;
+        if(Type!=null) Type.setParent(this);
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
     }
 
-    public Assignop getAssignop() {
-        return Assignop;
+    public Type getType() {
+        return Type;
     }
 
-    public void setAssignop(Assignop Assignop) {
-        this.Assignop=Assignop;
+    public void setType(Type Type) {
+        this.Type=Type;
     }
 
     public Expr getExpr() {
@@ -38,18 +38,18 @@ public class AddSideEff extends SideEffect {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Assignop!=null) Assignop.accept(visitor);
+        if(Type!=null) Type.accept(visitor);
         if(Expr!=null) Expr.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Assignop!=null) Assignop.traverseTopDown(visitor);
+        if(Type!=null) Type.traverseTopDown(visitor);
         if(Expr!=null) Expr.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Assignop!=null) Assignop.traverseBottomUp(visitor);
+        if(Type!=null) Type.traverseBottomUp(visitor);
         if(Expr!=null) Expr.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -57,10 +57,10 @@ public class AddSideEff extends SideEffect {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("AddSideEff(\n");
+        buffer.append("NewArrFactor(\n");
 
-        if(Assignop!=null)
-            buffer.append(Assignop.toString("  "+tab));
+        if(Type!=null)
+            buffer.append(Type.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
@@ -72,7 +72,7 @@ public class AddSideEff extends SideEffect {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [AddSideEff]");
+        buffer.append(") [NewArrFactor]");
         return buffer.toString();
     }
 }

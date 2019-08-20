@@ -12,6 +12,7 @@ enum nums {ONE, TWO = 5, THREE}
 class A {}
 interface I {
 	int x();
+	void p();
 }
 
 {

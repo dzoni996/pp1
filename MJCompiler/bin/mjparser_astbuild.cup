@@ -102,8 +102,6 @@ nonterminal SideEffect SideEffect ;
 nonterminal OptActPars OptActPars;
 nonterminal ActPars ActPars;
 nonterminal OptMinus OptMinus;
-nonterminal OptAddTerms OptAddTerms;
-nonterminal OptMulTerms OptMulTerms;
 nonterminal OptMethodCall OptMethodCall;
 nonterminal OptExpr OptExpr ;
 nonterminal Mulop Mulop;
@@ -122,16 +120,19 @@ nonterminal OptCond OptCond;
 nonterminal IfCondition IfCondition ;
 
 nonterminal ConstItem ConstItem;
+nonterminal EnumDecl EnumDecl;
+nonterminal EnumDeclList EnumDeclList;
+nonterminal EnumItem EnumItem;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumDecl, EnumDeclList, EnumItem, EnumName ;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj InterfaceName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName, FormParsItem;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms;
 
 precedence left ELSE;
 
@@ -388,9 +389,9 @@ OptCond ::= Condition:C1 {: RESULT=new OptCondDerived1(C1); RESULT.setLine(C1lef
 
 DesignatorStatement ::= (DesignStmt) Designator:D1 SideEffect:S2 {: RESULT=new DesignStmt(D1, S2); RESULT.setLine(D1left); :};
 
-SideEffect ::= (AddSideEff) Assignop:A1 Expr:E2 {: RESULT=new AddSideEff(A1, E2); RESULT.setLine(A1left); :}
+SideEffect ::= (AssignOper) Assignop:A1 Expr:E2 {: RESULT=new AssignOper(A1, E2); RESULT.setLine(A1left); :}
 			  |
-			  (ActParsSideEff) LPAREN OptActPars:O1 RPAREN {: RESULT=new ActParsSideEff(O1); RESULT.setLine(O1left); :}
+			  (ProcCall) LPAREN OptActPars:O1 RPAREN {: RESULT=new ProcCall(O1); RESULT.setLine(O1left); :}
 			  |
 			  (PlusPlusSideEff) PP {: RESULT=new PlusPlusSideEff(); :}
 			  |
@@ -428,12 +429,12 @@ DesignItem ::= (DesignField) DOT IDENT:I1 {: RESULT=new DesignField(I1); RESULT.
 			   ;
 
 
-Expr ::= (Expression) OptMinus:O1 Term:T2 OptAddTerms:O3 {: RESULT=new Expression(O1, T2, O3); RESULT.setLine(O1left); :}
+Expr ::= (Expression) OptMinus:O1 Term:term OptAddTerms:O2 {: RESULT=new Expression(O1, term, O2); RESULT.setLine(O1left); :}
 ;
 
-OptMinus ::= (Positive) MINUS {: RESULT=new Positive(); :}
+OptMinus ::= (Negative) MINUS {: RESULT=new Negative(); :}
 			 |
-			 (Negative) {: RESULT=new Negative(); :} /* epsilon */
+			 (Positive) {: RESULT=new Positive(); :} /* epsilon */
 			 ;
 
 OptAddTerms ::= (WithAddTerms) OptAddTerms:O1 Addop:A2 Term:T3 {: RESULT=new WithAddTerms(O1, A2, T3); RESULT.setLine(O1left); :}
@@ -457,7 +458,9 @@ Factor ::= (DesignFactor) Designator:D1 OptMethodCall:O2 {: RESULT=new DesignFac
 		   |
 		   (BoolFactor) BOOLCONST:B1 {: RESULT=new BoolFactor(B1); RESULT.setLine(B1left); :}
 		   |
-		   (NewFactor) NEW Type:T1 OptExpr:O2 {: RESULT=new NewFactor(T1, O2); RESULT.setLine(T1left); :}
+		   (NewFactor) NEW Type:T1 {: RESULT=new NewFactor(T1); RESULT.setLine(T1left); :}
+		   |
+		   (NewArrFactor) NEW Type:T1 LSQUARE Expr:E2 RSQUARE {: RESULT=new NewArrFactor(T1, E2); RESULT.setLine(T1left); :}
 		   |
 		   (ExprFactor) LPAREN Expr:E1 RPAREN {: RESULT=new ExprFactor(E1); RESULT.setLine(E1left); :}
 		   ;

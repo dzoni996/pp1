@@ -1,15 +1,15 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2019 23:12:6
+// 20/7/2019 2:50:17
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class ActParsSideEff extends SideEffect {
+public class ProcCall extends SideEffect {
 
     private OptActPars OptActPars;
 
-    public ActParsSideEff (OptActPars OptActPars) {
+    public ProcCall (OptActPars OptActPars) {
         this.OptActPars=OptActPars;
         if(OptActPars!=null) OptActPars.setParent(this);
     }
@@ -43,7 +43,7 @@ public class ActParsSideEff extends SideEffect {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("ActParsSideEff(\n");
+        buffer.append("ProcCall(\n");
 
         if(OptActPars!=null)
             buffer.append(OptActPars.toString("  "+tab));
@@ -52,7 +52,7 @@ public class ActParsSideEff extends SideEffect {
         buffer.append("\n");
 
         buffer.append(tab);
-        buffer.append(") [ActParsSideEff]");
+        buffer.append(") [ProcCall]");
         return buffer.toString();
     }
 }

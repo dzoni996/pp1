@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2019 23:12:6
+// 20/7/2019 2:50:18
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -37,9 +37,9 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(VarItem VarItem) { }
     public void visit(ConstDeclList ConstDeclList) { }
     public void visit(IfCondition IfCondition) { }
-    public void visit(OptMethodCall OptMethodCall) { }
     public void visit(DeclItem DeclItem) { }
     public void visit(OptArraySq OptArraySq) { }
+    public void visit(OptMethodCall OptMethodCall) { }
     public void visit(FormParsItem FormParsItem) { }
     public void visit(OptNumConst OptNumConst) { }
     public void visit(InterfaceList InterfaceList) { }
@@ -92,6 +92,7 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(NoMethodCall NoMethodCall) { visit(); }
     public void visit(WithMethodCall WithMethodCall) { visit(); }
     public void visit(ExprFactor ExprFactor) { visit(); }
+    public void visit(NewArrFactor NewArrFactor) { visit(); }
     public void visit(NewFactor NewFactor) { visit(); }
     public void visit(BoolFactor BoolFactor) { visit(); }
     public void visit(CharFactor CharFactor) { visit(); }
@@ -102,8 +103,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Terms Terms) { visit(); }
     public void visit(NoAddTerms NoAddTerms) { visit(); }
     public void visit(WithAddTerms WithAddTerms) { visit(); }
-    public void visit(Negative Negative) { visit(); }
     public void visit(Positive Positive) { visit(); }
+    public void visit(Negative Negative) { visit(); }
     public void visit(Expression Expression) { visit(); }
     public void visit(DesignArr DesignArr) { visit(); }
     public void visit(DesignField DesignField) { visit(); }
@@ -118,8 +119,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(AssignErr AssignErr) { visit(); }
     public void visit(MinusMinusSideEff MinusMinusSideEff) { visit(); }
     public void visit(PlusPlusSideEff PlusPlusSideEff) { visit(); }
-    public void visit(ActParsSideEff ActParsSideEff) { visit(); }
-    public void visit(AddSideEff AddSideEff) { visit(); }
+    public void visit(ProcCall ProcCall) { visit(); }
+    public void visit(AssignOper AssignOper) { visit(); }
     public void visit(DesignStmt DesignStmt) { visit(); }
     public void visit(OptCondDerived2 OptCondDerived2) { visit(); }
     public void visit(OptCondDerived1 OptCondDerived1) { visit(); }

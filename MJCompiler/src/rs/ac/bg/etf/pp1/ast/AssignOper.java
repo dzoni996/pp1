@@ -5,16 +5,24 @@
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class CondFactDerived1 extends CondFact {
+public class AssignOper extends SideEffect {
 
+    private Assignop Assignop;
     private Expr Expr;
-    private OptRelExpr OptRelExpr;
 
-    public CondFactDerived1 (Expr Expr, OptRelExpr OptRelExpr) {
+    public AssignOper (Assignop Assignop, Expr Expr) {
+        this.Assignop=Assignop;
+        if(Assignop!=null) Assignop.setParent(this);
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
-        this.OptRelExpr=OptRelExpr;
-        if(OptRelExpr!=null) OptRelExpr.setParent(this);
+    }
+
+    public Assignop getAssignop() {
+        return Assignop;
+    }
+
+    public void setAssignop(Assignop Assignop) {
+        this.Assignop=Assignop;
     }
 
     public Expr getExpr() {
@@ -25,39 +33,37 @@ public class CondFactDerived1 extends CondFact {
         this.Expr=Expr;
     }
 
-    public OptRelExpr getOptRelExpr() {
-        return OptRelExpr;
-    }
-
-    public void setOptRelExpr(OptRelExpr OptRelExpr) {
-        this.OptRelExpr=OptRelExpr;
-    }
-
     public void accept(Visitor visitor) {
         visitor.visit(this);
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(Assignop!=null) Assignop.accept(visitor);
         if(Expr!=null) Expr.accept(visitor);
-        if(OptRelExpr!=null) OptRelExpr.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(Assignop!=null) Assignop.traverseTopDown(visitor);
         if(Expr!=null) Expr.traverseTopDown(visitor);
-        if(OptRelExpr!=null) OptRelExpr.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(Assignop!=null) Assignop.traverseBottomUp(visitor);
         if(Expr!=null) Expr.traverseBottomUp(visitor);
-        if(OptRelExpr!=null) OptRelExpr.traverseBottomUp(visitor);
         accept(visitor);
     }
 
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("CondFactDerived1(\n");
+        buffer.append("AssignOper(\n");
+
+        if(Assignop!=null)
+            buffer.append(Assignop.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         if(Expr!=null)
             buffer.append(Expr.toString("  "+tab));
@@ -65,14 +71,8 @@ public class CondFactDerived1 extends CondFact {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(OptRelExpr!=null)
-            buffer.append(OptRelExpr.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
-
         buffer.append(tab);
-        buffer.append(") [CondFactDerived1]");
+        buffer.append(") [AssignOper]");
         return buffer.toString();
     }
 }

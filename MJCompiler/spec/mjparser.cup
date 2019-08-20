@@ -77,7 +77,7 @@ nonterminal ClassDecl, Extend, Implement, InterfaceList, OptVarDecl, OptMethodDe
 nonterminal InterfaceDecl, InterfaceMethodDeclList, OptInterfaceMethodDeclList, InterfaceMethodDecl, OptFormPars, TypeIdent ;
 nonterminal OptStmt, Statement, FormPars ;
 nonterminal DesignatorStatement, Designator, OptDesign, DesignItem, SideEffect ;
-nonterminal OptActPars, ActPars, OptMinus, OptAddTerms, OptMulTerms, OptMethodCall, OptExpr ;
+nonterminal OptActPars, ActPars, OptMinus, OptMethodCall, OptExpr ;
 nonterminal Mulop, Addop, Relop, Assignop ;
 nonterminal OptRetExpr, OptNumConst ;
 nonterminal Condition, CondTerm, CondFact, OptRelExpr, OptElse, OptDesignStmt, OptCond, IfCondition ;
@@ -93,7 +93,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj InterfaceName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName, FormParsItem;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms;
 
 precedence left ELSE;
 
@@ -350,9 +350,9 @@ OptCond ::= Condition
 
 DesignatorStatement ::= (DesignStmt) Designator SideEffect;
 
-SideEffect ::= (AddSideEff) Assignop Expr
+SideEffect ::= (AssignOper) Assignop Expr
 			  |
-			  (ActParsSideEff) LPAREN OptActPars RPAREN
+			  (ProcCall) LPAREN OptActPars RPAREN
 			  |
 			  (PlusPlusSideEff) PP
 			  |
@@ -390,12 +390,12 @@ DesignItem ::= (DesignField) DOT IDENT
 			   ;
 
 
-Expr ::= (Expression) OptMinus Term OptAddTerms
+Expr ::= (Expression) OptMinus Term:term OptAddTerms
 ;
 
-OptMinus ::= (Positive) MINUS
+OptMinus ::= (Negative) MINUS
 			 |
-			 (Negative) /* epsilon */
+			 (Positive) /* epsilon */
 			 ;
 
 OptAddTerms ::= (WithAddTerms) OptAddTerms Addop Term
@@ -419,7 +419,9 @@ Factor ::= (DesignFactor) Designator OptMethodCall
 		   |
 		   (BoolFactor) BOOLCONST
 		   |
-		   (NewFactor) NEW Type OptExpr
+		   (NewFactor) NEW Type
+		   |
+		   (NewArrFactor) NEW Type LSQUARE Expr RSQUARE
 		   |
 		   (ExprFactor) LPAREN Expr RPAREN
 		   ;

@@ -21,6 +21,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	protected Obj enumNode;
 	protected Obj currentMethod = null;
 	protected boolean returnFound = false;
+	protected Struct currentFactor = null;
 	
 	Logger log = Logger.getLogger(getClass());
 	
@@ -418,10 +419,100 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     /*
      * EXPR *****************************************************************************
      */
+    
+    
+    @Override
+    public void visit(Expression expr) {
+    	if ((expr.getOptMinus() instanceof Negative) && expr.getTerm().struct != intType) {
+    		report_error("ERROR: Odgovarajuci tip mora biti int ", expr);
+    		return;
+    	}
+    	
+    	if (expr.getTerm().struct.compatibleWith(expr.getOptAddTerms().struct) ||
+    			(expr.getTerm().struct != intType)) {
+    		report_error("ERROR: Odgovarajuci tipovi kod sabiranja moraju biti int ", expr);
+    		return;
+    	}
+    	
+    	expr.struct = expr.getTerm().struct;
+    }
+    
+    @Override
+    public void visit(WithAddTerms add) {
+    	add.struct = add.getTerm().struct;
+    }
+    
+    /*
+     * TERM *****************************************************************************
+     */
+    
+    @Override
+    public void visit(Terms term) {
+    	if (term.getFactor().struct != intType || term.getOptMulTerms().struct != intType) {
+    		report_error("ERROR: Odgovarajuci tipovi kod mnozenja moraju biti int ", term);
+    		return;
+    	}
+    	term.struct = term.getFactor().struct;
+    }
+    
+    @Override
+    public void visit(WithMulFacts mul) {
+    	mul.struct = mul.getFactor().struct; 
+    }
+    
+    /*
+     * FACTOR *************************************************************************** 
+     */
+    
+	@Override
+	public void visit(DesignFactor DesignFactor) {
+		// TODO: via DesignFactor.getDesignator !!!
+	}
+    
+	@Override
+	public void visit(ExprFactor expr) {
+		expr.struct = expr.getExpr().struct;
+	}
+	
+	@Override
+	public void visit(NumFactor num) {
+		num.struct = intType;
+		// TODO VALUE
+	}
+	
+	@Override
+	public void visit(CharFactor num) {
+		num.struct = charType;
+		// TODO VALUE
+	}
+	
+	@Override
+	public void visit(BoolFactor num) {
+		num.struct = boolType;
+		// TODO VALUE
+	}
 
-    
-    
-    
+	@Override
+	public void visit(NewArrFactor newFactor) {
+		if (newFactor.getExpr().struct != intType) {
+			report_error("ERROR: Odgovarajuci tip velicine niza mora biti int ", newFactor);
+			return;
+		}
+		newFactor.struct = new Struct(Struct.Array, newFactor.getType().struct);
+	}
+	
+	@Override
+	public void visit(NewFactor newFactor) {
+		if (newFactor.getType().struct.getKind() != Struct.Class || 
+			Tab.find(newFactor.getType().getTypeName()) == Tab.noObj) {
+				report_error("ERROR: Nije uspelo alociranje pokazivaca na tip "+newFactor.getType().getTypeName(), newFactor);
+				return;
+			}
+			
+		newFactor.struct = newFactor.getType().struct;
+		// TODO: or nullType???
+			
+	}
     
 	/*
 	 * DESIGNATOR ***********************************************************************

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 19/7/2019 23:12:6
+// 20/7/2019 2:50:18
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -37,9 +37,9 @@ public interface Visitor {
     public void visit(VarItem VarItem);
     public void visit(ConstDeclList ConstDeclList);
     public void visit(IfCondition IfCondition);
-    public void visit(OptMethodCall OptMethodCall);
     public void visit(DeclItem DeclItem);
     public void visit(OptArraySq OptArraySq);
+    public void visit(OptMethodCall OptMethodCall);
     public void visit(FormParsItem FormParsItem);
     public void visit(OptNumConst OptNumConst);
     public void visit(InterfaceList InterfaceList);
@@ -92,6 +92,7 @@ public interface Visitor {
     public void visit(NoMethodCall NoMethodCall);
     public void visit(WithMethodCall WithMethodCall);
     public void visit(ExprFactor ExprFactor);
+    public void visit(NewArrFactor NewArrFactor);
     public void visit(NewFactor NewFactor);
     public void visit(BoolFactor BoolFactor);
     public void visit(CharFactor CharFactor);
@@ -102,8 +103,8 @@ public interface Visitor {
     public void visit(Terms Terms);
     public void visit(NoAddTerms NoAddTerms);
     public void visit(WithAddTerms WithAddTerms);
-    public void visit(Negative Negative);
     public void visit(Positive Positive);
+    public void visit(Negative Negative);
     public void visit(Expression Expression);
     public void visit(DesignArr DesignArr);
     public void visit(DesignField DesignField);
@@ -118,8 +119,8 @@ public interface Visitor {
     public void visit(AssignErr AssignErr);
     public void visit(MinusMinusSideEff MinusMinusSideEff);
     public void visit(PlusPlusSideEff PlusPlusSideEff);
-    public void visit(ActParsSideEff ActParsSideEff);
-    public void visit(AddSideEff AddSideEff);
+    public void visit(ProcCall ProcCall);
+    public void visit(AssignOper AssignOper);
     public void visit(DesignStmt DesignStmt);
     public void visit(OptCondDerived2 OptCondDerived2);
     public void visit(OptCondDerived1 OptCondDerived1);
