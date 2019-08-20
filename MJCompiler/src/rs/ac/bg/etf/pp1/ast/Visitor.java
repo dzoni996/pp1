@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 20/7/2019 22:59:18
+// 20/7/2019 23:23:21
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,21 +8,21 @@ package rs.ac.bg.etf.pp1.ast;
 public interface Visitor { 
 
     public void visit(EnumDecl EnumDecl);
-    public void visit(Mulop Mulop);
     public void visit(OptVarDecl OptVarDecl);
+    public void visit(Mulop Mulop);
     public void visit(InterfaceMethodDeclList InterfaceMethodDeclList);
     public void visit(InterfaceDecl InterfaceDecl);
-    public void visit(Relop Relop);
     public void visit(OptStmt OptStmt);
+    public void visit(Relop Relop);
     public void visit(Initializer Initializer);
     public void visit(Assignop Assignop);
     public void visit(OptFormPars OptFormPars);
     public void visit(OptMinus OptMinus);
     public void visit(Addop Addop);
+    public void visit(DesigName DesigName);
     public void visit(EnumDeclList EnumDeclList);
     public void visit(Factor Factor);
     public void visit(CondTerm CondTerm);
-    public void visit(SideEffect SideEffect);
     public void visit(EnumName EnumName);
     public void visit(DeclList DeclList);
     public void visit(Designator Designator);
@@ -30,7 +30,6 @@ public interface Visitor {
     public void visit(OptMethodDecl OptMethodDecl);
     public void visit(Term Term);
     public void visit(OptRetExpr OptRetExpr);
-    public void visit(OptDesign OptDesign);
     public void visit(InterfaceName InterfaceName);
     public void visit(Condition Condition);
     public void visit(OptElse OptElse);
@@ -58,7 +57,6 @@ public interface Visitor {
     public void visit(VarDecl VarDecl);
     public void visit(ClassDecl ClassDecl);
     public void visit(ConstDecl ConstDecl);
-    public void visit(DesignItem DesignItem);
     public void visit(CondFact CondFact);
     public void visit(OptActPars OptActPars);
     public void visit(MethodDeclList MethodDeclList);
@@ -106,11 +104,10 @@ public interface Visitor {
     public void visit(Positive Positive);
     public void visit(Negative Negative);
     public void visit(Expression Expression);
+    public void visit(DesignatorName DesignatorName);
+    public void visit(DesignFld DesignFld);
     public void visit(DesignArr DesignArr);
-    public void visit(DesignField DesignField);
-    public void visit(NoDesignator NoDesignator);
-    public void visit(OptDesignator OptDesignator);
-    public void visit(Design Design);
+    public void visit(DesignVar DesignVar);
     public void visit(SingleActPars SingleActPars);
     public void visit(MultiActPars MultiActPars);
     public void visit(NoActPars NoActPars);
@@ -121,7 +118,6 @@ public interface Visitor {
     public void visit(PlusPlusSideEff PlusPlusSideEff);
     public void visit(ProcCall ProcCall);
     public void visit(AssignOper AssignOper);
-    public void visit(DesignStmt DesignStmt);
     public void visit(OptCondDerived2 OptCondDerived2);
     public void visit(OptCondDerived1 OptCondDerived1);
     public void visit(OptDesignStmtDerived2 OptDesignStmtDerived2);

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 20/7/2019 22:59:18
+// 20/7/2019 23:23:21
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,21 +8,21 @@ package rs.ac.bg.etf.pp1.ast;
 public abstract class VisitorAdaptor implements Visitor { 
 
     public void visit(EnumDecl EnumDecl) { }
-    public void visit(Mulop Mulop) { }
     public void visit(OptVarDecl OptVarDecl) { }
+    public void visit(Mulop Mulop) { }
     public void visit(InterfaceMethodDeclList InterfaceMethodDeclList) { }
     public void visit(InterfaceDecl InterfaceDecl) { }
-    public void visit(Relop Relop) { }
     public void visit(OptStmt OptStmt) { }
+    public void visit(Relop Relop) { }
     public void visit(Initializer Initializer) { }
     public void visit(Assignop Assignop) { }
     public void visit(OptFormPars OptFormPars) { }
     public void visit(OptMinus OptMinus) { }
     public void visit(Addop Addop) { }
+    public void visit(DesigName DesigName) { }
     public void visit(EnumDeclList EnumDeclList) { }
     public void visit(Factor Factor) { }
     public void visit(CondTerm CondTerm) { }
-    public void visit(SideEffect SideEffect) { }
     public void visit(EnumName EnumName) { }
     public void visit(DeclList DeclList) { }
     public void visit(Designator Designator) { }
@@ -30,7 +30,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(OptMethodDecl OptMethodDecl) { }
     public void visit(Term Term) { }
     public void visit(OptRetExpr OptRetExpr) { }
-    public void visit(OptDesign OptDesign) { }
     public void visit(InterfaceName InterfaceName) { }
     public void visit(Condition Condition) { }
     public void visit(OptElse OptElse) { }
@@ -58,7 +57,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(VarDecl VarDecl) { }
     public void visit(ClassDecl ClassDecl) { }
     public void visit(ConstDecl ConstDecl) { }
-    public void visit(DesignItem DesignItem) { }
     public void visit(CondFact CondFact) { }
     public void visit(OptActPars OptActPars) { }
     public void visit(MethodDeclList MethodDeclList) { }
@@ -106,11 +104,10 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Positive Positive) { visit(); }
     public void visit(Negative Negative) { visit(); }
     public void visit(Expression Expression) { visit(); }
+    public void visit(DesignatorName DesignatorName) { visit(); }
+    public void visit(DesignFld DesignFld) { visit(); }
     public void visit(DesignArr DesignArr) { visit(); }
-    public void visit(DesignField DesignField) { visit(); }
-    public void visit(NoDesignator NoDesignator) { visit(); }
-    public void visit(OptDesignator OptDesignator) { visit(); }
-    public void visit(Design Design) { visit(); }
+    public void visit(DesignVar DesignVar) { visit(); }
     public void visit(SingleActPars SingleActPars) { visit(); }
     public void visit(MultiActPars MultiActPars) { visit(); }
     public void visit(NoActPars NoActPars) { visit(); }
@@ -121,7 +118,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(PlusPlusSideEff PlusPlusSideEff) { visit(); }
     public void visit(ProcCall ProcCall) { visit(); }
     public void visit(AssignOper AssignOper) { visit(); }
-    public void visit(DesignStmt DesignStmt) { visit(); }
     public void visit(OptCondDerived2 OptCondDerived2) { visit(); }
     public void visit(OptCondDerived1 OptCondDerived1) { visit(); }
     public void visit(OptDesignStmtDerived2 OptDesignStmtDerived2) { visit(); }

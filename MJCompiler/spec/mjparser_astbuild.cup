@@ -94,11 +94,7 @@ nonterminal TypeIdent TypeIdent ;
 nonterminal OptStmt OptStmt;
 nonterminal Statement Statement;
 nonterminal FormPars FormPars ;
-nonterminal DesignatorStatement DesignatorStatement;
-nonterminal Designator Designator;
-nonterminal OptDesign OptDesign;
-nonterminal DesignItem DesignItem;
-nonterminal SideEffect SideEffect ;
+nonterminal DesignatorStatement DesignatorStatement ;
 nonterminal OptActPars OptActPars;
 nonterminal ActPars ActPars;
 nonterminal OptMinus OptMinus;
@@ -130,6 +126,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj InterfaceName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName, FormParsItem;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesigName ;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms;
@@ -387,22 +384,20 @@ OptCond ::= Condition:C1 {: RESULT=new OptCondDerived1(C1); RESULT.setLine(C1lef
 /*********************** Designators **************************
 **************************************************************/
 
-DesignatorStatement ::= (DesignStmt) Designator:D1 SideEffect:S2 {: RESULT=new DesignStmt(D1, S2); RESULT.setLine(D1left); :};
-
-SideEffect ::= (AssignOper) Assignop:A1 Expr:E2 {: RESULT=new AssignOper(A1, E2); RESULT.setLine(A1left); :}
-			  |
-			  (ProcCall) LPAREN OptActPars:O1 RPAREN {: RESULT=new ProcCall(O1); RESULT.setLine(O1left); :}
-			  |
-			  (PlusPlusSideEff) PP {: RESULT=new PlusPlusSideEff(); :}
-			  |
-			  (MinusMinusSideEff) MM {: RESULT=new MinusMinusSideEff(); :}
-			  |
-			  (AssignErr) Assignop:A1 error:e
-			  {: parser.report_error("Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new AssignErr(A1); RESULT.setLine(A1left); :}
-			  |
-			  (AssignError) error:e
-			  {: parser.report_error("Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new AssignError(); :}
-			  ;
+DesignatorStatement ::= (AssignOper) Designator:D1 Assignop:A2 Expr:E3 {: RESULT=new AssignOper(D1, A2, E3); RESULT.setLine(D1left); :}
+			  			|
+			  			(ProcCall) Designator:D1 LPAREN OptActPars:O2 RPAREN {: RESULT=new ProcCall(D1, O2); RESULT.setLine(D1left); :}
+			  			|
+			  			(PlusPlusSideEff) Designator:D1 PP {: RESULT=new PlusPlusSideEff(D1); RESULT.setLine(D1left); :}
+			  			|
+			  			(MinusMinusSideEff) Designator:D1 MM {: RESULT=new MinusMinusSideEff(D1); RESULT.setLine(D1left); :}
+			  			|
+			  			(AssignErr) Designator:D1 Assignop:A2 error:e
+			  			{: parser.report_error("Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new AssignErr(D1, A2); RESULT.setLine(D1left); :}
+			  			|
+			  			(AssignError) Designator:D1 error:e
+			  			{: parser.report_error("Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new AssignError(D1); RESULT.setLine(D1left); :}
+			  			;
 
 
 OptActPars ::= (WithActPars) ActPars:A1 {: RESULT=new WithActPars(A1); RESULT.setLine(A1left); :}
@@ -414,19 +409,18 @@ ActPars ::= (MultiActPars) ActPars:A1 COMMA Expr:E2 {: RESULT=new MultiActPars(A
 			|
 			(SingleActPars) Expr:E1 {: RESULT=new SingleActPars(E1); RESULT.setLine(E1left); :}
 			;
-		
-Designator ::= (Design) IDENT:I1 OptDesign:O2 {: RESULT=new Design(I1, O2); RESULT.setLine(I1left); :}
-;
 
-OptDesign ::= (OptDesignator) OptDesign:O1 DesignItem:D2 {: RESULT=new OptDesignator(O1, D2); RESULT.setLine(O1left); :}
-			  |
-			  (NoDesignator) {: RESULT=new NoDesignator(); :} /* epsilon */ 
-			  ; 
-
-DesignItem ::= (DesignField) DOT IDENT:I1 {: RESULT=new DesignField(I1); RESULT.setLine(I1left); :}
+	
+Designator ::= (DesignVar) DesigName:D1 {: RESULT=new DesignVar(D1); RESULT.setLine(D1left); :} 
 			   |
-			   (DesignArr) LSQUARE Expr:E1 RSQUARE {: RESULT=new DesignArr(E1); RESULT.setLine(E1left); :}
+			   (DesignArr) Designator:D1 LSQUARE Expr:E2 RSQUARE {: RESULT=new DesignArr(D1, E2); RESULT.setLine(D1left); :}
+			   |
+			   (DesignFld) Designator:D1 DOT IDENT:id {: RESULT=new DesignFld(D1, id); RESULT.setLine(D1left); :}
 			   ;
+
+
+DesigName ::= (DesignatorName) IDENT:id {: RESULT=new DesignatorName(id); RESULT.setLine(idleft); :}
+;
 
 
 Expr ::= (Expression) OptMinus:O1 Term:term OptAddTerms:O2 {: RESULT=new Expression(O1, term, O2); RESULT.setLine(O1left); :}

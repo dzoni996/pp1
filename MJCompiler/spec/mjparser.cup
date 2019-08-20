@@ -76,7 +76,7 @@ nonterminal VarDecl, VarDeclList, VarItem, OptArraySq ;
 nonterminal ClassDecl, Extend, Implement, InterfaceList, OptVarDecl, OptMethodDecl, ClassMethods ;
 nonterminal InterfaceDecl, InterfaceMethodDeclList, OptInterfaceMethodDeclList, InterfaceMethodDecl, OptFormPars, TypeIdent ;
 nonterminal OptStmt, Statement, FormPars ;
-nonterminal DesignatorStatement, Designator, OptDesign, DesignItem, SideEffect ;
+nonterminal DesignatorStatement ;
 nonterminal OptActPars, ActPars, OptMinus, OptMethodCall, OptExpr ;
 nonterminal Mulop, Addop, Relop, Assignop ;
 nonterminal OptRetExpr, OptNumConst ;
@@ -91,6 +91,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj InterfaceName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName, FormParsItem;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesigName ;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms;
@@ -348,22 +349,20 @@ OptCond ::= Condition
 /*********************** Designators **************************
 **************************************************************/
 
-DesignatorStatement ::= (DesignStmt) Designator SideEffect;
-
-SideEffect ::= (AssignOper) Assignop Expr
-			  |
-			  (ProcCall) LPAREN OptActPars RPAREN
-			  |
-			  (PlusPlusSideEff) PP
-			  |
-			  (MinusMinusSideEff) MM
-			  |
-			  (AssignErr) Assignop error:e
-			  {: parser.report_error("Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji " + eleft , null); :}
-			  |
-			  (AssignError) error:e
-			  {: parser.report_error("Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji " + eleft , null); :}
-			  ;
+DesignatorStatement ::= (AssignOper) Designator Assignop Expr
+			  			|
+			  			(ProcCall) Designator LPAREN OptActPars RPAREN
+			  			|
+			  			(PlusPlusSideEff) Designator PP
+			  			|
+			  			(MinusMinusSideEff) Designator MM
+			  			|
+			  			(AssignErr) Designator Assignop error:e
+			  			{: parser.report_error("Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji " + eleft , null); :}
+			  			|
+			  			(AssignError) Designator error:e
+			  			{: parser.report_error("Greska pri konstrukciji iskaza dodele. Uspesno izvrsen oporavak u liniji " + eleft , null); :}
+			  			;
 
 
 OptActPars ::= (WithActPars) ActPars
@@ -375,19 +374,18 @@ ActPars ::= (MultiActPars) ActPars COMMA Expr
 			|
 			(SingleActPars) Expr
 			;
-		
-Designator ::= (Design) IDENT OptDesign
-;
 
-OptDesign ::= (OptDesignator) OptDesign DesignItem
-			  |
-			  (NoDesignator) /* epsilon */ 
-			  ; 
-
-DesignItem ::= (DesignField) DOT IDENT
+	
+Designator ::= (DesignVar) DesigName 
 			   |
-			   (DesignArr) LSQUARE Expr RSQUARE
+			   (DesignArr) Designator LSQUARE Expr RSQUARE
+			   |
+			   (DesignFld) Designator DOT IDENT:id
 			   ;
+
+
+DesigName ::= (DesignatorName) IDENT:id
+;
 
 
 Expr ::= (Expression) OptMinus Term:term OptAddTerms

@@ -1,5 +1,7 @@
 package rs.ac.bg.etf.pp1;
 
+import java.util.Collection;
+
 import org.apache.log4j.Logger;
 
 import rs.ac.bg.etf.pp1.ast.*;
@@ -191,7 +193,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		else {
 			enumInit = -1;
-			enumNode = Tab.insert(Obj.Type, name.getName(), intType);
+			enumNode = Tab.insert(Obj.Type, name.getName(), new Struct(Struct.Enum, intType));
 			name.obj = enumNode;
 			this.enumNode = enumNode;
 			
@@ -556,9 +558,85 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	 * DESIGNATOR ***********************************************************************
 	 */ 
     
+	@Override
+	public void visit(DesignatorName name) {
+
+		Obj design = Tab.find(name.getId());
+		if (design == Tab.noObj) {
+			report_error("ERROR: Objekat "+name.getId()+ " nije definisan", name);
+			name.obj = Tab.noObj;
+			return;
+		}
+		
+		name.obj = design;
+		this.currentDesignator = design;
+		report_info("INFO:  Pristup simbolu "+name.getId(), name);
+	}
+
+	@Override
+	public void visit(DesignFld field) {
+		
+//		if (this.currentDesignator != field.getDesignator().obj) {
+//			report_error("ERROR: Ne podudaraju se pokazavaci na strukturu ", field);
+//			
+//		}
+		
+		if (this.currentDesignator.getType().getKind() != Struct.Enum &&
+				this.currentDesignator.getType().getKind() != Struct.Class &&
+					this.currentDesignator.getType().getKind() != Struct.Interface) {
+			report_error("ERROR: Objekat "+field.getId()+ " nije struktura", field);
+			field.obj = Tab.noObj;
+			return;
+		}
+		
+		if (this.currentDesignator.getType().getKind() == Struct.Enum) {
+			
+			Collection<Obj> coll = this.currentDesignator.getLocalSymbols();
+			boolean found = false;
+			Obj obj = null;
+			for (Obj node: coll) {
+				if (node.getName().equals(field.getId())){
+						found = true;
+						obj = node;
+						break;
+					}
+			}
+			if (!found) {
+				report_error("ERROR: Nije pronadjeno polje "+field.getId()+ 
+						" tipa "+currentDesignator.getName(), field);
+				this.currentDesignator = Tab.noObj;
+				field.obj = Tab.noObj;
+				return;
+			} else {
+				report_info("INFO:  Pristup konstanti "+currentDesignator.getName()+"."+field.getId(), field);
+				field.obj = obj;
+				this.currentDesignator = obj;
+			}
+			
+			
+		} else {
+			// TODO: class & interface fields
+		}
+		
+	}
+
+	@Override
+	public void visit(DesignArr DesignArr) {
+		// TODO Auto-generated method stub
+		super.visit(DesignArr);
+	}
+
+	@Override
+	public void visit(DesignVar DesignVar) {
+		// TODO Auto-generated method stub
+		super.visit(DesignVar);
+	}
     
-    
-    
+    @Override
+    public void visit(Designator designator) {
+    	// TODO: check!
+    	designator.obj = this.currentDesignator;
+    }
     
     
     
