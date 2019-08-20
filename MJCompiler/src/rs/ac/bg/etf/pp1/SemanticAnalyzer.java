@@ -59,6 +59,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		msg.append("		<--------------- ERROR ");
 		log.error(msg.toString());
 	}
+	
+	public void report_error(String message, int info) {
+		errorDetected = true;
+		StringBuilder msg = new StringBuilder(message);
+		int line = info;
+		if (line != 0)
+			msg.append (" na liniji ").append(line);
+		msg.append("		<--------------- ERROR ");
+		log.error(msg.toString());
+	}
 
 	public void report_info(String message, SyntaxNode info) {
 		StringBuilder msg = new StringBuilder(message); 
@@ -240,18 +250,28 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				Struct array = new Struct(Struct.Array, currentType);
 				// TODO: Tab.currentScope.addToLocals(new Obj(Obj.Type, "", array)); ???
 				varNode = Tab.insert(Obj.Var, var.getVarName(), array);
-				report_info("INFO:  Deklarisan niz " + var.getLine(), var);
+				report_info("INFO:  Deklarisan niz " + var.getVarName(), var);
 			}
 			else {
 				varNode = Tab.insert(Obj.Var, var.getVarName(), currentType);
-				report_info("INFO:  Deklarisana promenljiva " + var.getLine(), var);
+				report_info("INFO:  Deklarisana"+((this.currentLevel==0)?" globalna":"")+" promenljiva " + var.getVarName(), var);
 			}
 		}
 		else {
-			if (varNode.getLevel() == currentLevel) {
+			//if (varNode.getLevel() == currentLevel) {
+			if (Tab.currentScope.findSymbol(var.getVarName()) != null) {
 				report_error("ERROR: Postoji definisana promenljiva sa imenom " + var.getVarName(), var);
 			} else {
 				// TODO: redefinisanje simbola?
+				if (var.getOptArraySq() instanceof ArrayVar) {
+					Struct array = new Struct(Struct.Array, currentType);
+					varNode = Tab.insert(Obj.Var, var.getVarName(), array);
+					report_info("INFO:  Deklarisan niz " + var.getVarName(), var);
+				}
+				else {
+					varNode = Tab.insert(Obj.Var, var.getVarName(), currentType);
+					report_info("INFO:  Deklarisana"+((this.currentLevel==0)?"globalna ":"")+" promenljiva " + var.getVarName(), var);
+				}
 			}
 		}
 	}
@@ -333,7 +353,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	Obj node = Tab.insert(Obj.Meth, method.getName(), currentType);
     	this.currentMethod = node;
 
-    	
+    	report_info("INFO:  Deklarisan metod "+ method.getName() + " u interfejsu", method);
     	// TODO: FORM PARS???
 	}
     
@@ -428,10 +448,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     		return;
     	}
     	
-    	if (expr.getTerm().struct.compatibleWith(expr.getOptAddTerms().struct) ||
-    			(expr.getTerm().struct != intType)) {
-    		report_error("ERROR: Odgovarajuci tipovi kod sabiranja moraju biti int ", expr);
-    		return;
+    	Struct str1 = expr.getTerm().struct;
+    	Struct str2 = expr.getOptAddTerms().struct;
+    	if (expr.getOptAddTerms() instanceof WithAddTerms)
+    		if (!str1.compatibleWith(str2) || (expr.getTerm().struct != intType)) {
+    			report_error("ERROR: Odgovarajuci tipovi kod sabiranja moraju biti int", expr);
+    			return;
     	}
     	
     	expr.struct = expr.getTerm().struct;
@@ -448,10 +470,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     
     @Override
     public void visit(Terms term) {
-    	if (term.getFactor().struct != intType || term.getOptMulTerms().struct != intType) {
-    		report_error("ERROR: Odgovarajuci tipovi kod mnozenja moraju biti int ", term);
-    		return;
+//    	if (term.getFactor().struct != intType) {
+//			report_error("ERROR: Odgovarajuci tip mora biti int", term);
+//			return;
+//    	}
+    	if (term.getOptMulTerms() instanceof WithMulFacts)
+    		if (term.getOptMulTerms().struct != intType) {
+    			report_error("ERROR: Odgovarajuci tipovi kod mnozenja moraju biti int", term);
+    			return;
     	}
+    	
     	term.struct = term.getFactor().struct;
     }
     
