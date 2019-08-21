@@ -17,17 +17,22 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	/*
 	 * LOCAL VARS ***********************************************************************
 	 */
-	
-	protected boolean errorDetected = false;
-	protected static int nVars;
-	protected int currentLevel = -1;
-	protected Struct currentType = noType;
-	protected int enumInit = -1;
+
 	protected Obj enumNode;
 	protected Obj currentMethod = null;
-	protected boolean returnFound = false;
-	protected Struct currentFactor = null;
 	protected Obj currentDesignator = null;
+	protected Struct currentFactor = null;
+	protected Struct currentType = noType;
+	protected boolean returnFound = false;
+	protected boolean errorDetected = false;
+	protected boolean classDecl = false;
+	protected int currentLevel = -1;
+	protected int enumInit = -1;
+	protected int errorsNum = 0;
+	protected static int nVars;
+	
+    protected int numOfParams = 0;
+    protected List<Struct> params = new LinkedList<Struct>();
 	
 	Logger log = Logger.getLogger(getClass());
 	
@@ -64,6 +69,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			msg.append (" na liniji ").append(line);
 		msg.append("		<--------------- ERROR ");
 		log.error(msg.toString());
+		
+		errorsNum++;
 	}
 	
 	public void report_error(String message, int info) {
@@ -151,8 +158,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 					report_error("ERROR: Nekompatibilnost tipova ", con);
 				} else {
 					node = Tab.insert(Obj.Con, con.getId(), currentType);
-					node.setAdr(con.getInitializer().obj.getAdr()); // TODO: check!
-					node.setLevel(currentLevel); // TODO: check!
+					node.setAdr(con.getInitializer().obj.getAdr());
+					//node.setLevel(currentLevel); 
 					report_info("INFO:  Deklarisana konstanta " + con.getId(), con);
 				}
 			}
@@ -243,6 +250,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Tab.closeScope();
 		currentLevel--;
 		this.enumNode = null;
+		this.enumInit = -1;
 	}
 	
 	/*
@@ -252,15 +260,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(Var var) {
 		Obj varNode = Tab.find(var.getVarName());
+		int kind = (this.classDecl)? Obj.Fld : Obj.Var;
+		
 		if (varNode == Tab.noObj) {
 			if (var.getOptArraySq() instanceof ArrayVar) {
 				Struct array = new Struct(Struct.Array, currentType);
-				// TODO: Tab.currentScope.addToLocals(new Obj(Obj.Type, "", array)); ???
-				varNode = Tab.insert(Obj.Var, var.getVarName(), array);
+				varNode = Tab.insert(kind, var.getVarName(), array);
 				report_info("INFO:  Deklarisan niz " + var.getVarName(), var);
 			}
 			else {
-				varNode = Tab.insert(Obj.Var, var.getVarName(), currentType);
+				varNode = Tab.insert(kind, var.getVarName(), currentType);
 				report_info("INFO:  Deklarisana"+((this.currentLevel==0)?" globalna":"")+" promenljiva " + var.getVarName(), var);
 			}
 		}
@@ -269,14 +278,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			if (Tab.currentScope.findSymbol(var.getVarName()) != null) {
 				report_error("ERROR: Postoji definisana promenljiva sa imenom " + var.getVarName(), var);
 			} else {
-				// TODO: redefinisanje simbola?
+				// redefinisanje simbola?
 				if (var.getOptArraySq() instanceof ArrayVar) {
 					Struct array = new Struct(Struct.Array, currentType);
-					varNode = Tab.insert(Obj.Var, var.getVarName(), array);
+					varNode = Tab.insert(kind, var.getVarName(), array);
 					report_info("INFO:  Deklarisan niz " + var.getVarName(), var);
 				}
 				else {
-					varNode = Tab.insert(Obj.Var, var.getVarName(), currentType);
+					varNode = Tab.insert(kind, var.getVarName(), currentType);
 					report_info("INFO:  Deklarisana"+((this.currentLevel==0)?"globalna ":"")+" promenljiva " + var.getVarName(), var);
 				}
 			}
@@ -301,6 +310,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		Tab.openScope();
 		currentLevel++;
+		this.classDecl = true;
 		
 	}
 
@@ -311,6 +321,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		report_info("INFO:  Definisana klasa " +classtDeclaration.getClassName().obj.getName(), classtDeclaration);
 		Tab.closeScope();
 		currentLevel--;
+		this.classDecl = false;
 	}
 	
 	// 1. TODO: provera klase koja se implemetira:
@@ -358,9 +369,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
     	
     	Obj node = Tab.insert(Obj.Meth, method.getName(), currentType);
-    	this.currentMethod = node;
+    	//this.currentMethod = node;
 
     	report_info("INFO:  Deklarisan metod "+ method.getName() + " u interfejsu", method);
+    	
     	// TODO: FORM PARS???
 	}
     
@@ -387,7 +399,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	this.currentLevel++;
 
     	// TODO: Povratna vrednost funkcije???
-		//report_info("Obradjuje se funkcija " + methodTypeName.getMethodName(), methodTypeName);
+		report_info("INFO: Obradjuje se funkcija " + methodTypeName.getMethodName(), methodTypeName);
     }
  
     @Override
@@ -407,14 +419,36 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
     @Override
     public void visit(ReturnStmt returnExpr){
+    	//report_info("RETURN", returnExpr);
+    	
+    	if (this.currentMethod == null) {
+			report_error("ERROR: Return naredbna se nalazi izvan tela funkcije/procedure " + currentMethod.getName(), returnExpr);
+			return;
+    	}
+    	
     	this.returnFound = true;
     	Struct currMethType = currentMethod.getType();
-    	// TODO:
-//    	if(!currMethType.compatibleWith(returnExpr.getExpr().struct)){
-//			report_error("Greska na liniji " + returnExpr.getLine() + " : " + "tip izraza u return naredbi ne slaze se sa tipom povratne vrednosti funkcije " + currentMethod.getName(), null);
-//    	}
+    	
+    	if (returnExpr.getOptRetExpr() instanceof RetExpr) {
+    		if(!currMethType.compatibleWith(returnExpr.getOptRetExpr().struct)) {
+    			report_error("ERROR: Tip izraza u return naredbi ne slaze se sa tipom povratne vrednosti funkcije " + currentMethod.getName(), returnExpr);
+    		}
+    	} else {
+    		if (currMethType == Tab.noType && returnExpr.getOptRetExpr() instanceof NoRet) {
+    			report_error("ERROR: Tip funkcije " + currentMethod.getName() + " je void", returnExpr);
+    		}
+    	}
     }
     
+    @Override
+    public void visit(RetExpr ret) {
+    	ret.struct = ret.getExpr().struct;
+    }
+    
+    @Override
+    public void visit(NoRet ret) {
+    	ret.struct = Tab.noType;
+    }
     /*
      * FORMAL PARS **********************************************************************
      */
@@ -502,9 +536,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
      * FACTOR *************************************************************************** 
      */
     
-    protected int numOfParams = 0;
-    protected List<Struct> params = new LinkedList<Struct>();
-    
+  
     @Override
     public void visit(SingleActPars par) {
     	numOfParams += 1;
@@ -677,6 +709,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			
 		} else {
 			
+			Collection<Obj> coll = this.currentDesignator.getType().getMembers();// this.currentDesignator.getLocalSymbols();
+			report_info("Pristup elementima klase (nije impl)", field);
+			field.obj = Tab.noObj;
+			this.currentDesignator = Tab.noObj;
 			// TODO: class & interface fields
 		}
 		
@@ -685,8 +721,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(DesignArr arr) {
 		
-		if (this.currentDesignator.getType().getKind() != Struct.Array)
-			if (arr.getExpr().struct != intType) {
+		if (this.currentDesignator.getType().getKind() != Struct.Array
+				|| arr.getExpr().struct != intType) {
 				report_error("ERROR: Objekat "+this.currentDesignator.getName()+ " nije niz", arr);
 				arr.obj = Tab.noObj;
 				return;			
@@ -700,7 +736,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 //			return;	
 //		}
 		
-		arr.obj = new Obj(Obj.Elem, arr.getDesignator().obj.getName(), currentDesignator.getType().getElemType());
+		Struct str = currentDesignator.getType().getElemType();
+		arr.obj = new Obj(Obj.Elem, arr.getDesignator().obj.getName(), str);
 		this.currentDesignator = arr.obj;
 		report_info("INFO:  Pristup elementu niza "+this.currentDesignator.getName(), arr);
 
@@ -717,13 +754,72 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	designator.obj = this.currentDesignator;
     }
     
+    /*
+     * DESIGNATOR STATEMENTS ************************************************************
+     */
     
+	@Override
+	public void visit(AssignOper designator) {
+		
+		Struct str1 = designator.getDesignator().obj.getType();
+		Struct str2 = designator.getExpr().struct;
+
+		if (designator.getDesignator().obj.getKind() != Obj.Var 
+				&& designator.getDesignator().obj.getKind() != Obj.Elem
+				&& designator.getDesignator().obj.getKind() != Obj.Fld ) {
+			report_error("ERROR: Neodgovarajuci tip sa leve trane dodele vrednosti", designator);
+			return;
+		}
+
+		if (!str1.compatibleWith(str2)) {
+			report_error("ERROR: Nekompatibilnost sa stvarnim parametrima", designator);
+			return;
+		}
+		// TODO: provera lvalue
+
+	}
+    
+    @Override
+	public void visit(MinusMinusSideEff designator) {
+		if (designator.getDesignator().obj.getKind() != Obj.Var 
+				&& designator.getDesignator().obj.getKind() != Obj.Elem
+				&& designator.getDesignator().obj.getKind() != Obj.Fld 
+				&& designator.getDesignator().obj.getType() != intType) {
+			report_error("ERROR: Neodgovarajuci tip za operatror --", designator);
+			return;
+		}
+		// TODO: provera lvalue
+	}
+
+	@Override
+	public void visit(PlusPlusSideEff designator) {
+		if (designator.getDesignator().obj.getKind() != Obj.Var 
+				&& designator.getDesignator().obj.getKind() != Obj.Elem
+				&& designator.getDesignator().obj.getKind() != Obj.Fld 
+				&& designator.getDesignator().obj.getType() != intType) {
+			report_error("ERROR: Neodgovarajuci tip za operatror ++", designator);
+			return;
+		}
+		// TODO: provera lvalue
+	}
+    
+	@Override
+	public void visit(ProcCall proc) {
+		
+		
+	}
+	
     
     /*
      * OTHRER METHODS *******************************************************************
      */
+	
+	public int getErrNum() {
+		return this.errorsNum;
+	}
     
-    public boolean passed(){
+
+	public boolean passed(){
     	return !errorDetected;
     }
     

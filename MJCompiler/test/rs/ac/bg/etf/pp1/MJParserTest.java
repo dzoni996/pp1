@@ -2,7 +2,6 @@ package rs.ac.bg.etf.pp1;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -57,15 +56,19 @@ public class MJParserTest {
 			
 			//log.info(" Read count calls = " + v.readCallCount);
 			
-
-			//log.info(" Deklarisanih promenljivih ima = " + v.varDeclCount);
 			
 			log.info("===================================");
 			
 			Tab.dump();
 			
 			if (!v.passed()) {
-				log.error("Postoji greska u generisanom kodu!");
+				String msg;
+				if (v.getErrNum() == 1) {
+					msg = "Postoji 1 greska u generisanom kodu!";
+				} else {
+					msg = "Postoje "+v.getErrNum()+" greske u generisanom kodu!";
+				}
+				log.error(msg);
 			}
 		} 
 		finally {

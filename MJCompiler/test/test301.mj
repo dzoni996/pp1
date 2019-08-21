@@ -41,7 +41,7 @@ program test301
 		niz[nula] = pet;
 		niz[1] = Broj.DESET;
 		mul(niz, inc(0), 2);
-		mul(niz, Broj.NULA, inc(inc(Broj.JEDAN)+1));
+		//mul(niz, Broj.NULA, inc(inc(Broj.JEDAN)+1));
 		bodovi = niz[1]/niz[0];
 		print(bodovi); 
 		print(niz[Broj.JEDAN]);

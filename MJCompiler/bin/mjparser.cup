@@ -79,7 +79,7 @@ nonterminal OptStmt, Statement, FormPars ;
 nonterminal DesignatorStatement ;
 nonterminal OptActPars, ActPars, OptMinus, OptMethodCall, OptExpr ;
 nonterminal Mulop, Addop, Relop, Assignop ;
-nonterminal OptRetExpr, OptNumConst ;
+nonterminal OptNumConst ;
 nonterminal Condition, CondTerm, CondFact, OptRelExpr, OptElse, OptDesignStmt, OptCond, IfCondition ;
 
 nonterminal ConstItem;
@@ -94,7 +94,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeNa
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesigName ;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms, OptRetExpr;
 
 precedence left ELSE;
 
@@ -313,6 +313,12 @@ Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  (PrintStmt) PRINT LPAREN Expr OptNumConst RPAREN SEMI
 			  |
 			  (BlockStmt) LBRACE OptStmt RBRACE
+			  |
+			  (ErrorStmt) LBRACE error:e RBRACE
+			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :}
+	/*		  |
+			  (ErrorStmt) error:e
+			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :}		*/
 			  ;
 
 IfCondition ::= (IfCond) Condition
@@ -321,9 +327,9 @@ IfCondition ::= (IfCond) Condition
 				{: parser.report_error("Greska u logickom iskazu IF konstrukcije. Izvrsen oporavak u liniji " + eleft , null); :}
 				;
 
-OptRetExpr ::= Expr
+OptRetExpr ::= (RetExpr) Expr
 			   |
-			   /* epsilon */
+			   (NoRet) /* epsilon */
 			   ;
 
 OptNumConst ::= COMMA NUMCONST

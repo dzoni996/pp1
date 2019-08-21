@@ -6,7 +6,7 @@ program SemanticTest
 const int  x = 5, init = 0;
 const bool b = false;
 int x1;
-char x2[];
+int x2[];
 enum nums {ONE = 1, TWO = 5, THREE}
 
 class A {
@@ -23,8 +23,11 @@ interface I {
 	int inc(int n, char add){
 		return n + 1;
 	} 
+	
 
-	int main1(){
+	int main1() A a; {
+		a = new A;
+		a.fld = 5;
 		
 		x1 = nums.TWO;
 		x2[0] = nums.ONE;

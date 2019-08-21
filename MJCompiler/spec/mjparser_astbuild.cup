@@ -104,7 +104,6 @@ nonterminal Mulop Mulop;
 nonterminal Addop Addop;
 nonterminal Relop Relop;
 nonterminal Assignop Assignop ;
-nonterminal OptRetExpr OptRetExpr;
 nonterminal OptNumConst OptNumConst ;
 nonterminal Condition Condition;
 nonterminal CondTerm CondTerm;
@@ -129,7 +128,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeNa
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesigName ;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms, OptRetExpr;
 
 precedence left ELSE;
 
@@ -348,6 +347,12 @@ Statement ::= (DesignatorStmt) DesignatorStatement:D1 SEMI {: RESULT=new Designa
 			  (PrintStmt) PRINT LPAREN Expr:E1 OptNumConst:O2 RPAREN SEMI {: RESULT=new PrintStmt(E1, O2); RESULT.setLine(E1left); :}
 			  |
 			  (BlockStmt) LBRACE OptStmt:O1 RBRACE {: RESULT=new BlockStmt(O1); RESULT.setLine(O1left); :}
+			  |
+			  (ErrorStmt) LBRACE error:e RBRACE
+			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new ErrorStmt(); :}
+	/*		  |
+			  (ErrorStmt) error:e
+			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :}		*/
 			  ;
 
 IfCondition ::= (IfCond) Condition:C1 {: RESULT=new IfCond(C1); RESULT.setLine(C1left); :}
@@ -356,9 +361,9 @@ IfCondition ::= (IfCond) Condition:C1 {: RESULT=new IfCond(C1); RESULT.setLine(C
 				{: parser.report_error("Greska u logickom iskazu IF konstrukcije. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new IfError(); :}
 				;
 
-OptRetExpr ::= Expr:E1 {: RESULT=new OptRetExprDerived1(E1); RESULT.setLine(E1left); :}
-			   | {: RESULT=new OptRetExprDerived2(); :}
-			   /* epsilon */
+OptRetExpr ::= (RetExpr) Expr:E1 {: RESULT=new RetExpr(E1); RESULT.setLine(E1left); :}
+			   |
+			   (NoRet) {: RESULT=new NoRet(); :} /* epsilon */
 			   ;
 
 OptNumConst ::= COMMA NUMCONST:N1 {: RESULT=new OptNumConstDerived1(N1); RESULT.setLine(N1left); :}
