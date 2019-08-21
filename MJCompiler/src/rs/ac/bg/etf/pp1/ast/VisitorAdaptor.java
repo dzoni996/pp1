@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 21/7/2019 12:56:59
+// 21/7/2019 14:59:11
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -30,8 +30,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(OptMethodDecl OptMethodDecl) { }
     public void visit(Term Term) { }
     public void visit(OptRetExpr OptRetExpr) { }
-    public void visit(InterfaceName InterfaceName) { }
     public void visit(Condition Condition) { }
+    public void visit(InterfaceName InterfaceName) { }
     public void visit(OptElse OptElse) { }
     public void visit(VarItem VarItem) { }
     public void visit(ConstDeclList ConstDeclList) { }
@@ -43,7 +43,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(OptNumConst OptNumConst) { }
     public void visit(InterfaceList InterfaceList) { }
     public void visit(OptAddTerms OptAddTerms) { }
-    public void visit(OptRelExpr OptRelExpr) { }
     public void visit(EnumItem EnumItem) { }
     public void visit(VarDeclList VarDeclList) { }
     public void visit(Expr Expr) { }
@@ -78,13 +77,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(RelDif RelDif) { visit(); }
     public void visit(RelSame RelSame) { visit(); }
     public void visit(AssignOperation AssignOperation) { visit(); }
-    public void visit(OptRelExprDerived2 OptRelExprDerived2) { visit(); }
-    public void visit(OptRelExprDerived1 OptRelExprDerived1) { visit(); }
-    public void visit(CondFactDerived1 CondFactDerived1) { visit(); }
-    public void visit(CondTermDerived2 CondTermDerived2) { visit(); }
-    public void visit(CondTermDerived1 CondTermDerived1) { visit(); }
-    public void visit(ConditionDerived2 ConditionDerived2) { visit(); }
-    public void visit(ConditionDerived1 ConditionDerived1) { visit(); }
+    public void visit(CondFactSingle CondFactSingle) { visit(); }
+    public void visit(CondFacts CondFacts) { visit(); }
+    public void visit(CondTermSingle CondTermSingle) { visit(); }
+    public void visit(CondTerms CondTerms) { visit(); }
+    public void visit(ConditionSingle ConditionSingle) { visit(); }
+    public void visit(Conditions Conditions) { visit(); }
     public void visit(NoExpr NoExpr) { visit(); }
     public void visit(WithExpr WithExpr) { visit(); }
     public void visit(NoMethodCall NoMethodCall) { visit(); }

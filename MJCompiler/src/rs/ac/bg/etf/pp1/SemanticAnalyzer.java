@@ -855,13 +855,89 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 	
 	/*
+	 * CONDITIONS ***********************************************************************
+	 */
+
+	@Override
+	public void visit(CondFacts fact) {
+		Struct str1 = fact.getExpr().struct;
+		Struct str2 = fact.getExpr1().struct;
+		if (!str1.compatibleWith(str2)) {
+			report_error("ERROR: Nekompatibilni tipovi kod relacionog operatora", fact);
+			fact.struct = Tab.noType;
+		} else 
+			if ((str1.isRefType() || str2.isRefType()) 
+					&& !(fact.getRelop() instanceof RelSame)
+					&& !(fact.getRelop() instanceof RelDif)) {
+				report_error("ERROR: Kod tipova referenci se koriste samo relacioni operatori za jednakost ili razlicitost", fact);
+				fact.struct = Tab.noType;
+			}
+			else{
+				fact.struct = boolType;
+			}
+	}
+	
+	@Override
+	public void visit(CondFactSingle fact) {
+		if (fact.getExpr().struct != boolType) {
+			report_error("ERROR: Odgovarajuci tip mora biti bool", fact);
+			fact.struct = Tab.noType;
+		} else {
+			fact.struct = boolType;
+		}
+	}
+	
+	@Override
+	public void visit(CondTerms fact) {
+		fact.struct = fact.getCondFact().struct;
+	}
+	
+	@Override
+	public void visit(CondTermSingle fact) {
+		fact.struct = fact.getCondFact().struct;
+	}
+	
+	@Override
+	public void visit(Conditions fact) {
+		fact.struct = fact.getCondTerm().struct;
+	}
+	
+	@Override
+	public void visit(ConditionSingle fact) {
+		fact.struct = fact.getCondTerm().struct;
+	}
+	
+	/*
 	 * STATEMENTS ***********************************************************************
 	 */
 	
+	@Override
+	public void visit(PrintStmt stmt) {
+		if (stmt.getExpr().struct.isRefType()) {
+			report_error("ERROR: Izraz u PRINT funkciji mora biti prostog tipa", stmt);
+			return;
+		}
+		report_info("INFO:  Poziv PRINT funkcije", stmt);
+	}
 	
-	
-	
+	@Override
+	public void visit(ReadStmt stmt) {
+		if (stmt.getDesignator().obj.getKind() != Obj.Var && 
+				stmt.getDesignator().obj.getKind() != Obj.Fld &&
+				stmt.getDesignator().obj.getKind() != Obj.Elem) {
+			report_error("ERROR: Objekat u READ funkciji mora biti prostog tipa", stmt);
+			return;
+		}
+		if (stmt.getDesignator().obj.getType().isRefType()) {
+			report_error("ERROR: Objekat u READ funkciji mora biti prostog tipa", stmt);
+			return;
+		}
+		report_info("INFO:  Poziv READ funkcije", stmt);
+	}
+		
     
+	
+	
     /*
      * OTHRER METHODS *******************************************************************
      */

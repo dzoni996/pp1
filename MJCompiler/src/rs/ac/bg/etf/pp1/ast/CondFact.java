@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 21/7/2019 12:56:59
+// 21/7/2019 14:59:11
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -10,6 +10,8 @@ public abstract class CondFact implements SyntaxNode {
     private SyntaxNode parent;
 
     private int line;
+
+    public rs.etf.pp1.symboltable.concepts.Struct struct = null;
 
     public SyntaxNode getParent() {
         return parent;

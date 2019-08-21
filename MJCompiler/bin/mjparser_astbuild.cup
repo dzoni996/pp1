@@ -105,10 +105,6 @@ nonterminal Addop Addop;
 nonterminal Relop Relop;
 nonterminal Assignop Assignop ;
 nonterminal OptNumConst OptNumConst ;
-nonterminal Condition Condition;
-nonterminal CondTerm CondTerm;
-nonterminal CondFact CondFact;
-nonterminal OptRelExpr OptRelExpr;
 nonterminal OptElse OptElse;
 nonterminal OptDesignStmt OptDesignStmt;
 nonterminal OptCond OptCond;
@@ -129,6 +125,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesigName ;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms, OptRetExpr;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact;
 
 precedence left ELSE;
 
@@ -482,23 +479,20 @@ OptExpr ::= (WithExpr) LSQUARE Expr:E1 RSQUARE {: RESULT=new WithExpr(E1); RESUL
 /*********************** Condition ****************************
 **************************************************************/
 
-Condition ::= Condition:C1 OR CondTerm:C2 {: RESULT=new ConditionDerived1(C1, C2); RESULT.setLine(C1left); :}
+Condition ::= (Conditions) Condition:C1 OR CondTerm:C2 {: RESULT=new Conditions(C1, C2); RESULT.setLine(C1left); :}
 			  |
-			  CondTerm:C1 {: RESULT=new ConditionDerived2(C1); RESULT.setLine(C1left); :}
+			  (ConditionSingle) CondTerm:C1 {: RESULT=new ConditionSingle(C1); RESULT.setLine(C1left); :}
 			  ;
 
-CondTerm ::= CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTermDerived1(C1, C2); RESULT.setLine(C1left); :}
+CondTerm ::= (CondTerms) CondTerm:C1 AND CondFact:C2 {: RESULT=new CondTerms(C1, C2); RESULT.setLine(C1left); :}
 			 |
-			 CondFact:C1 {: RESULT=new CondTermDerived2(C1); RESULT.setLine(C1left); :}
+			 (CondTermSingle) CondFact:C1 {: RESULT=new CondTermSingle(C1); RESULT.setLine(C1left); :}
 			 ;
 
-CondFact ::= Expr:E1 OptRelExpr:O2 {: RESULT=new CondFactDerived1(E1, O2); RESULT.setLine(E1left); :}
-;
-
-OptRelExpr ::= Relop:R1 Expr:E2 {: RESULT=new OptRelExprDerived1(R1, E2); RESULT.setLine(R1left); :}
-			   | {: RESULT=new OptRelExprDerived2(); :}
-			   /* epsilon */
-			   ;
+CondFact ::= (CondFacts) Expr:E1 Relop:R2 Expr:E3 {: RESULT=new CondFacts(E1, R2, E3); RESULT.setLine(E1left); :}
+			 |
+			 (CondFactSingle) Expr:E1 {: RESULT=new CondFactSingle(E1); RESULT.setLine(E1left); :}
+			 ;
 
 
 /* *********************************************** */

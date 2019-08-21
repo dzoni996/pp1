@@ -80,7 +80,7 @@ nonterminal DesignatorStatement ;
 nonterminal OptActPars, ActPars, OptMinus, OptMethodCall, OptExpr ;
 nonterminal Mulop, Addop, Relop, Assignop ;
 nonterminal OptNumConst ;
-nonterminal Condition, CondTerm, CondFact, OptRelExpr, OptElse, OptDesignStmt, OptCond, IfCondition ;
+nonterminal OptElse, OptDesignStmt, OptCond, IfCondition ;
 
 nonterminal ConstItem;
 nonterminal EnumDecl, EnumDeclList, EnumItem;
@@ -95,6 +95,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesigName ;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms, OptRetExpr;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact;
 
 precedence left ELSE;
 
@@ -316,9 +317,9 @@ Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  |
 			  (ErrorStmt) LBRACE error:e RBRACE
 			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :}
-	/*		  |
+			  |
 			  (ErrorStmt) error:e
-			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :}		*/
+			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :}		
 			  ;
 
 IfCondition ::= (IfCond) Condition
@@ -448,23 +449,20 @@ OptExpr ::= (WithExpr) LSQUARE Expr RSQUARE
 /*********************** Condition ****************************
 **************************************************************/
 
-Condition ::= Condition OR CondTerm
+Condition ::= (Conditions) Condition OR CondTerm
 			  |
-			  CondTerm
+			  (ConditionSingle) CondTerm
 			  ;
 
-CondTerm ::= CondTerm AND CondFact
+CondTerm ::= (CondTerms) CondTerm AND CondFact
 			 |
-			 CondFact
+			 (CondTermSingle) CondFact
 			 ;
 
-CondFact ::= Expr OptRelExpr
-;
-
-OptRelExpr ::= Relop Expr
-			   |
-			   /* epsilon */
-			   ;
+CondFact ::= (CondFacts) Expr Relop Expr
+			 |
+			 (CondFactSingle) Expr
+			 ;
 
 
 /* *********************************************** */
