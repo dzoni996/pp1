@@ -1,6 +1,9 @@
 package rs.ac.bg.etf.pp1;
 
 import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -193,7 +196,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		else {
 			enumInit = -1;
-			enumNode = Tab.insert(Obj.Type, name.getName(), new Struct(Struct.Enum, intType));
+			Struct str = new Struct(Struct.Enum, intType);
+			enumNode = Tab.insert(Obj.Type, name.getName(), str);
 			name.obj = enumNode;
 			this.enumNode = enumNode;
 			
@@ -446,6 +450,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     
     @Override
     public void visit(Expression expr) {
+    	
     	if ((expr.getOptMinus() instanceof Negative) && expr.getTerm().struct != intType) {
     		report_error("ERROR: Odgovarajuci tip mora biti int ", expr);
     		return;
@@ -497,14 +502,73 @@ public class SemanticAnalyzer extends VisitorAdaptor {
      * FACTOR *************************************************************************** 
      */
     
+    protected int numOfParams = 0;
+    protected List<Struct> params = new LinkedList<Struct>();
+    
+    @Override
+    public void visit(SingleActPars par) {
+    	numOfParams += 1;
+    	params.add(par.getExpr().struct);
+    }
+    
+    @Override
+    public void visit(MultiActPars par) {
+    	numOfParams += 1;
+    	params.add(par.getExpr().struct);
+    }
+    
 	@Override
 	public void visit(DesignFactor design) {
-		// TODO: via DesignFactor.getDesignator !!!
 		
 		if (design.getOptMethodCall() instanceof NoMethodCall) {
-			 // method calls
+			 design.struct = design.getDesignator().obj.getType();
 		} else {
-			// no method call
+			
+			Obj node = design.getDesignator().obj;
+			
+			// 1. if it is method
+			if (node.getKind() != Obj.Meth) {
+				report_error("ERROR: Objekat "+node.getName()+" nije metoda ", design);
+				design.struct = Tab.noType;
+				numOfParams = 0;
+				params.clear();
+				return;
+			} 
+			
+			// 2. number of parameters
+			int numOfPar = node.getLevel();
+			if (numOfPar != this.numOfParams) {
+				report_error("ERROR: Broj prosledjenih parametara ne odgovara stvarnom broju", design);
+				design.struct = Tab.noType;
+				numOfParams = 0;
+				params.clear();
+				return;
+			}
+			
+			// 3. types of parameters
+			Collection<Obj> pars = node.getLocalSymbols();
+			boolean comp = true;
+			int i = 0;
+			for (Iterator<Obj> iter = pars.iterator(); iter.hasNext(); ) {
+				Obj cur = iter.next();
+				if (!params.get(i++).compatibleWith(cur.getType())) {
+					comp = false; break;
+				}
+			}
+			
+			if (!comp) {
+				report_error("ERROR: Nekompatibilnost sa stvarnim parametrima", design);
+				design.struct = Tab.noType;
+				numOfParams = 0;
+				params.clear();
+				return;
+			}
+			
+			report_info("INFO:  Pozvana metoda "+node.getName(), design);
+			design.struct = node.getType();
+			numOfParams = 0;
+			params.clear();
+			
 		}
 	}
     
@@ -574,13 +638,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 
 	@Override
-	public void visit(DesignFld field) {
-		
-//		if (this.currentDesignator != field.getDesignator().obj) {
-//			report_error("ERROR: Ne podudaraju se pokazavaci na strukturu ", field);
-//			
-//		}
-		
+	public void visit(DesignFld field) {		
 		if (this.currentDesignator.getType().getKind() != Struct.Enum &&
 				this.currentDesignator.getType().getKind() != Struct.Class &&
 					this.currentDesignator.getType().getKind() != Struct.Interface) {
@@ -589,8 +647,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 		
-		if (this.currentDesignator.getType().getKind() == Struct.Enum) {
-			
+		if (this.currentDesignator.getType().getKind() == Struct.Enum) {			
 			Collection<Obj> coll = this.currentDesignator.getLocalSymbols();
 			boolean found = false;
 			Obj obj = null;
@@ -609,27 +666,49 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				return;
 			} else {
 				report_info("INFO:  Pristup konstanti "+currentDesignator.getName()+"."+field.getId(), field);
+				// TODO check this ***************************
+				int lvl = obj.getLevel(), adr = obj.getAdr();
+				obj = new Obj(Obj.Con, obj.getName(), intType);
+				obj.setAdr(adr); obj.setLevel(lvl);
+				// *********************************************
 				field.obj = obj;
 				this.currentDesignator = obj;
-			}
-			
+			}		
 			
 		} else {
+			
 			// TODO: class & interface fields
 		}
 		
 	}
 
 	@Override
-	public void visit(DesignArr DesignArr) {
-		// TODO Auto-generated method stub
-		super.visit(DesignArr);
+	public void visit(DesignArr arr) {
+		
+		if (this.currentDesignator.getType().getKind() != Struct.Array)
+			if (arr.getExpr().struct != intType) {
+				report_error("ERROR: Objekat "+this.currentDesignator.getName()+ " nije niz", arr);
+				arr.obj = Tab.noObj;
+				return;			
+			}
+		
+//		Struct type1 = arr.getDesignator().obj.getType().getElemType(),
+//				type2 = arr.getExpr().struct;
+//		if (!type1.compatibleWith(type2)) {
+//			report_error("ERROR: Nekompatibilnost tipova "+type1.getKind()+ " i "+type2.getKind(), arr);
+//			arr.obj = Tab.noObj;
+//			return;	
+//		}
+		
+		arr.obj = new Obj(Obj.Elem, arr.getDesignator().obj.getName(), currentDesignator.getType().getElemType());
+		this.currentDesignator = arr.obj;
+		report_info("INFO:  Pristup elementu niza "+this.currentDesignator.getName(), arr);
+
 	}
 
 	@Override
-	public void visit(DesignVar DesignVar) {
-		// TODO Auto-generated method stub
-		super.visit(DesignVar);
+	public void visit(DesignVar var) {
+		var.obj = this.currentDesignator;
 	}
     
     @Override

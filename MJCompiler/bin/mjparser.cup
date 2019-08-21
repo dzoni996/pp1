@@ -380,6 +380,9 @@ Designator ::= (DesignVar) DesigName
 			   |
 			   (DesignArr) Designator LSQUARE Expr RSQUARE
 			   |
+			   (DesignError) Designator LSQUARE error:e RSQUARE
+			   {: parser.report_error("Greska prilikom pristupa objektu. Uspesno izvrsen oporavak u liniji " + eleft , null); :}
+			   |
 			   (DesignFld) Designator DOT IDENT:id
 			   ;
 

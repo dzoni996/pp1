@@ -23,15 +23,16 @@ program test301
 
 	void main()	
 		int bodovi;
-		Broj nula, jedan;
+		//Broj nula, jedan;
+		int nula, jedan;
 	{
 		nula = Broj.NULA;
 		jedan = Broj.JEDAN;	
 
 		bodovi = 0;
 		bodovi++;
-		bodovi = bodovi + jedan;
-		bodovi = bodovi * pet;
+		bodovi = bodovi + Broj.JEDAN;
+		bodovi = bodovi * Broj.PET;
 		bodovi--;
 		print(bodovi); 
 			
@@ -63,26 +64,5 @@ program test301
 		print(bodovi);
 			
 	
-	}
-}
-
-
-// Default test
-
-program MJProgram
-	int x; int y;
-{
-	
-	int k () int c; {
-		c = 1;
-		return c+2;
-	}
-	
-	int main() {
-		y = 2;
-		x = y + 2;
-		y = k() + 3;
-		print(y);
-		return 0;
 	}
 }

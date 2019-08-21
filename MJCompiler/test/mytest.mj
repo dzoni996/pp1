@@ -5,8 +5,9 @@ program SemanticTest
 
 const int  x = 5, init = 0;
 const bool b = false;
-int x1, x2[];
-enum nums {ONE, TWO = 5, THREE}
+int x1;
+char x2[];
+enum nums {ONE = 1, TWO = 5, THREE}
 
 class A {
 	int fld1;
@@ -19,9 +20,15 @@ interface I {
 }
 
 {
-	int main(){
+	int inc(int n, char add){
+		return n + 1;
+	} 
+
+	int main1(){
 		
 		x1 = nums.TWO;
+		x2[0] = nums.ONE;
+		x2[1] = inc(2, 'a');
 		print(x1);
 		return 0;
 	}

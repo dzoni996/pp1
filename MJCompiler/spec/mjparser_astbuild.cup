@@ -415,6 +415,9 @@ Designator ::= (DesignVar) DesigName:D1 {: RESULT=new DesignVar(D1); RESULT.setL
 			   |
 			   (DesignArr) Designator:D1 LSQUARE Expr:E2 RSQUARE {: RESULT=new DesignArr(D1, E2); RESULT.setLine(D1left); :}
 			   |
+			   (DesignError) Designator:D1 LSQUARE error:e RSQUARE
+			   {: parser.report_error("Greska prilikom pristupa objektu. Uspesno izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new DesignError(D1); RESULT.setLine(D1left); :}
+			   |
 			   (DesignFld) Designator:D1 DOT IDENT:id {: RESULT=new DesignFld(D1, id); RESULT.setLine(D1left); :}
 			   ;
 
