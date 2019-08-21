@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 21/7/2019 14:59:9
+// 21/7/2019 23:52:32
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -13,15 +13,15 @@ public class Program implements SyntaxNode {
 
     private ProgName ProgName;
     private DeclList DeclList;
-    private OptMethodDecl OptMethodDecl;
+    private GlobalMethDecl GlobalMethDecl;
 
-    public Program (ProgName ProgName, DeclList DeclList, OptMethodDecl OptMethodDecl) {
+    public Program (ProgName ProgName, DeclList DeclList, GlobalMethDecl GlobalMethDecl) {
         this.ProgName=ProgName;
         if(ProgName!=null) ProgName.setParent(this);
         this.DeclList=DeclList;
         if(DeclList!=null) DeclList.setParent(this);
-        this.OptMethodDecl=OptMethodDecl;
-        if(OptMethodDecl!=null) OptMethodDecl.setParent(this);
+        this.GlobalMethDecl=GlobalMethDecl;
+        if(GlobalMethDecl!=null) GlobalMethDecl.setParent(this);
     }
 
     public ProgName getProgName() {
@@ -40,12 +40,12 @@ public class Program implements SyntaxNode {
         this.DeclList=DeclList;
     }
 
-    public OptMethodDecl getOptMethodDecl() {
-        return OptMethodDecl;
+    public GlobalMethDecl getGlobalMethDecl() {
+        return GlobalMethDecl;
     }
 
-    public void setOptMethodDecl(OptMethodDecl OptMethodDecl) {
-        this.OptMethodDecl=OptMethodDecl;
+    public void setGlobalMethDecl(GlobalMethDecl GlobalMethDecl) {
+        this.GlobalMethDecl=GlobalMethDecl;
     }
 
     public SyntaxNode getParent() {
@@ -71,20 +71,20 @@ public class Program implements SyntaxNode {
     public void childrenAccept(Visitor visitor) {
         if(ProgName!=null) ProgName.accept(visitor);
         if(DeclList!=null) DeclList.accept(visitor);
-        if(OptMethodDecl!=null) OptMethodDecl.accept(visitor);
+        if(GlobalMethDecl!=null) GlobalMethDecl.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(ProgName!=null) ProgName.traverseTopDown(visitor);
         if(DeclList!=null) DeclList.traverseTopDown(visitor);
-        if(OptMethodDecl!=null) OptMethodDecl.traverseTopDown(visitor);
+        if(GlobalMethDecl!=null) GlobalMethDecl.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(ProgName!=null) ProgName.traverseBottomUp(visitor);
         if(DeclList!=null) DeclList.traverseBottomUp(visitor);
-        if(OptMethodDecl!=null) OptMethodDecl.traverseBottomUp(visitor);
+        if(GlobalMethDecl!=null) GlobalMethDecl.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -105,8 +105,8 @@ public class Program implements SyntaxNode {
             buffer.append(tab+"  null");
         buffer.append("\n");
 
-        if(OptMethodDecl!=null)
-            buffer.append(OptMethodDecl.toString("  "+tab));
+        if(GlobalMethDecl!=null)
+            buffer.append(GlobalMethDecl.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

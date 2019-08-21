@@ -26,6 +26,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	protected boolean returnFound = false;
 	protected boolean errorDetected = false;
 	protected boolean classDecl = false;
+	protected boolean mainFound = false;
 	protected int currentLevel = -1;
 	protected int enumInit = -1;
 	protected int errorsNum = 0;
@@ -101,6 +102,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		pname.obj = Tab.insert(Obj.Prog, pname.getPName(), noType);
 		Tab.openScope();
 		currentLevel++;
+		
+		this.mainFound = false;
 	}
 	
 	@Override
@@ -109,6 +112,19 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Tab.chainLocalSymbols(prog.getProgName().obj);
 		Tab.closeScope();
 		currentLevel--;
+		
+		if (!this.mainFound) {
+			report_error("ERROR: Nije definisan main metod!", null);
+		}
+	}
+	
+	@Override
+	public void visit(GlobalMeths glbm) {
+		
+		if (this.currentMethod != null)
+			if (this.currentMethod.getName().equals("main")) {
+				this.mainFound = true;
+			}
 	}
 	
 	/*
@@ -399,7 +415,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	this.currentLevel++;
 
     	// TODO: Povratna vrednost funkcije???
-		report_info("INFO: Obradjuje se funkcija " + methodTypeName.getMethodName(), methodTypeName);
+		report_info("INFO:  Obradjuje se funkcija " + methodTypeName.getMethodName(), methodTypeName);
     }
  
     @Override
@@ -413,7 +429,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	
     	Tab.closeScope();    	
     	this.returnFound = false;
-    	this.currentMethod = null;
+    	if (!currentMethod.getName().equals("main")) this.currentMethod = null;
     	this.currentLevel--;
     }
 	

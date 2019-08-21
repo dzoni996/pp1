@@ -77,13 +77,14 @@ nonterminal ClassDecl, Extend, Implement, InterfaceList, OptVarDecl, OptMethodDe
 nonterminal InterfaceDecl, InterfaceMethodDeclList, OptInterfaceMethodDeclList, InterfaceMethodDecl, OptFormPars, TypeIdent ;
 nonterminal OptStmt, Statement, FormPars ;
 nonterminal DesignatorStatement ;
-nonterminal OptActPars, ActPars, OptMinus, OptMethodCall, OptExpr ;
+nonterminal OptActPars, ActPars, OptMinus, OptMethodCall;
 nonterminal Mulop, Addop, Relop, Assignop ;
 nonterminal OptNumConst ;
 nonterminal OptElse, OptDesignStmt, OptCond, IfCondition ;
 
 nonterminal ConstItem;
 nonterminal EnumDecl, EnumDeclList, EnumItem;
+nonterminal GlobalMethDecl;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
@@ -103,10 +104,13 @@ precedence left ELSE;
 *********************** Program *******************************
 **************************************************************/
 
-Program ::= (Program) PROG ProgName:p DeclList LBRACE OptMethodDecl  RBRACE 
+Program ::= (Program) PROG ProgName:p DeclList LBRACE GlobalMethDecl  RBRACE 
 ;
 
 ProgName ::= (ProgName) IDENT:pName
+;
+
+GlobalMethDecl ::= (GlobalMeths) OptMethodDecl
 ;
 
 /********************** Var Declaration ***********************
@@ -315,9 +319,6 @@ Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  |
 			  (BlockStmt) LBRACE OptStmt RBRACE
 			  |
-			  (ErrorStmt) LBRACE error:e RBRACE
-			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :}
-			  |
 			  (ErrorStmt) error:e
 			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :}		
 			  ;
@@ -439,12 +440,6 @@ OptMethodCall ::= (WithMethodCall) LPAREN OptActPars RPAREN
 				  |
 				  (NoMethodCall) /* epsilon */
 				  ;	
-
-OptExpr ::= (WithExpr) LSQUARE Expr RSQUARE
-			|
-			(NoExpr) /* epsilon */
-			;				  			
-
 
 /*********************** Condition ****************************
 **************************************************************/

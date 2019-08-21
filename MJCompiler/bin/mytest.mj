@@ -29,7 +29,7 @@ interface I {
 	}
 	
 
-	int main() A a; {
+	int main1() A a; {
 		a = new A;
 		//a.fld = 5;
 		

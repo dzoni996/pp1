@@ -99,7 +99,6 @@ nonterminal OptActPars OptActPars;
 nonterminal ActPars ActPars;
 nonterminal OptMinus OptMinus;
 nonterminal OptMethodCall OptMethodCall;
-nonterminal OptExpr OptExpr ;
 nonterminal Mulop Mulop;
 nonterminal Addop Addop;
 nonterminal Relop Relop;
@@ -114,6 +113,7 @@ nonterminal ConstItem ConstItem;
 nonterminal EnumDecl EnumDecl;
 nonterminal EnumDeclList EnumDeclList;
 nonterminal EnumItem EnumItem;
+nonterminal GlobalMethDecl GlobalMethDecl;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
@@ -133,10 +133,13 @@ precedence left ELSE;
 *********************** Program *******************************
 **************************************************************/
 
-Program ::= (Program) PROG ProgName:p DeclList:D1 LBRACE OptMethodDecl:O2  RBRACE {: RESULT=new Program(p, D1, O2); RESULT.setLine(pleft); :} 
+Program ::= (Program) PROG ProgName:p DeclList:D1 LBRACE GlobalMethDecl:G2  RBRACE {: RESULT=new Program(p, D1, G2); RESULT.setLine(pleft); :} 
 ;
 
 ProgName ::= (ProgName) IDENT:pName {: RESULT=new ProgName(pName); RESULT.setLine(pNameleft); :}
+;
+
+GlobalMethDecl ::= (GlobalMeths) OptMethodDecl:O1 {: RESULT=new GlobalMeths(O1); RESULT.setLine(O1left); :}
 ;
 
 /********************** Var Declaration ***********************
@@ -345,11 +348,8 @@ Statement ::= (DesignatorStmt) DesignatorStatement:D1 SEMI {: RESULT=new Designa
 			  |
 			  (BlockStmt) LBRACE OptStmt:O1 RBRACE {: RESULT=new BlockStmt(O1); RESULT.setLine(O1left); :}
 			  |
-			  (ErrorStmt) LBRACE error:e RBRACE
-			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new ErrorStmt(); :}
-	/*		  |
 			  (ErrorStmt) error:e
-			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :}		*/
+			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new ErrorStmt(); :}		
 			  ;
 
 IfCondition ::= (IfCond) Condition:C1 {: RESULT=new IfCond(C1); RESULT.setLine(C1left); :}
@@ -469,12 +469,6 @@ OptMethodCall ::= (WithMethodCall) LPAREN OptActPars:O1 RPAREN {: RESULT=new Wit
 				  |
 				  (NoMethodCall) {: RESULT=new NoMethodCall(); :} /* epsilon */
 				  ;	
-
-OptExpr ::= (WithExpr) LSQUARE Expr:E1 RSQUARE {: RESULT=new WithExpr(E1); RESULT.setLine(E1left); :}
-			|
-			(NoExpr) {: RESULT=new NoExpr(); :} /* epsilon */
-			;				  			
-
 
 /*********************** Condition ****************************
 **************************************************************/
