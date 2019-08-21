@@ -224,7 +224,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Obj node = Tab.insert(Obj.Con, init.getName(), intType);
 		node.setAdr(enumInit);
 		
-		node.setLevel(currentLevel);
+		//node.setLevel(currentLevel);
 	}
 	
 	@Override
@@ -238,7 +238,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Obj node = Tab.insert(Obj.Con, init.getName(), intType);
 		node.setAdr(enumInit);
 		
-		node.setLevel(currentLevel);
+		//node.setLevel(currentLevel);
 	}
 
 
