@@ -24,15 +24,21 @@ interface I {
 		return n + 1;
 	} 
 	
+	void printf(int a){
+		print(a);
+	}
+	
 
 	int main1() A a; {
 		a = new A;
-		a.fld = 5;
+		//a.fld = 5;
 		
 		x1 = nums.TWO;
 		x2[0] = nums.ONE;
 		x2[1] = inc(2, 'a');
-		print(x1);
+		printf(x1);
 		return 0;
 	}
+	
+	
 }

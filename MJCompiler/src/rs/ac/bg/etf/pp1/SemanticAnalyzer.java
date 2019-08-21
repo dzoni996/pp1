@@ -805,9 +805,61 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     
 	@Override
 	public void visit(ProcCall proc) {
-		
-		
+
+		Obj node = proc.getDesignator().obj;
+
+		// 1. if it is method
+		if (node.getKind() != Obj.Meth) {
+			report_error("ERROR: Objekat " + node.getName() + " nije metoda ", proc);
+
+			numOfParams = 0;
+			params.clear();
+			return;
+		}
+
+		// 2. number of parameters
+		int numOfPar = node.getLevel();
+		if (numOfPar != this.numOfParams) {
+			report_error("ERROR: Broj prosledjenih parametara ne odgovara stvarnom broju", proc);
+
+			numOfParams = 0;
+			params.clear();
+			return;
+		}
+
+		// 3. types of parameters
+		Collection<Obj> pars = node.getLocalSymbols();
+		boolean comp = true;
+		int i = 0;
+		for (Iterator<Obj> iter = pars.iterator(); iter.hasNext();) {
+			Obj cur = iter.next();
+			if (!params.get(i++).compatibleWith(cur.getType())) {
+				comp = false;
+				break;
+			}
+		}
+
+		if (!comp) {
+			report_error("ERROR: Nekompatibilnost sa stvarnim parametrima", proc);
+
+			numOfParams = 0;
+			params.clear();
+			return;
+		}
+
+		report_info("INFO:  Pozvana metoda " + node.getName(), proc);
+
+		numOfParams = 0;
+		params.clear();
+
 	}
+	
+	/*
+	 * STATEMENTS ***********************************************************************
+	 */
+	
+	
+	
 	
     
     /*
