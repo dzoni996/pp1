@@ -125,6 +125,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (this.currentMethod != null)
 			if (this.currentMethod.getName().equals("main")) {
 				this.mainFound = true;
+				report_info("main lvl: "+this.currentMethod.getLevel(), null);
 			}
 	}
 	
@@ -610,13 +611,15 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			// 3. types of parameters
 			Collection<Obj> pars = node.getLocalSymbols();
 			boolean comp = true;
-			int i = 0;
-//			for (Iterator<Obj> iter = pars.iterator(); iter.hasNext(); ) {
-//				Obj cur = iter.next();
-//				if (!params.get(i++).compatibleWith(cur.getType())) {
-//					comp = false; break;
-//				}
-//			}
+			for (Iterator<Obj> iter = pars.iterator(); iter.hasNext();) {
+				Obj cur = iter.next();
+				//boolean found = false;
+				for (Obj o: this.actParams) {
+					if (o.getLevel() > this.lvlNum)
+						if (o.getType().compatibleWith(cur.getType()))
+						comp = true;
+				}
+			}
 			
 			if (!comp) {
 				report_error("ERROR: Nekompatibilnost sa stvarnim parametrima", design);
@@ -883,15 +886,18 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		// 3. types of parameters
 		Collection<Obj> pars = node.getLocalSymbols();
-		boolean comp = true;
-		int i = 0;
-//		for (Iterator<Obj> iter = pars.iterator(); iter.hasNext();) {
-//			Obj cur = iter.next();
-//			if (!params.get(i++).compatibleWith(cur.getType())) {
-//				comp = false;
-//				break;
-//			}
-//		}
+		boolean comp = false;
+		/////////////////////////////////////////////////////////////////////////
+		for (Iterator<Obj> iter = pars.iterator(); iter.hasNext();) {
+			Obj cur = iter.next();
+			//boolean found = false;
+			for (Obj o: this.actParams) {
+				if (o.getLevel() > this.lvlNum)
+					if (o.getType().compatibleWith(cur.getType()))
+					comp = true;
+			}
+		}
+		/////////////////////////////////////////////////////////////////////////
 
 		if (!comp) {
 			report_error("ERROR: Nekompatibilnost sa stvarnim parametrima", proc);
