@@ -125,7 +125,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (this.currentMethod != null)
 			if (this.currentMethod.getName().equals("main")) {
 				this.mainFound = true;
-				report_info("main lvl: "+this.currentMethod.getLevel(), null);
+				//report_info("main lvl: "+this.currentMethod.getLevel(), null);
 			}
 	}
 	
@@ -440,7 +440,6 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
     @Override
     public void visit(ReturnStmt returnExpr){
-    	//report_info("RETURN", returnExpr);
     	
     	if (this.currentMethod == null) {
 			report_error("ERROR: Return naredbna se nalazi izvan tela funkcije/procedure " + currentMethod.getName(), returnExpr);
@@ -450,12 +449,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	this.returnFound = true;
     	Struct currMethType = currentMethod.getType();
     	
-    	if (returnExpr.getOptRetExpr() instanceof RetExpr) {
-    		if(!currMethType.compatibleWith(returnExpr.getOptRetExpr().struct)) {
+    	
+    	if (returnExpr.getOptRetExpr() instanceof RetExpr) { // must return something
+    		if(!currMethType.compatibleWith(returnExpr.getOptRetExpr().struct) || currMethType == Tab.noType) {
     			report_error("ERROR: Tip izraza u return naredbi ne slaze se sa tipom povratne vrednosti funkcije " + currentMethod.getName(), returnExpr);
     		}
     	} else {
-    		if (currMethType == Tab.noType && returnExpr.getOptRetExpr() instanceof NoRet) {
+    		if (currMethType != Tab.noType) {
     			report_error("ERROR: Tip funkcije " + currentMethod.getName() + " je void", returnExpr);
     		}
     	}

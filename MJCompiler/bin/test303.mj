@@ -6,22 +6,22 @@ const int cinilac = 4, delilac = 3;
 enum VrstaPredmeta{ SFERA, KVADAR }
 interface IPredmet
 {
-	 int zapremina();
-	 int Q();
+	public int zapremina();
+	public int Q();
 }
 class Predmet implements IPredmet
 {
-	 int tezina;
-	 VrstaPredmeta vrsta;
+	protected int tezina;
+	protected VrstaPredmeta vrsta;
 
 	{
-		 void postaviTezinu(int tezina) {this.tezina = tezina;}  
-		 void ucitajTezinu() { read(tezina); }
-		 int zapremina() { return 0;}
-		 int Q() {return zapremina() * tezina;}
-		 void postaviVrstu(VrstaPredmeta vrsta) {this.vrsta = vrsta;}
-		 VrstaPredmeta dohvVrstu() { return vrsta; }
-		 int dohvTezinu() { return tezina; }
+		public void postaviTezinu(int tezina) {this.tezina = tezina;}  
+		public void ucitajTezinu() { read(tezina); }
+		public int zapremina() { return 0;}
+		public int Q() {return zapremina() * tezina;}
+		public void postaviVrstu(VrstaPredmeta vrsta) {this.vrsta = vrsta;}
+		public VrstaPredmeta dohvVrstu() { return vrsta; }
+		public int dohvTezinu() { return tezina; }
 	}
 }
 
@@ -29,9 +29,9 @@ class Sfera extends Predmet
 {
 	private int r;
 	{
-		 void postaviTezinu(int tezina) {this.tezina = tezina; vrsta = VrstaPredmeta.SFERA;}
-		 void postaviPoluprecnik(int r) {this.r = r; postaviVrstu(VrstaPredmeta.SFERA);}
-		 int zapremina()
+		public void postaviTezinu(int tezina) {this.tezina = tezina; vrsta = VrstaPredmeta.SFERA;}
+		public void postaviPoluprecnik(int r) {this.r = r; postaviVrstu(VrstaPredmeta.SFERA);}
+		public int zapremina()
 			int z;
 		{
 			z = cinilac;
@@ -44,9 +44,9 @@ class Kvadar extends Predmet
 {
 	private int a, b, c;
 	{
-		 void postaviTezinu(int tezina) {this.tezina = tezina; vrsta = VrstaPredmeta.KVADAR;}
-		 void postaviStranice(int a, int b, int c) {this.a = a; this.b = b; this.c = c; vrsta = VrstaPredmeta.KVADAR;}
-		 int zapremina()
+		public void postaviTezinu(int tezina) {this.tezina = tezina; vrsta = VrstaPredmeta.KVADAR;}
+		public void postaviStranice(int a, int b, int c) {this.a = a; this.b = b; this.c = c; vrsta = VrstaPredmeta.KVADAR;}
+		public int zapremina()
 			int z;
 		{
 			z = a * b * c;
