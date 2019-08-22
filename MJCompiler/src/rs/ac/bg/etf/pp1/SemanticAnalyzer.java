@@ -285,7 +285,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				report_info("INFO:  Deklarisan niz " + var.getVarName(), var);
 			}
 			else {
-				varNode = Tab.insert(kind, var.getVarName(), currentType);
+				Struct str = (currentType.getKind() == Struct.Enum)? intType : currentType;
+				varNode = Tab.insert(kind, var.getVarName(), str);
 				report_info("INFO:  Deklarisana"+((this.currentLevel==0)?" globalna":"")+" promenljiva " + var.getVarName(), var);
 			}
 		}
@@ -301,7 +302,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 					report_info("INFO:  Deklarisan niz " + var.getVarName(), var);
 				}
 				else {
-					varNode = Tab.insert(kind, var.getVarName(), currentType);
+					Struct str = (currentType.getKind() == Struct.Enum)? intType : currentType;
+					varNode = Tab.insert(kind, var.getVarName(), str);
 					report_info("INFO:  Deklarisana"+((this.currentLevel==0)?"globalna ":"")+" promenljiva " + var.getVarName(), var);
 				}
 			}
@@ -915,7 +917,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(CondFacts fact) {
 		Struct str1 = fact.getExpr().struct;
+		if (str1.getKind() == Struct.Enum) {
+			str1 = intType;
+		}
 		Struct str2 = fact.getExpr1().struct;
+		if (str2.getKind() == Struct.Enum) {
+			str2 = intType;
+		}
 		if (!str1.compatibleWith(str2)) {
 			report_error("ERROR: Nekompatibilni tipovi kod relacionog operatora", fact);
 			fact.struct = Tab.noType;
