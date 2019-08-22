@@ -91,7 +91,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj InterfaceName ;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName, FormParsItem;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethDeclTypeName, FormParsItem;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesigName ;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
@@ -267,10 +267,10 @@ TypeIdent ::= (TypeIdentificator) Type:retType
 /********************** Method Declaration ********************
 **************************************************************/
 
-MethodDeclList ::= (MethodDeclarations) MethodDeclTypeName LPAREN OptFormPars RPAREN OptVarDecl LBRACE OptStmt RBRACE
+MethodDeclList ::= (MethodDeclarations) MethDeclTypeName LPAREN OptFormPars RPAREN OptVarDecl LBRACE OptStmt RBRACE
 ;
 
-MethodDeclTypeName ::= (MethodDeclTypeName) TypeIdent:retType IDENT:methodName
+MethDeclTypeName ::= (MethodDeclTypeName) TypeIdent:retType IDENT:methodName
 ;
 
 OptStmt ::= (OptionalStmt) OptStmt Statement

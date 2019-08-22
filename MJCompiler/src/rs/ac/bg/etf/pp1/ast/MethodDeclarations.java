@@ -1,20 +1,20 @@
 // generated with ast extension for cup
 // version 0.8
-// 21/7/2019 23:52:33
+// 22/7/2019 17:31:49
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class MethodDeclarations extends MethodDeclList {
 
-    private MethodDeclTypeName MethodDeclTypeName;
+    private MethDeclTypeName MethDeclTypeName;
     private OptFormPars OptFormPars;
     private OptVarDecl OptVarDecl;
     private OptStmt OptStmt;
 
-    public MethodDeclarations (MethodDeclTypeName MethodDeclTypeName, OptFormPars OptFormPars, OptVarDecl OptVarDecl, OptStmt OptStmt) {
-        this.MethodDeclTypeName=MethodDeclTypeName;
-        if(MethodDeclTypeName!=null) MethodDeclTypeName.setParent(this);
+    public MethodDeclarations (MethDeclTypeName MethDeclTypeName, OptFormPars OptFormPars, OptVarDecl OptVarDecl, OptStmt OptStmt) {
+        this.MethDeclTypeName=MethDeclTypeName;
+        if(MethDeclTypeName!=null) MethDeclTypeName.setParent(this);
         this.OptFormPars=OptFormPars;
         if(OptFormPars!=null) OptFormPars.setParent(this);
         this.OptVarDecl=OptVarDecl;
@@ -23,12 +23,12 @@ public class MethodDeclarations extends MethodDeclList {
         if(OptStmt!=null) OptStmt.setParent(this);
     }
 
-    public MethodDeclTypeName getMethodDeclTypeName() {
-        return MethodDeclTypeName;
+    public MethDeclTypeName getMethDeclTypeName() {
+        return MethDeclTypeName;
     }
 
-    public void setMethodDeclTypeName(MethodDeclTypeName MethodDeclTypeName) {
-        this.MethodDeclTypeName=MethodDeclTypeName;
+    public void setMethDeclTypeName(MethDeclTypeName MethDeclTypeName) {
+        this.MethDeclTypeName=MethDeclTypeName;
     }
 
     public OptFormPars getOptFormPars() {
@@ -60,7 +60,7 @@ public class MethodDeclarations extends MethodDeclList {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(MethodDeclTypeName!=null) MethodDeclTypeName.accept(visitor);
+        if(MethDeclTypeName!=null) MethDeclTypeName.accept(visitor);
         if(OptFormPars!=null) OptFormPars.accept(visitor);
         if(OptVarDecl!=null) OptVarDecl.accept(visitor);
         if(OptStmt!=null) OptStmt.accept(visitor);
@@ -68,14 +68,14 @@ public class MethodDeclarations extends MethodDeclList {
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(MethodDeclTypeName!=null) MethodDeclTypeName.traverseTopDown(visitor);
+        if(MethDeclTypeName!=null) MethDeclTypeName.traverseTopDown(visitor);
         if(OptFormPars!=null) OptFormPars.traverseTopDown(visitor);
         if(OptVarDecl!=null) OptVarDecl.traverseTopDown(visitor);
         if(OptStmt!=null) OptStmt.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(MethodDeclTypeName!=null) MethodDeclTypeName.traverseBottomUp(visitor);
+        if(MethDeclTypeName!=null) MethDeclTypeName.traverseBottomUp(visitor);
         if(OptFormPars!=null) OptFormPars.traverseBottomUp(visitor);
         if(OptVarDecl!=null) OptVarDecl.traverseBottomUp(visitor);
         if(OptStmt!=null) OptStmt.traverseBottomUp(visitor);
@@ -87,8 +87,8 @@ public class MethodDeclarations extends MethodDeclList {
         buffer.append(tab);
         buffer.append("MethodDeclarations(\n");
 
-        if(MethodDeclTypeName!=null)
-            buffer.append(MethodDeclTypeName.toString("  "+tab));
+        if(MethDeclTypeName!=null)
+            buffer.append(MethDeclTypeName.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

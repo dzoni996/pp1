@@ -1,15 +1,11 @@
 // generated with ast extension for cup
 // version 0.8
-// 21/7/2019 23:52:33
+// 22/7/2019 17:31:49
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class MethodDeclTypeName implements SyntaxNode {
-
-    private SyntaxNode parent;
-    private int line;
-    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
+public class MethodDeclTypeName extends MethDeclTypeName {
 
     private TypeIdent TypeIdent;
     private String methodName;
@@ -34,22 +30,6 @@ public class MethodDeclTypeName implements SyntaxNode {
 
     public void setMethodName(String methodName) {
         this.methodName=methodName;
-    }
-
-    public SyntaxNode getParent() {
-        return parent;
-    }
-
-    public void setParent(SyntaxNode parent) {
-        this.parent=parent;
-    }
-
-    public int getLine() {
-        return line;
-    }
-
-    public void setLine(int line) {
-        this.line=line;
     }
 
     public void accept(Visitor visitor) {

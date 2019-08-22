@@ -120,7 +120,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj EnumName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj InterfaceName ;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethodDeclTypeName, FormParsItem;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethDeclTypeName, FormParsItem;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesigName ;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
@@ -296,10 +296,10 @@ TypeIdent ::= (TypeIdentificator) Type:retType {: RESULT=new TypeIdentificator(r
 /********************** Method Declaration ********************
 **************************************************************/
 
-MethodDeclList ::= (MethodDeclarations) MethodDeclTypeName:M1 LPAREN OptFormPars:O2 RPAREN OptVarDecl:O3 LBRACE OptStmt:O4 RBRACE {: RESULT=new MethodDeclarations(M1, O2, O3, O4); RESULT.setLine(M1left); :}
+MethodDeclList ::= (MethodDeclarations) MethDeclTypeName:M1 LPAREN OptFormPars:O2 RPAREN OptVarDecl:O3 LBRACE OptStmt:O4 RBRACE {: RESULT=new MethodDeclarations(M1, O2, O3, O4); RESULT.setLine(M1left); :}
 ;
 
-MethodDeclTypeName ::= (MethodDeclTypeName) TypeIdent:retType IDENT:methodName {: RESULT=new MethodDeclTypeName(retType, methodName); RESULT.setLine(retTypeleft); :}
+MethDeclTypeName ::= (MethodDeclTypeName) TypeIdent:retType IDENT:methodName {: RESULT=new MethodDeclTypeName(retType, methodName); RESULT.setLine(retTypeleft); :}
 ;
 
 OptStmt ::= (OptionalStmt) OptStmt:O1 Statement:S2 {: RESULT=new OptionalStmt(O1, S2); RESULT.setLine(O1left); :}

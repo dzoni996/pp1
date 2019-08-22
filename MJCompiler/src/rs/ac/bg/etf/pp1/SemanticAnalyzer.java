@@ -32,8 +32,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	protected int errorsNum = 0;
 	protected static int nVars;
 	
-    protected int numOfParams = 0;
-    protected List<Struct> params = new LinkedList<Struct>();
+    protected int lvlNum = 0;
+    protected LinkedList<Obj> actParams = new LinkedList<Obj>();
 	
 	Logger log = Logger.getLogger(getClass());
 	
@@ -405,6 +405,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     	
     	this.currentMethod = Tab.insert(Obj.Meth, methodTypeName.getMethodName(), currentType);
     	methodTypeName.obj = currentMethod;
+    	methodTypeName.obj.setLevel(0);
     	if (methodTypeName.getTypeIdent() instanceof VoidIdentificator){
     		this.returnFound = true;
     	} else {
@@ -482,12 +483,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		} else {
 			str = currentType;
 		}
+//		if ("mul".equals(this.currentMethod.getName())) {
+//			int n = 0;
+//		}
+		
 		
 		node = Tab.insert(Obj.Var, item.getParamName(), str);
 		item.obj = node;
-		// TODO: Tab.currentScope.addToLocals()???
-		currentMethod.setLevel(currentMethod.getLevel() + 1);
+		// TODO: check! Tab.currentScope.addToLocals(node);
 		node.setFpPos(currentMethod.getLevel());
+		currentMethod.setLevel(currentMethod.getLevel() + 1);
 
 		report_info("INFO:  Deklarisan formalni parametar " + item.getParamName(), item);
     }
@@ -555,14 +560,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
   
     @Override
     public void visit(SingleActPars par) {
-    	numOfParams += 1;
-    	params.add(par.getExpr().struct);
+    	Obj obj = new Obj(Obj.Var, "par", par.getExpr().struct);
+    	obj.setLevel(this.lvlNum); // zbog ugnezdavanja poziva!!!
+    	this.actParams.addFirst(obj);
     }
     
     @Override
     public void visit(MultiActPars par) {
-    	numOfParams += 1;
-    	params.add(par.getExpr().struct);
+    	Obj obj = new Obj(Obj.Var, "par", par.getExpr().struct);
+    	obj.setLevel(this.lvlNum); // zbog ugnezdavanja poziva!!!
+    	this.actParams.addFirst(obj);
     }
     
 	@Override
@@ -573,23 +580,27 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		} else {
 			
 			Obj node = design.getDesignator().obj;
+			this.lvlNum--;
 			
 			// 1. if it is method
 			if (node.getKind() != Obj.Meth) {
 				report_error("ERROR: Objekat "+node.getName()+" nije metoda ", design);
 				design.struct = Tab.noType;
-				numOfParams = 0;
-				params.clear();
+				this.actParams.clear();
 				return;
 			} 
 			
 			// 2. number of parameters
 			int numOfPar = node.getLevel();
-			if (numOfPar != this.numOfParams) {
+			int actPar = 0;
+			for (Obj o: this.actParams) {
+				if (o.getLevel() > this.lvlNum)
+					actPar++;
+			}
+			if (numOfPar != actPar) {
 				report_error("ERROR: Broj prosledjenih parametara ne odgovara stvarnom broju", design);
 				design.struct = Tab.noType;
-				numOfParams = 0;
-				params.clear();
+				this.actParams.clear();
 				return;
 			}
 			
@@ -597,25 +608,29 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			Collection<Obj> pars = node.getLocalSymbols();
 			boolean comp = true;
 			int i = 0;
-			for (Iterator<Obj> iter = pars.iterator(); iter.hasNext(); ) {
-				Obj cur = iter.next();
-				if (!params.get(i++).compatibleWith(cur.getType())) {
-					comp = false; break;
-				}
-			}
+//			for (Iterator<Obj> iter = pars.iterator(); iter.hasNext(); ) {
+//				Obj cur = iter.next();
+//				if (!params.get(i++).compatibleWith(cur.getType())) {
+//					comp = false; break;
+//				}
+//			}
 			
 			if (!comp) {
 				report_error("ERROR: Nekompatibilnost sa stvarnim parametrima", design);
 				design.struct = Tab.noType;
-				numOfParams = 0;
-				params.clear();
+				this.actParams.clear();
 				return;
 			}
 			
 			report_info("INFO:  Pozvana metoda "+node.getName(), design);
 			design.struct = node.getType();
-			numOfParams = 0;
-			params.clear();
+
+			Iterator<Obj> iter = this.actParams.iterator();
+			while (iter.hasNext()) {
+				Obj o = iter.next();
+				if (o.getLevel()>this.lvlNum)
+					iter.remove();
+			}
 			
 		}
 	}
@@ -651,6 +666,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			return;
 		}
 		newFactor.struct = new Struct(Struct.Array, newFactor.getType().struct);
+		newFactor.struct.setElementType( newFactor.getType().struct);
 	}
 	
 	@Override
@@ -682,7 +698,15 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		
 		name.obj = design;
 		this.currentDesignator = design;
-		report_info("INFO:  Pristup simbolu "+name.getId(), name);
+		if (design.getKind() == Obj.Meth) {
+			report_info("INFO:  Pristup metodi "+name.getId(), name);
+			this.lvlNum++;
+		} else 
+			report_info("INFO:  Pristup simbolu "+name.getId(), name);
+		
+		if ("nizch".equals(name.obj.getName())) {
+			int n=0;
+		}
 	}
 
 	@Override
@@ -737,8 +761,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(DesignArr arr) {
 		
-		if (this.currentDesignator.getType().getKind() != Struct.Array
-				|| arr.getExpr().struct != intType) {
+		//if (this.currentDesignator.getType().getKind() != Struct.Array
+		if (arr.getDesignator().obj.getType().getKind() != Struct.Array || arr.getExpr().struct != intType) {
 				report_error("ERROR: Objekat "+this.currentDesignator.getName()+ " nije niz", arr);
 				arr.obj = Tab.noObj;
 				return;			
@@ -752,8 +776,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 //			return;	
 //		}
 		
-		Struct str = currentDesignator.getType().getElemType();
+		//Struct str = currentDesignator.getType().getElemType();
+		//Struct str = arr.getExpr().struct;
+		Struct str = arr.getDesignator().obj.getType().getElemType();
 		arr.obj = new Obj(Obj.Elem, arr.getDesignator().obj.getName(), str);
+		
 		this.currentDesignator = arr.obj;
 		report_info("INFO:  Pristup elementu niza "+this.currentDesignator.getName(), arr);
 
@@ -761,6 +788,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 	@Override
 	public void visit(DesignVar var) {
+//		if (this.currentDesignator.getType().isRefType()) {
+//			int x = 1;
+//		}
+		var.obj = var.getDesigName().obj;
 		var.obj = this.currentDesignator;
 	}
     
@@ -823,23 +854,27 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	public void visit(ProcCall proc) {
 
 		Obj node = proc.getDesignator().obj;
+		this.lvlNum--;
 
 		// 1. if it is method
 		if (node.getKind() != Obj.Meth) {
 			report_error("ERROR: Objekat " + node.getName() + " nije metoda ", proc);
 
-			numOfParams = 0;
-			params.clear();
+			this.actParams.clear();
 			return;
 		}
 
 		// 2. number of parameters
 		int numOfPar = node.getLevel();
-		if (numOfPar != this.numOfParams) {
+		int actPar = 0;
+		for (Obj o: this.actParams) {
+			if (o.getLevel() > this.lvlNum)
+				actPar++;
+		}
+		if (numOfPar != actPar) {
 			report_error("ERROR: Broj prosledjenih parametara ne odgovara stvarnom broju", proc);
 
-			numOfParams = 0;
-			params.clear();
+			this.actParams.clear();
 			return;
 		}
 
@@ -847,26 +882,29 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Collection<Obj> pars = node.getLocalSymbols();
 		boolean comp = true;
 		int i = 0;
-		for (Iterator<Obj> iter = pars.iterator(); iter.hasNext();) {
-			Obj cur = iter.next();
-			if (!params.get(i++).compatibleWith(cur.getType())) {
-				comp = false;
-				break;
-			}
-		}
+//		for (Iterator<Obj> iter = pars.iterator(); iter.hasNext();) {
+//			Obj cur = iter.next();
+//			if (!params.get(i++).compatibleWith(cur.getType())) {
+//				comp = false;
+//				break;
+//			}
+//		}
 
 		if (!comp) {
 			report_error("ERROR: Nekompatibilnost sa stvarnim parametrima", proc);
 
-			numOfParams = 0;
-			params.clear();
+			this.actParams.clear();
 			return;
 		}
 
 		report_info("INFO:  Pozvana metoda " + node.getName(), proc);
 
-		numOfParams = 0;
-		params.clear();
+		Iterator<Obj> iter = this.actParams.iterator();
+		while (iter.hasNext()) {
+			Obj o = iter.next();
+			if (o.getLevel()>this.lvlNum)
+				iter.remove();
+		}
 
 	}
 	
