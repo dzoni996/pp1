@@ -80,7 +80,7 @@ nonterminal DesignatorStatement ;
 nonterminal OptActPars, ActPars, OptMinus, OptMethodCall;
 nonterminal Mulop, Addop, Relop, Assignop ;
 nonterminal OptNumConst ;
-nonterminal OptElse, OptDesignStmt, OptCond, IfCondition ;
+nonterminal OptElse, OptDesignStmt, OptForDesignStmt ;
 
 nonterminal ConstItem;
 nonterminal EnumDecl, EnumDeclList, EnumItem;
@@ -96,7 +96,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesigName ;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms, OptRetExpr;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, OptCond, IfCondition;
 
 precedence left ELSE;
 
@@ -305,7 +305,7 @@ Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  |
 			  (IfStmt) IF LPAREN IfCondition RPAREN Statement OptElse
 			  |
-			  (ForStmt) FOR LPAREN OptDesignStmt SEMI OptCond SEMI OptDesignStmt RPAREN Statement
+			  (ForStmt) FOR LPAREN OptForDesignStmt SEMI OptCond SEMI OptDesignStmt RPAREN Statement
 			  |
 			  (BreakStmt) BREAK SEMI
 			  |
@@ -322,6 +322,8 @@ Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  (ErrorStmt) error:e
 			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :}		
 			  ;
+
+OptForDesignStmt ::= (OptForStmt) OptDesignStmt;		  
 
 IfCondition ::= (IfCond) Condition
 				|
@@ -349,9 +351,9 @@ OptDesignStmt ::= DesignatorStatement
 				  /* epsilon */
 				  ;
 
-OptCond ::= Condition
+OptCond ::= (ForCond) Condition
 			|
-			/* epsilon */
+			(NoForCond) /* epsilon */
 			;				  
 
 /*********************** Designators **************************

@@ -106,8 +106,7 @@ nonterminal Assignop Assignop ;
 nonterminal OptNumConst OptNumConst ;
 nonterminal OptElse OptElse;
 nonterminal OptDesignStmt OptDesignStmt;
-nonterminal OptCond OptCond;
-nonterminal IfCondition IfCondition ;
+nonterminal OptForDesignStmt OptForDesignStmt ;
 
 nonterminal ConstItem ConstItem;
 nonterminal EnumDecl EnumDecl;
@@ -125,7 +124,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesigName ;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms, OptRetExpr;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Condition, CondTerm, CondFact, OptCond, IfCondition;
 
 precedence left ELSE;
 
@@ -334,7 +333,7 @@ Statement ::= (DesignatorStmt) DesignatorStatement:D1 SEMI {: RESULT=new Designa
 			  |
 			  (IfStmt) IF LPAREN IfCondition:I1 RPAREN Statement:S2 OptElse:O3 {: RESULT=new IfStmt(I1, S2, O3); RESULT.setLine(I1left); :}
 			  |
-			  (ForStmt) FOR LPAREN OptDesignStmt:O1 SEMI OptCond:O2 SEMI OptDesignStmt:O3 RPAREN Statement:S4 {: RESULT=new ForStmt(O1, O2, O3, S4); RESULT.setLine(O1left); :}
+			  (ForStmt) FOR LPAREN OptForDesignStmt:O1 SEMI OptCond:O2 SEMI OptDesignStmt:O3 RPAREN Statement:S4 {: RESULT=new ForStmt(O1, O2, O3, S4); RESULT.setLine(O1left); :}
 			  |
 			  (BreakStmt) BREAK SEMI {: RESULT=new BreakStmt(); :}
 			  |
@@ -351,6 +350,8 @@ Statement ::= (DesignatorStmt) DesignatorStatement:D1 SEMI {: RESULT=new Designa
 			  (ErrorStmt) error:e
 			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new ErrorStmt(); :}		
 			  ;
+
+OptForDesignStmt ::= (OptForStmt) OptDesignStmt:O1 {: RESULT=new OptForStmt(O1); RESULT.setLine(O1left); :};		  
 
 IfCondition ::= (IfCond) Condition:C1 {: RESULT=new IfCond(C1); RESULT.setLine(C1left); :}
 				|
@@ -378,9 +379,9 @@ OptDesignStmt ::= DesignatorStatement:D1 {: RESULT=new OptDesignStmtDerived1(D1)
 				  /* epsilon */
 				  ;
 
-OptCond ::= Condition:C1 {: RESULT=new OptCondDerived1(C1); RESULT.setLine(C1left); :}
-			| {: RESULT=new OptCondDerived2(); :}
-			/* epsilon */
+OptCond ::= (ForCond) Condition:C1 {: RESULT=new ForCond(C1); RESULT.setLine(C1left); :}
+			|
+			(NoForCond) {: RESULT=new NoForCond(); :} /* epsilon */
 			;				  
 
 /*********************** Designators **************************

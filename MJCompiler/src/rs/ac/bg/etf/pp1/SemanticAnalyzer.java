@@ -27,6 +27,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	protected boolean errorDetected = false;
 	protected boolean classDecl = false;
 	protected boolean mainFound = false;
+	private boolean inForLoop = false;
 	protected int currentLevel = -1;
 	protected int enumInit = -1;
 	protected int errorsNum = 0;
@@ -998,7 +999,62 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	}
 		
     
+	@Override
+	public void visit(IfCond cond) {
+		if (cond.getCondition().struct != boolType) {
+			report_error("ERROR: Uslov i if naredni mora biti tipa bool", cond);
+			return;
+		}
+		cond.struct = cond.getCondition().struct;
+	}
 	
+	@Override
+	public void visit(IfStmt cond) {
+		if (cond.getIfCondition().struct != boolType && cond.getIfCondition() instanceof IfCond) {
+			report_error("ERROR: Uslov u if naredni mora biti tipa bool", cond);
+			return;
+		}
+		
+	}
+	
+	@Override
+	public void visit(ForCond cond) {
+		if (cond.getCondition().struct != boolType) {
+			report_error("ERROR: Uslov u for naredni mora biti tipa bool", cond);
+			return;
+		}
+		cond.struct = cond.getCondition().struct;
+	}
+	
+	@Override
+	public void visit(ForStmt stmt) {
+		if (stmt.getOptCond() instanceof ForCond && stmt.getOptCond().struct != boolType) {
+			report_error("ERROR: Uslov u for naredni mora biti tipa bool", stmt);
+			return;
+		}
+		
+		this.inForLoop = false;
+		
+	}
+	
+	@Override
+	public void visit(OptForStmt stmt) {
+		this.inForLoop = true;
+	}
+	
+	@Override
+	public void visit(BreakStmt stmt) {
+		if (!this.inForLoop) {
+			report_error("ERROR: Break naredba pozvana izvan for petlje", stmt);
+		}
+	}
+	
+	@Override
+	public void visit(ContinueStmt stmt) {
+		if (!this.inForLoop) {
+			report_error("ERROR: Continue nareba pozvana izvan for petlje", stmt);
+		}
+	}
 	
     /*
      * OTHRER METHODS *******************************************************************
