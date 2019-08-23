@@ -1,61 +1,72 @@
-INFO  12:45:16,357 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
-INFO  12:45:16,586 - #2 program
-INFO  12:45:16,586 - #45 SemanticTest
-INFO  12:45:16,586 - #22 const
-INFO  12:45:16,588 - #45 int
-INFO  12:45:16,588 - #45 x
-INFO  12:45:16,589 - #12 =
-INFO  12:45:16,590 - #42 5
-INFO  12:45:16,590 - #8 ,
-INFO  12:45:16,591 - #45 init
-INFO  12:45:16,591 - #12 =
-INFO  12:45:16,592 - #42 0
-INFO  12:45:16,592 - #5 ;
-INFO  12:45:16,592 - #45 int
-INFO  12:45:16,592 - #45 x1
-INFO  12:45:16,593 - #5 ;
-INFO  12:45:16,594 - #45 int
-INFO  12:45:16,596 - #45 x2
-INFO  12:45:16,596 - #25 [
-INFO  12:45:16,596 - #34 ]
-INFO  12:45:16,596 - #5 ;
-INFO  12:45:16,596 - #29 enum
-INFO  12:45:16,596 - #45 nums
-INFO  12:45:16,601 - #3 {
-INFO  12:45:16,602 - #45 ONE
-INFO  12:45:16,602 - #12 =
-INFO  12:45:16,602 - #42 1
-INFO  12:45:16,602 - #8 ,
-INFO  12:45:16,602 - #45 TWO
-INFO  12:45:16,602 - #12 =
-INFO  12:45:16,602 - #42 5
-INFO  12:45:16,602 - #8 ,
-INFO  12:45:16,602 - #45 THREE
-INFO  12:45:16,602 - #4 }
-INFO  12:45:16,606 - #3 {
-INFO  12:45:16,606 - #45 int
-INFO  12:45:16,607 - #45 main
-INFO  12:45:16,607 - #6 (
-INFO  12:45:16,607 - #7 )
-INFO  12:45:16,608 - #45 int
-INFO  12:45:16,608 - #45 var
-INFO  12:45:16,608 - #5 ;
-INFO  12:45:16,608 - #3 {
-INFO  12:45:16,608 - #45 var
-INFO  12:45:16,608 - #12 =
-INFO  12:45:16,608 - #42 10
-INFO  12:45:16,613 - #5 ;
-INFO  12:45:16,618 - #9 print
-INFO  12:45:16,619 - #6 (
-INFO  12:45:16,619 - #45 var
-INFO  12:45:16,619 - #7 )
-INFO  12:45:16,620 - #5 ;
-INFO  12:45:16,620 - #10 return
-INFO  12:45:16,620 - #42 0
-INFO  12:45:16,620 - #5 ;
-INFO  12:45:16,623 - #4 }
-INFO  12:45:16,623 - #4 }
-INFO  12:45:16,683 - Program(
+INFO  15:04:49,351 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  15:04:49,452 - #2 program
+INFO  15:04:49,452 - #45 SemanticTest
+INFO  15:04:49,452 - #22 const
+INFO  15:04:49,454 - #45 int
+INFO  15:04:49,454 - #45 x
+INFO  15:04:49,455 - #12 =
+INFO  15:04:49,455 - #42 5
+INFO  15:04:49,455 - #8 ,
+INFO  15:04:49,456 - #45 init
+INFO  15:04:49,457 - #12 =
+INFO  15:04:49,457 - #42 0
+INFO  15:04:49,457 - #5 ;
+INFO  15:04:49,457 - #45 int
+INFO  15:04:49,457 - #45 x1
+INFO  15:04:49,458 - #5 ;
+INFO  15:04:49,458 - #45 int
+INFO  15:04:49,459 - #45 x2
+INFO  15:04:49,459 - #25 [
+INFO  15:04:49,459 - #34 ]
+INFO  15:04:49,459 - #5 ;
+INFO  15:04:49,460 - #29 enum
+INFO  15:04:49,460 - #45 nums
+INFO  15:04:49,462 - #3 {
+INFO  15:04:49,463 - #45 ONE
+INFO  15:04:49,463 - #12 =
+INFO  15:04:49,463 - #42 1
+INFO  15:04:49,463 - #8 ,
+INFO  15:04:49,463 - #45 TWO
+INFO  15:04:49,463 - #12 =
+INFO  15:04:49,463 - #42 5
+INFO  15:04:49,463 - #8 ,
+INFO  15:04:49,463 - #45 THREE
+INFO  15:04:49,463 - #4 }
+INFO  15:04:49,464 - #3 {
+INFO  15:04:49,464 - #45 int
+INFO  15:04:49,465 - #45 main
+INFO  15:04:49,465 - #6 (
+INFO  15:04:49,465 - #7 )
+INFO  15:04:49,466 - #45 int
+INFO  15:04:49,467 - #45 var
+INFO  15:04:49,467 - #5 ;
+INFO  15:04:49,467 - #3 {
+INFO  15:04:49,467 - #45 var
+INFO  15:04:49,468 - #12 =
+INFO  15:04:49,469 - #45 nums
+INFO  15:04:49,470 - #15 .
+INFO  15:04:49,471 - #45 ONE
+INFO  15:04:49,471 - #5 ;
+INFO  15:04:49,472 - #45 var
+INFO  15:04:49,472 - #38 ++
+INFO  15:04:49,473 - #5 ;
+INFO  15:04:49,473 - #45 var
+INFO  15:04:49,473 - #12 =
+INFO  15:04:49,473 - #45 var
+INFO  15:04:49,473 - #11 +
+INFO  15:04:49,473 - #45 x
+INFO  15:04:49,474 - #5 ;
+INFO  15:04:49,475 - #9 print
+INFO  15:04:49,475 - #6 (
+INFO  15:04:49,475 - #45 var
+INFO  15:04:49,476 - #7 )
+INFO  15:04:49,476 - #5 ;
+INFO  15:04:49,476 - #10 return
+INFO  15:04:49,477 - #42 0
+INFO  15:04:49,477 - #5 ;
+INFO  15:04:49,477 - #4 }
+INFO  15:04:49,478 - #4 }
+INFO  15:04:49,487 - Program(
   ProgName(
    SemanticTest
   ) [ProgName]
@@ -178,8 +189,54 @@ INFO  12:45:16,683 - Program(
         OptionalStmt(
           OptionalStmt(
             OptionalStmt(
-              NoOptionalStmt(
-              ) [NoOptionalStmt]
+              OptionalStmt(
+                OptionalStmt(
+                  NoOptionalStmt(
+                  ) [NoOptionalStmt]
+                  DesignatorStmt(
+                    AssignOper(
+                      DesignVar(
+                        DesignatorName(
+                         var
+                        ) [DesignatorName]
+                      ) [DesignVar]
+                      AssignOperation(
+                      ) [AssignOperation]
+                      Expression(
+                        Positive(
+                        ) [Positive]
+                        Terms(
+                          DesignFactor(
+                            DesignFld(
+                              DesignVar(
+                                DesignatorName(
+                                 nums
+                                ) [DesignatorName]
+                              ) [DesignVar]
+                             ONE
+                            ) [DesignFld]
+                            NoMethodCall(
+                            ) [NoMethodCall]
+                          ) [DesignFactor]
+                          NoMulFacts(
+                          ) [NoMulFacts]
+                        ) [Terms]
+                        NoAddTerms(
+                        ) [NoAddTerms]
+                      ) [Expression]
+                    ) [AssignOper]
+                  ) [DesignatorStmt]
+                ) [OptionalStmt]
+                DesignatorStmt(
+                  PlusPlusSideEff(
+                    DesignVar(
+                      DesignatorName(
+                       var
+                      ) [DesignatorName]
+                    ) [DesignVar]
+                  ) [PlusPlusSideEff]
+                ) [DesignatorStmt]
+              ) [OptionalStmt]
               DesignatorStmt(
                 AssignOper(
                   DesignVar(
@@ -193,14 +250,37 @@ INFO  12:45:16,683 - Program(
                     Positive(
                     ) [Positive]
                     Terms(
-                      NumFactor(
-                       10
-                      ) [NumFactor]
+                      DesignFactor(
+                        DesignVar(
+                          DesignatorName(
+                           var
+                          ) [DesignatorName]
+                        ) [DesignVar]
+                        NoMethodCall(
+                        ) [NoMethodCall]
+                      ) [DesignFactor]
                       NoMulFacts(
                       ) [NoMulFacts]
                     ) [Terms]
-                    NoAddTerms(
-                    ) [NoAddTerms]
+                    WithAddTerms(
+                      NoAddTerms(
+                      ) [NoAddTerms]
+                      PlusOp(
+                      ) [PlusOp]
+                      Terms(
+                        DesignFactor(
+                          DesignVar(
+                            DesignatorName(
+                             x
+                            ) [DesignatorName]
+                          ) [DesignVar]
+                          NoMethodCall(
+                          ) [NoMethodCall]
+                        ) [DesignFactor]
+                        NoMulFacts(
+                        ) [NoMulFacts]
+                      ) [Terms]
+                    ) [WithAddTerms]
                   ) [Expression]
                 ) [AssignOper]
               ) [DesignatorStmt]
@@ -251,18 +331,24 @@ INFO  12:45:16,683 - Program(
     ) [OptMethods]
   ) [GlobalMeths]
 ) [Program]
-INFO  12:45:16,684 - ===================================
-INFO  12:45:16,685 - INFO:  Pocetak programa SemanticTest na liniji 4
-INFO  12:45:16,686 - INFO:  Deklarisana konstanta x na liniji 6
-INFO  12:45:16,686 - INFO:  Deklarisana konstanta init na liniji 6
-INFO  12:45:16,686 - INFO:  Deklarisana globalna promenljiva x1 na liniji 7
-INFO  12:45:16,686 - INFO:  Deklarisan niz x2 na liniji 8
-INFO  12:45:16,686 - INFO:  Definisan enum tip nums na liniji 9
-INFO  12:45:16,687 - INFO:  Obradjuje se funkcija main na liniji 18
-INFO  12:45:16,687 - INFO:  Deklarisana promenljiva var na liniji 18
-INFO  12:45:16,688 - INFO:  Pristup simbolu var na liniji 20
-INFO  12:45:16,688 - INFO:  Pristup simbolu var na liniji 24
-INFO  12:45:16,689 - INFO:  Poziv PRINT funkcije na liniji 7
-INFO  12:45:16,689 - INFO:  Deklarisan metod main na liniji 18
-INFO  12:45:16,689 - ===================================
-INFO  12:45:36,178 - Uspesno parsiranje!
+INFO  15:04:49,487 - ===================================
+INFO  15:04:49,487 - INFO:  Pocetak programa SemanticTest na liniji 4
+INFO  15:04:49,488 - INFO:  Deklarisana konstanta x na liniji 6
+INFO  15:04:49,488 - INFO:  Deklarisana konstanta init na liniji 6
+INFO  15:04:49,488 - INFO:  Deklarisana globalna promenljiva x1 na liniji 7
+INFO  15:04:49,488 - INFO:  Deklarisan niz x2 na liniji 8
+INFO  15:04:49,488 - INFO:  Definisan enum tip nums na liniji 9
+INFO  15:04:49,488 - INFO:  Obradjuje se funkcija main na liniji 18
+INFO  15:04:49,488 - INFO:  Deklarisana promenljiva var na liniji 18
+INFO  15:04:49,489 - INFO:  Pristup simbolu var na liniji 20
+INFO  15:04:49,489 - INFO:  Pristup simbolu nums na liniji 20
+INFO  15:04:49,489 - INFO:  Pristup konstanti nums.ONE na liniji 20
+INFO  15:04:49,489 - INFO:  Pristup simbolu var na liniji 22
+INFO  15:04:49,490 - INFO:  Pristup simbolu var na liniji 27
+INFO  15:04:49,490 - INFO:  Pristup simbolu var na liniji 27
+INFO  15:04:49,491 - INFO:  Pristup simbolu x na liniji 27
+INFO  15:04:49,491 - INFO:  Pristup simbolu var na liniji 31
+INFO  15:04:49,491 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  15:04:49,491 - INFO:  Deklarisan metod main na liniji 18
+INFO  15:04:49,491 - ===================================
+INFO  15:04:49,504 - Uspesno parsiranje!

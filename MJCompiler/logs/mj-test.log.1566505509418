@@ -1,0 +1,216 @@
+INFO  22:24:16,175 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  22:24:21,572 - #2 program
+INFO  22:24:21,572 - #45 SemanticTest
+INFO  22:24:21,573 - #22 const
+INFO  22:24:21,649 - #45 int
+INFO  22:24:21,650 - #45 x
+INFO  22:24:21,659 - #12 =
+INFO  22:24:21,660 - #42 5
+INFO  22:24:21,660 - #8 ,
+INFO  22:24:21,671 - #45 init
+INFO  22:24:21,672 - #12 =
+INFO  22:24:21,673 - #42 0
+INFO  22:24:21,674 - #5 ;
+INFO  22:24:21,675 - #45 int
+INFO  22:24:21,677 - #45 x1
+INFO  22:24:21,677 - #5 ;
+INFO  22:24:21,777 - #45 int
+INFO  22:24:21,778 - #45 x2
+INFO  22:24:21,779 - #25 [
+INFO  22:24:21,779 - #34 ]
+INFO  22:24:21,780 - #5 ;
+INFO  22:24:21,803 - #29 enum
+INFO  22:24:21,803 - #45 nums
+INFO  22:24:21,805 - #3 {
+INFO  22:24:21,806 - #45 ONE
+INFO  22:24:21,806 - #12 =
+INFO  22:24:21,807 - #42 1
+INFO  22:24:21,807 - #8 ,
+INFO  22:24:21,808 - #45 TWO
+INFO  22:24:21,808 - #12 =
+INFO  22:24:21,808 - #42 5
+INFO  22:24:21,809 - #8 ,
+INFO  22:24:21,810 - #45 THREE
+INFO  22:24:21,810 - #4 }
+INFO  22:24:21,811 - #3 {
+INFO  22:24:21,813 - #45 int
+INFO  22:24:21,846 - #45 main
+INFO  22:24:21,846 - #6 (
+INFO  22:24:21,848 - #7 )
+INFO  22:24:21,877 - #45 int
+INFO  22:24:21,900 - #45 var
+INFO  22:24:21,900 - #5 ;
+INFO  22:24:21,900 - #3 {
+INFO  22:24:21,901 - #9 print
+INFO  22:24:21,916 - #6 (
+INFO  22:24:21,916 - #7 )
+ERROR 22:24:21,917 - 
+Sintaksna greska na liniji 19
+INFO  22:24:21,917 - #5 ;
+INFO  22:24:21,917 - #10 return
+INFO  22:24:21,917 - #42 0
+INFO  22:24:21,918 - #5 ;
+INFO  22:24:21,918 - #4 }
+ERROR 22:24:21,919 - Greska pri Statement. Izvrsen oporavak u liniji 21
+INFO  22:24:22,031 - #4 }
+INFO  22:24:22,344 - Program(
+  ProgName(
+   SemanticTest
+  ) [ProgName]
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        VarDeclLists(
+          NoVarDecl(
+          ) [NoVarDecl]
+          ConstDeclaration(
+            ConstDeclarations(
+              Type(
+               int
+              ) [Type]
+              MultipleConsts(
+                SingleConst(
+                  ConstItem(
+                   x
+                    InitializerNum(
+                     5
+                    ) [InitializerNum]
+                  ) [ConstItem]
+                ) [SingleConst]
+                ConstItem(
+                 init
+                  InitializerNum(
+                   0
+                  ) [InitializerNum]
+                ) [ConstItem]
+              ) [MultipleConsts]
+            ) [ConstDeclarations]
+          ) [ConstDeclaration]
+        ) [VarDeclLists]
+        VarDeclaration(
+          VarDeclarations(
+            Type(
+             int
+            ) [Type]
+            SingleVar(
+              Var(
+               x1
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [VarDeclaration]
+      ) [VarDeclLists]
+      VarDeclaration(
+        VarDeclarations(
+          Type(
+           int
+          ) [Type]
+          SingleVar(
+            Var(
+             x2
+              ArrayVar(
+              ) [ArrayVar]
+            ) [Var]
+          ) [SingleVar]
+        ) [VarDeclarations]
+      ) [VarDeclaration]
+    ) [VarDeclLists]
+    EnumDeclaration(
+      EnumDeclarations(
+        EnumNamed(
+         nums
+        ) [EnumNamed]
+        MultipleEnums(
+          MultipleEnums(
+            SingleEnum(
+              InitEnum(
+               ONE
+               1
+              ) [InitEnum]
+            ) [SingleEnum]
+            InitEnum(
+             TWO
+             5
+            ) [InitEnum]
+          ) [MultipleEnums]
+          NoInitEnum(
+           THREE
+          ) [NoInitEnum]
+        ) [MultipleEnums]
+      ) [EnumDeclarations]
+    ) [EnumDeclaration]
+  ) [VarDeclLists]
+  GlobalMeths(
+    OptMethods(
+      NoOptMethods(
+      ) [NoOptMethods]
+      MethodDeclarations(
+        MethodDeclTypeName(
+          TypeIdentificator(
+            Type(
+             int
+            ) [Type]
+          ) [TypeIdentificator]
+         main
+        ) [MethodDeclTypeName]
+        NoOptionalFormPars(
+        ) [NoOptionalFormPars]
+        OptVars(
+          NoOptVars(
+          ) [NoOptVars]
+          VarDeclarations(
+            Type(
+             int
+            ) [Type]
+            SingleVar(
+              Var(
+               var
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [OptVars]
+        OptionalStmt(
+          OptionalStmt(
+            NoOptionalStmt(
+            ) [NoOptionalStmt]
+            ErrorStmt(
+            ) [ErrorStmt]
+          ) [OptionalStmt]
+          ReturnStmt(
+            RetExpr(
+              Expression(
+                Positive(
+                ) [Positive]
+                Terms(
+                  NumFactor(
+                   0
+                  ) [NumFactor]
+                  NoMulFacts(
+                  ) [NoMulFacts]
+                ) [Terms]
+                NoAddTerms(
+                ) [NoAddTerms]
+              ) [Expression]
+            ) [RetExpr]
+          ) [ReturnStmt]
+        ) [OptionalStmt]
+      ) [MethodDeclarations]
+    ) [OptMethods]
+  ) [GlobalMeths]
+) [Program]
+INFO  22:24:22,344 - ===================================
+INFO  22:24:22,345 - INFO:  Pocetak programa SemanticTest na liniji 4
+INFO  22:24:22,346 - INFO:  Deklarisana konstanta x na liniji 6
+INFO  22:24:22,346 - INFO:  Deklarisana konstanta init na liniji 6
+INFO  22:24:22,347 - INFO:  Deklarisana globalna promenljiva x1 na liniji 7
+INFO  22:24:22,348 - INFO:  Deklarisan niz x2 na liniji 8
+INFO  22:24:22,349 - INFO:  Definisan enum tip nums na liniji 9
+INFO  22:24:22,355 - INFO:  Obradjuje se funkcija main na liniji 17
+INFO  22:24:22,356 - INFO:  Deklarisana promenljiva var na liniji 17
+INFO  22:24:22,360 - INFO:  Deklarisan metod main na liniji 17
+INFO  22:24:22,360 - ===================================
+INFO  22:24:22,450 - Uspesno parsiranje!

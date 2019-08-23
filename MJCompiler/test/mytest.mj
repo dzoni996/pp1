@@ -17,7 +17,14 @@ enum nums {ONE = 1, TWO = 5, THREE}
 
 	int main() int var; {
 		
-		var = 10;
+		var = nums.ONE;
+		
+		var++;
+		//var--;
+		
+		//var = var * 2 + 1;
+		
+		var = var + x;
 		
 		//printf(0);
 		

@@ -1,0 +1,361 @@
+INFO  12:33:29,977 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  12:33:30,090 - #2 program
+INFO  12:33:30,090 - #45 SemanticTest
+INFO  12:33:30,090 - #22 const
+INFO  12:33:30,092 - #45 int
+INFO  12:33:30,092 - #45 x
+INFO  12:33:30,093 - #12 =
+INFO  12:33:30,093 - #42 5
+INFO  12:33:30,093 - #8 ,
+INFO  12:33:30,094 - #45 init
+INFO  12:33:30,094 - #12 =
+INFO  12:33:30,094 - #42 0
+INFO  12:33:30,095 - #5 ;
+INFO  12:33:30,095 - #45 int
+INFO  12:33:30,095 - #45 x1
+INFO  12:33:30,095 - #5 ;
+INFO  12:33:30,097 - #45 int
+INFO  12:33:30,097 - #45 x2
+INFO  12:33:30,097 - #25 [
+INFO  12:33:30,097 - #34 ]
+INFO  12:33:30,097 - #5 ;
+INFO  12:33:30,098 - #29 enum
+INFO  12:33:30,098 - #45 nums
+INFO  12:33:30,100 - #3 {
+INFO  12:33:30,100 - #45 ONE
+INFO  12:33:30,100 - #12 =
+INFO  12:33:30,100 - #42 1
+INFO  12:33:30,100 - #8 ,
+INFO  12:33:30,100 - #45 TWO
+INFO  12:33:30,100 - #12 =
+INFO  12:33:30,100 - #42 5
+INFO  12:33:30,100 - #8 ,
+INFO  12:33:30,100 - #45 THREE
+INFO  12:33:30,101 - #4 }
+INFO  12:33:30,101 - #3 {
+INFO  12:33:30,101 - #45 int
+INFO  12:33:30,101 - #45 printf
+INFO  12:33:30,102 - #6 (
+INFO  12:33:30,102 - #45 int
+INFO  12:33:30,102 - #45 a
+INFO  12:33:30,102 - #7 )
+INFO  12:33:30,103 - #3 {
+INFO  12:33:30,103 - #9 print
+INFO  12:33:30,104 - #6 (
+INFO  12:33:30,104 - #45 a
+INFO  12:33:30,105 - #7 )
+INFO  12:33:30,107 - #5 ;
+INFO  12:33:30,107 - #10 return
+INFO  12:33:30,107 - #42 0
+INFO  12:33:30,107 - #5 ;
+INFO  12:33:30,108 - #4 }
+INFO  12:33:30,108 - #45 int
+INFO  12:33:30,108 - #45 main
+INFO  12:33:30,108 - #6 (
+INFO  12:33:30,108 - #7 )
+INFO  12:33:30,109 - #45 int
+INFO  12:33:30,109 - #45 var
+INFO  12:33:30,109 - #5 ;
+INFO  12:33:30,110 - #3 {
+INFO  12:33:30,110 - #45 var
+INFO  12:33:30,110 - #12 =
+INFO  12:33:30,110 - #42 10
+INFO  12:33:30,111 - #5 ;
+INFO  12:33:30,111 - #9 print
+INFO  12:33:30,111 - #6 (
+INFO  12:33:30,111 - #45 var
+INFO  12:33:30,111 - #7 )
+INFO  12:33:30,111 - #5 ;
+INFO  12:33:30,111 - #10 return
+INFO  12:33:30,111 - #42 0
+INFO  12:33:30,111 - #5 ;
+INFO  12:33:30,111 - #4 }
+INFO  12:33:30,111 - #4 }
+INFO  12:33:30,121 - Program(
+  ProgName(
+   SemanticTest
+  ) [ProgName]
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        VarDeclLists(
+          NoVarDecl(
+          ) [NoVarDecl]
+          ConstDeclaration(
+            ConstDeclarations(
+              Type(
+               int
+              ) [Type]
+              MultipleConsts(
+                SingleConst(
+                  ConstItem(
+                   x
+                    InitializerNum(
+                     5
+                    ) [InitializerNum]
+                  ) [ConstItem]
+                ) [SingleConst]
+                ConstItem(
+                 init
+                  InitializerNum(
+                   0
+                  ) [InitializerNum]
+                ) [ConstItem]
+              ) [MultipleConsts]
+            ) [ConstDeclarations]
+          ) [ConstDeclaration]
+        ) [VarDeclLists]
+        VarDeclaration(
+          VarDeclarations(
+            Type(
+             int
+            ) [Type]
+            SingleVar(
+              Var(
+               x1
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [VarDeclaration]
+      ) [VarDeclLists]
+      VarDeclaration(
+        VarDeclarations(
+          Type(
+           int
+          ) [Type]
+          SingleVar(
+            Var(
+             x2
+              ArrayVar(
+              ) [ArrayVar]
+            ) [Var]
+          ) [SingleVar]
+        ) [VarDeclarations]
+      ) [VarDeclaration]
+    ) [VarDeclLists]
+    EnumDeclaration(
+      EnumDeclarations(
+        EnumNamed(
+         nums
+        ) [EnumNamed]
+        MultipleEnums(
+          MultipleEnums(
+            SingleEnum(
+              InitEnum(
+               ONE
+               1
+              ) [InitEnum]
+            ) [SingleEnum]
+            InitEnum(
+             TWO
+             5
+            ) [InitEnum]
+          ) [MultipleEnums]
+          NoInitEnum(
+           THREE
+          ) [NoInitEnum]
+        ) [MultipleEnums]
+      ) [EnumDeclarations]
+    ) [EnumDeclaration]
+  ) [VarDeclLists]
+  GlobalMeths(
+    OptMethods(
+      OptMethods(
+        NoOptMethods(
+        ) [NoOptMethods]
+        MethodDeclarations(
+          MethodDeclTypeName(
+            TypeIdentificator(
+              Type(
+               int
+              ) [Type]
+            ) [TypeIdentificator]
+           printf
+          ) [MethodDeclTypeName]
+          OptionalFormPars(
+            SingleFormPars(
+              FormParItem(
+                Type(
+                 int
+                ) [Type]
+               a
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [FormParItem]
+            ) [SingleFormPars]
+          ) [OptionalFormPars]
+          NoOptVars(
+          ) [NoOptVars]
+          OptionalStmt(
+            OptionalStmt(
+              NoOptionalStmt(
+              ) [NoOptionalStmt]
+              PrintStmt(
+                Expression(
+                  Positive(
+                  ) [Positive]
+                  Terms(
+                    DesignFactor(
+                      DesignVar(
+                        DesignatorName(
+                         a
+                        ) [DesignatorName]
+                      ) [DesignVar]
+                      NoMethodCall(
+                      ) [NoMethodCall]
+                    ) [DesignFactor]
+                    NoMulFacts(
+                    ) [NoMulFacts]
+                  ) [Terms]
+                  NoAddTerms(
+                  ) [NoAddTerms]
+                ) [Expression]
+                OptNumConstDerived2(
+                ) [OptNumConstDerived2]
+              ) [PrintStmt]
+            ) [OptionalStmt]
+            ReturnStmt(
+              RetExpr(
+                Expression(
+                  Positive(
+                  ) [Positive]
+                  Terms(
+                    NumFactor(
+                     0
+                    ) [NumFactor]
+                    NoMulFacts(
+                    ) [NoMulFacts]
+                  ) [Terms]
+                  NoAddTerms(
+                  ) [NoAddTerms]
+                ) [Expression]
+              ) [RetExpr]
+            ) [ReturnStmt]
+          ) [OptionalStmt]
+        ) [MethodDeclarations]
+      ) [OptMethods]
+      MethodDeclarations(
+        MethodDeclTypeName(
+          TypeIdentificator(
+            Type(
+             int
+            ) [Type]
+          ) [TypeIdentificator]
+         main
+        ) [MethodDeclTypeName]
+        NoOptionalFormPars(
+        ) [NoOptionalFormPars]
+        OptVars(
+          NoOptVars(
+          ) [NoOptVars]
+          VarDeclarations(
+            Type(
+             int
+            ) [Type]
+            SingleVar(
+              Var(
+               var
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [OptVars]
+        OptionalStmt(
+          OptionalStmt(
+            OptionalStmt(
+              NoOptionalStmt(
+              ) [NoOptionalStmt]
+              DesignatorStmt(
+                AssignOper(
+                  DesignVar(
+                    DesignatorName(
+                     var
+                    ) [DesignatorName]
+                  ) [DesignVar]
+                  AssignOperation(
+                  ) [AssignOperation]
+                  Expression(
+                    Positive(
+                    ) [Positive]
+                    Terms(
+                      NumFactor(
+                       10
+                      ) [NumFactor]
+                      NoMulFacts(
+                      ) [NoMulFacts]
+                    ) [Terms]
+                    NoAddTerms(
+                    ) [NoAddTerms]
+                  ) [Expression]
+                ) [AssignOper]
+              ) [DesignatorStmt]
+            ) [OptionalStmt]
+            PrintStmt(
+              Expression(
+                Positive(
+                ) [Positive]
+                Terms(
+                  DesignFactor(
+                    DesignVar(
+                      DesignatorName(
+                       var
+                      ) [DesignatorName]
+                    ) [DesignVar]
+                    NoMethodCall(
+                    ) [NoMethodCall]
+                  ) [DesignFactor]
+                  NoMulFacts(
+                  ) [NoMulFacts]
+                ) [Terms]
+                NoAddTerms(
+                ) [NoAddTerms]
+              ) [Expression]
+              OptNumConstDerived2(
+              ) [OptNumConstDerived2]
+            ) [PrintStmt]
+          ) [OptionalStmt]
+          ReturnStmt(
+            RetExpr(
+              Expression(
+                Positive(
+                ) [Positive]
+                Terms(
+                  NumFactor(
+                   0
+                  ) [NumFactor]
+                  NoMulFacts(
+                  ) [NoMulFacts]
+                ) [Terms]
+                NoAddTerms(
+                ) [NoAddTerms]
+              ) [Expression]
+            ) [RetExpr]
+          ) [ReturnStmt]
+        ) [OptionalStmt]
+      ) [MethodDeclarations]
+    ) [OptMethods]
+  ) [GlobalMeths]
+) [Program]
+INFO  12:33:30,121 - ===================================
+INFO  12:33:30,121 - INFO:  Pocetak programa SemanticTest na liniji 4
+INFO  12:33:30,121 - INFO:  Deklarisana konstanta x na liniji 6
+INFO  12:33:30,121 - INFO:  Deklarisana konstanta init na liniji 6
+INFO  12:33:30,121 - INFO:  Deklarisana globalna promenljiva x1 na liniji 7
+INFO  12:33:30,121 - INFO:  Deklarisan niz x2 na liniji 8
+INFO  12:33:30,121 - INFO:  Definisan enum tip nums na liniji 9
+INFO  12:33:30,122 - INFO:  Obradjuje se funkcija printf na liniji 12
+INFO  12:33:30,122 - INFO:  Deklarisan formalni parametar a na liniji 12
+INFO  12:33:30,122 - INFO:  Pristup simbolu a na liniji 13
+INFO  12:33:30,123 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  12:33:30,123 - INFO:  Deklarisan metod printf na liniji 12
+INFO  12:33:30,123 - INFO:  Obradjuje se funkcija main na liniji 18
+INFO  12:33:30,123 - INFO:  Deklarisana promenljiva var na liniji 18
+INFO  12:33:30,123 - INFO:  Pristup simbolu var na liniji 19
+INFO  12:33:30,123 - INFO:  Pristup simbolu var na liniji 22
+INFO  12:33:30,123 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  12:33:30,123 - INFO:  Deklarisan metod main na liniji 18
+INFO  12:33:30,123 - ===================================
+INFO  12:33:30,133 - Uspesno parsiranje!
