@@ -11,6 +11,7 @@ import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
+import rs.etf.pp1.symboltable.structure.SymbolDataStructure;
 
 public class SemanticAnalyzer extends VisitorAdaptor {
 	
@@ -19,6 +20,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	 */
 
 	protected Obj enumNode;
+	protected Obj currentTypeObj = null;
 	protected Obj currentMethod = null;
 	protected Obj currentDesignator = null;
 	protected Struct currentFactor = null;
@@ -142,15 +144,21 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     		type.struct = Tab.noType;
     	}
     	else {
+//    		if (type.getTypeName().equals("A")) {
+//    			int n=0;
+//    		}
+    		
         	// if type is found in table
     		if(Obj.Type == typeNode.getKind()){
     			type.struct = typeNode.getType();
     			// for later checks
     			currentType = typeNode.getType();
+    			this.currentTypeObj = typeNode;
     		// if this is not type
     		}else{
     			report_error("ERROR: Ime " + type.getTypeName() + " ne predstavlja tip!", type);
     			type.struct = Tab.noType;
+    			this.currentTypeObj = null;
     		}
     	}
 	}
@@ -653,19 +661,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	@Override
 	public void visit(NumFactor num) {
 		num.struct = intType;
-		// TODO VALUE
 	}
 	
 	@Override
 	public void visit(CharFactor num) {
 		num.struct = charType;
-		// TODO VALUE
 	}
 	
 	@Override
 	public void visit(BoolFactor num) {
 		num.struct = boolType;
-		// TODO VALUE
 	}
 
 	@Override
@@ -681,6 +686,11 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 	
 	@Override
 	public void visit(NewFactor newFactor) {
+		
+		if (!this.currentType.isRefType()) {
+			report_error("ERROR: Nije moguce alociranje objekata prostog tipa", newFactor);
+			return;
+		}
 		
 		if (newFactor.getType().struct.getKind() != Struct.Class || 
 			Tab.find(newFactor.getType().getTypeName()) == Tab.noObj) {
@@ -704,6 +714,10 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("ERROR: Objekat "+name.getId()+ " nije definisan", name);
 			name.obj = Tab.noObj;
 			return;
+		}
+		
+		if (design.getName().equals("A")) {
+			int i = 0;
 		}
 		
 		name.obj = design;
@@ -757,8 +771,9 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				this.currentDesignator = obj;
 			}		
 			
-		} else {
+		} else { // class 
 			
+			//Obj classType = Tab.find(this.currentDesignator.getType())
 			Collection<Obj> coll = this.currentDesignator.getType().getMembers();// this.currentDesignator.getLocalSymbols();
 			report_info("Pristup elementima klase (nije impl)", field);
 			field.obj = Tab.noObj;
@@ -827,7 +842,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			report_error("ERROR: Neodgovarajuci tip sa leve trane dodele vrednosti", designator);
 			return;
 		}
-
+		
+		if (str1 == null || str2 == null) {
+			report_error("ERROR: Greska prilokom provere tipova kod = (null)", designator);
+			return;
+		}
+		
 		if (!str1.compatibleWith(str2)) {
 			report_error("ERROR: Nekompatibilnost sa stvarnim parametrima", designator);
 			return;

@@ -137,6 +137,30 @@ public class CodeGenerator extends VisitorAdaptor{
 		Code.load(con); // put Obj con on expr stack
 	}
 	
+	public void visit(NewFactor newFactor) {
+		// instanciranje objekta klase
+		
+	}
+	
+	public void visit(NewArrFactor newArr) {
+		// instanciranje objekta niza
+		
+		// 1. array size is already on expr stack (because it is Expr)
+		
+		// 2. check elem type (decause of elem width)
+		int b = 0;
+		if (newArr.getType().struct == charType) b=0;
+		else if (newArr.getType().struct == intType) b=1;
+		
+		// 3. set instructions on program stack
+		Code.put(Code.newarray);
+		Code.put(b);
+		
+		// 4. as result, array adr is on expr stack
+		// Code.store(); -> we will store later (in assign oper)
+		
+	}
+	
 	/*
 	 * EXPR *****************************************************************************
 	 */
@@ -160,60 +184,61 @@ public class CodeGenerator extends VisitorAdaptor{
 	}	
 	
 	/*
-	 * STATEMENTS ***********************************************************************
-	 */
-	
-	public void visit(AssignOper assign) {
-		if (assign.getDesignator() instanceof DesignVar) {
-			Obj node = assign.getDesignator().obj;
-			Code.store(node);
-		}
-		else if (assign.getDesignator() instanceof DesignArr) {
-			// ARRAYS
-		} else { /* DesignFld */
-			// STRUCTS
-		}
-	}
-	
-	public void visit(PlusPlusSideEff pp) {
-		// TODO check
-		Obj node = pp.getDesignator().obj;
-		Code.load(node);
-		Code.load(this.one);
-		Code.put(Code.add);
-		Code.store(node);
-		pp.getDesignator().obj = node;
-	}
-	
-	public void visit(MinusMinusSideEff pp) {
-		// TODO check
-		Obj node = pp.getDesignator().obj;
-		Code.load(node);
-		Code.load(this.one);
-		Code.put(Code.sub);
-		Code.store(node);
-		pp.getDesignator().obj = node;
-	}
-	
-	/*
 	 * DESIGNATOR ***********************************************************************
 	 */
 		
 	public void visit(DesignFactor fact) {
+		// methods call
 		if (fact.getOptMethodCall() instanceof WithMethodCall) {
 			int offset = fact.getDesignator().obj.getAdr() - Code.pc;
 			Code.put(Code.call);
 			Code.put2(offset);
 		}
+		
+		// var access
 		if (fact.getOptMethodCall() instanceof NoMethodCall) {
-			//if (fact.getDesignator() instanceof DesignVar){
+			if (fact.getDesignator() instanceof DesignVar){
 				Obj node = new Obj(fact.getDesignator().obj.getKind(), "", fact.getDesignator().obj.getType());
 				node.setAdr(fact.getDesignator().obj.getAdr());
 				node.setLevel(fact.getDesignator().obj.getLevel());
 				Code.load(node);
-			//}
+			}
 		} 
 	}
+	
+	
+	public void visit(DesignatorName name ) {
+		//name.obj = Tab.find(name.getId()); tabela vraca null, a obj je vec ucitan!		
+	}
+	
+	public void visit(DesignVar var) {		
+		Obj node = var.getDesigName().obj;
+		if (var.getParent() instanceof DesignArr) {
+			//node = new Obj(Obj.Elem, "elem", node.getType().getElemType(), node.getAdr(), node.getAdr());
+			//Code.load(node);
+			Code.load(node);
+		}
+		var.obj = node;
+	}
+	
+	public void visit(DesignArr arr) {
+		
+		// designator.obj = arr[index]
+		// adr & index already on stack
+		
+		if (arr.getParent() instanceof DesignFactor) {  // r-value
+			Struct elemType = arr.getDesignator().obj.getType().getElemType();
+			int adr = arr.getDesignator().obj.getAdr();
+			int lvl = arr.getDesignator().obj.getLevel();
+			arr.obj = new Obj(Obj.Elem, "elem", elemType, adr, lvl);
+			Code.load(arr.obj);
+		} else {										// l-value
+			//Code.store(arr.obj); --> in Assign!
+		}
+		
+		
+	}
+	
 	
 	public void visit(DesignFld fld) {
 		if (fld.getDesignator().obj.getType().getKind() == Struct.Enum) {
@@ -232,11 +257,84 @@ public class CodeGenerator extends VisitorAdaptor{
 		}
 	}
 	
+	/*
+	 * STATEMENTS ***********************************************************************
+	 */
 	
-	public void visit(DesignArr arr) {
+	public void visit(AssignOper assign) {
+		if (assign.getDesignator() instanceof DesignVar) {
+			Obj node = assign.getDesignator().obj;
+			Code.store(node);
+		}
+		else if (assign.getDesignator() instanceof DesignArr) {
+			// new array is already alloc and array adr is on expr stack
+			Code.store(assign.getDesignator().obj);
+		} else { /* DesignFld */
+			// STRUCTS
+		}
+	}
+	
+	public void visit(PlusPlusSideEff pp) {
 		
+		if (pp.getDesignator() instanceof DesignVar) {
+			Obj node = pp.getDesignator().obj;
+			Code.load(node);
+			Code.load(this.one);
+			Code.put(Code.add);
+			Code.store(node);
+			pp.getDesignator().obj = node;
+		}
 		
+		if (pp.getDesignator() instanceof DesignArr) {
+			DesignArr arr = (DesignArr)pp.getDesignator();		
+			
+			Code.put(Code.dup2); // double adr & index for later store!
+			
+			// 1.load
+			Code.load(arr.obj);
+			// 2. const1
+			Code.loadConst(1);
+			// 3. add
+			Code.put(Code.add);
+			// 4. store
+			Code.store(arr.obj);
+		}
 		
+		if (pp.getDesignator() instanceof DesignFld) {
+			// class filelds
+		}
+		
+	}
+	
+	public void visit(MinusMinusSideEff pp) {
+
+		if (pp.getDesignator() instanceof DesignVar) {
+			Obj node = pp.getDesignator().obj;
+			Code.load(node);
+			Code.load(this.one);
+			Code.put(Code.sub);
+			Code.store(node);
+			pp.getDesignator().obj = node;
+		}
+		
+		if (pp.getDesignator() instanceof DesignArr) {
+			DesignArr arr = (DesignArr)pp.getDesignator();		
+			
+			Code.put(Code.dup2); // double adr & index for later store!
+			
+			// 1.load
+			Code.load(arr.obj);
+			// 2. const1
+			Code.loadConst(1);
+			// 3. add
+			Code.put(Code.sub);
+			// 4. store
+			Code.store(arr.obj);
+		}
+		
+		if (pp.getDesignator() instanceof DesignFld) {
+			// class filelds
+		}
 	}
 	
 	/*
@@ -265,9 +363,6 @@ public class CodeGenerator extends VisitorAdaptor{
 	}
 	
 	
-	public void visit(OptAddTerms add) {
-		Code.put(Code.add);
-	}
 	
 	*/
 	
