@@ -4,37 +4,24 @@
 program SemanticTest
 
 const int  x = 5, init = 0;
-const bool b = false;
 int x1;
 int x2[];
 enum nums {ONE = 1, TWO = 5, THREE}
 
-class A {
-	int fld1;
-	void meth1();
-}
-
-interface I {
-	int x();
-	void p();
-}
-
 {
-	void inc() int c;{
-		c = 2;
-		
-		print(5);
-		
-		
-	} 
-	
 	void printf(int a){
 		print(a);
+
 	}
 	
 
-	int main() A a; {
-
+	int main() int var; {
+		var = 10;
+		
+		printf(0);
+		
+		print(var);	
+		
 		return 0;
 	}
 	

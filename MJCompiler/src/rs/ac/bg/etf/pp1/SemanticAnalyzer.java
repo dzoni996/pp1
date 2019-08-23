@@ -537,11 +537,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     
     @Override
     public void visit(Terms term) {
-//    	if (term.getFactor().struct != intType) {
-//			report_error("ERROR: Odgovarajuci tip mora biti int", term);
-//			term.struct = Tab.noType;
-//			return;
-//    	}
+
     	if (term.getOptMulTerms() instanceof WithMulFacts)
     		if (term.getOptMulTerms().struct != intType) {
     			report_error("ERROR: Odgovarajuci tipovi kod mnozenja moraju biti int", term);
@@ -593,6 +589,14 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				this.actParams.clear();
 				return;
 			} 
+			
+			// && MUST NOT BE VOID!
+			if (node.getType() == Tab.noType /*void*/) {
+				report_error("ERROR: Metoda " + node.getName() + " ne moze da bude void", design);
+
+				//this.clearParams();
+				//return;
+			}
 			
 			// 2. number of parameters
 			int numOfPar = node.getLevel();
@@ -855,6 +859,16 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		// TODO: provera lvalue
 	}
+	
+	
+	void clearParams() {
+		Iterator<Obj> iter = this.actParams.iterator();
+		while (iter.hasNext()) {
+			Obj o = iter.next();
+			if (o.getLevel()>this.lvlNum)
+				iter.remove();
+		}
+	}
     
 	@Override
 	public void visit(ProcCall proc) {
@@ -862,12 +876,20 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		Obj node = proc.getDesignator().obj;
 		this.lvlNum--;
 
-		// 1. if it is method
+		// 1. if it is method 
 		if (node.getKind() != Obj.Meth) {
 			report_error("ERROR: Objekat " + node.getName() + " nije metoda ", proc);
 
-			this.actParams.clear();
+			this.clearParams();
 			return;
+		}
+		
+		// && MUST BE VOID!
+		if (node.getType() != Tab.noType /*void*/) {
+			report_error("ERROR: Metoda " + node.getName() + " ne moze da ima povratnu vrednost", proc);
+
+			//this.clearParams();
+			//return;
 		}
 
 		// 2. number of parameters
@@ -880,7 +902,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (numOfPar != actPar) {
 			report_error("ERROR: Broj prosledjenih parametara ne odgovara stvarnom broju", proc);
 
-			this.actParams.clear();
+			this.clearParams();
 			return;
 		}
 
@@ -902,18 +924,13 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (!comp) {
 			report_error("ERROR: Nekompatibilnost sa stvarnim parametrima", proc);
 
-			this.actParams.clear();
+			this.clearParams();
 			return;
 		}
 
 		report_info("INFO:  Pozvana metoda " + node.getName(), proc);
 
-		Iterator<Obj> iter = this.actParams.iterator();
-		while (iter.hasNext()) {
-			Obj o = iter.next();
-			if (o.getLevel()>this.lvlNum)
-				iter.remove();
-		}
+		this.clearParams();
 
 	}
 	
