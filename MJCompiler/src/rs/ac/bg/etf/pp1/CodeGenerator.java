@@ -139,7 +139,9 @@ public class CodeGenerator extends VisitorAdaptor{
 	
 	public void visit(NewFactor newFactor) {
 		// instanciranje objekta klase
-		
+		int n = newFactor.struct.getMembers().size();
+		Code.put(Code.new_);
+		Code.put(n);
 	}
 	
 	public void visit(NewArrFactor newArr) {

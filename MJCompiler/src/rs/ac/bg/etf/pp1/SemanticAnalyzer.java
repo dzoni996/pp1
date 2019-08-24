@@ -11,6 +11,7 @@ import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.Obj;
 import rs.etf.pp1.symboltable.concepts.Struct;
+import rs.etf.pp1.symboltable.factory.SymbolTableFactory;
 import rs.etf.pp1.symboltable.structure.SymbolDataStructure;
 
 public class SemanticAnalyzer extends VisitorAdaptor {
@@ -592,7 +593,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			
 			// 1. if it is method
 			if (node.getKind() != Obj.Meth) {
-				report_error("ERROR: Objekat "+node.getName()+" nije metoda ", design);
+				report_error("ERROR: Objekat "+node.getName()+" nije metoda", design);
 				design.struct = Tab.noType;
 				this.actParams.clear();
 				return;
@@ -697,9 +698,19 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 				report_error("ERROR: Nije uspelo alociranje pokazivaca na tip "+newFactor.getType().getTypeName(), newFactor);
 				return;
 			}
-			
+		//////////////////////////////////////////////////ADDED
+		Obj node = Tab.find(newFactor.getType().getTypeName());	;
+		SymbolDataStructure st = SymbolTableFactory.instance().createSymbolTableDataStructure();
+		for (Obj o: node.getLocalSymbols())
+			st.insertKey(o);
+		
+		////////////////////////////////////////////////
+		
 		newFactor.struct = newFactor.getType().struct;
-			
+		
+		/////////////////////////////////////////////// ADDED
+		newFactor.struct.setMembers(st);
+		////////////////////////////////////////////////
 	}
     
 	/*
@@ -773,12 +784,31 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			
 		} else { // class 
 			
-			//Obj classType = Tab.find(this.currentDesignator.getType())
-			Collection<Obj> coll = this.currentDesignator.getType().getMembers();// this.currentDesignator.getLocalSymbols();
-			report_info("Pristup elementima klase (nije impl)", field);
-			field.obj = Tab.noObj;
-			this.currentDesignator = Tab.noObj;
-			// TODO: class & interface fields
+			//Obj classType = Tab.find(this.currentDesignator.getName());
+			Collection<Obj> coll = this.currentDesignator.getType().getMembers();
+			boolean found = false;
+			Obj fnd = null;
+			for (Obj o: coll) {
+				if (o.getName().equals(field.getId())) {
+					//if (field.getDesignator().obj.getType().compatibleWith(o.getType())) {
+						found = true;
+						fnd = o;
+						break;
+					//}
+				}
+			}
+			
+			if (!found) {
+				report_error("ERROR: Struktura "+field.getDesignator().obj.getName()+" ne sadrzi polje "+field.getId(), field);
+				this.currentDesignator = Tab.noObj;
+				field.obj = Tab.noObj;
+			} else {
+				report_info("INFO: Pristup strukturi "+field.getDesignator().obj.getName()+", polju "+field.getId(), field);
+				this.currentDesignator = fnd;
+				field.obj = fnd;
+			}
+
+			// TODO: interface fields
 		}
 		
 	}
@@ -898,7 +928,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		// 1. if it is method 
 		if (node.getKind() != Obj.Meth) {
-			report_error("ERROR: Objekat " + node.getName() + " nije metoda ", proc);
+			report_error("ERROR: Objekat " + node.getName() + " nije metoda", proc);
 
 			this.clearParams();
 			return;
@@ -941,7 +971,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		/////////////////////////////////////////////////////////////////////////
 
-		if (!comp) {
+		if (!comp && (pars.size() > 0 || this.actParams.size() > 0)) {
 			report_error("ERROR: Nekompatibilnost sa stvarnim parametrima", proc);
 
 			this.clearParams();
