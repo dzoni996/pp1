@@ -141,7 +141,7 @@ public class CodeGenerator extends VisitorAdaptor{
 		// instanciranje objekta klase
 		int n = newFactor.struct.getMembers().size();
 		Code.put(Code.new_);
-		Code.put(n);
+		Code.put2(n);
 	}
 	
 	public void visit(NewArrFactor newArr) {
@@ -205,6 +205,13 @@ public class CodeGenerator extends VisitorAdaptor{
 				node.setLevel(fact.getDesignator().obj.getLevel());
 				Code.load(node);
 			}
+			if (fact.getDesignator() instanceof DesignFld) {
+				DesignFld fld = (DesignFld) fact.getDesignator();
+				
+				//Code.load(fld.getDesignator().obj);	// adr of struct
+				Code.load(fld.obj);
+				
+			}
 		} 
 	}
 	
@@ -254,8 +261,10 @@ public class CodeGenerator extends VisitorAdaptor{
 				}
 			}
 		} else { // CLASS & INTERFACES
-			
-			
+			// fields
+			Code.load(fld.getDesignator().obj);	// adr of struct
+			//Code.load(fld.obj);					// field
+
 		}
 	}
 	
@@ -271,8 +280,8 @@ public class CodeGenerator extends VisitorAdaptor{
 		else if (assign.getDesignator() instanceof DesignArr) {
 			// new array is already alloc and array adr is on expr stack
 			Code.store(assign.getDesignator().obj);
-		} else { /* DesignFld */
-			// STRUCTS
+		} else if (assign.getDesignator() instanceof DesignFld) { /* DesignFld */
+			Code.store((assign.getDesignator()).obj);
 		}
 	}
 	
