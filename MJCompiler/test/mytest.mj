@@ -11,11 +11,14 @@ enum nums {ONE = 1, TWO = 5, THREE}
 class A {
 	int fld1;
 	char fld2;
-		{
-			void meth1() {}
-		}
 	
 	}
+	
+interface I {
+	int meth1();
+	int meth2();
+}
+
 
 {
 	//void printf(int a){
@@ -24,12 +27,15 @@ class A {
 	//}
 	
 
-	int main() int var; A a; {
+	int main() int var; A a;{
+	
+		var = 5;
 	
 		a = new A;
 		
-		a.fld2 = 'a';
-		a.meth1();
+		a.fld1 = 17;
+		
+		print(a.fld1);
 	
 		//x2 = new int[5];
 		

@@ -1,0 +1,549 @@
+INFO  00:26:11,315 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  00:26:11,408 - #2 program
+INFO  00:26:11,408 - #45 SemanticTest
+INFO  00:26:11,408 - #22 const
+INFO  00:26:11,408 - #45 int
+INFO  00:26:11,408 - #45 x
+INFO  00:26:11,413 - #12 =
+INFO  00:26:11,413 - #42 6
+INFO  00:26:11,413 - #8 ,
+INFO  00:26:11,413 - #45 init
+INFO  00:26:11,413 - #12 =
+INFO  00:26:11,413 - #42 0
+INFO  00:26:11,413 - #5 ;
+INFO  00:26:11,413 - #45 int
+INFO  00:26:11,413 - #45 x1
+INFO  00:26:11,413 - #8 ,
+INFO  00:26:11,418 - #45 x3
+INFO  00:26:11,418 - #25 [
+INFO  00:26:11,418 - #34 ]
+INFO  00:26:11,418 - #5 ;
+INFO  00:26:11,418 - #45 int
+INFO  00:26:11,418 - #45 x2
+INFO  00:26:11,418 - #25 [
+INFO  00:26:11,418 - #34 ]
+INFO  00:26:11,418 - #5 ;
+INFO  00:26:11,418 - #29 enum
+INFO  00:26:11,418 - #45 nums
+INFO  00:26:11,418 - #3 {
+INFO  00:26:11,418 - #45 ONE
+INFO  00:26:11,418 - #12 =
+INFO  00:26:11,418 - #42 1
+INFO  00:26:11,418 - #8 ,
+INFO  00:26:11,418 - #45 TWO
+INFO  00:26:11,418 - #12 =
+INFO  00:26:11,418 - #42 5
+INFO  00:26:11,418 - #8 ,
+INFO  00:26:11,418 - #45 THREE
+INFO  00:26:11,418 - #4 }
+INFO  00:26:11,423 - #16 class
+INFO  00:26:11,423 - #45 A
+INFO  00:26:11,423 - #3 {
+INFO  00:26:11,423 - #45 int
+INFO  00:26:11,423 - #45 fld1
+INFO  00:26:11,423 - #5 ;
+INFO  00:26:11,423 - #45 char
+INFO  00:26:11,423 - #45 fld2
+INFO  00:26:11,423 - #5 ;
+INFO  00:26:11,423 - #4 }
+INFO  00:26:11,423 - #3 {
+INFO  00:26:11,423 - #45 int
+INFO  00:26:11,423 - #45 main
+INFO  00:26:11,428 - #6 (
+INFO  00:26:11,428 - #7 )
+INFO  00:26:11,428 - #45 int
+INFO  00:26:11,428 - #45 var
+INFO  00:26:11,428 - #5 ;
+INFO  00:26:11,428 - #3 {
+INFO  00:26:11,428 - #45 x3
+INFO  00:26:11,428 - #12 =
+INFO  00:26:11,428 - #18 new
+INFO  00:26:11,428 - #45 int
+INFO  00:26:11,433 - #25 [
+INFO  00:26:11,433 - #42 2
+INFO  00:26:11,433 - #34 ]
+INFO  00:26:11,433 - #5 ;
+INFO  00:26:11,433 - #45 x3
+INFO  00:26:11,433 - #25 [
+INFO  00:26:11,433 - #42 0
+INFO  00:26:11,433 - #34 ]
+INFO  00:26:11,433 - #12 =
+INFO  00:26:11,433 - #42 1
+INFO  00:26:11,433 - #5 ;
+INFO  00:26:11,433 - #45 x3
+INFO  00:26:11,433 - #25 [
+INFO  00:26:11,433 - #42 0
+INFO  00:26:11,433 - #34 ]
+INFO  00:26:11,433 - #38 ++
+INFO  00:26:11,433 - #5 ;
+INFO  00:26:11,433 - #45 x3
+INFO  00:26:11,433 - #25 [
+INFO  00:26:11,433 - #42 1
+INFO  00:26:11,433 - #34 ]
+INFO  00:26:11,433 - #12 =
+INFO  00:26:11,433 - #45 x3
+INFO  00:26:11,433 - #25 [
+INFO  00:26:11,433 - #42 0
+INFO  00:26:11,433 - #34 ]
+INFO  00:26:11,433 - #11 +
+INFO  00:26:11,433 - #42 1
+INFO  00:26:11,438 - #5 ;
+INFO  00:26:11,438 - #9 print
+INFO  00:26:11,438 - #6 (
+INFO  00:26:11,438 - #45 x3
+INFO  00:26:11,438 - #25 [
+INFO  00:26:11,438 - #42 1
+INFO  00:26:11,438 - #34 ]
+INFO  00:26:11,438 - #7 )
+INFO  00:26:11,438 - #5 ;
+INFO  00:26:11,438 - #10 return
+INFO  00:26:11,438 - #42 0
+INFO  00:26:11,438 - #5 ;
+INFO  00:26:11,443 - #4 }
+INFO  00:26:11,443 - #4 }
+INFO  00:26:11,458 - Program(
+  ProgName(
+   SemanticTest
+  ) [ProgName]
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        VarDeclLists(
+          VarDeclLists(
+            NoVarDecl(
+            ) [NoVarDecl]
+            ConstDeclaration(
+              ConstDeclarations(
+                Type(
+                 int
+                ) [Type]
+                MultipleConsts(
+                  SingleConst(
+                    ConstItem(
+                     x
+                      InitializerNum(
+                       6
+                      ) [InitializerNum]
+                    ) [ConstItem]
+                  ) [SingleConst]
+                  ConstItem(
+                   init
+                    InitializerNum(
+                     0
+                    ) [InitializerNum]
+                  ) [ConstItem]
+                ) [MultipleConsts]
+              ) [ConstDeclarations]
+            ) [ConstDeclaration]
+          ) [VarDeclLists]
+          VarDeclaration(
+            VarDeclarations(
+              Type(
+               int
+              ) [Type]
+              MultipleVars(
+                SingleVar(
+                  Var(
+                   x1
+                    NoArrayVar(
+                    ) [NoArrayVar]
+                  ) [Var]
+                ) [SingleVar]
+                Var(
+                 x3
+                  ArrayVar(
+                  ) [ArrayVar]
+                ) [Var]
+              ) [MultipleVars]
+            ) [VarDeclarations]
+          ) [VarDeclaration]
+        ) [VarDeclLists]
+        VarDeclaration(
+          VarDeclarations(
+            Type(
+             int
+            ) [Type]
+            SingleVar(
+              Var(
+               x2
+                ArrayVar(
+                ) [ArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [VarDeclaration]
+      ) [VarDeclLists]
+      EnumDeclaration(
+        EnumDeclarations(
+          EnumNamed(
+           nums
+          ) [EnumNamed]
+          MultipleEnums(
+            MultipleEnums(
+              SingleEnum(
+                InitEnum(
+                 ONE
+                 1
+                ) [InitEnum]
+              ) [SingleEnum]
+              InitEnum(
+               TWO
+               5
+              ) [InitEnum]
+            ) [MultipleEnums]
+            NoInitEnum(
+             THREE
+            ) [NoInitEnum]
+          ) [MultipleEnums]
+        ) [EnumDeclarations]
+      ) [EnumDeclaration]
+    ) [VarDeclLists]
+    ClasstDeclaration(
+      ClassDeclaration(
+        ClassName(
+         A
+        ) [ClassName]
+        NoSuperClass(
+        ) [NoSuperClass]
+        NoImplInteraces(
+        ) [NoImplInteraces]
+        OptVars(
+          OptVars(
+            NoOptVars(
+            ) [NoOptVars]
+            VarDeclarations(
+              Type(
+               int
+              ) [Type]
+              SingleVar(
+                Var(
+                 fld1
+                  NoArrayVar(
+                  ) [NoArrayVar]
+                ) [Var]
+              ) [SingleVar]
+            ) [VarDeclarations]
+          ) [OptVars]
+          VarDeclarations(
+            Type(
+             char
+            ) [Type]
+            SingleVar(
+              Var(
+               fld2
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [OptVars]
+        NoClassMethodDecl(
+        ) [NoClassMethodDecl]
+      ) [ClassDeclaration]
+    ) [ClasstDeclaration]
+  ) [VarDeclLists]
+  GlobalMeths(
+    OptMethods(
+      NoOptMethods(
+      ) [NoOptMethods]
+      MethodDeclarations(
+        MethodDeclTypeName(
+          TypeIdentificator(
+            Type(
+             int
+            ) [Type]
+          ) [TypeIdentificator]
+         main
+        ) [MethodDeclTypeName]
+        NoOptionalFormPars(
+        ) [NoOptionalFormPars]
+        OptVars(
+          NoOptVars(
+          ) [NoOptVars]
+          VarDeclarations(
+            Type(
+             int
+            ) [Type]
+            SingleVar(
+              Var(
+               var
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [OptVars]
+        OptionalStmt(
+          OptionalStmt(
+            OptionalStmt(
+              OptionalStmt(
+                OptionalStmt(
+                  OptionalStmt(
+                    NoOptionalStmt(
+                    ) [NoOptionalStmt]
+                    DesignatorStmt(
+                      AssignOper(
+                        DesignVar(
+                          DesignatorName(
+                           x3
+                          ) [DesignatorName]
+                        ) [DesignVar]
+                        AssignOperation(
+                        ) [AssignOperation]
+                        Expression(
+                          Positive(
+                          ) [Positive]
+                          Terms(
+                            NewArrFactor(
+                              Type(
+                               int
+                              ) [Type]
+                              Expression(
+                                Positive(
+                                ) [Positive]
+                                Terms(
+                                  NumFactor(
+                                   2
+                                  ) [NumFactor]
+                                  NoMulFacts(
+                                  ) [NoMulFacts]
+                                ) [Terms]
+                                NoAddTerms(
+                                ) [NoAddTerms]
+                              ) [Expression]
+                            ) [NewArrFactor]
+                            NoMulFacts(
+                            ) [NoMulFacts]
+                          ) [Terms]
+                          NoAddTerms(
+                          ) [NoAddTerms]
+                        ) [Expression]
+                      ) [AssignOper]
+                    ) [DesignatorStmt]
+                  ) [OptionalStmt]
+                  DesignatorStmt(
+                    AssignOper(
+                      DesignArr(
+                        DesignVar(
+                          DesignatorName(
+                           x3
+                          ) [DesignatorName]
+                        ) [DesignVar]
+                        Expression(
+                          Positive(
+                          ) [Positive]
+                          Terms(
+                            NumFactor(
+                             0
+                            ) [NumFactor]
+                            NoMulFacts(
+                            ) [NoMulFacts]
+                          ) [Terms]
+                          NoAddTerms(
+                          ) [NoAddTerms]
+                        ) [Expression]
+                      ) [DesignArr]
+                      AssignOperation(
+                      ) [AssignOperation]
+                      Expression(
+                        Positive(
+                        ) [Positive]
+                        Terms(
+                          NumFactor(
+                           1
+                          ) [NumFactor]
+                          NoMulFacts(
+                          ) [NoMulFacts]
+                        ) [Terms]
+                        NoAddTerms(
+                        ) [NoAddTerms]
+                      ) [Expression]
+                    ) [AssignOper]
+                  ) [DesignatorStmt]
+                ) [OptionalStmt]
+                DesignatorStmt(
+                  PlusPlusSideEff(
+                    DesignArr(
+                      DesignVar(
+                        DesignatorName(
+                         x3
+                        ) [DesignatorName]
+                      ) [DesignVar]
+                      Expression(
+                        Positive(
+                        ) [Positive]
+                        Terms(
+                          NumFactor(
+                           0
+                          ) [NumFactor]
+                          NoMulFacts(
+                          ) [NoMulFacts]
+                        ) [Terms]
+                        NoAddTerms(
+                        ) [NoAddTerms]
+                      ) [Expression]
+                    ) [DesignArr]
+                  ) [PlusPlusSideEff]
+                ) [DesignatorStmt]
+              ) [OptionalStmt]
+              DesignatorStmt(
+                AssignOper(
+                  DesignArr(
+                    DesignVar(
+                      DesignatorName(
+                       x3
+                      ) [DesignatorName]
+                    ) [DesignVar]
+                    Expression(
+                      Positive(
+                      ) [Positive]
+                      Terms(
+                        NumFactor(
+                         1
+                        ) [NumFactor]
+                        NoMulFacts(
+                        ) [NoMulFacts]
+                      ) [Terms]
+                      NoAddTerms(
+                      ) [NoAddTerms]
+                    ) [Expression]
+                  ) [DesignArr]
+                  AssignOperation(
+                  ) [AssignOperation]
+                  Expression(
+                    Positive(
+                    ) [Positive]
+                    Terms(
+                      DesignFactor(
+                        DesignArr(
+                          DesignVar(
+                            DesignatorName(
+                             x3
+                            ) [DesignatorName]
+                          ) [DesignVar]
+                          Expression(
+                            Positive(
+                            ) [Positive]
+                            Terms(
+                              NumFactor(
+                               0
+                              ) [NumFactor]
+                              NoMulFacts(
+                              ) [NoMulFacts]
+                            ) [Terms]
+                            NoAddTerms(
+                            ) [NoAddTerms]
+                          ) [Expression]
+                        ) [DesignArr]
+                        NoMethodCall(
+                        ) [NoMethodCall]
+                      ) [DesignFactor]
+                      NoMulFacts(
+                      ) [NoMulFacts]
+                    ) [Terms]
+                    WithAddTerms(
+                      NoAddTerms(
+                      ) [NoAddTerms]
+                      PlusOp(
+                      ) [PlusOp]
+                      Terms(
+                        NumFactor(
+                         1
+                        ) [NumFactor]
+                        NoMulFacts(
+                        ) [NoMulFacts]
+                      ) [Terms]
+                    ) [WithAddTerms]
+                  ) [Expression]
+                ) [AssignOper]
+              ) [DesignatorStmt]
+            ) [OptionalStmt]
+            PrintStmt(
+              Expression(
+                Positive(
+                ) [Positive]
+                Terms(
+                  DesignFactor(
+                    DesignArr(
+                      DesignVar(
+                        DesignatorName(
+                         x3
+                        ) [DesignatorName]
+                      ) [DesignVar]
+                      Expression(
+                        Positive(
+                        ) [Positive]
+                        Terms(
+                          NumFactor(
+                           1
+                          ) [NumFactor]
+                          NoMulFacts(
+                          ) [NoMulFacts]
+                        ) [Terms]
+                        NoAddTerms(
+                        ) [NoAddTerms]
+                      ) [Expression]
+                    ) [DesignArr]
+                    NoMethodCall(
+                    ) [NoMethodCall]
+                  ) [DesignFactor]
+                  NoMulFacts(
+                  ) [NoMulFacts]
+                ) [Terms]
+                NoAddTerms(
+                ) [NoAddTerms]
+              ) [Expression]
+              OptNumConstDerived2(
+              ) [OptNumConstDerived2]
+            ) [PrintStmt]
+          ) [OptionalStmt]
+          ReturnStmt(
+            RetExpr(
+              Expression(
+                Positive(
+                ) [Positive]
+                Terms(
+                  NumFactor(
+                   0
+                  ) [NumFactor]
+                  NoMulFacts(
+                  ) [NoMulFacts]
+                ) [Terms]
+                NoAddTerms(
+                ) [NoAddTerms]
+              ) [Expression]
+            ) [RetExpr]
+          ) [ReturnStmt]
+        ) [OptionalStmt]
+      ) [MethodDeclarations]
+    ) [OptMethods]
+  ) [GlobalMeths]
+) [Program]
+INFO  00:26:11,458 - ===================================
+INFO  00:26:11,458 - INFO:  Pocetak programa SemanticTest na liniji 4
+INFO  00:26:11,458 - INFO:  Deklarisana konstanta x na liniji 6
+INFO  00:26:11,458 - INFO:  Deklarisana konstanta init na liniji 6
+INFO  00:26:11,458 - INFO:  Deklarisana globalna promenljiva x1 na liniji 7
+INFO  00:26:11,458 - INFO:  Deklarisan niz x3 na liniji 7
+INFO  00:26:11,458 - INFO:  Deklarisan niz x2 na liniji 8
+INFO  00:26:11,458 - INFO:  Definisan enum tip nums na liniji 9
+INFO  00:26:11,458 - INFO:  Deklarisana promenljiva fld1 na liniji 12
+INFO  00:26:11,458 - INFO:  Deklarisana promenljiva fld2 na liniji 13
+INFO  00:26:11,458 - INFO:  Definisana klasa A na liniji 11
+INFO  00:26:11,458 - INFO:  Obradjuje se funkcija main na liniji 23
+INFO  00:26:11,458 - INFO:  Deklarisana promenljiva var na liniji 23
+INFO  00:26:11,458 - INFO:  Pristup simbolu x3 na liniji 27
+INFO  00:26:11,458 - INFO:  Pristup simbolu x3 na liniji 28
+INFO  00:26:11,458 - INFO:  Pristup elementu niza x3 na liniji 28
+INFO  00:26:11,458 - INFO:  Pristup simbolu x3 na liniji 29
+INFO  00:26:11,458 - INFO:  Pristup elementu niza x3 na liniji 29
+INFO  00:26:11,458 - INFO:  Pristup simbolu x3 na liniji 30
+INFO  00:26:11,458 - INFO:  Pristup elementu niza x3 na liniji 30
+INFO  00:26:11,458 - INFO:  Pristup simbolu x3 na liniji 30
+INFO  00:26:11,458 - INFO:  Pristup elementu niza x3 na liniji 30
+INFO  00:26:11,458 - INFO:  Pristup simbolu x3 na liniji 38
+INFO  00:26:11,458 - INFO:  Pristup elementu niza x3 na liniji 38
+INFO  00:26:11,458 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  00:26:11,458 - INFO:  Deklarisan metod main na liniji 23
+INFO  00:26:11,463 - ===================================
+INFO  00:26:11,473 - Uspesno parsiranje!

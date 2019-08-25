@@ -1,105 +1,117 @@
-INFO  13:53:01,520 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
-INFO  13:53:01,600 - #2 program
-INFO  13:53:01,600 - #45 SemanticTest
-INFO  13:53:01,600 - #22 const
-INFO  13:53:01,600 - #45 int
-INFO  13:53:01,600 - #45 x
-INFO  13:53:01,600 - #12 =
-INFO  13:53:01,600 - #42 6
-INFO  13:53:01,600 - #8 ,
-INFO  13:53:01,600 - #45 init
-INFO  13:53:01,600 - #12 =
-INFO  13:53:01,600 - #42 0
-INFO  13:53:01,600 - #5 ;
-INFO  13:53:01,600 - #45 int
-INFO  13:53:01,600 - #45 x1
-INFO  13:53:01,600 - #8 ,
-INFO  13:53:01,605 - #45 x3
-INFO  13:53:01,605 - #25 [
-INFO  13:53:01,605 - #34 ]
-INFO  13:53:01,605 - #5 ;
-INFO  13:53:01,605 - #45 int
-INFO  13:53:01,605 - #45 x2
-INFO  13:53:01,605 - #25 [
-INFO  13:53:01,605 - #34 ]
-INFO  13:53:01,605 - #5 ;
-INFO  13:53:01,605 - #29 enum
-INFO  13:53:01,605 - #45 nums
-INFO  13:53:01,605 - #3 {
-INFO  13:53:01,605 - #45 ONE
-INFO  13:53:01,605 - #12 =
-INFO  13:53:01,605 - #42 1
-INFO  13:53:01,605 - #8 ,
-INFO  13:53:01,605 - #45 TWO
-INFO  13:53:01,605 - #12 =
-INFO  13:53:01,605 - #42 5
-INFO  13:53:01,605 - #8 ,
-INFO  13:53:01,605 - #45 THREE
-INFO  13:53:01,605 - #4 }
-INFO  13:53:01,605 - #16 class
-INFO  13:53:01,610 - #45 A
-INFO  13:53:01,610 - #3 {
-INFO  13:53:01,610 - #45 int
-INFO  13:53:01,610 - #45 fld1
-INFO  13:53:01,610 - #5 ;
-INFO  13:53:01,610 - #45 char
-INFO  13:53:01,610 - #45 fld2
-INFO  13:53:01,610 - #5 ;
-INFO  13:53:01,610 - #4 }
-INFO  13:53:01,610 - #14 interface
-INFO  13:53:01,615 - #45 I
-INFO  13:53:01,615 - #3 {
-INFO  13:53:01,615 - #45 int
-INFO  13:53:01,615 - #45 meth1
-INFO  13:53:01,615 - #6 (
-INFO  13:53:01,615 - #7 )
-INFO  13:53:01,615 - #5 ;
-INFO  13:53:01,615 - #45 int
-INFO  13:53:01,615 - #45 meth2
-INFO  13:53:01,615 - #6 (
-INFO  13:53:01,615 - #7 )
-INFO  13:53:01,615 - #5 ;
-INFO  13:53:01,615 - #4 }
-INFO  13:53:01,615 - #3 {
-INFO  13:53:01,615 - #45 int
-INFO  13:53:01,615 - #45 main
-INFO  13:53:01,615 - #6 (
-INFO  13:53:01,615 - #7 )
-INFO  13:53:01,615 - #45 int
-INFO  13:53:01,615 - #45 var
-INFO  13:53:01,615 - #5 ;
-INFO  13:53:01,615 - #45 A
-INFO  13:53:01,615 - #45 a
-INFO  13:53:01,615 - #5 ;
-INFO  13:53:01,615 - #3 {
-INFO  13:53:01,615 - #45 var
-INFO  13:53:01,620 - #12 =
-INFO  13:53:01,620 - #42 5
-INFO  13:53:01,620 - #5 ;
-INFO  13:53:01,620 - #45 a
-INFO  13:53:01,620 - #12 =
-INFO  13:53:01,620 - #18 new
-INFO  13:53:01,620 - #45 A
-INFO  13:53:01,620 - #5 ;
-INFO  13:53:01,620 - #45 a
-INFO  13:53:01,620 - #15 .
-INFO  13:53:01,620 - #45 fld1
-INFO  13:53:01,620 - #12 =
-INFO  13:53:01,625 - #42 17
-INFO  13:53:01,625 - #5 ;
-INFO  13:53:01,625 - #9 print
-INFO  13:53:01,625 - #6 (
-INFO  13:53:01,625 - #45 a
-INFO  13:53:01,625 - #15 .
-INFO  13:53:01,625 - #45 fld1
-INFO  13:53:01,625 - #7 )
-INFO  13:53:01,625 - #5 ;
-INFO  13:53:01,625 - #10 return
-INFO  13:53:01,625 - #42 0
-INFO  13:53:01,625 - #5 ;
-INFO  13:53:01,625 - #4 }
-INFO  13:53:01,625 - #4 }
-INFO  13:53:01,640 - Program(
+INFO  11:52:45,040 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  11:52:45,145 - #2 program
+INFO  11:52:45,145 - #45 SemanticTest
+INFO  11:52:45,145 - #22 const
+INFO  11:52:45,147 - #45 int
+INFO  11:52:45,147 - #45 x
+INFO  11:52:45,148 - #12 =
+INFO  11:52:45,149 - #42 6
+INFO  11:52:45,149 - #8 ,
+INFO  11:52:45,150 - #45 init
+INFO  11:52:45,150 - #12 =
+INFO  11:52:45,150 - #42 0
+INFO  11:52:45,151 - #5 ;
+INFO  11:52:45,151 - #45 int
+INFO  11:52:45,152 - #45 x1
+INFO  11:52:45,152 - #8 ,
+INFO  11:52:45,154 - #45 x3
+INFO  11:52:45,154 - #25 [
+INFO  11:52:45,154 - #34 ]
+INFO  11:52:45,154 - #5 ;
+INFO  11:52:45,154 - #45 int
+INFO  11:52:45,155 - #45 x2
+INFO  11:52:45,155 - #25 [
+INFO  11:52:45,155 - #34 ]
+INFO  11:52:45,156 - #5 ;
+INFO  11:52:45,156 - #29 enum
+INFO  11:52:45,156 - #45 nums
+INFO  11:52:45,156 - #3 {
+INFO  11:52:45,156 - #45 ONE
+INFO  11:52:45,156 - #12 =
+INFO  11:52:45,156 - #42 1
+INFO  11:52:45,156 - #8 ,
+INFO  11:52:45,156 - #45 TWO
+INFO  11:52:45,157 - #12 =
+INFO  11:52:45,157 - #42 5
+INFO  11:52:45,157 - #8 ,
+INFO  11:52:45,157 - #45 THREE
+INFO  11:52:45,157 - #4 }
+INFO  11:52:45,157 - #16 class
+INFO  11:52:45,157 - #45 A
+INFO  11:52:45,157 - #3 {
+INFO  11:52:45,159 - #45 int
+INFO  11:52:45,159 - #45 fld1
+INFO  11:52:45,160 - #5 ;
+INFO  11:52:45,160 - #45 char
+INFO  11:52:45,160 - #45 fld2
+INFO  11:52:45,160 - #5 ;
+INFO  11:52:45,160 - #3 {
+INFO  11:52:45,160 - #13 void
+INFO  11:52:45,161 - #45 meth1
+INFO  11:52:45,161 - #6 (
+INFO  11:52:45,162 - #7 )
+INFO  11:52:45,162 - #3 {
+INFO  11:52:45,162 - #4 }
+INFO  11:52:45,163 - #4 }
+INFO  11:52:45,164 - #4 }
+INFO  11:52:45,164 - #14 interface
+INFO  11:52:45,164 - #45 I
+INFO  11:52:45,164 - #3 {
+INFO  11:52:45,164 - #45 int
+INFO  11:52:45,164 - #45 meth1
+INFO  11:52:45,165 - #6 (
+INFO  11:52:45,165 - #7 )
+INFO  11:52:45,165 - #5 ;
+INFO  11:52:45,165 - #45 int
+INFO  11:52:45,165 - #45 meth2
+INFO  11:52:45,165 - #6 (
+INFO  11:52:45,165 - #7 )
+INFO  11:52:45,165 - #5 ;
+INFO  11:52:45,165 - #4 }
+INFO  11:52:45,165 - #3 {
+INFO  11:52:45,166 - #45 int
+INFO  11:52:45,166 - #45 main
+INFO  11:52:45,166 - #6 (
+INFO  11:52:45,166 - #7 )
+INFO  11:52:45,166 - #45 int
+INFO  11:52:45,166 - #45 var
+INFO  11:52:45,166 - #5 ;
+INFO  11:52:45,166 - #45 A
+INFO  11:52:45,166 - #45 a
+INFO  11:52:45,166 - #5 ;
+INFO  11:52:45,166 - #45 I
+INFO  11:52:45,166 - #45 i
+INFO  11:52:45,166 - #5 ;
+INFO  11:52:45,166 - #3 {
+INFO  11:52:45,167 - #45 i
+INFO  11:52:45,167 - #15 .
+INFO  11:52:45,167 - #45 meth1
+INFO  11:52:45,167 - #6 (
+INFO  11:52:45,167 - #7 )
+INFO  11:52:45,168 - #5 ;
+INFO  11:52:45,168 - #45 a
+INFO  11:52:45,168 - #12 =
+INFO  11:52:45,168 - #18 new
+INFO  11:52:45,170 - #45 A
+INFO  11:52:45,170 - #5 ;
+INFO  11:52:45,172 - #45 a
+INFO  11:52:45,172 - #15 .
+INFO  11:52:45,172 - #45 fld2
+INFO  11:52:45,172 - #12 =
+INFO  11:52:45,172 - #43 a
+INFO  11:52:45,177 - #5 ;
+INFO  11:52:45,178 - #45 a
+INFO  11:52:45,178 - #15 .
+INFO  11:52:45,178 - #45 meth1
+INFO  11:52:45,178 - #6 (
+INFO  11:52:45,178 - #7 )
+INFO  11:52:45,178 - #5 ;
+INFO  11:52:45,178 - #10 return
+INFO  11:52:45,178 - #42 0
+INFO  11:52:45,178 - #5 ;
+INFO  11:52:45,179 - #4 }
+INFO  11:52:45,179 - #4 }
+INFO  11:52:45,192 - Program(
   ProgName(
    SemanticTest
   ) [ProgName]
@@ -236,8 +248,25 @@ INFO  13:53:01,640 - Program(
               ) [SingleVar]
             ) [VarDeclarations]
           ) [OptVars]
-          NoClassMethodDecl(
-          ) [NoClassMethodDecl]
+          ClassMethodDecl(
+            OptMethods(
+              NoOptMethods(
+              ) [NoOptMethods]
+              MethodDeclarations(
+                MethodDeclTypeName(
+                  VoidIdentificator(
+                  ) [VoidIdentificator]
+                 meth1
+                ) [MethodDeclTypeName]
+                NoOptionalFormPars(
+                ) [NoOptionalFormPars]
+                NoOptVars(
+                ) [NoOptVars]
+                NoOptionalStmt(
+                ) [NoOptionalStmt]
+              ) [MethodDeclarations]
+            ) [OptMethods]
+          ) [ClassMethodDecl]
         ) [ClassDeclaration]
       ) [ClasstDeclaration]
     ) [VarDeclLists]
@@ -292,15 +321,29 @@ INFO  13:53:01,640 - Program(
         ) [NoOptionalFormPars]
         OptVars(
           OptVars(
-            NoOptVars(
-            ) [NoOptVars]
+            OptVars(
+              NoOptVars(
+              ) [NoOptVars]
+              VarDeclarations(
+                Type(
+                 int
+                ) [Type]
+                SingleVar(
+                  Var(
+                   var
+                    NoArrayVar(
+                    ) [NoArrayVar]
+                  ) [Var]
+                ) [SingleVar]
+              ) [VarDeclarations]
+            ) [OptVars]
             VarDeclarations(
               Type(
-               int
+               A
               ) [Type]
               SingleVar(
                 Var(
-                 var
+                 a
                   NoArrayVar(
                   ) [NoArrayVar]
                 ) [Var]
@@ -309,11 +352,11 @@ INFO  13:53:01,640 - Program(
           ) [OptVars]
           VarDeclarations(
             Type(
-             A
+             I
             ) [Type]
             SingleVar(
               Var(
-               a
+               i
                 NoArrayVar(
                 ) [NoArrayVar]
               ) [Var]
@@ -328,28 +371,18 @@ INFO  13:53:01,640 - Program(
                   NoOptionalStmt(
                   ) [NoOptionalStmt]
                   DesignatorStmt(
-                    AssignOper(
-                      DesignVar(
-                        DesignatorName(
-                         var
-                        ) [DesignatorName]
-                      ) [DesignVar]
-                      AssignOperation(
-                      ) [AssignOperation]
-                      Expression(
-                        Positive(
-                        ) [Positive]
-                        Terms(
-                          NumFactor(
-                           5
-                          ) [NumFactor]
-                          NoMulFacts(
-                          ) [NoMulFacts]
-                        ) [Terms]
-                        NoAddTerms(
-                        ) [NoAddTerms]
-                      ) [Expression]
-                    ) [AssignOper]
+                    ProcCall(
+                      DesignFld(
+                        DesignVar(
+                          DesignatorName(
+                           i
+                          ) [DesignatorName]
+                        ) [DesignVar]
+                       meth1
+                      ) [DesignFld]
+                      NoActPars(
+                      ) [NoActPars]
+                    ) [ProcCall]
                   ) [DesignatorStmt]
                 ) [OptionalStmt]
                 DesignatorStmt(
@@ -387,7 +420,7 @@ INFO  13:53:01,640 - Program(
                        a
                       ) [DesignatorName]
                     ) [DesignVar]
-                   fld1
+                   fld2
                   ) [DesignFld]
                   AssignOperation(
                   ) [AssignOperation]
@@ -395,9 +428,9 @@ INFO  13:53:01,640 - Program(
                     Positive(
                     ) [Positive]
                     Terms(
-                      NumFactor(
-                       17
-                      ) [NumFactor]
+                      CharFactor(
+                       a
+                      ) [CharFactor]
                       NoMulFacts(
                       ) [NoMulFacts]
                     ) [Terms]
@@ -407,32 +440,20 @@ INFO  13:53:01,640 - Program(
                 ) [AssignOper]
               ) [DesignatorStmt]
             ) [OptionalStmt]
-            PrintStmt(
-              Expression(
-                Positive(
-                ) [Positive]
-                Terms(
-                  DesignFactor(
-                    DesignFld(
-                      DesignVar(
-                        DesignatorName(
-                         a
-                        ) [DesignatorName]
-                      ) [DesignVar]
-                     fld1
-                    ) [DesignFld]
-                    NoMethodCall(
-                    ) [NoMethodCall]
-                  ) [DesignFactor]
-                  NoMulFacts(
-                  ) [NoMulFacts]
-                ) [Terms]
-                NoAddTerms(
-                ) [NoAddTerms]
-              ) [Expression]
-              OptNumConstDerived2(
-              ) [OptNumConstDerived2]
-            ) [PrintStmt]
+            DesignatorStmt(
+              ProcCall(
+                DesignFld(
+                  DesignVar(
+                    DesignatorName(
+                     a
+                    ) [DesignatorName]
+                  ) [DesignVar]
+                 meth1
+                ) [DesignFld]
+                NoActPars(
+                ) [NoActPars]
+              ) [ProcCall]
+            ) [DesignatorStmt]
           ) [OptionalStmt]
           ReturnStmt(
             RetExpr(
@@ -456,30 +477,35 @@ INFO  13:53:01,640 - Program(
     ) [OptMethods]
   ) [GlobalMeths]
 ) [Program]
-INFO  13:53:01,640 - ===================================
-INFO  13:53:01,640 - INFO:  Pocetak programa SemanticTest na liniji 4
-INFO  13:53:01,640 - INFO:  Deklarisana konstanta x na liniji 6
-INFO  13:53:01,640 - INFO:  Deklarisana konstanta init na liniji 6
-INFO  13:53:01,640 - INFO:  Deklarisana globalna promenljiva x1 na liniji 7
-INFO  13:53:01,640 - INFO:  Deklarisan niz x3 na liniji 7
-INFO  13:53:01,640 - INFO:  Deklarisan niz x2 na liniji 8
-INFO  13:53:01,640 - INFO:  Definisan enum tip nums na liniji 9
-INFO  13:53:01,640 - INFO:  Deklarisana promenljiva fld1 na liniji 12
-INFO  13:53:01,640 - INFO:  Deklarisana promenljiva fld2 na liniji 13
-INFO  13:53:01,640 - INFO:  Definisana klasa A na liniji 11
-INFO  13:53:01,640 - INFO:  Deklarisan metod meth1 u interfejsu na liniji 18
-INFO  13:53:01,640 - INFO:  Deklarisan metod meth2 u interfejsu na liniji 19
-INFO  13:53:01,640 - INFO:  Definisan interfejs I na liniji 17
-INFO  13:53:01,640 - INFO:  Obradjuje se funkcija main na liniji 30
-INFO  13:53:01,645 - INFO:  Deklarisana promenljiva var na liniji 30
-INFO  13:53:01,645 - INFO:  Deklarisana promenljiva a na liniji 30
-INFO  13:53:01,645 - INFO:  Pristup simbolu var na liniji 32
-INFO  13:53:01,645 - INFO:  Pristup simbolu a na liniji 34
-INFO  13:53:01,645 - INFO:  Pristup simbolu a na liniji 36
-INFO  13:53:01,645 - INFO: Pristup strukturi a, polju fld1 na liniji 36
-INFO  13:53:01,645 - INFO:  Pristup simbolu a na liniji 38
-INFO  13:53:01,645 - INFO: Pristup strukturi a, polju fld1 na liniji 38
-INFO  13:53:01,645 - INFO:  Poziv PRINT funkcije na liniji 7
-INFO  13:53:01,645 - INFO:  Deklarisan metod main na liniji 30
-INFO  13:53:01,645 - ===================================
-INFO  13:53:01,655 - Uspesno parsiranje!
+INFO  11:52:45,192 - ===================================
+INFO  11:52:45,193 - INFO:  Pocetak programa SemanticTest na liniji 4
+INFO  11:52:45,193 - INFO:  Deklarisana konstanta x na liniji 6
+INFO  11:52:45,193 - INFO:  Deklarisana konstanta init na liniji 6
+INFO  11:52:45,193 - INFO:  Deklarisana globalna promenljiva x1 na liniji 7
+INFO  11:52:45,193 - INFO:  Deklarisan niz x3 na liniji 7
+INFO  11:52:45,193 - INFO:  Deklarisan niz x2 na liniji 8
+INFO  11:52:45,193 - INFO:  Definisan enum tip nums na liniji 9
+INFO  11:52:45,193 - INFO:  Deklarisana promenljiva fld1 na liniji 12
+INFO  11:52:45,193 - INFO:  Deklarisana promenljiva fld2 na liniji 13
+INFO  11:52:45,193 - INFO:  Obradjuje se funkcija meth1 na liniji 15
+INFO  11:52:45,193 - INFO:  Deklarisan metod meth1 na liniji 15
+INFO  11:52:45,193 - INFO:  Definisana klasa A na liniji 11
+INFO  11:52:45,194 - INFO:  Deklarisan metod meth1 u interfejsu na liniji 21
+INFO  11:52:45,194 - INFO:  Deklarisan metod meth2 u interfejsu na liniji 22
+INFO  11:52:45,194 - INFO:  Definisan interfejs I na liniji 20
+INFO  11:52:45,194 - INFO:  Obradjuje se funkcija main na liniji 33
+INFO  11:52:45,194 - INFO:  Deklarisana promenljiva var na liniji 33
+INFO  11:52:45,194 - INFO:  Deklarisana promenljiva a na liniji 33
+INFO  11:52:45,194 - INFO:  Deklarisana promenljiva i na liniji 33
+INFO  11:52:45,194 - INFO:  Pristup simbolu i na liniji 35
+ERROR 11:52:45,194 - ERROR: Struktura i ne sadrzi polje meth1 na liniji 35		<--------------- ERROR 
+ERROR 11:52:45,194 - ERROR: Objekat noObj nije metoda na liniji 35		<--------------- ERROR 
+INFO  11:52:45,195 - INFO:  Pristup simbolu a na liniji 37
+INFO  11:52:45,195 - INFO:  Pristup simbolu a na liniji 39
+INFO  11:52:45,195 - INFO: Pristup strukturi a, polju fld2 na liniji 39
+INFO  11:52:45,195 - INFO:  Pristup simbolu a na liniji 40
+INFO  11:52:45,195 - INFO: Pristup strukturi a, polju meth1 na liniji 40
+INFO  11:52:45,195 - INFO:  Pozvana metoda meth1 na liniji 40
+INFO  11:52:45,196 - INFO:  Deklarisan metod main na liniji 33
+INFO  11:52:45,196 - ===================================
+ERROR 11:52:45,196 - Postoje 2 greske u generisanom kodu!
