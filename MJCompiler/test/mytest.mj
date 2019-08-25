@@ -14,28 +14,32 @@ class A {
 	
 	}
 	
-interface I {
-	int meth1();
-	int meth2();
-}
 
 
 {
-	//void printf(int a){
-	//	print(a);
+	
+	void printf(int a) int f; {
+	
+		f = x;
+		
+		print(f);
+		
+		return;
 
-	//}
+	}
 	
 
 	int main() int var; A a;{
 	
-		var = 5;
+		printf(2);
 	
-		a = new A;
+		//var = 5;
+	
+		//a = new A;
 		
-		a.fld1 = 17;
+		//a.fld1 = 17;
 		
-		print(a.fld1);
+		//print(a.fld1);
 	
 		//x2 = new int[5];
 		

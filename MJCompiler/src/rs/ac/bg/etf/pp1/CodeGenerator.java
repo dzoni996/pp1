@@ -86,19 +86,21 @@ public class CodeGenerator extends VisitorAdaptor{
 		type.obj.setAdr(Code.pc);
 		
 		// Collect arguments and local variables
-		SyntaxNode node = type.getParent();
-		
-		VarCounter varCnt = new VarCounter();
-		type.traverseTopDown(varCnt);
-		
-		FormParamCounter fpCnt = new FormParamCounter();
-		type.traverseTopDown(fpCnt);
+//		SyntaxNode node = type.getParent();
+//		
+//		VarCounter varCnt = new VarCounter();
+//		type.traverseTopDown(varCnt);
+//		
+//		FormParamCounter fpCnt = new FormParamCounter();
+//		type.traverseTopDown(fpCnt);
 		
 		
 		// Generate the entry
 		Code.put(Code.enter);
-		Code.put(fpCnt.getCount());
-		Code.put(fpCnt.getCount() + varCnt.getCount());
+//		Code.put(fpCnt.getCount());
+//		Code.put(fpCnt.getCount() + varCnt.getCount());
+		Code.put(type.obj.getLevel());
+		Code.put(type.obj.getLocalSymbols().size());
 		
 	}
 	
@@ -352,7 +354,7 @@ public class CodeGenerator extends VisitorAdaptor{
 	 * PROCEDURES ***********************************************************************
 	 */
 	
-/*	
+	
 	public void visit(ProcCall proc) {
 		int offset = proc.getDesignator().obj.getAdr() - Code.pc;
 		Code.put(Code.call);
@@ -362,6 +364,7 @@ public class CodeGenerator extends VisitorAdaptor{
 			Code.put(Code.pop); // leaves empty expr stack
 		}
 	}
+	
 	
 	public void visit(RetExpr ret) {
 		Code.put(Code.exit);
@@ -374,7 +377,5 @@ public class CodeGenerator extends VisitorAdaptor{
 	}
 	
 	
-	
-	*/
 	
 }
