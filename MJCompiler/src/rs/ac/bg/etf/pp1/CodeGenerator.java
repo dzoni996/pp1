@@ -66,11 +66,11 @@ public class CodeGenerator extends VisitorAdaptor{
 		Obj node = read.getDesignator().obj;
 		if (node.getType() == intType) {
 			Code.put(Code.read);
-			// Code.put(Code.pop); ???
+			// Code.put(Code.pop); 
 			Code.store(node);
 		} else {
 			Code.put(Code.bread);
-			// Code.put(Code.pop); ???
+			// Code.put(Code.pop); 
 			Code.store(node);
 		}
 	}
@@ -168,6 +168,11 @@ public class CodeGenerator extends VisitorAdaptor{
 	/*
 	 * EXPR *****************************************************************************
 	 */
+	
+	public void visit(Expression expr) {
+		
+		
+	}
 
 	public void visit(WithAddTerms add) {
 		if (add.getAddop() instanceof PlusOp)

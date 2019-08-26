@@ -34,12 +34,22 @@ class A {
 		return x+1;
 	}
 	
+	int test(int xa, char xc){
+		xa = 1;
+		xc = 'a';
+		return 0;
+	}
+	
 
 	int main() int var; A a;{
 	
-		print(printf(inc(2), inc(4), inc(inc(x1)))) ;
+		//print(printf(inc(2), inc(4), inc(inc(x1)))) ;
+		
+		var = test(inc(inc(inc(1))), 'a');
 	
-		//var = 5;
+		var = inc(5);
+		//inc(5);
+		print(var);
 	
 		//a = new A;
 		

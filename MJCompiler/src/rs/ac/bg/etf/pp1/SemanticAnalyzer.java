@@ -603,8 +603,8 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			if (node.getType() == Tab.noType /*void*/) {
 				report_error("ERROR: Metoda " + node.getName() + " ne moze da bude void", design);
 
-				//this.clearParams();
-				//return;
+				this.clearParams();
+				return;
 			}
 			
 			// 2. number of parameters
@@ -623,16 +623,30 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			
 			// 3. types of parameters
 			Collection<Obj> pars = node.getLocalSymbols();
+			int size = pars.size();
 			boolean comp = true;
-			for (Iterator<Obj> iter = pars.iterator(); iter.hasNext();) {
-				Obj cur = iter.next();
-				//boolean found = false;
-				for (Obj o: this.actParams) {
-					if (o.getLevel() > this.lvlNum)
-						if (o.getType().compatibleWith(cur.getType()))
-						comp = true;
+			for (int i=0; i<size; i++) {
+				Obj actp = this.actParams.get(size - i - 1); // in this list, act pars are in reverse order
+				for (Obj o: pars) {
+					if (o.getFpPos() == (i)) {
+						if (!actp.getType().compatibleWith(o.getType()))
+							comp = false;
+							break;
+					}
 				}
 			}
+			
+//			for (Iterator<Obj> iter = pars.iterator(); iter.hasNext();) {
+//				Obj cur = iter.next();
+//				//boolean found = false;
+//				for (Obj o: this.actParams) {
+//					if (o.getLevel() > this.lvlNum) {
+//						
+//						if (o.getType().compatibleWith(cur.getType()))
+//							comp = true;
+//					}
+//				}
+//			}
 			
 			if (!comp) {
 				report_error("ERROR: Nekompatibilnost sa stvarnim parametrima", design);
@@ -958,18 +972,18 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 
 		// 3. types of parameters
 		Collection<Obj> pars = node.getLocalSymbols();
-		boolean comp = false;
-		/////////////////////////////////////////////////////////////////////////
-		for (Iterator<Obj> iter = pars.iterator(); iter.hasNext();) {
-			Obj cur = iter.next();
-			//boolean found = false;
-			for (Obj o: this.actParams) {
-				if (o.getLevel() > this.lvlNum)
-					if (o.getType().compatibleWith(cur.getType()))
-					comp = true;
+		int size = pars.size();
+		boolean comp = true;
+		for (int i=0; i<size; i++) {
+			Obj actp = this.actParams.get(size - i - 1); // in this list, act pars are in reverse order
+			for (Obj o: pars) {
+				if (o.getFpPos() == (i)) {
+					if (!actp.getType().compatibleWith(o.getType()))
+						comp = false;
+						break;
+				}
 			}
 		}
-		/////////////////////////////////////////////////////////////////////////
 
 		if (!comp && (pars.size() > 0 || this.actParams.size() > 0)) {
 			report_error("ERROR: Nekompatibilnost sa stvarnim parametrima", proc);
