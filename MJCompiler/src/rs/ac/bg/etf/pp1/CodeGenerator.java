@@ -64,15 +64,12 @@ public class CodeGenerator extends VisitorAdaptor{
 	
 	public void visit(ReadStmt read) {
 		Obj node = read.getDesignator().obj;
-		if (node.getType() == intType) {
-			Code.put(Code.read);
-			// Code.put(Code.pop); 
-			Code.store(node);
-		} else {
+		if (node.getType() == charType) {
 			Code.put(Code.bread);
-			// Code.put(Code.pop); 
-			Code.store(node);
+		} else {
+			Code.put(Code.read); 
 		}
+		Code.store(node);
 	}
 	/*
 	 * METHODS **************************************************************************
@@ -170,7 +167,8 @@ public class CodeGenerator extends VisitorAdaptor{
 	 */
 	
 	public void visit(Expression expr) {
-		
+		if (expr.getOptMinus() instanceof Negative)
+			Code.put(Code.neg);
 		
 	}
 

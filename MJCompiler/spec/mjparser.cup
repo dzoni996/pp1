@@ -79,7 +79,6 @@ nonterminal OptStmt, Statement, FormPars ;
 nonterminal DesignatorStatement ;
 nonterminal OptActPars, ActPars, OptMinus, OptMethodCall;
 nonterminal Mulop, Addop, Relop, Assignop ;
-nonterminal OptNumConst ;
 nonterminal OptElse, OptDesignStmt, OptForDesignStmt ;
 
 nonterminal ConstItem;
@@ -93,6 +92,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj InterfaceName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethDeclTypeName, FormParsItem;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesigName ;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj OptNumConst ;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms, OptRetExpr;
@@ -336,9 +336,9 @@ OptRetExpr ::= (RetExpr) Expr
 			   (NoRet) /* epsilon */
 			   ;
 
-OptNumConst ::= COMMA NUMCONST
+OptNumConst ::= (PrintWidth) COMMA NUMCONST:width
 				|
-				/* epsilon */ 
+				(DefaultWidth) /* epsilon */ 
 				;		
 
 OptElse ::= ELSE Statement

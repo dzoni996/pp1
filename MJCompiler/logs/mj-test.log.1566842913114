@@ -1,0 +1,2245 @@
+INFO  20:06:31,991 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\test301.mj
+INFO  20:06:32,079 - #2 program
+INFO  20:06:32,079 - #45 test301
+INFO  20:06:32,079 - #29 enum
+INFO  20:06:32,079 - #45 Broj
+INFO  20:06:32,079 - #3 {
+INFO  20:06:32,079 - #45 NULA
+INFO  20:06:32,079 - #8 ,
+INFO  20:06:32,079 - #45 JEDAN
+INFO  20:06:32,079 - #8 ,
+INFO  20:06:32,079 - #45 PET
+INFO  20:06:32,079 - #12 =
+INFO  20:06:32,086 - #42 5
+INFO  20:06:32,086 - #8 ,
+INFO  20:06:32,086 - #45 DESET
+INFO  20:06:32,087 - #12 =
+INFO  20:06:32,087 - #42 10
+INFO  20:06:32,087 - #4 }
+INFO  20:06:32,087 - #22 const
+INFO  20:06:32,089 - #45 int
+INFO  20:06:32,089 - #45 jedan
+INFO  20:06:32,090 - #12 =
+INFO  20:06:32,090 - #42 1
+INFO  20:06:32,090 - #5 ;
+INFO  20:06:32,091 - #22 const
+INFO  20:06:32,091 - #45 int
+INFO  20:06:32,091 - #45 pet
+INFO  20:06:32,091 - #12 =
+INFO  20:06:32,091 - #42 5
+INFO  20:06:32,091 - #5 ;
+INFO  20:06:32,091 - #45 int
+INFO  20:06:32,091 - #45 niz
+INFO  20:06:32,091 - #25 [
+INFO  20:06:32,091 - #34 ]
+INFO  20:06:32,091 - #5 ;
+INFO  20:06:32,091 - #45 char
+INFO  20:06:32,091 - #45 nizch
+INFO  20:06:32,091 - #25 [
+INFO  20:06:32,091 - #34 ]
+INFO  20:06:32,091 - #5 ;
+INFO  20:06:32,091 - #3 {
+INFO  20:06:32,091 - #45 int
+INFO  20:06:32,096 - #45 inc
+INFO  20:06:32,096 - #6 (
+INFO  20:06:32,097 - #45 int
+INFO  20:06:32,097 - #45 broj
+INFO  20:06:32,097 - #7 )
+INFO  20:06:32,098 - #3 {
+INFO  20:06:32,099 - #10 return
+INFO  20:06:32,100 - #45 broj
+INFO  20:06:32,101 - #11 +
+INFO  20:06:32,101 - #45 Broj
+INFO  20:06:32,105 - #15 .
+INFO  20:06:32,105 - #45 JEDAN
+INFO  20:06:32,105 - #5 ;
+INFO  20:06:32,105 - #4 }
+INFO  20:06:32,107 - #13 void
+INFO  20:06:32,107 - #45 mul
+INFO  20:06:32,108 - #6 (
+INFO  20:06:32,108 - #45 int
+INFO  20:06:32,108 - #45 arr
+INFO  20:06:32,108 - #25 [
+INFO  20:06:32,108 - #34 ]
+INFO  20:06:32,108 - #8 ,
+INFO  20:06:32,109 - #45 int
+INFO  20:06:32,109 - #45 index
+INFO  20:06:32,109 - #8 ,
+INFO  20:06:32,109 - #45 int
+INFO  20:06:32,109 - #45 b
+INFO  20:06:32,109 - #7 )
+INFO  20:06:32,109 - #3 {
+INFO  20:06:32,109 - #45 arr
+INFO  20:06:32,109 - #25 [
+INFO  20:06:32,110 - #45 index
+INFO  20:06:32,110 - #34 ]
+INFO  20:06:32,110 - #12 =
+INFO  20:06:32,110 - #45 arr
+INFO  20:06:32,111 - #25 [
+INFO  20:06:32,111 - #45 index
+INFO  20:06:32,111 - #34 ]
+INFO  20:06:32,111 - #30 *
+INFO  20:06:32,111 - #45 b
+INFO  20:06:32,112 - #5 ;
+INFO  20:06:32,113 - #4 }
+INFO  20:06:32,113 - #13 void
+INFO  20:06:32,113 - #45 main
+INFO  20:06:32,113 - #6 (
+INFO  20:06:32,113 - #7 )
+INFO  20:06:32,114 - #45 int
+INFO  20:06:32,114 - #45 bodovi
+INFO  20:06:32,114 - #5 ;
+INFO  20:06:32,114 - #45 Broj
+INFO  20:06:32,114 - #45 nula
+INFO  20:06:32,114 - #8 ,
+INFO  20:06:32,114 - #45 jedan
+INFO  20:06:32,114 - #5 ;
+INFO  20:06:32,114 - #3 {
+INFO  20:06:32,114 - #45 nula
+INFO  20:06:32,114 - #12 =
+INFO  20:06:32,114 - #45 Broj
+INFO  20:06:32,114 - #15 .
+INFO  20:06:32,114 - #45 NULA
+INFO  20:06:32,114 - #5 ;
+INFO  20:06:32,115 - #45 jedan
+INFO  20:06:32,115 - #12 =
+INFO  20:06:32,115 - #45 Broj
+INFO  20:06:32,115 - #15 .
+INFO  20:06:32,115 - #45 JEDAN
+INFO  20:06:32,116 - #5 ;
+INFO  20:06:32,116 - #45 bodovi
+INFO  20:06:32,116 - #12 =
+INFO  20:06:32,116 - #42 0
+INFO  20:06:32,116 - #5 ;
+INFO  20:06:32,116 - #45 bodovi
+INFO  20:06:32,116 - #38 ++
+INFO  20:06:32,116 - #5 ;
+INFO  20:06:32,116 - #45 bodovi
+INFO  20:06:32,116 - #12 =
+INFO  20:06:32,116 - #45 bodovi
+INFO  20:06:32,116 - #11 +
+INFO  20:06:32,116 - #45 jedan
+INFO  20:06:32,116 - #5 ;
+INFO  20:06:32,116 - #45 bodovi
+INFO  20:06:32,116 - #12 =
+INFO  20:06:32,116 - #45 bodovi
+INFO  20:06:32,116 - #30 *
+INFO  20:06:32,116 - #45 pet
+INFO  20:06:32,116 - #5 ;
+INFO  20:06:32,116 - #45 bodovi
+INFO  20:06:32,116 - #21 --
+INFO  20:06:32,116 - #5 ;
+INFO  20:06:32,116 - #9 print
+INFO  20:06:32,116 - #6 (
+INFO  20:06:32,116 - #45 bodovi
+INFO  20:06:32,116 - #7 )
+INFO  20:06:32,116 - #5 ;
+INFO  20:06:32,116 - #45 niz
+INFO  20:06:32,130 - #12 =
+INFO  20:06:32,130 - #18 new
+INFO  20:06:32,130 - #45 int
+INFO  20:06:32,130 - #25 [
+INFO  20:06:32,130 - #42 2
+INFO  20:06:32,130 - #34 ]
+INFO  20:06:32,130 - #5 ;
+INFO  20:06:32,130 - #45 niz
+INFO  20:06:32,130 - #25 [
+INFO  20:06:32,130 - #45 nula
+INFO  20:06:32,130 - #34 ]
+INFO  20:06:32,130 - #12 =
+INFO  20:06:32,130 - #45 pet
+INFO  20:06:32,130 - #5 ;
+INFO  20:06:32,130 - #45 niz
+INFO  20:06:32,130 - #25 [
+INFO  20:06:32,130 - #42 1
+INFO  20:06:32,130 - #34 ]
+INFO  20:06:32,130 - #12 =
+INFO  20:06:32,130 - #45 Broj
+INFO  20:06:32,130 - #15 .
+INFO  20:06:32,130 - #45 DESET
+INFO  20:06:32,130 - #5 ;
+INFO  20:06:32,130 - #45 mul
+INFO  20:06:32,130 - #6 (
+INFO  20:06:32,130 - #45 niz
+INFO  20:06:32,130 - #8 ,
+INFO  20:06:32,130 - #45 inc
+INFO  20:06:32,138 - #6 (
+INFO  20:06:32,138 - #42 0
+INFO  20:06:32,138 - #7 )
+INFO  20:06:32,142 - #8 ,
+INFO  20:06:32,142 - #42 2
+INFO  20:06:32,142 - #7 )
+INFO  20:06:32,142 - #5 ;
+INFO  20:06:32,143 - #45 mul
+INFO  20:06:32,143 - #6 (
+INFO  20:06:32,143 - #45 niz
+INFO  20:06:32,143 - #8 ,
+INFO  20:06:32,143 - #45 Broj
+INFO  20:06:32,143 - #15 .
+INFO  20:06:32,143 - #45 NULA
+INFO  20:06:32,143 - #8 ,
+INFO  20:06:32,143 - #45 inc
+INFO  20:06:32,144 - #6 (
+INFO  20:06:32,144 - #45 inc
+INFO  20:06:32,144 - #6 (
+INFO  20:06:32,144 - #45 Broj
+INFO  20:06:32,144 - #15 .
+INFO  20:06:32,144 - #45 JEDAN
+INFO  20:06:32,144 - #7 )
+INFO  20:06:32,144 - #11 +
+INFO  20:06:32,144 - #42 1
+INFO  20:06:32,144 - #7 )
+INFO  20:06:32,144 - #7 )
+INFO  20:06:32,144 - #5 ;
+INFO  20:06:32,145 - #45 bodovi
+INFO  20:06:32,145 - #12 =
+INFO  20:06:32,145 - #45 niz
+INFO  20:06:32,145 - #25 [
+INFO  20:06:32,145 - #42 1
+INFO  20:06:32,145 - #34 ]
+INFO  20:06:32,145 - #27 /
+INFO  20:06:32,145 - #45 niz
+INFO  20:06:32,146 - #25 [
+INFO  20:06:32,146 - #42 0
+INFO  20:06:32,146 - #34 ]
+INFO  20:06:32,146 - #5 ;
+INFO  20:06:32,147 - #9 print
+INFO  20:06:32,147 - #6 (
+INFO  20:06:32,147 - #45 bodovi
+INFO  20:06:32,147 - #7 )
+INFO  20:06:32,147 - #5 ;
+INFO  20:06:32,147 - #9 print
+INFO  20:06:32,147 - #6 (
+INFO  20:06:32,147 - #45 niz
+INFO  20:06:32,147 - #25 [
+INFO  20:06:32,147 - #45 Broj
+INFO  20:06:32,147 - #15 .
+INFO  20:06:32,147 - #45 JEDAN
+INFO  20:06:32,147 - #34 ]
+INFO  20:06:32,147 - #7 )
+INFO  20:06:32,147 - #5 ;
+INFO  20:06:32,147 - #45 nizch
+INFO  20:06:32,148 - #12 =
+INFO  20:06:32,148 - #18 new
+INFO  20:06:32,148 - #45 char
+INFO  20:06:32,148 - #25 [
+INFO  20:06:32,148 - #42 3
+INFO  20:06:32,148 - #34 ]
+INFO  20:06:32,148 - #5 ;
+INFO  20:06:32,148 - #45 nizch
+INFO  20:06:32,148 - #25 [
+INFO  20:06:32,148 - #42 0
+INFO  20:06:32,148 - #34 ]
+INFO  20:06:32,148 - #12 =
+INFO  20:06:32,148 - #43 a
+INFO  20:06:32,149 - #5 ;
+INFO  20:06:32,149 - #45 nizch
+INFO  20:06:32,149 - #25 [
+INFO  20:06:32,149 - #45 jedan
+INFO  20:06:32,149 - #34 ]
+INFO  20:06:32,149 - #12 =
+INFO  20:06:32,149 - #43 b
+INFO  20:06:32,149 - #5 ;
+INFO  20:06:32,149 - #45 nizch
+INFO  20:06:32,149 - #25 [
+INFO  20:06:32,149 - #45 pet
+INFO  20:06:32,149 - #33 -
+INFO  20:06:32,149 - #42 3
+INFO  20:06:32,150 - #34 ]
+INFO  20:06:32,150 - #12 =
+INFO  20:06:32,151 - #43 c
+INFO  20:06:32,151 - #5 ;
+INFO  20:06:32,151 - #9 print
+INFO  20:06:32,151 - #6 (
+INFO  20:06:32,151 - #45 nizch
+INFO  20:06:32,151 - #25 [
+INFO  20:06:32,151 - #45 inc
+INFO  20:06:32,151 - #6 (
+INFO  20:06:32,151 - #42 0
+INFO  20:06:32,151 - #7 )
+INFO  20:06:32,151 - #34 ]
+INFO  20:06:32,152 - #7 )
+INFO  20:06:32,152 - #5 ;
+INFO  20:06:32,152 - #9 print
+INFO  20:06:32,152 - #6 (
+INFO  20:06:32,152 - #45 nizch
+INFO  20:06:32,152 - #25 [
+INFO  20:06:32,152 - #45 jedan
+INFO  20:06:32,152 - #30 *
+INFO  20:06:32,152 - #42 2
+INFO  20:06:32,152 - #34 ]
+INFO  20:06:32,153 - #7 )
+INFO  20:06:32,153 - #5 ;
+INFO  20:06:32,153 - #45 bodovi
+INFO  20:06:32,153 - #12 =
+INFO  20:06:32,153 - #45 bodovi
+INFO  20:06:32,153 - #11 +
+INFO  20:06:32,153 - #6 (
+INFO  20:06:32,153 - #6 (
+INFO  20:06:32,153 - #45 pet
+INFO  20:06:32,153 - #30 *
+INFO  20:06:32,153 - #45 jedan
+INFO  20:06:32,153 - #33 -
+INFO  20:06:32,153 - #42 1
+INFO  20:06:32,153 - #7 )
+INFO  20:06:32,153 - #30 *
+INFO  20:06:32,153 - #45 inc
+INFO  20:06:32,153 - #6 (
+INFO  20:06:32,154 - #45 Broj
+INFO  20:06:32,154 - #15 .
+INFO  20:06:32,154 - #45 JEDAN
+INFO  20:06:32,154 - #7 )
+INFO  20:06:32,154 - #33 -
+INFO  20:06:32,154 - #6 (
+INFO  20:06:32,154 - #42 3
+INFO  20:06:32,154 - #24 %
+INFO  20:06:32,154 - #42 2
+INFO  20:06:32,155 - #11 +
+INFO  20:06:32,155 - #42 3
+INFO  20:06:32,155 - #30 *
+INFO  20:06:32,155 - #42 2
+INFO  20:06:32,155 - #33 -
+INFO  20:06:32,155 - #42 3
+INFO  20:06:32,155 - #7 )
+INFO  20:06:32,155 - #33 -
+INFO  20:06:32,155 - #45 inc
+INFO  20:06:32,155 - #6 (
+INFO  20:06:32,155 - #45 Broj
+INFO  20:06:32,155 - #15 .
+INFO  20:06:32,155 - #45 NULA
+INFO  20:06:32,155 - #7 )
+INFO  20:06:32,155 - #30 *
+INFO  20:06:32,155 - #42 0
+INFO  20:06:32,155 - #7 )
+INFO  20:06:32,155 - #5 ;
+INFO  20:06:32,155 - #9 print
+INFO  20:06:32,155 - #6 (
+INFO  20:06:32,156 - #45 bodovi
+INFO  20:06:32,156 - #7 )
+INFO  20:06:32,156 - #5 ;
+INFO  20:06:32,156 - #26 read
+INFO  20:06:32,156 - #6 (
+INFO  20:06:32,156 - #45 bodovi
+INFO  20:06:32,156 - #7 )
+INFO  20:06:32,156 - #5 ;
+INFO  20:06:32,156 - #45 bodovi
+INFO  20:06:32,156 - #12 =
+INFO  20:06:32,156 - #45 inc
+INFO  20:06:32,156 - #6 (
+INFO  20:06:32,156 - #45 bodovi
+INFO  20:06:32,156 - #7 )
+INFO  20:06:32,156 - #5 ;
+INFO  20:06:32,157 - #9 print
+INFO  20:06:32,157 - #6 (
+INFO  20:06:32,157 - #45 bodovi
+INFO  20:06:32,157 - #7 )
+INFO  20:06:32,157 - #5 ;
+INFO  20:06:32,157 - #4 }
+INFO  20:06:32,157 - #4 }
+INFO  20:06:32,183 - Program(
+  ProgName(
+   test301
+  ) [ProgName]
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        VarDeclLists(
+          VarDeclLists(
+            NoVarDecl(
+            ) [NoVarDecl]
+            EnumDeclaration(
+              EnumDeclarations(
+                EnumNamed(
+                 Broj
+                ) [EnumNamed]
+                MultipleEnums(
+                  MultipleEnums(
+                    MultipleEnums(
+                      SingleEnum(
+                        NoInitEnum(
+                         NULA
+                        ) [NoInitEnum]
+                      ) [SingleEnum]
+                      NoInitEnum(
+                       JEDAN
+                      ) [NoInitEnum]
+                    ) [MultipleEnums]
+                    InitEnum(
+                     PET
+                     5
+                    ) [InitEnum]
+                  ) [MultipleEnums]
+                  InitEnum(
+                   DESET
+                   10
+                  ) [InitEnum]
+                ) [MultipleEnums]
+              ) [EnumDeclarations]
+            ) [EnumDeclaration]
+          ) [VarDeclLists]
+          ConstDeclaration(
+            ConstDeclarations(
+              Type(
+               int
+              ) [Type]
+              SingleConst(
+                ConstItem(
+                 jedan
+                  InitializerNum(
+                   1
+                  ) [InitializerNum]
+                ) [ConstItem]
+              ) [SingleConst]
+            ) [ConstDeclarations]
+          ) [ConstDeclaration]
+        ) [VarDeclLists]
+        ConstDeclaration(
+          ConstDeclarations(
+            Type(
+             int
+            ) [Type]
+            SingleConst(
+              ConstItem(
+               pet
+                InitializerNum(
+                 5
+                ) [InitializerNum]
+              ) [ConstItem]
+            ) [SingleConst]
+          ) [ConstDeclarations]
+        ) [ConstDeclaration]
+      ) [VarDeclLists]
+      VarDeclaration(
+        VarDeclarations(
+          Type(
+           int
+          ) [Type]
+          SingleVar(
+            Var(
+             niz
+              ArrayVar(
+              ) [ArrayVar]
+            ) [Var]
+          ) [SingleVar]
+        ) [VarDeclarations]
+      ) [VarDeclaration]
+    ) [VarDeclLists]
+    VarDeclaration(
+      VarDeclarations(
+        Type(
+         char
+        ) [Type]
+        SingleVar(
+          Var(
+           nizch
+            ArrayVar(
+            ) [ArrayVar]
+          ) [Var]
+        ) [SingleVar]
+      ) [VarDeclarations]
+    ) [VarDeclaration]
+  ) [VarDeclLists]
+  GlobalMeths(
+    OptMethods(
+      OptMethods(
+        OptMethods(
+          NoOptMethods(
+          ) [NoOptMethods]
+          MethodDeclarations(
+            MethodDeclTypeName(
+              TypeIdentificator(
+                Type(
+                 int
+                ) [Type]
+              ) [TypeIdentificator]
+             inc
+            ) [MethodDeclTypeName]
+            OptionalFormPars(
+              SingleFormPars(
+                FormParItem(
+                  Type(
+                   int
+                  ) [Type]
+                 broj
+                  NoArrayVar(
+                  ) [NoArrayVar]
+                ) [FormParItem]
+              ) [SingleFormPars]
+            ) [OptionalFormPars]
+            NoOptVars(
+            ) [NoOptVars]
+            OptionalStmt(
+              NoOptionalStmt(
+              ) [NoOptionalStmt]
+              ReturnStmt(
+                RetExpr(
+                  Expression(
+                    Positive(
+                    ) [Positive]
+                    Terms(
+                      DesignFactor(
+                        DesignVar(
+                          DesignatorName(
+                           broj
+                          ) [DesignatorName]
+                        ) [DesignVar]
+                        NoMethodCall(
+                        ) [NoMethodCall]
+                      ) [DesignFactor]
+                      NoMulFacts(
+                      ) [NoMulFacts]
+                    ) [Terms]
+                    WithAddTerms(
+                      NoAddTerms(
+                      ) [NoAddTerms]
+                      PlusOp(
+                      ) [PlusOp]
+                      Terms(
+                        DesignFactor(
+                          DesignFld(
+                            DesignVar(
+                              DesignatorName(
+                               Broj
+                              ) [DesignatorName]
+                            ) [DesignVar]
+                           JEDAN
+                          ) [DesignFld]
+                          NoMethodCall(
+                          ) [NoMethodCall]
+                        ) [DesignFactor]
+                        NoMulFacts(
+                        ) [NoMulFacts]
+                      ) [Terms]
+                    ) [WithAddTerms]
+                  ) [Expression]
+                ) [RetExpr]
+              ) [ReturnStmt]
+            ) [OptionalStmt]
+          ) [MethodDeclarations]
+        ) [OptMethods]
+        MethodDeclarations(
+          MethodDeclTypeName(
+            VoidIdentificator(
+            ) [VoidIdentificator]
+           mul
+          ) [MethodDeclTypeName]
+          OptionalFormPars(
+            MultipleFormPars(
+              MultipleFormPars(
+                SingleFormPars(
+                  FormParItem(
+                    Type(
+                     int
+                    ) [Type]
+                   arr
+                    ArrayVar(
+                    ) [ArrayVar]
+                  ) [FormParItem]
+                ) [SingleFormPars]
+                FormParItem(
+                  Type(
+                   int
+                  ) [Type]
+                 index
+                  NoArrayVar(
+                  ) [NoArrayVar]
+                ) [FormParItem]
+              ) [MultipleFormPars]
+              FormParItem(
+                Type(
+                 int
+                ) [Type]
+               b
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [FormParItem]
+            ) [MultipleFormPars]
+          ) [OptionalFormPars]
+          NoOptVars(
+          ) [NoOptVars]
+          OptionalStmt(
+            NoOptionalStmt(
+            ) [NoOptionalStmt]
+            DesignatorStmt(
+              AssignOper(
+                DesignArr(
+                  DesignVar(
+                    DesignatorName(
+                     arr
+                    ) [DesignatorName]
+                  ) [DesignVar]
+                  Expression(
+                    Positive(
+                    ) [Positive]
+                    Terms(
+                      DesignFactor(
+                        DesignVar(
+                          DesignatorName(
+                           index
+                          ) [DesignatorName]
+                        ) [DesignVar]
+                        NoMethodCall(
+                        ) [NoMethodCall]
+                      ) [DesignFactor]
+                      NoMulFacts(
+                      ) [NoMulFacts]
+                    ) [Terms]
+                    NoAddTerms(
+                    ) [NoAddTerms]
+                  ) [Expression]
+                ) [DesignArr]
+                AssignOperation(
+                ) [AssignOperation]
+                Expression(
+                  Positive(
+                  ) [Positive]
+                  Terms(
+                    DesignFactor(
+                      DesignArr(
+                        DesignVar(
+                          DesignatorName(
+                           arr
+                          ) [DesignatorName]
+                        ) [DesignVar]
+                        Expression(
+                          Positive(
+                          ) [Positive]
+                          Terms(
+                            DesignFactor(
+                              DesignVar(
+                                DesignatorName(
+                                 index
+                                ) [DesignatorName]
+                              ) [DesignVar]
+                              NoMethodCall(
+                              ) [NoMethodCall]
+                            ) [DesignFactor]
+                            NoMulFacts(
+                            ) [NoMulFacts]
+                          ) [Terms]
+                          NoAddTerms(
+                          ) [NoAddTerms]
+                        ) [Expression]
+                      ) [DesignArr]
+                      NoMethodCall(
+                      ) [NoMethodCall]
+                    ) [DesignFactor]
+                    WithMulFacts(
+                      NoMulFacts(
+                      ) [NoMulFacts]
+                      MultOp(
+                      ) [MultOp]
+                      DesignFactor(
+                        DesignVar(
+                          DesignatorName(
+                           b
+                          ) [DesignatorName]
+                        ) [DesignVar]
+                        NoMethodCall(
+                        ) [NoMethodCall]
+                      ) [DesignFactor]
+                    ) [WithMulFacts]
+                  ) [Terms]
+                  NoAddTerms(
+                  ) [NoAddTerms]
+                ) [Expression]
+              ) [AssignOper]
+            ) [DesignatorStmt]
+          ) [OptionalStmt]
+        ) [MethodDeclarations]
+      ) [OptMethods]
+      MethodDeclarations(
+        MethodDeclTypeName(
+          VoidIdentificator(
+          ) [VoidIdentificator]
+         main
+        ) [MethodDeclTypeName]
+        NoOptionalFormPars(
+        ) [NoOptionalFormPars]
+        OptVars(
+          OptVars(
+            NoOptVars(
+            ) [NoOptVars]
+            VarDeclarations(
+              Type(
+               int
+              ) [Type]
+              SingleVar(
+                Var(
+                 bodovi
+                  NoArrayVar(
+                  ) [NoArrayVar]
+                ) [Var]
+              ) [SingleVar]
+            ) [VarDeclarations]
+          ) [OptVars]
+          VarDeclarations(
+            Type(
+             Broj
+            ) [Type]
+            MultipleVars(
+              SingleVar(
+                Var(
+                 nula
+                  NoArrayVar(
+                  ) [NoArrayVar]
+                ) [Var]
+              ) [SingleVar]
+              Var(
+               jedan
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [MultipleVars]
+          ) [VarDeclarations]
+        ) [OptVars]
+        OptionalStmt(
+          OptionalStmt(
+            OptionalStmt(
+              OptionalStmt(
+                OptionalStmt(
+                  OptionalStmt(
+                    OptionalStmt(
+                      OptionalStmt(
+                        OptionalStmt(
+                          OptionalStmt(
+                            OptionalStmt(
+                              OptionalStmt(
+                                OptionalStmt(
+                                  OptionalStmt(
+                                    OptionalStmt(
+                                      OptionalStmt(
+                                        OptionalStmt(
+                                          OptionalStmt(
+                                            OptionalStmt(
+                                              OptionalStmt(
+                                                OptionalStmt(
+                                                  OptionalStmt(
+                                                    OptionalStmt(
+                                                      OptionalStmt(
+                                                        OptionalStmt(
+                                                          OptionalStmt(
+                                                            OptionalStmt(
+                                                              NoOptionalStmt(
+                                                              ) [NoOptionalStmt]
+                                                              DesignatorStmt(
+                                                                AssignOper(
+                                                                  DesignVar(
+                                                                    DesignatorName(
+                                                                     nula
+                                                                    ) [DesignatorName]
+                                                                  ) [DesignVar]
+                                                                  AssignOperation(
+                                                                  ) [AssignOperation]
+                                                                  Expression(
+                                                                    Positive(
+                                                                    ) [Positive]
+                                                                    Terms(
+                                                                      DesignFactor(
+                                                                        DesignFld(
+                                                                          DesignVar(
+                                                                            DesignatorName(
+                                                                             Broj
+                                                                            ) [DesignatorName]
+                                                                          ) [DesignVar]
+                                                                         NULA
+                                                                        ) [DesignFld]
+                                                                        NoMethodCall(
+                                                                        ) [NoMethodCall]
+                                                                      ) [DesignFactor]
+                                                                      NoMulFacts(
+                                                                      ) [NoMulFacts]
+                                                                    ) [Terms]
+                                                                    NoAddTerms(
+                                                                    ) [NoAddTerms]
+                                                                  ) [Expression]
+                                                                ) [AssignOper]
+                                                              ) [DesignatorStmt]
+                                                            ) [OptionalStmt]
+                                                            DesignatorStmt(
+                                                              AssignOper(
+                                                                DesignVar(
+                                                                  DesignatorName(
+                                                                   jedan
+                                                                  ) [DesignatorName]
+                                                                ) [DesignVar]
+                                                                AssignOperation(
+                                                                ) [AssignOperation]
+                                                                Expression(
+                                                                  Positive(
+                                                                  ) [Positive]
+                                                                  Terms(
+                                                                    DesignFactor(
+                                                                      DesignFld(
+                                                                        DesignVar(
+                                                                          DesignatorName(
+                                                                           Broj
+                                                                          ) [DesignatorName]
+                                                                        ) [DesignVar]
+                                                                       JEDAN
+                                                                      ) [DesignFld]
+                                                                      NoMethodCall(
+                                                                      ) [NoMethodCall]
+                                                                    ) [DesignFactor]
+                                                                    NoMulFacts(
+                                                                    ) [NoMulFacts]
+                                                                  ) [Terms]
+                                                                  NoAddTerms(
+                                                                  ) [NoAddTerms]
+                                                                ) [Expression]
+                                                              ) [AssignOper]
+                                                            ) [DesignatorStmt]
+                                                          ) [OptionalStmt]
+                                                          DesignatorStmt(
+                                                            AssignOper(
+                                                              DesignVar(
+                                                                DesignatorName(
+                                                                 bodovi
+                                                                ) [DesignatorName]
+                                                              ) [DesignVar]
+                                                              AssignOperation(
+                                                              ) [AssignOperation]
+                                                              Expression(
+                                                                Positive(
+                                                                ) [Positive]
+                                                                Terms(
+                                                                  NumFactor(
+                                                                   0
+                                                                  ) [NumFactor]
+                                                                  NoMulFacts(
+                                                                  ) [NoMulFacts]
+                                                                ) [Terms]
+                                                                NoAddTerms(
+                                                                ) [NoAddTerms]
+                                                              ) [Expression]
+                                                            ) [AssignOper]
+                                                          ) [DesignatorStmt]
+                                                        ) [OptionalStmt]
+                                                        DesignatorStmt(
+                                                          PlusPlusSideEff(
+                                                            DesignVar(
+                                                              DesignatorName(
+                                                               bodovi
+                                                              ) [DesignatorName]
+                                                            ) [DesignVar]
+                                                          ) [PlusPlusSideEff]
+                                                        ) [DesignatorStmt]
+                                                      ) [OptionalStmt]
+                                                      DesignatorStmt(
+                                                        AssignOper(
+                                                          DesignVar(
+                                                            DesignatorName(
+                                                             bodovi
+                                                            ) [DesignatorName]
+                                                          ) [DesignVar]
+                                                          AssignOperation(
+                                                          ) [AssignOperation]
+                                                          Expression(
+                                                            Positive(
+                                                            ) [Positive]
+                                                            Terms(
+                                                              DesignFactor(
+                                                                DesignVar(
+                                                                  DesignatorName(
+                                                                   bodovi
+                                                                  ) [DesignatorName]
+                                                                ) [DesignVar]
+                                                                NoMethodCall(
+                                                                ) [NoMethodCall]
+                                                              ) [DesignFactor]
+                                                              NoMulFacts(
+                                                              ) [NoMulFacts]
+                                                            ) [Terms]
+                                                            WithAddTerms(
+                                                              NoAddTerms(
+                                                              ) [NoAddTerms]
+                                                              PlusOp(
+                                                              ) [PlusOp]
+                                                              Terms(
+                                                                DesignFactor(
+                                                                  DesignVar(
+                                                                    DesignatorName(
+                                                                     jedan
+                                                                    ) [DesignatorName]
+                                                                  ) [DesignVar]
+                                                                  NoMethodCall(
+                                                                  ) [NoMethodCall]
+                                                                ) [DesignFactor]
+                                                                NoMulFacts(
+                                                                ) [NoMulFacts]
+                                                              ) [Terms]
+                                                            ) [WithAddTerms]
+                                                          ) [Expression]
+                                                        ) [AssignOper]
+                                                      ) [DesignatorStmt]
+                                                    ) [OptionalStmt]
+                                                    DesignatorStmt(
+                                                      AssignOper(
+                                                        DesignVar(
+                                                          DesignatorName(
+                                                           bodovi
+                                                          ) [DesignatorName]
+                                                        ) [DesignVar]
+                                                        AssignOperation(
+                                                        ) [AssignOperation]
+                                                        Expression(
+                                                          Positive(
+                                                          ) [Positive]
+                                                          Terms(
+                                                            DesignFactor(
+                                                              DesignVar(
+                                                                DesignatorName(
+                                                                 bodovi
+                                                                ) [DesignatorName]
+                                                              ) [DesignVar]
+                                                              NoMethodCall(
+                                                              ) [NoMethodCall]
+                                                            ) [DesignFactor]
+                                                            WithMulFacts(
+                                                              NoMulFacts(
+                                                              ) [NoMulFacts]
+                                                              MultOp(
+                                                              ) [MultOp]
+                                                              DesignFactor(
+                                                                DesignVar(
+                                                                  DesignatorName(
+                                                                   pet
+                                                                  ) [DesignatorName]
+                                                                ) [DesignVar]
+                                                                NoMethodCall(
+                                                                ) [NoMethodCall]
+                                                              ) [DesignFactor]
+                                                            ) [WithMulFacts]
+                                                          ) [Terms]
+                                                          NoAddTerms(
+                                                          ) [NoAddTerms]
+                                                        ) [Expression]
+                                                      ) [AssignOper]
+                                                    ) [DesignatorStmt]
+                                                  ) [OptionalStmt]
+                                                  DesignatorStmt(
+                                                    MinusMinusSideEff(
+                                                      DesignVar(
+                                                        DesignatorName(
+                                                         bodovi
+                                                        ) [DesignatorName]
+                                                      ) [DesignVar]
+                                                    ) [MinusMinusSideEff]
+                                                  ) [DesignatorStmt]
+                                                ) [OptionalStmt]
+                                                PrintStmt(
+                                                  Expression(
+                                                    Positive(
+                                                    ) [Positive]
+                                                    Terms(
+                                                      DesignFactor(
+                                                        DesignVar(
+                                                          DesignatorName(
+                                                           bodovi
+                                                          ) [DesignatorName]
+                                                        ) [DesignVar]
+                                                        NoMethodCall(
+                                                        ) [NoMethodCall]
+                                                      ) [DesignFactor]
+                                                      NoMulFacts(
+                                                      ) [NoMulFacts]
+                                                    ) [Terms]
+                                                    NoAddTerms(
+                                                    ) [NoAddTerms]
+                                                  ) [Expression]
+                                                  OptNumConstDerived2(
+                                                  ) [OptNumConstDerived2]
+                                                ) [PrintStmt]
+                                              ) [OptionalStmt]
+                                              DesignatorStmt(
+                                                AssignOper(
+                                                  DesignVar(
+                                                    DesignatorName(
+                                                     niz
+                                                    ) [DesignatorName]
+                                                  ) [DesignVar]
+                                                  AssignOperation(
+                                                  ) [AssignOperation]
+                                                  Expression(
+                                                    Positive(
+                                                    ) [Positive]
+                                                    Terms(
+                                                      NewArrFactor(
+                                                        Type(
+                                                         int
+                                                        ) [Type]
+                                                        Expression(
+                                                          Positive(
+                                                          ) [Positive]
+                                                          Terms(
+                                                            NumFactor(
+                                                             2
+                                                            ) [NumFactor]
+                                                            NoMulFacts(
+                                                            ) [NoMulFacts]
+                                                          ) [Terms]
+                                                          NoAddTerms(
+                                                          ) [NoAddTerms]
+                                                        ) [Expression]
+                                                      ) [NewArrFactor]
+                                                      NoMulFacts(
+                                                      ) [NoMulFacts]
+                                                    ) [Terms]
+                                                    NoAddTerms(
+                                                    ) [NoAddTerms]
+                                                  ) [Expression]
+                                                ) [AssignOper]
+                                              ) [DesignatorStmt]
+                                            ) [OptionalStmt]
+                                            DesignatorStmt(
+                                              AssignOper(
+                                                DesignArr(
+                                                  DesignVar(
+                                                    DesignatorName(
+                                                     niz
+                                                    ) [DesignatorName]
+                                                  ) [DesignVar]
+                                                  Expression(
+                                                    Positive(
+                                                    ) [Positive]
+                                                    Terms(
+                                                      DesignFactor(
+                                                        DesignVar(
+                                                          DesignatorName(
+                                                           nula
+                                                          ) [DesignatorName]
+                                                        ) [DesignVar]
+                                                        NoMethodCall(
+                                                        ) [NoMethodCall]
+                                                      ) [DesignFactor]
+                                                      NoMulFacts(
+                                                      ) [NoMulFacts]
+                                                    ) [Terms]
+                                                    NoAddTerms(
+                                                    ) [NoAddTerms]
+                                                  ) [Expression]
+                                                ) [DesignArr]
+                                                AssignOperation(
+                                                ) [AssignOperation]
+                                                Expression(
+                                                  Positive(
+                                                  ) [Positive]
+                                                  Terms(
+                                                    DesignFactor(
+                                                      DesignVar(
+                                                        DesignatorName(
+                                                         pet
+                                                        ) [DesignatorName]
+                                                      ) [DesignVar]
+                                                      NoMethodCall(
+                                                      ) [NoMethodCall]
+                                                    ) [DesignFactor]
+                                                    NoMulFacts(
+                                                    ) [NoMulFacts]
+                                                  ) [Terms]
+                                                  NoAddTerms(
+                                                  ) [NoAddTerms]
+                                                ) [Expression]
+                                              ) [AssignOper]
+                                            ) [DesignatorStmt]
+                                          ) [OptionalStmt]
+                                          DesignatorStmt(
+                                            AssignOper(
+                                              DesignArr(
+                                                DesignVar(
+                                                  DesignatorName(
+                                                   niz
+                                                  ) [DesignatorName]
+                                                ) [DesignVar]
+                                                Expression(
+                                                  Positive(
+                                                  ) [Positive]
+                                                  Terms(
+                                                    NumFactor(
+                                                     1
+                                                    ) [NumFactor]
+                                                    NoMulFacts(
+                                                    ) [NoMulFacts]
+                                                  ) [Terms]
+                                                  NoAddTerms(
+                                                  ) [NoAddTerms]
+                                                ) [Expression]
+                                              ) [DesignArr]
+                                              AssignOperation(
+                                              ) [AssignOperation]
+                                              Expression(
+                                                Positive(
+                                                ) [Positive]
+                                                Terms(
+                                                  DesignFactor(
+                                                    DesignFld(
+                                                      DesignVar(
+                                                        DesignatorName(
+                                                         Broj
+                                                        ) [DesignatorName]
+                                                      ) [DesignVar]
+                                                     DESET
+                                                    ) [DesignFld]
+                                                    NoMethodCall(
+                                                    ) [NoMethodCall]
+                                                  ) [DesignFactor]
+                                                  NoMulFacts(
+                                                  ) [NoMulFacts]
+                                                ) [Terms]
+                                                NoAddTerms(
+                                                ) [NoAddTerms]
+                                              ) [Expression]
+                                            ) [AssignOper]
+                                          ) [DesignatorStmt]
+                                        ) [OptionalStmt]
+                                        DesignatorStmt(
+                                          ProcCall(
+                                            DesignVar(
+                                              DesignatorName(
+                                               mul
+                                              ) [DesignatorName]
+                                            ) [DesignVar]
+                                            WithActPars(
+                                              MultiActPars(
+                                                MultiActPars(
+                                                  SingleActPars(
+                                                    Expression(
+                                                      Positive(
+                                                      ) [Positive]
+                                                      Terms(
+                                                        DesignFactor(
+                                                          DesignVar(
+                                                            DesignatorName(
+                                                             niz
+                                                            ) [DesignatorName]
+                                                          ) [DesignVar]
+                                                          NoMethodCall(
+                                                          ) [NoMethodCall]
+                                                        ) [DesignFactor]
+                                                        NoMulFacts(
+                                                        ) [NoMulFacts]
+                                                      ) [Terms]
+                                                      NoAddTerms(
+                                                      ) [NoAddTerms]
+                                                    ) [Expression]
+                                                  ) [SingleActPars]
+                                                  Expression(
+                                                    Positive(
+                                                    ) [Positive]
+                                                    Terms(
+                                                      DesignFactor(
+                                                        DesignVar(
+                                                          DesignatorName(
+                                                           inc
+                                                          ) [DesignatorName]
+                                                        ) [DesignVar]
+                                                        WithMethodCall(
+                                                          WithActPars(
+                                                            SingleActPars(
+                                                              Expression(
+                                                                Positive(
+                                                                ) [Positive]
+                                                                Terms(
+                                                                  NumFactor(
+                                                                   0
+                                                                  ) [NumFactor]
+                                                                  NoMulFacts(
+                                                                  ) [NoMulFacts]
+                                                                ) [Terms]
+                                                                NoAddTerms(
+                                                                ) [NoAddTerms]
+                                                              ) [Expression]
+                                                            ) [SingleActPars]
+                                                          ) [WithActPars]
+                                                        ) [WithMethodCall]
+                                                      ) [DesignFactor]
+                                                      NoMulFacts(
+                                                      ) [NoMulFacts]
+                                                    ) [Terms]
+                                                    NoAddTerms(
+                                                    ) [NoAddTerms]
+                                                  ) [Expression]
+                                                ) [MultiActPars]
+                                                Expression(
+                                                  Positive(
+                                                  ) [Positive]
+                                                  Terms(
+                                                    NumFactor(
+                                                     2
+                                                    ) [NumFactor]
+                                                    NoMulFacts(
+                                                    ) [NoMulFacts]
+                                                  ) [Terms]
+                                                  NoAddTerms(
+                                                  ) [NoAddTerms]
+                                                ) [Expression]
+                                              ) [MultiActPars]
+                                            ) [WithActPars]
+                                          ) [ProcCall]
+                                        ) [DesignatorStmt]
+                                      ) [OptionalStmt]
+                                      DesignatorStmt(
+                                        ProcCall(
+                                          DesignVar(
+                                            DesignatorName(
+                                             mul
+                                            ) [DesignatorName]
+                                          ) [DesignVar]
+                                          WithActPars(
+                                            MultiActPars(
+                                              MultiActPars(
+                                                SingleActPars(
+                                                  Expression(
+                                                    Positive(
+                                                    ) [Positive]
+                                                    Terms(
+                                                      DesignFactor(
+                                                        DesignVar(
+                                                          DesignatorName(
+                                                           niz
+                                                          ) [DesignatorName]
+                                                        ) [DesignVar]
+                                                        NoMethodCall(
+                                                        ) [NoMethodCall]
+                                                      ) [DesignFactor]
+                                                      NoMulFacts(
+                                                      ) [NoMulFacts]
+                                                    ) [Terms]
+                                                    NoAddTerms(
+                                                    ) [NoAddTerms]
+                                                  ) [Expression]
+                                                ) [SingleActPars]
+                                                Expression(
+                                                  Positive(
+                                                  ) [Positive]
+                                                  Terms(
+                                                    DesignFactor(
+                                                      DesignFld(
+                                                        DesignVar(
+                                                          DesignatorName(
+                                                           Broj
+                                                          ) [DesignatorName]
+                                                        ) [DesignVar]
+                                                       NULA
+                                                      ) [DesignFld]
+                                                      NoMethodCall(
+                                                      ) [NoMethodCall]
+                                                    ) [DesignFactor]
+                                                    NoMulFacts(
+                                                    ) [NoMulFacts]
+                                                  ) [Terms]
+                                                  NoAddTerms(
+                                                  ) [NoAddTerms]
+                                                ) [Expression]
+                                              ) [MultiActPars]
+                                              Expression(
+                                                Positive(
+                                                ) [Positive]
+                                                Terms(
+                                                  DesignFactor(
+                                                    DesignVar(
+                                                      DesignatorName(
+                                                       inc
+                                                      ) [DesignatorName]
+                                                    ) [DesignVar]
+                                                    WithMethodCall(
+                                                      WithActPars(
+                                                        SingleActPars(
+                                                          Expression(
+                                                            Positive(
+                                                            ) [Positive]
+                                                            Terms(
+                                                              DesignFactor(
+                                                                DesignVar(
+                                                                  DesignatorName(
+                                                                   inc
+                                                                  ) [DesignatorName]
+                                                                ) [DesignVar]
+                                                                WithMethodCall(
+                                                                  WithActPars(
+                                                                    SingleActPars(
+                                                                      Expression(
+                                                                        Positive(
+                                                                        ) [Positive]
+                                                                        Terms(
+                                                                          DesignFactor(
+                                                                            DesignFld(
+                                                                              DesignVar(
+                                                                                DesignatorName(
+                                                                                 Broj
+                                                                                ) [DesignatorName]
+                                                                              ) [DesignVar]
+                                                                             JEDAN
+                                                                            ) [DesignFld]
+                                                                            NoMethodCall(
+                                                                            ) [NoMethodCall]
+                                                                          ) [DesignFactor]
+                                                                          NoMulFacts(
+                                                                          ) [NoMulFacts]
+                                                                        ) [Terms]
+                                                                        NoAddTerms(
+                                                                        ) [NoAddTerms]
+                                                                      ) [Expression]
+                                                                    ) [SingleActPars]
+                                                                  ) [WithActPars]
+                                                                ) [WithMethodCall]
+                                                              ) [DesignFactor]
+                                                              NoMulFacts(
+                                                              ) [NoMulFacts]
+                                                            ) [Terms]
+                                                            WithAddTerms(
+                                                              NoAddTerms(
+                                                              ) [NoAddTerms]
+                                                              PlusOp(
+                                                              ) [PlusOp]
+                                                              Terms(
+                                                                NumFactor(
+                                                                 1
+                                                                ) [NumFactor]
+                                                                NoMulFacts(
+                                                                ) [NoMulFacts]
+                                                              ) [Terms]
+                                                            ) [WithAddTerms]
+                                                          ) [Expression]
+                                                        ) [SingleActPars]
+                                                      ) [WithActPars]
+                                                    ) [WithMethodCall]
+                                                  ) [DesignFactor]
+                                                  NoMulFacts(
+                                                  ) [NoMulFacts]
+                                                ) [Terms]
+                                                NoAddTerms(
+                                                ) [NoAddTerms]
+                                              ) [Expression]
+                                            ) [MultiActPars]
+                                          ) [WithActPars]
+                                        ) [ProcCall]
+                                      ) [DesignatorStmt]
+                                    ) [OptionalStmt]
+                                    DesignatorStmt(
+                                      AssignOper(
+                                        DesignVar(
+                                          DesignatorName(
+                                           bodovi
+                                          ) [DesignatorName]
+                                        ) [DesignVar]
+                                        AssignOperation(
+                                        ) [AssignOperation]
+                                        Expression(
+                                          Positive(
+                                          ) [Positive]
+                                          Terms(
+                                            DesignFactor(
+                                              DesignArr(
+                                                DesignVar(
+                                                  DesignatorName(
+                                                   niz
+                                                  ) [DesignatorName]
+                                                ) [DesignVar]
+                                                Expression(
+                                                  Positive(
+                                                  ) [Positive]
+                                                  Terms(
+                                                    NumFactor(
+                                                     1
+                                                    ) [NumFactor]
+                                                    NoMulFacts(
+                                                    ) [NoMulFacts]
+                                                  ) [Terms]
+                                                  NoAddTerms(
+                                                  ) [NoAddTerms]
+                                                ) [Expression]
+                                              ) [DesignArr]
+                                              NoMethodCall(
+                                              ) [NoMethodCall]
+                                            ) [DesignFactor]
+                                            WithMulFacts(
+                                              NoMulFacts(
+                                              ) [NoMulFacts]
+                                              DivOp(
+                                              ) [DivOp]
+                                              DesignFactor(
+                                                DesignArr(
+                                                  DesignVar(
+                                                    DesignatorName(
+                                                     niz
+                                                    ) [DesignatorName]
+                                                  ) [DesignVar]
+                                                  Expression(
+                                                    Positive(
+                                                    ) [Positive]
+                                                    Terms(
+                                                      NumFactor(
+                                                       0
+                                                      ) [NumFactor]
+                                                      NoMulFacts(
+                                                      ) [NoMulFacts]
+                                                    ) [Terms]
+                                                    NoAddTerms(
+                                                    ) [NoAddTerms]
+                                                  ) [Expression]
+                                                ) [DesignArr]
+                                                NoMethodCall(
+                                                ) [NoMethodCall]
+                                              ) [DesignFactor]
+                                            ) [WithMulFacts]
+                                          ) [Terms]
+                                          NoAddTerms(
+                                          ) [NoAddTerms]
+                                        ) [Expression]
+                                      ) [AssignOper]
+                                    ) [DesignatorStmt]
+                                  ) [OptionalStmt]
+                                  PrintStmt(
+                                    Expression(
+                                      Positive(
+                                      ) [Positive]
+                                      Terms(
+                                        DesignFactor(
+                                          DesignVar(
+                                            DesignatorName(
+                                             bodovi
+                                            ) [DesignatorName]
+                                          ) [DesignVar]
+                                          NoMethodCall(
+                                          ) [NoMethodCall]
+                                        ) [DesignFactor]
+                                        NoMulFacts(
+                                        ) [NoMulFacts]
+                                      ) [Terms]
+                                      NoAddTerms(
+                                      ) [NoAddTerms]
+                                    ) [Expression]
+                                    OptNumConstDerived2(
+                                    ) [OptNumConstDerived2]
+                                  ) [PrintStmt]
+                                ) [OptionalStmt]
+                                PrintStmt(
+                                  Expression(
+                                    Positive(
+                                    ) [Positive]
+                                    Terms(
+                                      DesignFactor(
+                                        DesignArr(
+                                          DesignVar(
+                                            DesignatorName(
+                                             niz
+                                            ) [DesignatorName]
+                                          ) [DesignVar]
+                                          Expression(
+                                            Positive(
+                                            ) [Positive]
+                                            Terms(
+                                              DesignFactor(
+                                                DesignFld(
+                                                  DesignVar(
+                                                    DesignatorName(
+                                                     Broj
+                                                    ) [DesignatorName]
+                                                  ) [DesignVar]
+                                                 JEDAN
+                                                ) [DesignFld]
+                                                NoMethodCall(
+                                                ) [NoMethodCall]
+                                              ) [DesignFactor]
+                                              NoMulFacts(
+                                              ) [NoMulFacts]
+                                            ) [Terms]
+                                            NoAddTerms(
+                                            ) [NoAddTerms]
+                                          ) [Expression]
+                                        ) [DesignArr]
+                                        NoMethodCall(
+                                        ) [NoMethodCall]
+                                      ) [DesignFactor]
+                                      NoMulFacts(
+                                      ) [NoMulFacts]
+                                    ) [Terms]
+                                    NoAddTerms(
+                                    ) [NoAddTerms]
+                                  ) [Expression]
+                                  OptNumConstDerived2(
+                                  ) [OptNumConstDerived2]
+                                ) [PrintStmt]
+                              ) [OptionalStmt]
+                              DesignatorStmt(
+                                AssignOper(
+                                  DesignVar(
+                                    DesignatorName(
+                                     nizch
+                                    ) [DesignatorName]
+                                  ) [DesignVar]
+                                  AssignOperation(
+                                  ) [AssignOperation]
+                                  Expression(
+                                    Positive(
+                                    ) [Positive]
+                                    Terms(
+                                      NewArrFactor(
+                                        Type(
+                                         char
+                                        ) [Type]
+                                        Expression(
+                                          Positive(
+                                          ) [Positive]
+                                          Terms(
+                                            NumFactor(
+                                             3
+                                            ) [NumFactor]
+                                            NoMulFacts(
+                                            ) [NoMulFacts]
+                                          ) [Terms]
+                                          NoAddTerms(
+                                          ) [NoAddTerms]
+                                        ) [Expression]
+                                      ) [NewArrFactor]
+                                      NoMulFacts(
+                                      ) [NoMulFacts]
+                                    ) [Terms]
+                                    NoAddTerms(
+                                    ) [NoAddTerms]
+                                  ) [Expression]
+                                ) [AssignOper]
+                              ) [DesignatorStmt]
+                            ) [OptionalStmt]
+                            DesignatorStmt(
+                              AssignOper(
+                                DesignArr(
+                                  DesignVar(
+                                    DesignatorName(
+                                     nizch
+                                    ) [DesignatorName]
+                                  ) [DesignVar]
+                                  Expression(
+                                    Positive(
+                                    ) [Positive]
+                                    Terms(
+                                      NumFactor(
+                                       0
+                                      ) [NumFactor]
+                                      NoMulFacts(
+                                      ) [NoMulFacts]
+                                    ) [Terms]
+                                    NoAddTerms(
+                                    ) [NoAddTerms]
+                                  ) [Expression]
+                                ) [DesignArr]
+                                AssignOperation(
+                                ) [AssignOperation]
+                                Expression(
+                                  Positive(
+                                  ) [Positive]
+                                  Terms(
+                                    CharFactor(
+                                     a
+                                    ) [CharFactor]
+                                    NoMulFacts(
+                                    ) [NoMulFacts]
+                                  ) [Terms]
+                                  NoAddTerms(
+                                  ) [NoAddTerms]
+                                ) [Expression]
+                              ) [AssignOper]
+                            ) [DesignatorStmt]
+                          ) [OptionalStmt]
+                          DesignatorStmt(
+                            AssignOper(
+                              DesignArr(
+                                DesignVar(
+                                  DesignatorName(
+                                   nizch
+                                  ) [DesignatorName]
+                                ) [DesignVar]
+                                Expression(
+                                  Positive(
+                                  ) [Positive]
+                                  Terms(
+                                    DesignFactor(
+                                      DesignVar(
+                                        DesignatorName(
+                                         jedan
+                                        ) [DesignatorName]
+                                      ) [DesignVar]
+                                      NoMethodCall(
+                                      ) [NoMethodCall]
+                                    ) [DesignFactor]
+                                    NoMulFacts(
+                                    ) [NoMulFacts]
+                                  ) [Terms]
+                                  NoAddTerms(
+                                  ) [NoAddTerms]
+                                ) [Expression]
+                              ) [DesignArr]
+                              AssignOperation(
+                              ) [AssignOperation]
+                              Expression(
+                                Positive(
+                                ) [Positive]
+                                Terms(
+                                  CharFactor(
+                                   b
+                                  ) [CharFactor]
+                                  NoMulFacts(
+                                  ) [NoMulFacts]
+                                ) [Terms]
+                                NoAddTerms(
+                                ) [NoAddTerms]
+                              ) [Expression]
+                            ) [AssignOper]
+                          ) [DesignatorStmt]
+                        ) [OptionalStmt]
+                        DesignatorStmt(
+                          AssignOper(
+                            DesignArr(
+                              DesignVar(
+                                DesignatorName(
+                                 nizch
+                                ) [DesignatorName]
+                              ) [DesignVar]
+                              Expression(
+                                Positive(
+                                ) [Positive]
+                                Terms(
+                                  DesignFactor(
+                                    DesignVar(
+                                      DesignatorName(
+                                       pet
+                                      ) [DesignatorName]
+                                    ) [DesignVar]
+                                    NoMethodCall(
+                                    ) [NoMethodCall]
+                                  ) [DesignFactor]
+                                  NoMulFacts(
+                                  ) [NoMulFacts]
+                                ) [Terms]
+                                WithAddTerms(
+                                  NoAddTerms(
+                                  ) [NoAddTerms]
+                                  MinusOp(
+                                  ) [MinusOp]
+                                  Terms(
+                                    NumFactor(
+                                     3
+                                    ) [NumFactor]
+                                    NoMulFacts(
+                                    ) [NoMulFacts]
+                                  ) [Terms]
+                                ) [WithAddTerms]
+                              ) [Expression]
+                            ) [DesignArr]
+                            AssignOperation(
+                            ) [AssignOperation]
+                            Expression(
+                              Positive(
+                              ) [Positive]
+                              Terms(
+                                CharFactor(
+                                 c
+                                ) [CharFactor]
+                                NoMulFacts(
+                                ) [NoMulFacts]
+                              ) [Terms]
+                              NoAddTerms(
+                              ) [NoAddTerms]
+                            ) [Expression]
+                          ) [AssignOper]
+                        ) [DesignatorStmt]
+                      ) [OptionalStmt]
+                      PrintStmt(
+                        Expression(
+                          Positive(
+                          ) [Positive]
+                          Terms(
+                            DesignFactor(
+                              DesignArr(
+                                DesignVar(
+                                  DesignatorName(
+                                   nizch
+                                  ) [DesignatorName]
+                                ) [DesignVar]
+                                Expression(
+                                  Positive(
+                                  ) [Positive]
+                                  Terms(
+                                    DesignFactor(
+                                      DesignVar(
+                                        DesignatorName(
+                                         inc
+                                        ) [DesignatorName]
+                                      ) [DesignVar]
+                                      WithMethodCall(
+                                        WithActPars(
+                                          SingleActPars(
+                                            Expression(
+                                              Positive(
+                                              ) [Positive]
+                                              Terms(
+                                                NumFactor(
+                                                 0
+                                                ) [NumFactor]
+                                                NoMulFacts(
+                                                ) [NoMulFacts]
+                                              ) [Terms]
+                                              NoAddTerms(
+                                              ) [NoAddTerms]
+                                            ) [Expression]
+                                          ) [SingleActPars]
+                                        ) [WithActPars]
+                                      ) [WithMethodCall]
+                                    ) [DesignFactor]
+                                    NoMulFacts(
+                                    ) [NoMulFacts]
+                                  ) [Terms]
+                                  NoAddTerms(
+                                  ) [NoAddTerms]
+                                ) [Expression]
+                              ) [DesignArr]
+                              NoMethodCall(
+                              ) [NoMethodCall]
+                            ) [DesignFactor]
+                            NoMulFacts(
+                            ) [NoMulFacts]
+                          ) [Terms]
+                          NoAddTerms(
+                          ) [NoAddTerms]
+                        ) [Expression]
+                        OptNumConstDerived2(
+                        ) [OptNumConstDerived2]
+                      ) [PrintStmt]
+                    ) [OptionalStmt]
+                    PrintStmt(
+                      Expression(
+                        Positive(
+                        ) [Positive]
+                        Terms(
+                          DesignFactor(
+                            DesignArr(
+                              DesignVar(
+                                DesignatorName(
+                                 nizch
+                                ) [DesignatorName]
+                              ) [DesignVar]
+                              Expression(
+                                Positive(
+                                ) [Positive]
+                                Terms(
+                                  DesignFactor(
+                                    DesignVar(
+                                      DesignatorName(
+                                       jedan
+                                      ) [DesignatorName]
+                                    ) [DesignVar]
+                                    NoMethodCall(
+                                    ) [NoMethodCall]
+                                  ) [DesignFactor]
+                                  WithMulFacts(
+                                    NoMulFacts(
+                                    ) [NoMulFacts]
+                                    MultOp(
+                                    ) [MultOp]
+                                    NumFactor(
+                                     2
+                                    ) [NumFactor]
+                                  ) [WithMulFacts]
+                                ) [Terms]
+                                NoAddTerms(
+                                ) [NoAddTerms]
+                              ) [Expression]
+                            ) [DesignArr]
+                            NoMethodCall(
+                            ) [NoMethodCall]
+                          ) [DesignFactor]
+                          NoMulFacts(
+                          ) [NoMulFacts]
+                        ) [Terms]
+                        NoAddTerms(
+                        ) [NoAddTerms]
+                      ) [Expression]
+                      OptNumConstDerived2(
+                      ) [OptNumConstDerived2]
+                    ) [PrintStmt]
+                  ) [OptionalStmt]
+                  DesignatorStmt(
+                    AssignOper(
+                      DesignVar(
+                        DesignatorName(
+                         bodovi
+                        ) [DesignatorName]
+                      ) [DesignVar]
+                      AssignOperation(
+                      ) [AssignOperation]
+                      Expression(
+                        Positive(
+                        ) [Positive]
+                        Terms(
+                          DesignFactor(
+                            DesignVar(
+                              DesignatorName(
+                               bodovi
+                              ) [DesignatorName]
+                            ) [DesignVar]
+                            NoMethodCall(
+                            ) [NoMethodCall]
+                          ) [DesignFactor]
+                          NoMulFacts(
+                          ) [NoMulFacts]
+                        ) [Terms]
+                        WithAddTerms(
+                          NoAddTerms(
+                          ) [NoAddTerms]
+                          PlusOp(
+                          ) [PlusOp]
+                          Terms(
+                            ExprFactor(
+                              Expression(
+                                Positive(
+                                ) [Positive]
+                                Terms(
+                                  ExprFactor(
+                                    Expression(
+                                      Positive(
+                                      ) [Positive]
+                                      Terms(
+                                        DesignFactor(
+                                          DesignVar(
+                                            DesignatorName(
+                                             pet
+                                            ) [DesignatorName]
+                                          ) [DesignVar]
+                                          NoMethodCall(
+                                          ) [NoMethodCall]
+                                        ) [DesignFactor]
+                                        WithMulFacts(
+                                          NoMulFacts(
+                                          ) [NoMulFacts]
+                                          MultOp(
+                                          ) [MultOp]
+                                          DesignFactor(
+                                            DesignVar(
+                                              DesignatorName(
+                                               jedan
+                                              ) [DesignatorName]
+                                            ) [DesignVar]
+                                            NoMethodCall(
+                                            ) [NoMethodCall]
+                                          ) [DesignFactor]
+                                        ) [WithMulFacts]
+                                      ) [Terms]
+                                      WithAddTerms(
+                                        NoAddTerms(
+                                        ) [NoAddTerms]
+                                        MinusOp(
+                                        ) [MinusOp]
+                                        Terms(
+                                          NumFactor(
+                                           1
+                                          ) [NumFactor]
+                                          NoMulFacts(
+                                          ) [NoMulFacts]
+                                        ) [Terms]
+                                      ) [WithAddTerms]
+                                    ) [Expression]
+                                  ) [ExprFactor]
+                                  WithMulFacts(
+                                    NoMulFacts(
+                                    ) [NoMulFacts]
+                                    MultOp(
+                                    ) [MultOp]
+                                    DesignFactor(
+                                      DesignVar(
+                                        DesignatorName(
+                                         inc
+                                        ) [DesignatorName]
+                                      ) [DesignVar]
+                                      WithMethodCall(
+                                        WithActPars(
+                                          SingleActPars(
+                                            Expression(
+                                              Positive(
+                                              ) [Positive]
+                                              Terms(
+                                                DesignFactor(
+                                                  DesignFld(
+                                                    DesignVar(
+                                                      DesignatorName(
+                                                       Broj
+                                                      ) [DesignatorName]
+                                                    ) [DesignVar]
+                                                   JEDAN
+                                                  ) [DesignFld]
+                                                  NoMethodCall(
+                                                  ) [NoMethodCall]
+                                                ) [DesignFactor]
+                                                NoMulFacts(
+                                                ) [NoMulFacts]
+                                              ) [Terms]
+                                              NoAddTerms(
+                                              ) [NoAddTerms]
+                                            ) [Expression]
+                                          ) [SingleActPars]
+                                        ) [WithActPars]
+                                      ) [WithMethodCall]
+                                    ) [DesignFactor]
+                                  ) [WithMulFacts]
+                                ) [Terms]
+                                WithAddTerms(
+                                  WithAddTerms(
+                                    NoAddTerms(
+                                    ) [NoAddTerms]
+                                    MinusOp(
+                                    ) [MinusOp]
+                                    Terms(
+                                      ExprFactor(
+                                        Expression(
+                                          Positive(
+                                          ) [Positive]
+                                          Terms(
+                                            NumFactor(
+                                             3
+                                            ) [NumFactor]
+                                            WithMulFacts(
+                                              NoMulFacts(
+                                              ) [NoMulFacts]
+                                              ModOp(
+                                              ) [ModOp]
+                                              NumFactor(
+                                               2
+                                              ) [NumFactor]
+                                            ) [WithMulFacts]
+                                          ) [Terms]
+                                          WithAddTerms(
+                                            WithAddTerms(
+                                              NoAddTerms(
+                                              ) [NoAddTerms]
+                                              PlusOp(
+                                              ) [PlusOp]
+                                              Terms(
+                                                NumFactor(
+                                                 3
+                                                ) [NumFactor]
+                                                WithMulFacts(
+                                                  NoMulFacts(
+                                                  ) [NoMulFacts]
+                                                  MultOp(
+                                                  ) [MultOp]
+                                                  NumFactor(
+                                                   2
+                                                  ) [NumFactor]
+                                                ) [WithMulFacts]
+                                              ) [Terms]
+                                            ) [WithAddTerms]
+                                            MinusOp(
+                                            ) [MinusOp]
+                                            Terms(
+                                              NumFactor(
+                                               3
+                                              ) [NumFactor]
+                                              NoMulFacts(
+                                              ) [NoMulFacts]
+                                            ) [Terms]
+                                          ) [WithAddTerms]
+                                        ) [Expression]
+                                      ) [ExprFactor]
+                                      NoMulFacts(
+                                      ) [NoMulFacts]
+                                    ) [Terms]
+                                  ) [WithAddTerms]
+                                  MinusOp(
+                                  ) [MinusOp]
+                                  Terms(
+                                    DesignFactor(
+                                      DesignVar(
+                                        DesignatorName(
+                                         inc
+                                        ) [DesignatorName]
+                                      ) [DesignVar]
+                                      WithMethodCall(
+                                        WithActPars(
+                                          SingleActPars(
+                                            Expression(
+                                              Positive(
+                                              ) [Positive]
+                                              Terms(
+                                                DesignFactor(
+                                                  DesignFld(
+                                                    DesignVar(
+                                                      DesignatorName(
+                                                       Broj
+                                                      ) [DesignatorName]
+                                                    ) [DesignVar]
+                                                   NULA
+                                                  ) [DesignFld]
+                                                  NoMethodCall(
+                                                  ) [NoMethodCall]
+                                                ) [DesignFactor]
+                                                NoMulFacts(
+                                                ) [NoMulFacts]
+                                              ) [Terms]
+                                              NoAddTerms(
+                                              ) [NoAddTerms]
+                                            ) [Expression]
+                                          ) [SingleActPars]
+                                        ) [WithActPars]
+                                      ) [WithMethodCall]
+                                    ) [DesignFactor]
+                                    WithMulFacts(
+                                      NoMulFacts(
+                                      ) [NoMulFacts]
+                                      MultOp(
+                                      ) [MultOp]
+                                      NumFactor(
+                                       0
+                                      ) [NumFactor]
+                                    ) [WithMulFacts]
+                                  ) [Terms]
+                                ) [WithAddTerms]
+                              ) [Expression]
+                            ) [ExprFactor]
+                            NoMulFacts(
+                            ) [NoMulFacts]
+                          ) [Terms]
+                        ) [WithAddTerms]
+                      ) [Expression]
+                    ) [AssignOper]
+                  ) [DesignatorStmt]
+                ) [OptionalStmt]
+                PrintStmt(
+                  Expression(
+                    Positive(
+                    ) [Positive]
+                    Terms(
+                      DesignFactor(
+                        DesignVar(
+                          DesignatorName(
+                           bodovi
+                          ) [DesignatorName]
+                        ) [DesignVar]
+                        NoMethodCall(
+                        ) [NoMethodCall]
+                      ) [DesignFactor]
+                      NoMulFacts(
+                      ) [NoMulFacts]
+                    ) [Terms]
+                    NoAddTerms(
+                    ) [NoAddTerms]
+                  ) [Expression]
+                  OptNumConstDerived2(
+                  ) [OptNumConstDerived2]
+                ) [PrintStmt]
+              ) [OptionalStmt]
+              ReadStmt(
+                DesignVar(
+                  DesignatorName(
+                   bodovi
+                  ) [DesignatorName]
+                ) [DesignVar]
+              ) [ReadStmt]
+            ) [OptionalStmt]
+            DesignatorStmt(
+              AssignOper(
+                DesignVar(
+                  DesignatorName(
+                   bodovi
+                  ) [DesignatorName]
+                ) [DesignVar]
+                AssignOperation(
+                ) [AssignOperation]
+                Expression(
+                  Positive(
+                  ) [Positive]
+                  Terms(
+                    DesignFactor(
+                      DesignVar(
+                        DesignatorName(
+                         inc
+                        ) [DesignatorName]
+                      ) [DesignVar]
+                      WithMethodCall(
+                        WithActPars(
+                          SingleActPars(
+                            Expression(
+                              Positive(
+                              ) [Positive]
+                              Terms(
+                                DesignFactor(
+                                  DesignVar(
+                                    DesignatorName(
+                                     bodovi
+                                    ) [DesignatorName]
+                                  ) [DesignVar]
+                                  NoMethodCall(
+                                  ) [NoMethodCall]
+                                ) [DesignFactor]
+                                NoMulFacts(
+                                ) [NoMulFacts]
+                              ) [Terms]
+                              NoAddTerms(
+                              ) [NoAddTerms]
+                            ) [Expression]
+                          ) [SingleActPars]
+                        ) [WithActPars]
+                      ) [WithMethodCall]
+                    ) [DesignFactor]
+                    NoMulFacts(
+                    ) [NoMulFacts]
+                  ) [Terms]
+                  NoAddTerms(
+                  ) [NoAddTerms]
+                ) [Expression]
+              ) [AssignOper]
+            ) [DesignatorStmt]
+          ) [OptionalStmt]
+          PrintStmt(
+            Expression(
+              Positive(
+              ) [Positive]
+              Terms(
+                DesignFactor(
+                  DesignVar(
+                    DesignatorName(
+                     bodovi
+                    ) [DesignatorName]
+                  ) [DesignVar]
+                  NoMethodCall(
+                  ) [NoMethodCall]
+                ) [DesignFactor]
+                NoMulFacts(
+                ) [NoMulFacts]
+              ) [Terms]
+              NoAddTerms(
+              ) [NoAddTerms]
+            ) [Expression]
+            OptNumConstDerived2(
+            ) [OptNumConstDerived2]
+          ) [PrintStmt]
+        ) [OptionalStmt]
+      ) [MethodDeclarations]
+    ) [OptMethods]
+  ) [GlobalMeths]
+) [Program]
+INFO  20:06:32,186 - ===================================
+INFO  20:06:32,186 - INFO:  Pocetak programa test301 na liniji 3
+INFO  20:06:32,186 - INFO:  Definisan enum tip Broj na liniji 5
+INFO  20:06:32,187 - INFO:  Deklarisana konstanta jedan na liniji 7
+INFO  20:06:32,187 - INFO:  Deklarisana konstanta pet na liniji 8
+INFO  20:06:32,187 - INFO:  Deklarisan niz niz na liniji 10
+INFO  20:06:32,187 - INFO:  Deklarisan niz nizch na liniji 11
+INFO  20:06:32,187 - INFO:  Obradjuje se funkcija inc na liniji 14
+INFO  20:06:32,187 - INFO:  Deklarisan formalni parametar broj na liniji 14
+INFO  20:06:32,187 - INFO:  Pristup simbolu broj na liniji 16
+INFO  20:06:32,187 - INFO:  Pristup simbolu Broj na liniji 16
+INFO  20:06:32,188 - INFO:  Pristup konstanti Broj.JEDAN na liniji 16
+INFO  20:06:32,189 - INFO:  Deklarisan metod inc na liniji 14
+INFO  20:06:32,189 - INFO:  Obradjuje se funkcija mul na liniji 19
+INFO  20:06:32,189 - INFO:  Deklarisan formalni parametar arr na liniji 19
+INFO  20:06:32,189 - INFO:  Deklarisan formalni parametar index na liniji 19
+INFO  20:06:32,189 - INFO:  Deklarisan formalni parametar b na liniji 19
+INFO  20:06:32,189 - INFO:  Pristup simbolu arr na liniji 21
+INFO  20:06:32,189 - INFO:  Pristup simbolu index na liniji 21
+INFO  20:06:32,189 - INFO:  Pristup elementu niza arr na liniji 21
+INFO  20:06:32,189 - INFO:  Pristup simbolu arr na liniji 21
+INFO  20:06:32,189 - INFO:  Pristup simbolu index na liniji 21
+INFO  20:06:32,189 - INFO:  Pristup elementu niza arr na liniji 21
+INFO  20:06:32,189 - INFO:  Pristup simbolu b na liniji 21
+INFO  20:06:32,189 - INFO:  Deklarisan metod mul na liniji 19
+INFO  20:06:32,189 - INFO:  Obradjuje se funkcija main na liniji 24
+INFO  20:06:32,189 - INFO:  Deklarisana promenljiva bodovi na liniji 25
+INFO  20:06:32,189 - INFO:  Deklarisana promenljiva nula na liniji 26
+INFO  20:06:32,189 - INFO:  Deklarisana promenljiva jedan na liniji 26
+INFO  20:06:32,189 - INFO:  Pristup simbolu nula na liniji 28
+INFO  20:06:32,189 - INFO:  Pristup simbolu Broj na liniji 28
+INFO  20:06:32,189 - INFO:  Pristup konstanti Broj.NULA na liniji 28
+INFO  20:06:32,189 - INFO:  Pristup simbolu jedan na liniji 29
+INFO  20:06:32,189 - INFO:  Pristup simbolu Broj na liniji 29
+INFO  20:06:32,190 - INFO:  Pristup konstanti Broj.JEDAN na liniji 29
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 31
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 32
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 33
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 33
+INFO  20:06:32,190 - INFO:  Pristup simbolu jedan na liniji 33
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 34
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 34
+INFO  20:06:32,190 - INFO:  Pristup simbolu pet na liniji 34
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 35
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 36
+INFO  20:06:32,190 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  20:06:32,190 - INFO:  Pristup simbolu niz na liniji 39
+INFO  20:06:32,190 - INFO:  Pristup simbolu niz na liniji 40
+INFO  20:06:32,190 - INFO:  Pristup simbolu nula na liniji 40
+INFO  20:06:32,190 - INFO:  Pristup elementu niza niz na liniji 40
+INFO  20:06:32,190 - INFO:  Pristup simbolu pet na liniji 40
+INFO  20:06:32,190 - INFO:  Pristup simbolu niz na liniji 41
+INFO  20:06:32,190 - INFO:  Pristup elementu niza niz na liniji 41
+INFO  20:06:32,190 - INFO:  Pristup simbolu Broj na liniji 41
+INFO  20:06:32,190 - INFO:  Pristup konstanti Broj.DESET na liniji 41
+INFO  20:06:32,190 - INFO:  Pristup metodi mul na liniji 42
+INFO  20:06:32,190 - INFO:  Pristup simbolu niz na liniji 42
+INFO  20:06:32,190 - INFO:  Pristup metodi inc na liniji 42
+INFO  20:06:32,190 - INFO:  Pozvana metoda inc na liniji 42
+INFO  20:06:32,190 - INFO:  Pozvana metoda mul na liniji 42
+INFO  20:06:32,190 - INFO:  Pristup metodi mul na liniji 43
+INFO  20:06:32,190 - INFO:  Pristup simbolu niz na liniji 43
+INFO  20:06:32,190 - INFO:  Pristup simbolu Broj na liniji 43
+INFO  20:06:32,190 - INFO:  Pristup konstanti Broj.NULA na liniji 43
+INFO  20:06:32,190 - INFO:  Pristup metodi inc na liniji 43
+INFO  20:06:32,190 - INFO:  Pristup metodi inc na liniji 43
+INFO  20:06:32,190 - INFO:  Pristup simbolu Broj na liniji 43
+INFO  20:06:32,190 - INFO:  Pristup konstanti Broj.JEDAN na liniji 43
+INFO  20:06:32,190 - INFO:  Pozvana metoda inc na liniji 43
+INFO  20:06:32,190 - INFO:  Pozvana metoda inc na liniji 43
+INFO  20:06:32,190 - INFO:  Pozvana metoda mul na liniji 43
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 44
+INFO  20:06:32,190 - INFO:  Pristup simbolu niz na liniji 44
+INFO  20:06:32,190 - INFO:  Pristup elementu niza niz na liniji 44
+INFO  20:06:32,190 - INFO:  Pristup simbolu niz na liniji 44
+INFO  20:06:32,190 - INFO:  Pristup elementu niza niz na liniji 44
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 45
+INFO  20:06:32,190 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  20:06:32,190 - INFO:  Pristup simbolu niz na liniji 46
+INFO  20:06:32,190 - INFO:  Pristup simbolu Broj na liniji 46
+INFO  20:06:32,190 - INFO:  Pristup konstanti Broj.JEDAN na liniji 46
+INFO  20:06:32,190 - INFO:  Pristup elementu niza niz na liniji 46
+INFO  20:06:32,190 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  20:06:32,190 - INFO:  Pristup simbolu nizch na liniji 49
+INFO  20:06:32,190 - INFO:  Pristup simbolu nizch na liniji 50
+INFO  20:06:32,190 - INFO:  Pristup elementu niza nizch na liniji 50
+INFO  20:06:32,190 - INFO:  Pristup simbolu nizch na liniji 51
+INFO  20:06:32,190 - INFO:  Pristup simbolu jedan na liniji 51
+INFO  20:06:32,190 - INFO:  Pristup elementu niza nizch na liniji 51
+INFO  20:06:32,190 - INFO:  Pristup simbolu nizch na liniji 52
+INFO  20:06:32,190 - INFO:  Pristup simbolu pet na liniji 52
+INFO  20:06:32,190 - INFO:  Pristup elementu niza nizch na liniji 52
+INFO  20:06:32,190 - INFO:  Pristup simbolu nizch na liniji 53
+INFO  20:06:32,190 - INFO:  Pristup metodi inc na liniji 53
+INFO  20:06:32,190 - INFO:  Pozvana metoda inc na liniji 53
+INFO  20:06:32,190 - INFO:  Pristup elementu niza nizch na liniji 53
+INFO  20:06:32,190 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  20:06:32,190 - INFO:  Pristup simbolu nizch na liniji 54
+INFO  20:06:32,190 - INFO:  Pristup simbolu jedan na liniji 54
+INFO  20:06:32,190 - INFO:  Pristup elementu niza nizch na liniji 54
+INFO  20:06:32,190 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 57
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 57
+INFO  20:06:32,190 - INFO:  Pristup simbolu pet na liniji 57
+INFO  20:06:32,190 - INFO:  Pristup simbolu jedan na liniji 57
+INFO  20:06:32,190 - INFO:  Pristup metodi inc na liniji 57
+INFO  20:06:32,190 - INFO:  Pristup simbolu Broj na liniji 57
+INFO  20:06:32,190 - INFO:  Pristup konstanti Broj.JEDAN na liniji 57
+INFO  20:06:32,190 - INFO:  Pozvana metoda inc na liniji 57
+INFO  20:06:32,190 - INFO:  Pristup metodi inc na liniji 57
+INFO  20:06:32,190 - INFO:  Pristup simbolu Broj na liniji 57
+INFO  20:06:32,190 - INFO:  Pristup konstanti Broj.NULA na liniji 57
+INFO  20:06:32,190 - INFO:  Pozvana metoda inc na liniji 57
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 58
+INFO  20:06:32,190 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 61
+INFO  20:06:32,190 - INFO:  Poziv READ funkcije na liniji 61
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 62
+INFO  20:06:32,190 - INFO:  Pristup metodi inc na liniji 62
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 62
+INFO  20:06:32,190 - INFO:  Pozvana metoda inc na liniji 62
+INFO  20:06:32,190 - INFO:  Pristup simbolu bodovi na liniji 63
+INFO  20:06:32,190 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  20:06:32,190 - INFO:  Deklarisan metod main na liniji 24
+INFO  20:06:32,190 - ===================================
+INFO  20:06:32,202 - Uspesno parsiranje!
