@@ -1,24 +1,13 @@
 // generated with ast extension for cup
 // version 0.8
-// 22/7/2019 21:49:53
+// 26/7/2019 20:47:6
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class OptNumConstDerived1 extends OptNumConst {
+public class DefaultWidth extends OptNumConst {
 
-    private Integer N1;
-
-    public OptNumConstDerived1 (Integer N1) {
-        this.N1=N1;
-    }
-
-    public Integer getN1() {
-        return N1;
-    }
-
-    public void setN1(Integer N1) {
-        this.N1=N1;
+    public DefaultWidth () {
     }
 
     public void accept(Visitor visitor) {
@@ -39,13 +28,10 @@ public class OptNumConstDerived1 extends OptNumConst {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("OptNumConstDerived1(\n");
-
-        buffer.append(" "+tab+N1);
-        buffer.append("\n");
+        buffer.append("DefaultWidth(\n");
 
         buffer.append(tab);
-        buffer.append(") [OptNumConstDerived1]");
+        buffer.append(") [DefaultWidth]");
         return buffer.toString();
     }
 }

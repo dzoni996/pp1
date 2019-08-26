@@ -103,7 +103,6 @@ nonterminal Mulop Mulop;
 nonterminal Addop Addop;
 nonterminal Relop Relop;
 nonterminal Assignop Assignop ;
-nonterminal OptNumConst OptNumConst ;
 nonterminal OptElse OptElse;
 nonterminal OptDesignStmt OptDesignStmt;
 nonterminal OptForDesignStmt OptForDesignStmt ;
@@ -121,6 +120,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj ClassName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj InterfaceName ;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj MethodDeclList, MethDeclTypeName, FormParsItem;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Designator, DesigName ;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj OptNumConst ;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, Term, Factor, OptAddTerms, OptMulTerms, OptRetExpr;
@@ -364,9 +364,9 @@ OptRetExpr ::= (RetExpr) Expr:E1 {: RESULT=new RetExpr(E1); RESULT.setLine(E1lef
 			   (NoRet) {: RESULT=new NoRet(); :} /* epsilon */
 			   ;
 
-OptNumConst ::= COMMA NUMCONST:N1 {: RESULT=new OptNumConstDerived1(N1); RESULT.setLine(N1left); :}
-				| {: RESULT=new OptNumConstDerived2(); :}
-				/* epsilon */ 
+OptNumConst ::= (PrintWidth) COMMA NUMCONST:width {: RESULT=new PrintWidth(width); RESULT.setLine(widthleft); :}
+				|
+				(DefaultWidth) {: RESULT=new DefaultWidth(); :} /* epsilon */ 
 				;		
 
 OptElse ::= ELSE Statement:S1 {: RESULT=new OptElseDerived1(S1); RESULT.setLine(S1left); :}
@@ -418,10 +418,10 @@ Designator ::= (DesignVar) DesigName:D1 {: RESULT=new DesignVar(D1); RESULT.setL
 			   |
 			   (DesignArr) Designator:D1 LSQUARE Expr:E2 RSQUARE {: RESULT=new DesignArr(D1, E2); RESULT.setLine(D1left); :}
 			   |
+			   (DesignFld) Designator:D1 DOT IDENT:id {: RESULT=new DesignFld(D1, id); RESULT.setLine(D1left); :}
+			   |
 			   (DesignError) Designator:D1 LSQUARE error:e RSQUARE
 			   {: parser.report_error("Greska prilikom pristupa objektu. Uspesno izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new DesignError(D1); RESULT.setLine(D1left); :}
-			   |
-			   (DesignFld) Designator:D1 DOT IDENT:id {: RESULT=new DesignFld(D1, id); RESULT.setLine(D1left); :}
 			   ;
 
 

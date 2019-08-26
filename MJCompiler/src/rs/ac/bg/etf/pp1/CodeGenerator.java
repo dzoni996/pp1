@@ -49,17 +49,25 @@ public class CodeGenerator extends VisitorAdaptor{
 	}
 	
 	/*
-	 * PRINT STMT ***********************************************************************
+	 * PRINT & READ STMT ****************************************************************
 	 */
 	
 	public void visit(PrintStmt print) {
-		if (print.getExpr().struct == Tab.intType) {
-			Code.loadConst(5);
-			Code.put(Code.print);
-		} else {
-			Code.loadConst(1);
-			Code.put(Code.print);
-		}
+		Code.loadConst(print.getOptNumConst().obj.getAdr()); // width
+		Code.put(Code.print);
+//		if (print.getExpr().struct == Tab.intType) {
+//			Code.put(Code.print);
+//		} else {
+//			Code.put(Code.print);
+//		}
+	}
+	
+	public void visit(PrintWidth pw) {
+		pw.obj = new Obj(Obj.Con, "width", intType, pw.getWidth(), -1);
+	}
+	
+	public void visit(DefaultWidth df) {
+		df.obj = new Obj(Obj.Con, "width", intType, 5, -1);
 	}
 	
 	public void visit(ReadStmt read) {
