@@ -275,16 +275,17 @@ public class CodeGenerator extends VisitorAdaptor{
 	 */
 	
 	public void visit(AssignOper assign) {
-		if (assign.getDesignator() instanceof DesignVar) {
-			Obj node = assign.getDesignator().obj;
-			Code.store(node);
-		}
-		else if (assign.getDesignator() instanceof DesignArr) {
-			// new array is already alloc and array adr is on expr stack
-			Code.store(assign.getDesignator().obj);
-		} else if (assign.getDesignator() instanceof DesignFld) { /* DesignFld */
-			Code.store((assign.getDesignator()).obj);
-		}
+//		if (assign.getDesignator() instanceof DesignVar) {
+//			Obj node = assign.getDesignator().obj;
+//			Code.store(node);
+//		}
+//		else if (assign.getDesignator() instanceof DesignArr) {
+//			// new array is already alloc and array adr is on expr stack
+//			Code.store(assign.getDesignator().obj);
+//		} else if (assign.getDesignator() instanceof DesignFld) { /* DesignFld */
+//			Code.store((assign.getDesignator()).obj);
+//		}
+		Code.store(assign.getDesignator().obj);
 	}
 	
 	public void visit(PlusPlusSideEff pp) {
@@ -367,13 +368,14 @@ public class CodeGenerator extends VisitorAdaptor{
 	
 	
 	public void visit(RetExpr ret) {
-		Code.put(Code.exit);
-		Code.put(Code.return_);
+		
+		// EXPR is already on stack
+		
 	}
 	
 	public void visit(NoRet ret) {
-		Code.put(Code.exit);
-		Code.put(Code.return_);
+
+		
 	}
 	
 	

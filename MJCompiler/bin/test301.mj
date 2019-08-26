@@ -21,20 +21,17 @@ program test301
 		arr[index] = arr[index] * b;
 	}
 
-	
 	void main()	
 		int bodovi;
 		Broj nula, jedan;
-		//int nula, jedan;
 	{
-	
 		nula = Broj.NULA;
 		jedan = Broj.JEDAN;	
 
 		bodovi = 0;
 		bodovi++;
-		bodovi = bodovi + Broj.JEDAN;
-		bodovi = bodovi * Broj.PET;
+		bodovi = bodovi + jedan;
+		bodovi = bodovi * pet;
 		bodovi--;
 		print(bodovi); 
 			
@@ -68,3 +65,4 @@ program test301
 	
 	}
 }
+

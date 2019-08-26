@@ -18,20 +18,26 @@ class A {
 
 {
 	
-	void printf(int a) int f; {
+	int printf(int a, int b, int c) {
 	
-		f = x;
+		print(a);
 		
-		print(f);
+		print(b);
 		
-		return;
+		print(c);
+		
+		return 22;
 
+	}
+	
+	int inc(int x){
+		return x+1;
 	}
 	
 
 	int main() int var; A a;{
 	
-		printf(2);
+		print(printf(inc(2), inc(4), inc(inc(x1)))) ;
 	
 		//var = 5;
 	
