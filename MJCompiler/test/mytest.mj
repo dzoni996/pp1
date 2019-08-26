@@ -43,36 +43,40 @@ class A {
 
 	int main() int var; A a;{
 	
-		//print(printf(inc(2), inc(4), inc(inc(x1)))) ;
+		// test if
 		
-		var = test(inc(inc(inc(1))), 'a');
+		var = 2;
 	
-		var = inc(5);
+		if (var == 1)
+			print(6, 2);
+		else 
+			print(12, 2);
+		
+		
+		// test methods:		
+		// print(printf(inc(2), inc(4), inc(inc(x1)))) ;
+		// var = test(inc(inc(inc(1))), 'a');
+		// var = inc(5);
 		//inc(5);
-		print(var);
+		// print(var);
 		
-		print(-var, 10);
+		// test negative:
+		// print(-var, 10);
 	
-		//a = new A;
-		
-		//a.fld1 = 17;
-		
+		// test classes:
+		//a = new A;		
+		//a.fld1 = 17;		
 		//print(a.fld1);
 	
-		//x2 = new int[5];
-		
+		// test arrays:
+		//x2 = new int[5];		
 		//x3 = new int[3];
 		//x3[0] = 1;
 		//x3[0]++;
 		//x3[1]++;
-		//x3[2] = x3[0] + x3[1]; 
-		
-		//x2[0] = 20;
-		
+		//x3[2] = x3[0] + x3[1]; 		
+		//x2[0] = 20;		
 		//x3[0] = x2[0];
-		
-		//printf(0);
-		
 		//print(x3[2]);	
 		//print(x2[1]);
 		

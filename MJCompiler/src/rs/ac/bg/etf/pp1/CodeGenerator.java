@@ -30,9 +30,10 @@ public class CodeGenerator extends VisitorAdaptor{
 		return this.mainPC;
 	}
 	
-	protected Struct currentType;
 	protected Obj currentDesign;
 	protected Obj one;
+	protected Struct currentType;
+	protected Relop currentRelop = null;
 	
 	/*
 	 * AUXILIARY METHODS ***************************************************************
@@ -360,6 +361,61 @@ public class CodeGenerator extends VisitorAdaptor{
 		if (pp.getDesignator() instanceof DesignFld) {
 			// class filelds
 		}
+	}
+	
+	/*
+	 * IF STMT **************************************************************************
+	 */
+	
+	public int getRelOp(Relop op) {
+		
+		if (op instanceof RelSame)
+			return Code.eq;
+		
+		if (op instanceof RelDif)
+			return Code.ne;	
+		
+		if (op instanceof RelGreather)
+			return Code.gt;
+		
+		if (op instanceof RelGreatherEq)
+			return Code.ge;
+		
+		if (op instanceof RelLess)
+			return Code.lt;
+		
+		if (op instanceof RelLessEq)
+			return Code.le;
+		
+		return -1; // error
+		
+	}
+	
+	public void visit(IfStart ifstart) {
+		Code.putFalseJump(Code.eq, 0);  // TODO: fix this
+		// purpose -> to save adr which later need fix
+		ifstart.obj = new Obj(Obj.Con, "ifadr", intType, Code.pc - 2, -1);  // adr1
+	}
+	
+	public void visit(NoElseStmt noelse) {
+		Obj node = ((IfStmt)noelse.getParent()).getIfStart().obj;
+		int adr = node.getAdr();
+		Code.fixup(adr); // adr1
+	}
+	
+	public void visit(ElseStart es) {
+		Code.putJump(0);
+		es.obj = new Obj(Obj.Con, "elsestart", intType, Code.pc - 2, -1); // adr2
+		
+		Obj node = ((IfStmt)es.getParent().getParent()).getIfStart().obj;
+		int adr = node.getAdr();
+		Code.fixup(adr); // adr1
+	}
+	
+	public void visit(ElseEnd end) {
+		Obj node = ((ElseStmt)end.getParent()).getElseStart().obj;
+		int adr2 = node.getAdr();
+		Code.fixup(adr2);	// adr2
 	}
 	
 	/*

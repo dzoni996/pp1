@@ -103,7 +103,6 @@ nonterminal Mulop Mulop;
 nonterminal Addop Addop;
 nonterminal Relop Relop;
 nonterminal Assignop Assignop ;
-nonterminal OptElse OptElse;
 nonterminal OptDesignStmt OptDesignStmt;
 nonterminal OptForDesignStmt OptForDesignStmt ;
 
@@ -112,6 +111,10 @@ nonterminal EnumDecl EnumDecl;
 nonterminal EnumDeclList EnumDeclList;
 nonterminal EnumItem EnumItem;
 nonterminal GlobalMethDecl GlobalMethDecl;
+
+nonterminal ElseEnd ElseEnd;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Obj IfStart, OptElse, ElseStart;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
@@ -331,7 +334,7 @@ FormParsItem ::= (FormParItem) Type:typeIdent IDENT:paramName OptArraySq:O1 {: R
 
 Statement ::= (DesignatorStmt) DesignatorStatement:D1 SEMI {: RESULT=new DesignatorStmt(D1); RESULT.setLine(D1left); :}
 			  |
-			  (IfStmt) IF LPAREN IfCondition:I1 RPAREN Statement:S2 OptElse:O3 {: RESULT=new IfStmt(I1, S2, O3); RESULT.setLine(I1left); :}
+			  (IfStmt) IF LPAREN IfCondition:I1 IfStart:I2 Statement:S3 OptElse:O4 {: RESULT=new IfStmt(I1, I2, S3, O4); RESULT.setLine(I1left); :}
 			  |
 			  (ForStmt) FOR LPAREN OptForDesignStmt:O1 SEMI OptCond:O2 SEMI OptDesignStmt:O3 RPAREN Statement:S4 {: RESULT=new ForStmt(O1, O2, O3, S4); RESULT.setLine(O1left); :}
 			  |
@@ -351,13 +354,32 @@ Statement ::= (DesignatorStmt) DesignatorStatement:D1 SEMI {: RESULT=new Designa
 			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new ErrorStmt(); :}		
 			  ;
 
-OptForDesignStmt ::= (OptForStmt) OptDesignStmt:O1 {: RESULT=new OptForStmt(O1); RESULT.setLine(O1left); :};		  
+OptForDesignStmt ::= (OptForStmt) OptDesignStmt:O1 {: RESULT=new OptForStmt(O1); RESULT.setLine(O1left); :};	
+
+/* IF ********************************** */	  
 
 IfCondition ::= (IfCond) Condition:C1 {: RESULT=new IfCond(C1); RESULT.setLine(C1left); :}
 				|
 				(IfError) error:e
 				{: parser.report_error("Greska u logickom iskazu IF konstrukcije. Izvrsen oporavak u liniji " + eleft , null); :} {: RESULT=new IfError(); :}
 				;
+
+OptElse ::= (ElseStmt) ElseStart:E1 Statement:S2 ElseEnd:E3 {: RESULT=new ElseStmt(E1, S2, E3); RESULT.setLine(E1left); :}
+			|
+			(NoElseStmt) {: RESULT=new NoElseStmt(); :} /* epsilon */
+			;
+
+IfStart ::= (IfStart) RPAREN {: RESULT=new IfStart(); :}
+;
+
+ElseStart ::= (ElseStart) ELSE {: RESULT=new ElseStart(); :}
+;
+
+ElseEnd ::= (ElseEnd) {: RESULT=new ElseEnd(); :} /* espsilon */
+;
+
+
+/* ************************************* */
 
 OptRetExpr ::= (RetExpr) Expr:E1 {: RESULT=new RetExpr(E1); RESULT.setLine(E1left); :}
 			   |
@@ -368,11 +390,6 @@ OptNumConst ::= (PrintWidth) COMMA NUMCONST:width {: RESULT=new PrintWidth(width
 				|
 				(DefaultWidth) {: RESULT=new DefaultWidth(); :} /* epsilon */ 
 				;		
-
-OptElse ::= ELSE Statement:S1 {: RESULT=new OptElseDerived1(S1); RESULT.setLine(S1left); :}
-			| {: RESULT=new OptElseDerived2(); :}
-			/* epsilon */
-			;
 
 OptDesignStmt ::= DesignatorStatement:D1 {: RESULT=new OptDesignStmtDerived1(D1); RESULT.setLine(D1left); :}
 				  | {: RESULT=new OptDesignStmtDerived2(); :}

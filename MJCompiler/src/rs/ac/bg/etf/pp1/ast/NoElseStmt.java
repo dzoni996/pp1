@@ -1,13 +1,13 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/7/2019 20:47:6
+// 26/7/2019 23:12:35
 
 
 package rs.ac.bg.etf.pp1.ast;
 
-public class OptElseDerived2 extends OptElse {
+public class NoElseStmt extends OptElse {
 
-    public OptElseDerived2 () {
+    public NoElseStmt () {
     }
 
     public void accept(Visitor visitor) {
@@ -28,10 +28,10 @@ public class OptElseDerived2 extends OptElse {
     public String toString(String tab) {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
-        buffer.append("OptElseDerived2(\n");
+        buffer.append("NoElseStmt(\n");
 
         buffer.append(tab);
-        buffer.append(") [OptElseDerived2]");
+        buffer.append(") [NoElseStmt]");
         return buffer.toString();
     }
 }

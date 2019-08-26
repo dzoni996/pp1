@@ -79,11 +79,15 @@ nonterminal OptStmt, Statement, FormPars ;
 nonterminal DesignatorStatement ;
 nonterminal OptActPars, ActPars, OptMinus, OptMethodCall;
 nonterminal Mulop, Addop, Relop, Assignop ;
-nonterminal OptElse, OptDesignStmt, OptForDesignStmt ;
+nonterminal OptDesignStmt, OptForDesignStmt ;
 
 nonterminal ConstItem;
 nonterminal EnumDecl, EnumDeclList, EnumItem;
 nonterminal GlobalMethDecl;
+
+nonterminal ElseEnd;
+
+nonterminal rs.etf.pp1.symboltable.concepts.Obj IfStart, OptElse, ElseStart;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Initializer ;
@@ -303,7 +307,7 @@ FormParsItem ::= (FormParItem) Type:typeIdent IDENT:paramName OptArraySq
 
 Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  |
-			  (IfStmt) IF LPAREN IfCondition RPAREN Statement OptElse
+			  (IfStmt) IF LPAREN IfCondition IfStart Statement OptElse
 			  |
 			  (ForStmt) FOR LPAREN OptForDesignStmt SEMI OptCond SEMI OptDesignStmt RPAREN Statement
 			  |
@@ -323,13 +327,32 @@ Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :}		
 			  ;
 
-OptForDesignStmt ::= (OptForStmt) OptDesignStmt;		  
+OptForDesignStmt ::= (OptForStmt) OptDesignStmt;	
+
+/* IF ********************************** */	  
 
 IfCondition ::= (IfCond) Condition
 				|
 				(IfError) error:e
 				{: parser.report_error("Greska u logickom iskazu IF konstrukcije. Izvrsen oporavak u liniji " + eleft , null); :}
 				;
+
+OptElse ::= (ElseStmt) ElseStart Statement ElseEnd
+			|
+			(NoElseStmt) /* epsilon */
+			;
+
+IfStart ::= (IfStart) RPAREN
+;
+
+ElseStart ::= (ElseStart) ELSE
+;
+
+ElseEnd ::= (ElseEnd) /* espsilon */
+;
+
+
+/* ************************************* */
 
 OptRetExpr ::= (RetExpr) Expr
 			   |
@@ -340,11 +363,6 @@ OptNumConst ::= (PrintWidth) COMMA NUMCONST:width
 				|
 				(DefaultWidth) /* epsilon */ 
 				;		
-
-OptElse ::= ELSE Statement
-			|
-			/* epsilon */
-			;
 
 OptDesignStmt ::= DesignatorStatement
 				  |

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 26/7/2019 20:47:6
+// 26/7/2019 23:12:35
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,12 +8,15 @@ package rs.ac.bg.etf.pp1.ast;
 public class IfStmt extends Statement {
 
     private IfCondition IfCondition;
+    private IfStart IfStart;
     private Statement Statement;
     private OptElse OptElse;
 
-    public IfStmt (IfCondition IfCondition, Statement Statement, OptElse OptElse) {
+    public IfStmt (IfCondition IfCondition, IfStart IfStart, Statement Statement, OptElse OptElse) {
         this.IfCondition=IfCondition;
         if(IfCondition!=null) IfCondition.setParent(this);
+        this.IfStart=IfStart;
+        if(IfStart!=null) IfStart.setParent(this);
         this.Statement=Statement;
         if(Statement!=null) Statement.setParent(this);
         this.OptElse=OptElse;
@@ -26,6 +29,14 @@ public class IfStmt extends Statement {
 
     public void setIfCondition(IfCondition IfCondition) {
         this.IfCondition=IfCondition;
+    }
+
+    public IfStart getIfStart() {
+        return IfStart;
+    }
+
+    public void setIfStart(IfStart IfStart) {
+        this.IfStart=IfStart;
     }
 
     public Statement getStatement() {
@@ -50,6 +61,7 @@ public class IfStmt extends Statement {
 
     public void childrenAccept(Visitor visitor) {
         if(IfCondition!=null) IfCondition.accept(visitor);
+        if(IfStart!=null) IfStart.accept(visitor);
         if(Statement!=null) Statement.accept(visitor);
         if(OptElse!=null) OptElse.accept(visitor);
     }
@@ -57,12 +69,14 @@ public class IfStmt extends Statement {
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
         if(IfCondition!=null) IfCondition.traverseTopDown(visitor);
+        if(IfStart!=null) IfStart.traverseTopDown(visitor);
         if(Statement!=null) Statement.traverseTopDown(visitor);
         if(OptElse!=null) OptElse.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(IfCondition!=null) IfCondition.traverseBottomUp(visitor);
+        if(IfStart!=null) IfStart.traverseBottomUp(visitor);
         if(Statement!=null) Statement.traverseBottomUp(visitor);
         if(OptElse!=null) OptElse.traverseBottomUp(visitor);
         accept(visitor);
@@ -75,6 +89,12 @@ public class IfStmt extends Statement {
 
         if(IfCondition!=null)
             buffer.append(IfCondition.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(IfStart!=null)
+            buffer.append(IfStart.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");
