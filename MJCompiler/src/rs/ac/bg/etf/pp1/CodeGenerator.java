@@ -509,12 +509,32 @@ public class CodeGenerator extends VisitorAdaptor{
 	 * FOR ******************************************************************************
 	 */
 	
-	private LinkedList<Integer> forFixUpList = new LinkedList<>();
-	private Stack<Integer> forFixUpStack = new Stack<>();
+	private LinkedList<Integer> forFixUpList = null;
+	private Stack<LinkedList<Integer>> allLists = new Stack<LinkedList<Integer>>();
+	int currentList = -1;
+	
+	private Stack<Integer> forFixUpStack = new Stack<Integer>();
+	
+	private void newForList() {
+		currentList++;
+		forFixUpList = new LinkedList<>();
+		allLists.push(forFixUpList);
+	}
+	
+	private void removeCurrentForList() {
+		currentList--;
+		forFixUpList = allLists.pop();
+		if (allLists.size() > 0) 
+			forFixUpList = allLists.lastElement();
+	}
+	
+	
 	
 	// 1. before condition - save adr
 	
 	public void visit(OptForStmt opt) {
+		newForList();
+		
 		this.forFixUpList.add(Code.pc);
 	}
 	
@@ -565,6 +585,8 @@ public class CodeGenerator extends VisitorAdaptor{
 		ForStmt st = (ForStmt) stmt.getParent();
 		if (st.getOptCond() instanceof ForCond)
 			Code.fixup(this.forFixUpStack.pop());
+		
+		removeCurrentForList();
 	}
 	
 	/*
