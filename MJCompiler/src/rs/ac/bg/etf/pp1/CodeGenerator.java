@@ -387,8 +387,10 @@ public class CodeGenerator extends VisitorAdaptor{
 	
 	public int getRelOp(Relop op) {
 		
-		if (op instanceof RelSame)
+		if (op instanceof RelSame) {
 			return Code.eq;
+			
+		}
 		
 		if (op instanceof RelDif)
 			return Code.ne;	
@@ -463,32 +465,19 @@ public class CodeGenerator extends VisitorAdaptor{
 		
 		// II nacin
 		int relop = this.getRelOp(facts.getRelop());
-		
-		if (relop == Code.eq) {
 			
 			Code.putFalseJump(relop,0);
 			int if_false = Code.pc - 2;
 			Code.loadConst(1); 
 			Code.putJump(0);
-			int if_true = Code.pc;
+			int if_true = Code.pc - 2;
 			
 			Code.fixup(if_false);
 			Code.loadConst(0);
-			Code.fixup(if_true);			
+			Code.fixup(if_true);
+
 			
-		} else if (relop == Code.ne) {
-			
-			Code.putFalseJump(relop,0);
-			int if_false = Code.pc - 2;
-			Code.loadConst(1); 
-			Code.putJump(0);
-			int if_true = Code.pc;
-			
-			Code.fixup(if_false);
-			Code.loadConst(0);
-			Code.fixup(if_true);			
-			
-		} 
+
 	}
 	
 	public void visit(CondFactSingle fact) {

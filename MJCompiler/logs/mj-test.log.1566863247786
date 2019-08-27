@@ -1,161 +1,161 @@
-INFO  03:32:00,473 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
-INFO  03:32:00,562 - #2 program
-INFO  03:32:00,563 - #45 SemanticTest
-INFO  03:32:00,563 - #22 const
-INFO  03:32:00,565 - #45 int
-INFO  03:32:00,565 - #45 x
-INFO  03:32:00,566 - #12 =
-INFO  03:32:00,567 - #42 6
-INFO  03:32:00,567 - #8 ,
-INFO  03:32:00,568 - #45 init
-INFO  03:32:00,568 - #12 =
-INFO  03:32:00,568 - #42 0
-INFO  03:32:00,568 - #5 ;
-INFO  03:32:00,569 - #45 int
-INFO  03:32:00,569 - #45 x1
-INFO  03:32:00,569 - #8 ,
-INFO  03:32:00,570 - #45 x3
-INFO  03:32:00,570 - #25 [
-INFO  03:32:00,571 - #34 ]
-INFO  03:32:00,571 - #5 ;
-INFO  03:32:00,571 - #45 int
-INFO  03:32:00,572 - #45 x2
-INFO  03:32:00,572 - #25 [
-INFO  03:32:00,572 - #34 ]
-INFO  03:32:00,572 - #5 ;
-INFO  03:32:00,572 - #29 enum
-INFO  03:32:00,572 - #45 nums
-INFO  03:32:00,573 - #3 {
-INFO  03:32:00,573 - #45 ONE
-INFO  03:32:00,573 - #12 =
-INFO  03:32:00,573 - #42 1
-INFO  03:32:00,573 - #8 ,
-INFO  03:32:00,573 - #45 TWO
-INFO  03:32:00,573 - #12 =
-INFO  03:32:00,573 - #42 5
-INFO  03:32:00,573 - #8 ,
-INFO  03:32:00,574 - #45 THREE
-INFO  03:32:00,574 - #4 }
-INFO  03:32:00,574 - #16 class
-INFO  03:32:00,574 - #45 A
-INFO  03:32:00,574 - #3 {
-INFO  03:32:00,576 - #45 int
-INFO  03:32:00,577 - #45 fld1
-INFO  03:32:00,577 - #5 ;
-INFO  03:32:00,577 - #45 char
-INFO  03:32:00,578 - #45 fld2
-INFO  03:32:00,578 - #5 ;
-INFO  03:32:00,578 - #4 }
-INFO  03:32:00,579 - #3 {
-INFO  03:32:00,579 - #45 int
-INFO  03:32:00,580 - #45 printf
-INFO  03:32:00,580 - #6 (
-INFO  03:32:00,580 - #45 int
-INFO  03:32:00,580 - #45 a
-INFO  03:32:00,580 - #8 ,
-INFO  03:32:00,581 - #45 int
-INFO  03:32:00,581 - #45 b
-INFO  03:32:00,581 - #8 ,
-INFO  03:32:00,581 - #45 int
-INFO  03:32:00,581 - #45 c
-INFO  03:32:00,581 - #7 )
-INFO  03:32:00,582 - #3 {
-INFO  03:32:00,582 - #9 print
-INFO  03:32:00,583 - #6 (
-INFO  03:32:00,583 - #45 a
-INFO  03:32:00,584 - #7 )
-INFO  03:32:00,586 - #5 ;
-INFO  03:32:00,587 - #9 print
-INFO  03:32:00,587 - #6 (
-INFO  03:32:00,587 - #45 b
-INFO  03:32:00,587 - #7 )
-INFO  03:32:00,587 - #5 ;
-INFO  03:32:00,587 - #9 print
-INFO  03:32:00,587 - #6 (
-INFO  03:32:00,587 - #45 c
-INFO  03:32:00,587 - #7 )
-INFO  03:32:00,587 - #5 ;
-INFO  03:32:00,588 - #10 return
-INFO  03:32:00,588 - #42 22
-INFO  03:32:00,588 - #5 ;
-INFO  03:32:00,588 - #4 }
-INFO  03:32:00,588 - #45 int
-INFO  03:32:00,588 - #45 inc
-INFO  03:32:00,589 - #6 (
-INFO  03:32:00,589 - #45 int
-INFO  03:32:00,589 - #45 x
-INFO  03:32:00,589 - #7 )
-INFO  03:32:00,589 - #3 {
-INFO  03:32:00,589 - #10 return
-INFO  03:32:00,589 - #45 x
-INFO  03:32:00,590 - #11 +
-INFO  03:32:00,590 - #42 1
-INFO  03:32:00,591 - #5 ;
-INFO  03:32:00,591 - #4 }
-INFO  03:32:00,591 - #45 int
-INFO  03:32:00,592 - #45 test
-INFO  03:32:00,592 - #6 (
-INFO  03:32:00,592 - #45 int
-INFO  03:32:00,592 - #45 xa
-INFO  03:32:00,592 - #8 ,
-INFO  03:32:00,592 - #45 char
-INFO  03:32:00,592 - #45 xc
-INFO  03:32:00,592 - #7 )
-INFO  03:32:00,592 - #3 {
-INFO  03:32:00,592 - #45 xa
-INFO  03:32:00,592 - #12 =
-INFO  03:32:00,593 - #42 1
-INFO  03:32:00,596 - #5 ;
-INFO  03:32:00,596 - #45 xc
-INFO  03:32:00,596 - #12 =
-INFO  03:32:00,597 - #43 a
-INFO  03:32:00,597 - #5 ;
-INFO  03:32:00,597 - #10 return
-INFO  03:32:00,597 - #42 0
-INFO  03:32:00,597 - #5 ;
-INFO  03:32:00,597 - #4 }
-INFO  03:32:00,597 - #45 int
-INFO  03:32:00,597 - #45 main
-INFO  03:32:00,597 - #6 (
-INFO  03:32:00,598 - #7 )
-INFO  03:32:00,598 - #45 int
-INFO  03:32:00,599 - #45 var
-INFO  03:32:00,599 - #5 ;
-INFO  03:32:00,599 - #45 A
-INFO  03:32:00,599 - #45 a
-INFO  03:32:00,600 - #5 ;
-INFO  03:32:00,600 - #3 {
-INFO  03:32:00,600 - #45 var
-INFO  03:32:00,600 - #12 =
-INFO  03:32:00,600 - #42 2
-INFO  03:32:00,600 - #5 ;
-INFO  03:32:00,600 - #46 if
-INFO  03:32:00,601 - #6 (
-INFO  03:32:00,601 - #45 var
-INFO  03:32:00,601 - #32 >
-INFO  03:32:00,601 - #42 1
-INFO  03:32:00,602 - #7 )
-INFO  03:32:00,603 - #9 print
-INFO  03:32:00,604 - #6 (
-INFO  03:32:00,605 - #42 6
-INFO  03:32:00,605 - #8 ,
-INFO  03:32:00,605 - #42 2
-INFO  03:32:00,605 - #7 )
-INFO  03:32:00,605 - #5 ;
-INFO  03:32:00,606 - #47 else
-INFO  03:32:00,606 - #9 print
-INFO  03:32:00,607 - #6 (
-INFO  03:32:00,608 - #42 12
-INFO  03:32:00,608 - #8 ,
-INFO  03:32:00,608 - #42 2
-INFO  03:32:00,608 - #7 )
-INFO  03:32:00,608 - #5 ;
-INFO  03:32:00,609 - #10 return
-INFO  03:32:00,610 - #42 0
-INFO  03:32:00,611 - #5 ;
-INFO  03:32:00,611 - #4 }
-INFO  03:32:00,611 - #4 }
-INFO  03:32:00,633 - Program(
+INFO  01:47:11,874 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  01:47:11,952 - #2 program
+INFO  01:47:11,952 - #45 SemanticTest
+INFO  01:47:11,952 - #22 const
+INFO  01:47:11,952 - #45 int
+INFO  01:47:11,952 - #45 x
+INFO  01:47:11,952 - #12 =
+INFO  01:47:11,952 - #42 6
+INFO  01:47:11,952 - #8 ,
+INFO  01:47:11,952 - #45 init
+INFO  01:47:11,952 - #12 =
+INFO  01:47:11,952 - #42 0
+INFO  01:47:11,952 - #5 ;
+INFO  01:47:11,952 - #45 int
+INFO  01:47:11,952 - #45 x1
+INFO  01:47:11,952 - #8 ,
+INFO  01:47:11,968 - #45 x3
+INFO  01:47:11,968 - #25 [
+INFO  01:47:11,968 - #34 ]
+INFO  01:47:11,968 - #5 ;
+INFO  01:47:11,968 - #45 int
+INFO  01:47:11,968 - #45 x2
+INFO  01:47:11,968 - #25 [
+INFO  01:47:11,999 - #34 ]
+INFO  01:47:11,999 - #5 ;
+INFO  01:47:11,999 - #29 enum
+INFO  01:47:11,999 - #45 nums
+INFO  01:47:11,999 - #3 {
+INFO  01:47:11,999 - #45 ONE
+INFO  01:47:11,999 - #12 =
+INFO  01:47:11,999 - #42 1
+INFO  01:47:11,999 - #8 ,
+INFO  01:47:11,999 - #45 TWO
+INFO  01:47:11,999 - #12 =
+INFO  01:47:11,999 - #42 5
+INFO  01:47:11,999 - #8 ,
+INFO  01:47:11,999 - #45 THREE
+INFO  01:47:11,999 - #4 }
+INFO  01:47:11,999 - #16 class
+INFO  01:47:11,999 - #45 A
+INFO  01:47:11,999 - #3 {
+INFO  01:47:11,999 - #45 int
+INFO  01:47:11,999 - #45 fld1
+INFO  01:47:11,999 - #5 ;
+INFO  01:47:11,999 - #45 char
+INFO  01:47:11,999 - #45 fld2
+INFO  01:47:11,999 - #5 ;
+INFO  01:47:11,999 - #4 }
+INFO  01:47:11,999 - #3 {
+INFO  01:47:11,999 - #45 int
+INFO  01:47:11,999 - #45 printf
+INFO  01:47:11,999 - #6 (
+INFO  01:47:11,999 - #45 int
+INFO  01:47:11,999 - #45 a
+INFO  01:47:11,999 - #8 ,
+INFO  01:47:11,999 - #45 int
+INFO  01:47:11,999 - #45 b
+INFO  01:47:11,999 - #8 ,
+INFO  01:47:11,999 - #45 int
+INFO  01:47:11,999 - #45 c
+INFO  01:47:12,015 - #7 )
+INFO  01:47:12,015 - #3 {
+INFO  01:47:12,015 - #9 print
+INFO  01:47:12,015 - #6 (
+INFO  01:47:12,015 - #45 a
+INFO  01:47:12,015 - #7 )
+INFO  01:47:12,015 - #5 ;
+INFO  01:47:12,015 - #9 print
+INFO  01:47:12,015 - #6 (
+INFO  01:47:12,015 - #45 b
+INFO  01:47:12,015 - #7 )
+INFO  01:47:12,015 - #5 ;
+INFO  01:47:12,015 - #9 print
+INFO  01:47:12,015 - #6 (
+INFO  01:47:12,015 - #45 c
+INFO  01:47:12,015 - #7 )
+INFO  01:47:12,015 - #5 ;
+INFO  01:47:12,015 - #10 return
+INFO  01:47:12,015 - #42 22
+INFO  01:47:12,015 - #5 ;
+INFO  01:47:12,015 - #4 }
+INFO  01:47:12,015 - #45 int
+INFO  01:47:12,015 - #45 inc
+INFO  01:47:12,015 - #6 (
+INFO  01:47:12,015 - #45 int
+INFO  01:47:12,015 - #45 x
+INFO  01:47:12,015 - #7 )
+INFO  01:47:12,015 - #3 {
+INFO  01:47:12,015 - #10 return
+INFO  01:47:12,015 - #45 x
+INFO  01:47:12,015 - #11 +
+INFO  01:47:12,015 - #42 1
+INFO  01:47:12,015 - #5 ;
+INFO  01:47:12,015 - #4 }
+INFO  01:47:12,015 - #45 int
+INFO  01:47:12,015 - #45 test
+INFO  01:47:12,015 - #6 (
+INFO  01:47:12,015 - #45 int
+INFO  01:47:12,015 - #45 xa
+INFO  01:47:12,015 - #8 ,
+INFO  01:47:12,015 - #45 char
+INFO  01:47:12,015 - #45 xc
+INFO  01:47:12,015 - #7 )
+INFO  01:47:12,030 - #3 {
+INFO  01:47:12,030 - #45 xa
+INFO  01:47:12,030 - #12 =
+INFO  01:47:12,030 - #42 1
+INFO  01:47:12,030 - #5 ;
+INFO  01:47:12,030 - #45 xc
+INFO  01:47:12,030 - #12 =
+INFO  01:47:12,030 - #43 a
+INFO  01:47:12,030 - #5 ;
+INFO  01:47:12,030 - #10 return
+INFO  01:47:12,030 - #42 0
+INFO  01:47:12,030 - #5 ;
+INFO  01:47:12,030 - #4 }
+INFO  01:47:12,030 - #45 int
+INFO  01:47:12,030 - #45 main
+INFO  01:47:12,030 - #6 (
+INFO  01:47:12,030 - #7 )
+INFO  01:47:12,030 - #45 int
+INFO  01:47:12,030 - #45 var
+INFO  01:47:12,030 - #5 ;
+INFO  01:47:12,030 - #45 A
+INFO  01:47:12,030 - #45 a
+INFO  01:47:12,030 - #5 ;
+INFO  01:47:12,030 - #3 {
+INFO  01:47:12,030 - #45 var
+INFO  01:47:12,030 - #12 =
+INFO  01:47:12,030 - #42 2
+INFO  01:47:12,030 - #5 ;
+INFO  01:47:12,030 - #46 if
+INFO  01:47:12,030 - #6 (
+INFO  01:47:12,030 - #42 2
+INFO  01:47:12,030 - #32 >
+INFO  01:47:12,030 - #42 1
+INFO  01:47:12,030 - #7 )
+INFO  01:47:12,030 - #9 print
+INFO  01:47:12,030 - #6 (
+INFO  01:47:12,030 - #42 6
+INFO  01:47:12,030 - #8 ,
+INFO  01:47:12,030 - #42 2
+INFO  01:47:12,030 - #7 )
+INFO  01:47:12,030 - #5 ;
+INFO  01:47:12,030 - #47 else
+INFO  01:47:12,030 - #9 print
+INFO  01:47:12,046 - #6 (
+INFO  01:47:12,046 - #42 12
+INFO  01:47:12,046 - #8 ,
+INFO  01:47:12,046 - #42 2
+INFO  01:47:12,046 - #7 )
+INFO  01:47:12,046 - #5 ;
+INFO  01:47:12,046 - #10 return
+INFO  01:47:12,046 - #42 0
+INFO  01:47:12,046 - #5 ;
+INFO  01:47:12,046 - #4 }
+INFO  01:47:12,046 - #4 }
+INFO  01:47:12,061 - Program(
   ProgName(
    SemanticTest
   ) [ProgName]
@@ -695,15 +695,9 @@ INFO  03:32:00,633 - Program(
                         Positive(
                         ) [Positive]
                         Terms(
-                          DesignFactor(
-                            DesignVar(
-                              DesignatorName(
-                               var
-                              ) [DesignatorName]
-                            ) [DesignVar]
-                            NoMethodCall(
-                            ) [NoMethodCall]
-                          ) [DesignFactor]
+                          NumFactor(
+                           2
+                          ) [NumFactor]
                           NoMulFacts(
                           ) [NoMulFacts]
                         ) [Terms]
@@ -797,45 +791,44 @@ INFO  03:32:00,633 - Program(
     ) [OptMethods]
   ) [GlobalMeths]
 ) [Program]
-INFO  03:32:00,643 - ===================================
-INFO  03:32:00,643 - INFO:  Pocetak programa SemanticTest na liniji 4
-INFO  03:32:00,643 - INFO:  Deklarisana konstanta x na liniji 6
-INFO  03:32:00,643 - INFO:  Deklarisana konstanta init na liniji 6
-INFO  03:32:00,644 - INFO:  Deklarisana globalna promenljiva x1 na liniji 7
-INFO  03:32:00,644 - INFO:  Deklarisan niz x3 na liniji 7
-INFO  03:32:00,644 - INFO:  Deklarisan niz x2 na liniji 8
-INFO  03:32:00,655 - INFO:  Definisan enum tip nums na liniji 9
-INFO  03:32:00,655 - INFO:  Deklarisana promenljiva fld1 na liniji 12
-INFO  03:32:00,655 - INFO:  Deklarisana promenljiva fld2 na liniji 13
-INFO  03:32:00,656 - INFO:  Definisana klasa A na liniji 11
-INFO  03:32:00,657 - INFO:  Obradjuje se funkcija printf na liniji 21
-INFO  03:32:00,658 - INFO:  Deklarisan formalni parametar a na liniji 21
-INFO  03:32:00,658 - INFO:  Deklarisan formalni parametar b na liniji 21
-INFO  03:32:00,658 - INFO:  Deklarisan formalni parametar c na liniji 21
-INFO  03:32:00,658 - INFO:  Pristup simbolu a na liniji 23
-INFO  03:32:00,659 - INFO:  Poziv PRINT funkcije na liniji 7
-INFO  03:32:00,659 - INFO:  Pristup simbolu b na liniji 25
-INFO  03:32:00,659 - INFO:  Poziv PRINT funkcije na liniji 7
-INFO  03:32:00,660 - INFO:  Pristup simbolu c na liniji 27
-INFO  03:32:00,660 - INFO:  Poziv PRINT funkcije na liniji 7
-INFO  03:32:00,660 - INFO:  Deklarisan metod printf na liniji 21
-INFO  03:32:00,660 - INFO:  Obradjuje se funkcija inc na liniji 33
-INFO  03:32:00,660 - INFO:  Deklarisan formalni parametar x na liniji 33
-INFO  03:32:00,660 - INFO:  Pristup simbolu x na liniji 34
-INFO  03:32:00,660 - INFO:  Deklarisan metod inc na liniji 33
-INFO  03:32:00,660 - INFO:  Obradjuje se funkcija test na liniji 37
-INFO  03:32:00,661 - INFO:  Deklarisan formalni parametar xa na liniji 37
-INFO  03:32:00,661 - INFO:  Deklarisan formalni parametar xc na liniji 37
-INFO  03:32:00,661 - INFO:  Pristup simbolu xa na liniji 38
-INFO  03:32:00,661 - INFO:  Pristup simbolu xc na liniji 39
-INFO  03:32:00,661 - INFO:  Deklarisan metod test na liniji 37
-INFO  03:32:00,661 - INFO:  Obradjuje se funkcija main na liniji 44
-INFO  03:32:00,661 - INFO:  Deklarisana promenljiva var na liniji 44
-INFO  03:32:00,661 - INFO:  Deklarisana promenljiva a na liniji 44
-INFO  03:32:00,661 - INFO:  Pristup simbolu var na liniji 48
-INFO  03:32:00,661 - INFO:  Pristup simbolu var na liniji 50
-INFO  03:32:00,662 - INFO:  Poziv PRINT funkcije na liniji 8
-INFO  03:32:00,662 - INFO:  Poziv PRINT funkcije na liniji 8
-INFO  03:32:00,662 - INFO:  Deklarisan metod main na liniji 44
-INFO  03:32:00,662 - ===================================
-INFO  03:32:00,674 - Uspesno parsiranje!
+INFO  01:47:12,061 - ===================================
+INFO  01:47:12,061 - INFO:  Pocetak programa SemanticTest na liniji 4
+INFO  01:47:12,061 - INFO:  Deklarisana konstanta x na liniji 6
+INFO  01:47:12,061 - INFO:  Deklarisana konstanta init na liniji 6
+INFO  01:47:12,061 - INFO:  Deklarisana globalna promenljiva x1 na liniji 7
+INFO  01:47:12,061 - INFO:  Deklarisan niz x3 na liniji 7
+INFO  01:47:12,061 - INFO:  Deklarisan niz x2 na liniji 8
+INFO  01:47:12,061 - INFO:  Definisan enum tip nums na liniji 9
+INFO  01:47:12,061 - INFO:  Deklarisana promenljiva fld1 na liniji 12
+INFO  01:47:12,077 - INFO:  Deklarisana promenljiva fld2 na liniji 13
+INFO  01:47:12,077 - INFO:  Definisana klasa A na liniji 11
+INFO  01:47:12,077 - INFO:  Obradjuje se funkcija printf na liniji 21
+INFO  01:47:12,077 - INFO:  Deklarisan formalni parametar a na liniji 21
+INFO  01:47:12,077 - INFO:  Deklarisan formalni parametar b na liniji 21
+INFO  01:47:12,077 - INFO:  Deklarisan formalni parametar c na liniji 21
+INFO  01:47:12,077 - INFO:  Pristup simbolu a na liniji 23
+INFO  01:47:12,077 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  01:47:12,077 - INFO:  Pristup simbolu b na liniji 25
+INFO  01:47:12,077 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  01:47:12,077 - INFO:  Pristup simbolu c na liniji 27
+INFO  01:47:12,077 - INFO:  Poziv PRINT funkcije na liniji 7
+INFO  01:47:12,077 - INFO:  Deklarisan metod printf na liniji 21
+INFO  01:47:12,077 - INFO:  Obradjuje se funkcija inc na liniji 33
+INFO  01:47:12,077 - INFO:  Deklarisan formalni parametar x na liniji 33
+INFO  01:47:12,077 - INFO:  Pristup simbolu x na liniji 34
+INFO  01:47:12,077 - INFO:  Deklarisan metod inc na liniji 33
+INFO  01:47:12,077 - INFO:  Obradjuje se funkcija test na liniji 37
+INFO  01:47:12,077 - INFO:  Deklarisan formalni parametar xa na liniji 37
+INFO  01:47:12,077 - INFO:  Deklarisan formalni parametar xc na liniji 37
+INFO  01:47:12,077 - INFO:  Pristup simbolu xa na liniji 38
+INFO  01:47:12,077 - INFO:  Pristup simbolu xc na liniji 39
+INFO  01:47:12,077 - INFO:  Deklarisan metod test na liniji 37
+INFO  01:47:12,077 - INFO:  Obradjuje se funkcija main na liniji 44
+INFO  01:47:12,077 - INFO:  Deklarisana promenljiva var na liniji 44
+INFO  01:47:12,077 - INFO:  Deklarisana promenljiva a na liniji 44
+INFO  01:47:12,077 - INFO:  Pristup simbolu var na liniji 48
+INFO  01:47:12,077 - INFO:  Poziv PRINT funkcije na liniji 8
+INFO  01:47:12,077 - INFO:  Poziv PRINT funkcije na liniji 8
+INFO  01:47:12,077 - INFO:  Deklarisan metod main na liniji 44
+INFO  01:47:12,077 - ===================================
+INFO  01:47:12,093 - Uspesno parsiranje!
