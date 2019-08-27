@@ -3,6 +3,7 @@ package rs.ac.bg.etf.pp1;
 import static rs.ac.bg.etf.pp1.SemanticAnalyzer.*;
 
 import java.util.Collection;
+import java.util.Stack;
 
 import rs.ac.bg.etf.pp1.CounterVisitor.*;
 import rs.ac.bg.etf.pp1.ast.*;
@@ -34,12 +35,29 @@ public class CodeGenerator extends VisitorAdaptor{
 	protected Obj one;
 	protected Struct currentType;
 	protected Relop currentRelop = null;
+	private int currentOp = 0;
+	
+	protected Stack<Integer> currentfixupStack = new Stack<Integer>();
+
 	
 	/*
 	 * AUXILIARY METHODS ***************************************************************
 	 */
 	
+	class fixupAdr {
+		int fixupAdr;
+		int level;
+		fixupAdr(int adr, int lvl) {
+			level = lvl; fixupAdr = adr;
+		}
+	};
 	
+	protected int createLenFunc() { // return start adr of func
+		int adr = Code.pc;
+		Code.put(Code.load_n);
+		Code.put(Code.arraylength);		
+		return adr;
+	}
 	
 	/*
 	 * TYPE ***************************************************************************** 
@@ -392,31 +410,100 @@ public class CodeGenerator extends VisitorAdaptor{
 	}
 	
 	public void visit(IfStart ifstart) {
-		Code.putFalseJump(Code.eq, 0);  // TODO: fix this
+		
+		Code.loadConst(0);
+		Code.putFalseJump(Code.gt, 0);  // TODO: fix this
 		// purpose -> to save adr which later need fix
-		ifstart.obj = new Obj(Obj.Con, "ifadr", intType, Code.pc - 2, -1);  // adr1
+//		ifstart.obj = new Obj(Obj.Con, "ifadr", intType, Code.pc - 2, -1);  // adr1
+		this.currentfixupStack.add(Code.pc-2);
+		
 	}
 	
 	public void visit(NoElseStmt noelse) {
-		Obj node = ((IfStmt)noelse.getParent()).getIfStart().obj;
-		int adr = node.getAdr();
-		Code.fixup(adr); // adr1
+		// I nacin
+		Code.fixup(this.currentfixupStack.pop());
+		
+		// II nacin
+//		Obj node = ((IfStmt)noelse.getParent()).getIfStart().obj;
+//		int adr = node.getAdr();
+//		Code.fixup(adr); // adr1		
 	}
 	
 	public void visit(ElseStart es) {
-		Code.putJump(0);
-		es.obj = new Obj(Obj.Con, "elsestart", intType, Code.pc - 2, -1); // adr2
+//		Code.putJump(0);
+//		es.obj = new Obj(Obj.Con, "elsestart", intType, Code.pc - 2, -1); // adr2
+//		
+//		Obj node = ((IfStmt)es.getParent().getParent()).getIfStart().obj;
+//		int adr = node.getAdr();
+//		Code.fixup(adr); // adr1
 		
-		Obj node = ((IfStmt)es.getParent().getParent()).getIfStart().obj;
-		int adr = node.getAdr();
-		Code.fixup(adr); // adr1
+		Code.putJump(0);
+		Code.fixup(this.currentfixupStack.pop());
+		this.currentfixupStack.add(Code.pc-2);
 	}
 	
 	public void visit(ElseEnd end) {
-		Obj node = ((ElseStmt)end.getParent()).getElseStart().obj;
-		int adr2 = node.getAdr();
-		Code.fixup(adr2);	// adr2
+//		Obj node = ((ElseStmt)end.getParent()).getElseStart().obj;
+//		int adr2 = node.getAdr();
+//		Code.fixup(adr2);	// adr2
+		Code.fixup(this.currentfixupStack.pop());
 	}
+	
+	/*
+	 * CONDITION ************************************************************************
+	 */
+	
+	public void visit(CondFacts facts) {
+		// 2 bool consts are on expr stack
+		
+		// I nacin
+//		currentOp = this.getRelOp(facts.getRelop());
+//		Code.putFalseJump(currentOp, 0);
+//		this.currentfixupStack.push(Code.pc-2);
+		
+		// II nacin
+		int relop = this.getRelOp(facts.getRelop());
+		
+		if (relop == Code.eq) {
+			
+			Code.putFalseJump(relop,0);
+			int if_false = Code.pc - 2;
+			Code.loadConst(1); 
+			Code.putJump(0);
+			int if_true = Code.pc;
+			
+			Code.fixup(if_false);
+			Code.loadConst(0);
+			Code.fixup(if_true);			
+			
+		} else if (relop == Code.ne) {
+			
+			Code.putFalseJump(relop,0);
+			int if_false = Code.pc - 2;
+			Code.loadConst(1); 
+			Code.putJump(0);
+			int if_true = Code.pc;
+			
+			Code.fixup(if_false);
+			Code.loadConst(0);
+			Code.fixup(if_true);			
+			
+		} 
+	}
+	
+	public void visit(CondFactSingle fact) {
+		// I nacin
+//		currentOp = Code.ne;
+//		Code.put(Code.const_n + 0);
+//		
+//		Code.putFalseJump(currentOp, 0);
+//		this.currentfixupStack.push(Code.pc-2);
+		
+		// II nacin
+		
+		// vec je 1 ili 0 na steku
+	}
+		
 	
 	/*
 	 * PROCEDURES ***********************************************************************
