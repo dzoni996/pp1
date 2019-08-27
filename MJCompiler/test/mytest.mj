@@ -44,16 +44,18 @@ class A {
 	void main() int var, var2, var6; char var3[]; A a;{
 	
 		
+		
+		
 		for (var=0; var < 5; var++) {
-			for (var2=2; var2 > 0; var2--){
-				for (var6=2; var6 > 0; var6--) 
-					print(var); 
-				
-				print(eol);
-			
-			}
+			if (var % 2 == 0){
+				print('d');print('o');print('n');print('e');
+				continue;
+				}
+			else {
+				print(var);
+				break;
+				}
 			print(eol);
-			//print('a');
 		}
 		
 		

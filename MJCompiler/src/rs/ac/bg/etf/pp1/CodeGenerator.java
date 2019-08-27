@@ -515,6 +515,9 @@ public class CodeGenerator extends VisitorAdaptor{
 	
 	private Stack<Integer> forFixUpStack = new Stack<Integer>();
 	
+	private Stack<Integer> continueStack = new Stack<>();
+	private Stack<Integer> breakStack = new Stack<>();
+	
 	private void newForList() {
 		currentList++;
 		forFixUpList = new LinkedList<>();
@@ -564,6 +567,9 @@ public class CodeGenerator extends VisitorAdaptor{
 	
 	public void visit(CondEnd end) {
 		this.forFixUpList.add(Code.pc);
+		
+		// this is place where CONTINUE jump
+		this.continueStack.push(Code.pc);
 	}
 	
 	// 4. after second opt designator -> jmp on cond
@@ -586,7 +592,27 @@ public class CodeGenerator extends VisitorAdaptor{
 		if (st.getOptCond() instanceof ForCond)
 			Code.fixup(this.forFixUpStack.pop());
 		
+		// this is place where BREAK jumps
+		while (this.breakStack.size() > 0)
+			Code.fixup(this.breakStack.pop());
+		
 		removeCurrentForList();
+		
+		this.continueStack.pop();
+	}
+	
+	public void visit(ContinueStmt stmt) {
+		if (this.continueStack.size()>0)
+			Code.putJump(this.continueStack.lastElement());
+		else {
+			Code.put(Code.trap);
+			System.out.println("Stek kod CONTINUE prazan!");
+		}
+	}
+	
+	public void visit(BreakStmt stmt) {
+		Code.putJump(0);
+		this.breakStack.push(Code.pc - 2);
 	}
 	
 	/*
