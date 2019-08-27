@@ -496,10 +496,7 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		} else {
 			str = currentType;
 		}
-//		if ("mul".equals(this.currentMethod.getName())) {
-//			int n = 0;
-//		}
-		
+		//if (node.getKind() == Obj.Type) return;
 		
 		node = Tab.insert(Obj.Var, item.getParamName(), str);
 		item.obj = node;
@@ -623,15 +620,19 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 			
 			// 3. types of parameters
 			Collection<Obj> pars = node.getLocalSymbols();
-			int size = pars.size();
+			int size = numOfPar;
 			boolean comp = true;
 			for (int i=0; i<size; i++) {
 				Obj actp = this.actParams.get(size - i - 1); // in this list, act pars are in reverse order
 				for (Obj o: pars) {
 					if (o.getFpPos() == (i)) {
 						if (!actp.getType().compatibleWith(o.getType()))
-							comp = false;
-							break;
+							if (o.getType().getKind() == Struct.Enum && actp.getType() == intType) {
+								
+							} else {
+								comp = false;
+								break;
+							}
 					}
 				}
 			}

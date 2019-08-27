@@ -78,10 +78,10 @@ public class CodeGenerator extends VisitorAdaptor{
 	
 	public void visit(PrintStmt print) {
 		Code.loadConst(print.getOptNumConst().obj.getAdr()); // width
-		if (print.getExpr().struct == Tab.intType) {
-			Code.put(Code.print);
-		} else {
+		if (print.getExpr().struct == charType) {
 			Code.put(Code.bprint);
+		} else {
+			Code.put(Code.print);
 		}
 	}
 	
