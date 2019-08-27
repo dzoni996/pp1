@@ -55,7 +55,8 @@ import java_cup.runtime.Symbol;
 "extends"  	{ return new_symbol(sym.EXTENDS, 	yytext()); }
 "continue" 	{ return new_symbol(sym.CONTINUE,	yytext()); }
 "void"		{ return new_symbol(sym.VOID,		yytext()); }
-"implements" { return new_symbol(sym.IMPLEMENTS,	yytext()); }
+"implements"{ return new_symbol(sym.IMPLEMENTS,	yytext()); }
+"eol"		{ return new_symbol(sym.EOL,		yytext()); }
 
 "++" 		{ return new_symbol(sym.PP, 		yytext()); }
 "--" 		{ return new_symbol(sym.MM, 		yytext()); }

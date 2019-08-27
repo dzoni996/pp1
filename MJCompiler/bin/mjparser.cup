@@ -69,6 +69,7 @@ terminal Character CHARCONST;
 terminal String BOOLCONST;
 terminal String IDENT;
 terminal IF, ELSE;
+terminal EOL;
 
 nonterminal DeclList, DeclItem ;
 nonterminal ConstDecl, ConstDeclList ;
@@ -318,6 +319,8 @@ Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  (ReturnStmt) RETURN OptRetExpr SEMI
 			  |
 			  (ReadStmt) READ LPAREN Designator RPAREN SEMI
+			  |
+			  (PrintNewLine) PRINT LPAREN EOL RPAREN SEMI
 			  |
 			  (PrintStmt) PRINT LPAREN Expr OptNumConst RPAREN SEMI
 			  |

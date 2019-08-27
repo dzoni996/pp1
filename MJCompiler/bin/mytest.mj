@@ -20,13 +20,13 @@ class A {
 	
 	int printf(int a, int b, int c) {
 	
-		print(a);
+		print('a');
 		
-		print(b);
+		print('b');
 		
-		print(c);
+		print('c');
 		
-		return 22;
+		return 0;
 
 	}
 	
@@ -41,16 +41,20 @@ class A {
 	}
 	
 
-	int main() int var; A a;{
+	void main() int var, var2; char var3[]; A a;{
 	
 		// test if
+		print(eol);
 		
-		var = 2;
-	
-		if (var > 1)
-			print(6, 2);
-		else 
-			print(12, 2);
+		var = inc(0);
+		var2 = 5;
+		var3 = new char[4];
+		var3[0] = 'a';
+			
+		if (var == 1 || var2 > 5){
+			print(printf(0, 0, 0));
+		} else 
+			print(var3[0], 2);
 		
 		
 		// test methods:		
@@ -80,7 +84,7 @@ class A {
 		//print(x3[2]);	
 		//print(x2[1]);
 		
-		return 0;
+		//return ;
 	}
 	
 	

@@ -69,6 +69,7 @@ terminal Character CHARCONST;
 terminal String BOOLCONST;
 terminal String IDENT;
 terminal IF, ELSE;
+terminal EOL;
 
 nonterminal DeclList DeclList;
 nonterminal DeclItem DeclItem ;
@@ -345,6 +346,8 @@ Statement ::= (DesignatorStmt) DesignatorStatement:D1 SEMI {: RESULT=new Designa
 			  (ReturnStmt) RETURN OptRetExpr:O1 SEMI {: RESULT=new ReturnStmt(O1); RESULT.setLine(O1left); :}
 			  |
 			  (ReadStmt) READ LPAREN Designator:D1 RPAREN SEMI {: RESULT=new ReadStmt(D1); RESULT.setLine(D1left); :}
+			  |
+			  (PrintNewLine) PRINT LPAREN EOL RPAREN SEMI {: RESULT=new PrintNewLine(); :}
 			  |
 			  (PrintStmt) PRINT LPAREN Expr:E1 OptNumConst:O2 RPAREN SEMI {: RESULT=new PrintStmt(E1, O2); RESULT.setLine(E1left); :}
 			  |

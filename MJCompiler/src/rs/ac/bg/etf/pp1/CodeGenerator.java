@@ -71,14 +71,18 @@ public class CodeGenerator extends VisitorAdaptor{
 	 * PRINT & READ STMT ****************************************************************
 	 */
 	
+	public void visit(PrintNewLine print) {
+		Code.loadConst('\n');
+		Code.put(Code.bprint);
+	}
+	
 	public void visit(PrintStmt print) {
 		Code.loadConst(print.getOptNumConst().obj.getAdr()); // width
-		Code.put(Code.print);
-//		if (print.getExpr().struct == Tab.intType) {
-//			Code.put(Code.print);
-//		} else {
-//			Code.put(Code.print);
-//		}
+		if (print.getExpr().struct == Tab.intType) {
+			Code.put(Code.print);
+		} else {
+			Code.put(Code.bprint);
+		}
 	}
 	
 	public void visit(PrintWidth pw) {
@@ -86,7 +90,7 @@ public class CodeGenerator extends VisitorAdaptor{
 	}
 	
 	public void visit(DefaultWidth df) {
-		df.obj = new Obj(Obj.Con, "width", intType, 5, -1);
+		df.obj = new Obj(Obj.Con, "width", intType, 4, -1);
 	}
 	
 	public void visit(ReadStmt read) {
@@ -129,8 +133,8 @@ public class CodeGenerator extends VisitorAdaptor{
 	}
 	
 	public void visit(MethodDeclarations meth) {
-		Code.put(Code.exit);
-		Code.put(Code.return_);
+		if (meth.getMethDeclTypeName().obj.getType() == noType)
+			this.returnFromMeth();
 	}
 	
 	
@@ -493,6 +497,14 @@ public class CodeGenerator extends VisitorAdaptor{
 		// vec je 1 ili 0 na steku
 	}
 		
+	public void visit(CondTerms terms) {
+		Code.put(Code.mul);
+	}
+	
+	public void visit(Conditions terms) {
+		Code.put(Code.add);
+	}
+	
 	
 	/*
 	 * PROCEDURES ***********************************************************************
@@ -511,16 +523,16 @@ public class CodeGenerator extends VisitorAdaptor{
 	
 	
 	public void visit(RetExpr ret) {
-		
-		// EXPR is already on stack
-		
+		this.returnFromMeth();		
 	}
 	
 	public void visit(NoRet ret) {
-
-		
+		this.returnFromMeth();
 	}
 	
-	
+	protected void returnFromMeth() {
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+	}
 	
 }
