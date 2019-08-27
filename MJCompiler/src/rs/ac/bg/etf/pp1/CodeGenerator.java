@@ -3,6 +3,7 @@ package rs.ac.bg.etf.pp1;
 import static rs.ac.bg.etf.pp1.SemanticAnalyzer.*;
 
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.Stack;
 
 import rs.ac.bg.etf.pp1.CounterVisitor.*;
@@ -480,8 +481,6 @@ public class CodeGenerator extends VisitorAdaptor{
 			Code.loadConst(0);
 			Code.fixup(if_true);
 
-			
-
 	}
 	
 	public void visit(CondFactSingle fact) {
@@ -505,6 +504,68 @@ public class CodeGenerator extends VisitorAdaptor{
 		Code.put(Code.add);
 	}
 	
+	
+	/*
+	 * FOR ******************************************************************************
+	 */
+	
+	private LinkedList<Integer> forFixUpList = new LinkedList<>();
+	private Stack<Integer> forFixUpStack = new Stack<>();
+	
+	// 1. before condition - save adr
+	
+	public void visit(OptForStmt opt) {
+		this.forFixUpList.add(Code.pc);
+	}
+	
+	// 2. after condition 
+	// - solve cond
+	// - putFalseJmp -> exit for
+	// - putJmp -> to Statement
+	
+	public void visit(NoForCond nofor) { // always true
+		// just jump on statement
+		Code.putJump(0);
+		this.forFixUpStack.push(Code.pc - 2);
+	}
+	
+	public void visit(ForCond forcond) {
+		// cond: 0 or 1 is on stack already
+		Code.loadConst(0);
+		Code.putFalseJump(Code.gt, 0);  
+		this.forFixUpStack.add(Code.pc-2);
+		
+		// if cond is true
+		Code.putJump(0);
+		this.forFixUpStack.add(Code.pc-2);
+	}
+	
+	// 3. save adr before second opt designator
+	
+	public void visit(CondEnd end) {
+		this.forFixUpList.add(Code.pc);
+	}
+	
+	// 4. after second opt designator -> jmp on cond
+	// 5. resolve putJmp after cond
+	
+	public void visit(OptForDesignStmt2 stmt) 
+	{
+		Code.putJump(this.forFixUpList.removeFirst());
+		
+		Code.fixup(this.forFixUpStack.pop());
+	}
+	
+	// 6. after stmt putJmp to second design stmt
+	// 7. resolve false jump after cond - just if cond is not empty!
+	
+	public void visit(ForStatement stmt) {
+		Code.putJump(this.forFixUpList.removeFirst());
+		
+		ForStmt st = (ForStmt) stmt.getParent();
+		if (st.getOptCond() instanceof ForCond)
+			Code.fixup(this.forFixUpStack.pop());
+	}
 	
 	/*
 	 * PROCEDURES ***********************************************************************

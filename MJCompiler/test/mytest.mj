@@ -18,43 +18,50 @@ class A {
 
 {
 	
-	int printf(int a, int b, int c) {
+	//int printf(int a, int b, int c) {
 	
-		print('a');
+	//	print('a');
 		
-		print('b');
+	//	print('b');
 		
-		print('c');
+	//	print('c');
 		
-		return 0;
+	//	return 0;
 
-	}
+	//}
 	
-	int inc(int x){
-		return x+1;
-	}
+	//int inc(int x){
+	//	return x+1;
+	//}
 	
-	int test(int xa, char xc){
-		xa = 1;
-		xc = 'a';
-		return 0;
-	}
+	//int test(int xa, char xc){
+	//	xa = 1;
+	//	xc = 'a';
+	//	return 0;
+	//}
 	
 
 	void main() int var, var2; char var3[]; A a;{
 	
-		// test if
-		print(eol);
 		
-		var = inc(0);
-		var2 = 5;
-		var3 = new char[4];
-		var3[0] = 'a';
-			
-		if (var == 1 || var2 > 5){
-			print(printf(0, 0, 0));
-		} else 
-			print(var3[0], 2);
+		for (var=0; var < 5; var++) {
+			if (var % 2 == 0)
+				print(var);
+			//print('a');
+		}
+		
+		
+		// test if
+		//print(eol);
+		
+		//var = inc(0);
+		//var2 = 5;
+		//var3 = new char[4];
+		//var3[0] = 'a';
+		//if (var == 1 || var2 > 5){
+		//	print(printf(0, 0, 0));
+		//} else 
+		//	print(var3[0], 2);
 		
 		
 		// test methods:		

@@ -1,72 +1,72 @@
 // generated with ast extension for cup
 // version 0.8
-// 27/7/2019 20:34:0
+// 27/7/2019 23:17:7
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public abstract class VisitorAdaptor implements Visitor { 
 
-    public void visit(OptForDesignStmt OptForDesignStmt) { }
-    public void visit(EnumDecl EnumDecl) { }
-    public void visit(OptVarDecl OptVarDecl) { }
-    public void visit(Mulop Mulop) { }
-    public void visit(InterfaceMethodDeclList InterfaceMethodDeclList) { }
-    public void visit(InterfaceDecl InterfaceDecl) { }
-    public void visit(OptStmt OptStmt) { }
-    public void visit(Relop Relop) { }
-    public void visit(Initializer Initializer) { }
-    public void visit(Assignop Assignop) { }
-    public void visit(OptFormPars OptFormPars) { }
-    public void visit(OptMinus OptMinus) { }
-    public void visit(Addop Addop) { }
-    public void visit(DesigName DesigName) { }
-    public void visit(EnumDeclList EnumDeclList) { }
-    public void visit(Factor Factor) { }
-    public void visit(CondTerm CondTerm) { }
-    public void visit(EnumName EnumName) { }
-    public void visit(DeclList DeclList) { }
-    public void visit(Designator Designator) { }
-    public void visit(InterfaceMethodDecl InterfaceMethodDecl) { }
-    public void visit(OptMethodDecl OptMethodDecl) { }
-    public void visit(Term Term) { }
-    public void visit(OptRetExpr OptRetExpr) { }
-    public void visit(Condition Condition) { }
-    public void visit(InterfaceName InterfaceName) { }
-    public void visit(OptElse OptElse) { }
-    public void visit(VarItem VarItem) { }
-    public void visit(ConstDeclList ConstDeclList) { }
-    public void visit(IfCondition IfCondition) { }
-    public void visit(DeclItem DeclItem) { }
-    public void visit(OptArraySq OptArraySq) { }
-    public void visit(OptMethodCall OptMethodCall) { }
-    public void visit(OptNumConst OptNumConst) { }
-    public void visit(FormParsItem FormParsItem) { }
-    public void visit(InterfaceList InterfaceList) { }
-    public void visit(OptAddTerms OptAddTerms) { }
-    public void visit(EnumItem EnumItem) { }
-    public void visit(VarDeclList VarDeclList) { }
-    public void visit(Expr Expr) { }
-    public void visit(OptDesignStmt OptDesignStmt) { }
-    public void visit(GlobalMethDecl GlobalMethDecl) { }
-    public void visit(ActPars ActPars) { }
-    public void visit(Extend Extend) { }
-    public void visit(OptMulTerms OptMulTerms) { }
-    public void visit(DesignatorStatement DesignatorStatement) { }
-    public void visit(MethDeclTypeName MethDeclTypeName) { }
-    public void visit(OptInterfaceMethodDeclList OptInterfaceMethodDeclList) { }
-    public void visit(Statement Statement) { }
-    public void visit(VarDecl VarDecl) { }
-    public void visit(ClassDecl ClassDecl) { }
-    public void visit(ConstDecl ConstDecl) { }
-    public void visit(CondFact CondFact) { }
-    public void visit(OptActPars OptActPars) { }
-    public void visit(MethodDeclList MethodDeclList) { }
-    public void visit(Implement Implement) { }
-    public void visit(TypeIdent TypeIdent) { }
-    public void visit(OptCond OptCond) { }
     public void visit(FormPars FormPars) { }
+    public void visit(Factor Factor) { }
+    public void visit(Statement Statement) { }
+    public void visit(DeclItem DeclItem) { }
     public void visit(ClassMethods ClassMethods) { }
+    public void visit(OptDesignStmt OptDesignStmt) { }
+    public void visit(ConstDeclList ConstDeclList) { }
+    public void visit(Implement Implement) { }
+    public void visit(EnumDeclList EnumDeclList) { }
+    public void visit(MethDeclTypeName MethDeclTypeName) { }
+    public void visit(Relop Relop) { }
+    public void visit(DeclList DeclList) { }
+    public void visit(EnumDecl EnumDecl) { }
+    public void visit(OptInterfaceMethodDeclList OptInterfaceMethodDeclList) { }
+    public void visit(OptMinus OptMinus) { }
+    public void visit(DesigName DesigName) { }
+    public void visit(IfCondition IfCondition) { }
+    public void visit(Expr Expr) { }
+    public void visit(InterfaceList InterfaceList) { }
+    public void visit(Initializer Initializer) { }
+    public void visit(VarDecl VarDecl) { }
+    public void visit(OptMethodDecl OptMethodDecl) { }
+    public void visit(OptCond OptCond) { }
+    public void visit(OptActPars OptActPars) { }
+    public void visit(FormParsItem FormParsItem) { }
+    public void visit(EnumItem EnumItem) { }
+    public void visit(Condition Condition) { }
+    public void visit(Mulop Mulop) { }
+    public void visit(DesignatorStatement DesignatorStatement) { }
+    public void visit(GlobalMethDecl GlobalMethDecl) { }
+    public void visit(OptMulTerms OptMulTerms) { }
+    public void visit(Addop Addop) { }
+    public void visit(InterfaceName InterfaceName) { }
+    public void visit(Assignop Assignop) { }
+    public void visit(ConstDecl ConstDecl) { }
+    public void visit(VarItem VarItem) { }
+    public void visit(OptElse OptElse) { }
+    public void visit(OptVarDecl OptVarDecl) { }
+    public void visit(OptStmt OptStmt) { }
+    public void visit(Extend Extend) { }
+    public void visit(OptArraySq OptArraySq) { }
+    public void visit(CondTerm CondTerm) { }
+    public void visit(ClassDecl ClassDecl) { }
+    public void visit(MethodDeclList MethodDeclList) { }
+    public void visit(OptForDesignStmt OptForDesignStmt) { }
+    public void visit(TypeIdent TypeIdent) { }
+    public void visit(OptFormPars OptFormPars) { }
+    public void visit(OptAddTerms OptAddTerms) { }
+    public void visit(OptNumConst OptNumConst) { }
+    public void visit(InterfaceDecl InterfaceDecl) { }
+    public void visit(ActPars ActPars) { }
+    public void visit(InterfaceMethodDecl InterfaceMethodDecl) { }
+    public void visit(Designator Designator) { }
+    public void visit(VarDeclList VarDeclList) { }
+    public void visit(CondFact CondFact) { }
+    public void visit(InterfaceMethodDeclList InterfaceMethodDeclList) { }
+    public void visit(Term Term) { }
+    public void visit(OptMethodCall OptMethodCall) { }
+    public void visit(OptRetExpr OptRetExpr) { }
+    public void visit(EnumName EnumName) { }
     public void visit(ModOp ModOp) { visit(); }
     public void visit(DivOp DivOp) { visit(); }
     public void visit(MultOp MultOp) { visit(); }
@@ -117,8 +117,6 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(PlusPlusSideEff PlusPlusSideEff) { visit(); }
     public void visit(ProcCall ProcCall) { visit(); }
     public void visit(AssignOper AssignOper) { visit(); }
-    public void visit(NoForCond NoForCond) { visit(); }
-    public void visit(ForCond ForCond) { visit(); }
     public void visit(OptDesignStmtDerived2 OptDesignStmtDerived2) { visit(); }
     public void visit(OptDesignStmtDerived1 OptDesignStmtDerived1) { visit(); }
     public void visit(DefaultWidth DefaultWidth) { visit(); }
@@ -132,7 +130,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(ElseStmt ElseStmt) { visit(); }
     public void visit(IfError IfError) { visit(); }
     public void visit(IfCond IfCond) { visit(); }
+    public void visit(ForStatement ForStatement) { visit(); }
+    public void visit(OptForDesignStmt2 OptForDesignStmt2) { visit(); }
     public void visit(OptForStmt OptForStmt) { visit(); }
+    public void visit(CondEnd CondEnd) { visit(); }
+    public void visit(NoForCond NoForCond) { visit(); }
+    public void visit(ForCond ForCond) { visit(); }
     public void visit(ErrorStmt ErrorStmt) { visit(); }
     public void visit(BlockStmt BlockStmt) { visit(); }
     public void visit(PrintStmt PrintStmt) { visit(); }

@@ -80,13 +80,13 @@ nonterminal OptStmt, Statement, FormPars ;
 nonterminal DesignatorStatement ;
 nonterminal OptActPars, ActPars, OptMinus, OptMethodCall;
 nonterminal Mulop, Addop, Relop, Assignop ;
-nonterminal OptDesignStmt, OptForDesignStmt ;
+nonterminal OptDesignStmt, OptForDesignStmt, OptForDesignStmt2;
 
 nonterminal ConstItem;
 nonterminal EnumDecl, EnumDeclList, EnumItem;
 nonterminal GlobalMethDecl;
 
-nonterminal ElseEnd;
+nonterminal ElseEnd, CondEnd, ForStatement;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj IfStart, OptElse, ElseStart;
 
@@ -310,7 +310,7 @@ Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  |
 			  (IfStmt) IF LPAREN IfCondition IfStart Statement OptElse
 			  |
-			  (ForStmt) FOR LPAREN OptForDesignStmt SEMI OptCond SEMI OptDesignStmt RPAREN Statement
+			  (ForStmt) FOR LPAREN OptForDesignStmt SEMI OptCond CondEnd OptForDesignStmt2 RPAREN ForStatement
 			  |
 			  (BreakStmt) BREAK SEMI
 			  |
@@ -330,7 +330,21 @@ Statement ::= (DesignatorStmt) DesignatorStatement SEMI
 			  {: parser.report_error("Greska pri Statement. Izvrsen oporavak u liniji " + eleft , null); :}		
 			  ;
 
-OptForDesignStmt ::= (OptForStmt) OptDesignStmt;	
+
+/* FOR ********************************* */
+
+OptCond ::= (ForCond) Condition
+			|
+			(NoForCond) /* epsilon */
+			;		
+
+CondEnd ::= (CondEnd) SEMI;
+
+OptForDesignStmt ::= (OptForStmt) OptDesignStmt;
+
+OptForDesignStmt2 ::= (OptForDesignStmt2) OptDesignStmt;
+
+ForStatement ::= (ForStatement) Statement;
 
 /* IF ********************************** */	  
 
@@ -372,10 +386,7 @@ OptDesignStmt ::= DesignatorStatement
 				  /* epsilon */
 				  ;
 
-OptCond ::= (ForCond) Condition
-			|
-			(NoForCond) /* epsilon */
-			;				  
+			  
 
 /*********************** Designators **************************
 **************************************************************/
