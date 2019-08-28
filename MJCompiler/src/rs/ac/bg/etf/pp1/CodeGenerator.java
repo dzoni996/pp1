@@ -220,13 +220,14 @@ public class CodeGenerator extends VisitorAdaptor{
 		/////////////////////////////////////////////////////////
 		if (newArr.getOptInit() instanceof WithInitArr) {
 			// if (newArr.getOptInit().obj.getAdr())
+	
 			
 		}
 	}
 	
 	public void visit(IniStart start) {
 		NewArrFactor newArr = (NewArrFactor) start.getParent().getParent();
-		int b = 0;
+		int b = 1;
 		if (newArr.getType().struct == charType)
 			b = 0;
 		else if (newArr.getType().struct == intType)
@@ -235,7 +236,23 @@ public class CodeGenerator extends VisitorAdaptor{
 		Code.put(Code.newarray);
 		Code.put(b);
 		
+		Code.store(this.currentDesign);
 		
+		// first elem
+		Code.load(this.currentDesign);
+		index++;
+		Code.loadConst(index);
+	}
+	
+	public void visit(InitExpr expr) {
+		if (this.currentDesign.getType().getElemType() == charType)
+			Code.store(new Obj(Obj.Elem, "", charType));
+		else 
+			Code.store(new Obj(Obj.Elem, "", intType));
+		// for next
+		Code.load(this.currentDesign);
+		index++;
+		Code.loadConst(index);
 	}
 	
 	/*
@@ -301,15 +318,30 @@ public class CodeGenerator extends VisitorAdaptor{
 		//name.obj = Tab.find(name.getId()); tabela vraca null, a obj je vec ucitan!		
 	}
 	
+	private int index = 0;
+	
 	public void visit(DesignVar var) {		
 		Obj node = var.getDesigName().obj;
 		if (var.getParent() instanceof DesignArr) {
 			//node = new Obj(Obj.Elem, "elem", node.getType().getElemType(), node.getAdr(), node.getAdr());
 			//Code.load(node);
 			Code.load(node);
+			this.currentDesign = node;
+			index = -1;
 		}
 		var.obj = node;
+		if (node.getType().getKind() == Struct.Array) {
+			this.currentDesign = node;
+			index = -1;
+		} else 
+			this.currentDesign = Tab.noObj;
 	}
+	
+	////////////////////////////////////////////////////////////
+	
+	
+	
+	///////////////////////////////////////////////////////////
 	
 	public void visit(DesignArr arr) {
 		
@@ -364,7 +396,17 @@ public class CodeGenerator extends VisitorAdaptor{
 //		} else if (assign.getDesignator() instanceof DesignFld) { /* DesignFld */
 //			Code.store((assign.getDesignator()).obj);
 //		}
-		Code.store(assign.getDesignator().obj);
+		if (currentDesign == Tab.noObj) {
+			Code.store(assign.getDesignator().obj);
+		} else {
+			if (index >0) {
+				Code.put(Code.pop);
+				Code.put(Code.pop);
+				// ovde treba proveriti i velicinu preko indeksa!!!
+			}			
+			index = 0;
+			currentDesign = Tab.noObj;
+		}
 	}
 	
 	public void visit(PlusPlusSideEff pp) {
@@ -688,21 +730,6 @@ public class CodeGenerator extends VisitorAdaptor{
 		Code.put(Code.return_);
 	}
 	
-	/*
-	 * ORD & CHR ************************************************************************
-	 */
-
-
-	public void visit(ChrMeth chr) {
-//		Code.loadConst(48);
-//		Code.put(Code.add);
-	}
-	
-	public void visit(OrdMeth ord) {
-//		Code.loadConst(48);
-//		Code.put(Code.sub);
-	}
-
 
 
 
