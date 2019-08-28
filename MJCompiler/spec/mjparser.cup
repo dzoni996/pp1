@@ -88,6 +88,9 @@ nonterminal GlobalMethDecl;
 
 nonterminal ElseEnd, CondEnd, ForStatement;
 
+nonterminal InitList, InitExpr, IniStart;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj OptInit;
+
 nonterminal rs.etf.pp1.symboltable.concepts.Obj IfStart, OptElse, ElseStart;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
@@ -464,11 +467,29 @@ Factor ::= (DesignFactor) Designator OptMethodCall
 		   |
 		   (NewFactor) NEW Type
 		   |
-		   (NewArrFactor) NEW Type LSQUARE Expr RSQUARE
+		   (NewArrFactor) NEW Type LSQUARE Expr OptInit
 		   |
 		   (ExprFactor) LPAREN Expr RPAREN
 		   ;
 
+/* init array -------------------------------------------- */
+
+OptInit ::= (NoInitArr) RSQUARE
+			|
+			(WithInitArr) RSQUARE IniStart InitList RBRACE
+			;  
+
+IniStart ::= LBRACE;
+
+InitList ::= InitList COMMA InitExpr
+			 |
+			 InitExpr
+			 ;			
+
+InitExpr ::= (InitExpr) Expr
+;
+
+/* ------------------------------------------------------ */
 
 OptMethodCall ::= (WithMethodCall) LPAREN OptActPars RPAREN
 				  |

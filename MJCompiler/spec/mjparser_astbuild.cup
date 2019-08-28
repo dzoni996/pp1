@@ -118,6 +118,11 @@ nonterminal ElseEnd ElseEnd;
 nonterminal CondEnd CondEnd;
 nonterminal ForStatement ForStatement;
 
+nonterminal InitList InitList;
+nonterminal InitExpr InitExpr;
+nonterminal IniStart IniStart;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj OptInit;
+
 nonterminal rs.etf.pp1.symboltable.concepts.Obj IfStart, OptElse, ElseStart;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program, ProgName;
@@ -494,11 +499,29 @@ Factor ::= (DesignFactor) Designator:D1 OptMethodCall:O2 {: RESULT=new DesignFac
 		   |
 		   (NewFactor) NEW Type:T1 {: RESULT=new NewFactor(T1); RESULT.setLine(T1left); :}
 		   |
-		   (NewArrFactor) NEW Type:T1 LSQUARE Expr:E2 RSQUARE {: RESULT=new NewArrFactor(T1, E2); RESULT.setLine(T1left); :}
+		   (NewArrFactor) NEW Type:T1 LSQUARE Expr:E2 OptInit:O3 {: RESULT=new NewArrFactor(T1, E2, O3); RESULT.setLine(T1left); :}
 		   |
 		   (ExprFactor) LPAREN Expr:E1 RPAREN {: RESULT=new ExprFactor(E1); RESULT.setLine(E1left); :}
 		   ;
 
+/* init array -------------------------------------------- */
+
+OptInit ::= (NoInitArr) RSQUARE {: RESULT=new NoInitArr(); :}
+			|
+			(WithInitArr) RSQUARE IniStart:I1 InitList:I2 RBRACE {: RESULT=new WithInitArr(I1, I2); RESULT.setLine(I1left); :}
+			;  
+
+IniStart ::= LBRACE {: RESULT=new IniStartDerived1(); :};
+
+InitList ::= InitList:I1 COMMA InitExpr:I2 {: RESULT=new InitListDerived1(I1, I2); RESULT.setLine(I1left); :}
+			 |
+			 InitExpr:I1 {: RESULT=new InitListDerived2(I1); RESULT.setLine(I1left); :}
+			 ;			
+
+InitExpr ::= (InitExpr) Expr:E1 {: RESULT=new InitExpr(E1); RESULT.setLine(E1left); :}
+;
+
+/* ------------------------------------------------------ */
 
 OptMethodCall ::= (WithMethodCall) LPAREN OptActPars:O1 RPAREN {: RESULT=new WithMethodCall(O1); RESULT.setLine(O1left); :}
 				  |

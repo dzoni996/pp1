@@ -44,19 +44,20 @@ class A {
 	void main() int var, var2, var6; char var3[]; A a;{
 	
 		
+		var3 = new char[2]{'a', 1};
 		
 		
-		for (var=0; var < 5; var++) {
-			if (var % 2 == 0){
-				print('d');print('o');print('n');print('e');
-				continue;
-				}
-			else {
-				print(var);
-				break;
-				}
-			print(eol);
-		}
+		//for (var=0; var < 5; var++) {
+		//	if (var % 2 == 0){
+		//		print('d');print('o');print('n');print('e');
+		//		continue;
+		//		}
+		//	else {
+		//		print(var);
+		//		break;
+		//		}
+		//	print(eol);
+		//}
 		
 		
 		// test if

@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 27/7/2019 23:17:7
+// 28/7/2019 3:33:22
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -8,6 +8,7 @@ package rs.ac.bg.etf.pp1.ast;
 public abstract class VisitorAdaptor implements Visitor { 
 
     public void visit(FormPars FormPars) { }
+    public void visit(IniStart IniStart) { }
     public void visit(Factor Factor) { }
     public void visit(Statement Statement) { }
     public void visit(DeclItem DeclItem) { }
@@ -25,9 +26,11 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(DesigName DesigName) { }
     public void visit(IfCondition IfCondition) { }
     public void visit(Expr Expr) { }
+    public void visit(OptInit OptInit) { }
     public void visit(InterfaceList InterfaceList) { }
     public void visit(Initializer Initializer) { }
     public void visit(VarDecl VarDecl) { }
+    public void visit(InitList InitList) { }
     public void visit(OptMethodDecl OptMethodDecl) { }
     public void visit(OptCond OptCond) { }
     public void visit(OptActPars OptActPars) { }
@@ -87,6 +90,12 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(Conditions Conditions) { visit(); }
     public void visit(NoMethodCall NoMethodCall) { visit(); }
     public void visit(WithMethodCall WithMethodCall) { visit(); }
+    public void visit(InitExpr InitExpr) { visit(); }
+    public void visit(InitListDerived2 InitListDerived2) { visit(); }
+    public void visit(InitListDerived1 InitListDerived1) { visit(); }
+    public void visit(IniStartDerived1 IniStartDerived1) { visit(); }
+    public void visit(WithInitArr WithInitArr) { visit(); }
+    public void visit(NoInitArr NoInitArr) { visit(); }
     public void visit(ExprFactor ExprFactor) { visit(); }
     public void visit(NewArrFactor NewArrFactor) { visit(); }
     public void visit(NewFactor NewFactor) { visit(); }
