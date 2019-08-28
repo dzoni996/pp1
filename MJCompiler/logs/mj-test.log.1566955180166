@@ -1,0 +1,360 @@
+INFO  03:18:45,088 - Compiling source file: C:\Users\Ana\git\pp1\MJCompiler\test\mytest.mj
+INFO  03:18:45,164 - #2 program
+INFO  03:18:45,164 - #45 SemanticTest
+INFO  03:18:45,164 - #22 const
+INFO  03:18:45,165 - #45 int
+INFO  03:18:45,165 - #45 x
+INFO  03:18:45,166 - #12 =
+INFO  03:18:45,166 - #42 6
+INFO  03:18:45,166 - #8 ,
+INFO  03:18:45,167 - #45 init
+INFO  03:18:45,167 - #12 =
+INFO  03:18:45,167 - #42 0
+INFO  03:18:45,167 - #5 ;
+INFO  03:18:45,168 - #45 int
+INFO  03:18:45,168 - #45 x1
+INFO  03:18:45,168 - #8 ,
+INFO  03:18:45,169 - #45 x3
+INFO  03:18:45,169 - #25 [
+INFO  03:18:45,170 - #34 ]
+INFO  03:18:45,170 - #5 ;
+INFO  03:18:45,170 - #45 int
+INFO  03:18:45,171 - #45 x2
+INFO  03:18:45,171 - #25 [
+INFO  03:18:45,171 - #34 ]
+INFO  03:18:45,171 - #5 ;
+INFO  03:18:45,172 - #29 enum
+INFO  03:18:45,172 - #45 nums
+INFO  03:18:45,172 - #3 {
+INFO  03:18:45,172 - #45 ONE
+INFO  03:18:45,172 - #12 =
+INFO  03:18:45,172 - #42 1
+INFO  03:18:45,172 - #8 ,
+INFO  03:18:45,172 - #45 TWO
+INFO  03:18:45,173 - #12 =
+INFO  03:18:45,173 - #42 5
+INFO  03:18:45,173 - #8 ,
+INFO  03:18:45,173 - #45 THREE
+INFO  03:18:45,173 - #4 }
+INFO  03:18:45,173 - #16 class
+INFO  03:18:45,174 - #45 A
+INFO  03:18:45,174 - #3 {
+INFO  03:18:45,176 - #45 int
+INFO  03:18:45,176 - #45 fld1
+INFO  03:18:45,177 - #5 ;
+INFO  03:18:45,177 - #45 char
+INFO  03:18:45,177 - #45 fld2
+INFO  03:18:45,177 - #5 ;
+INFO  03:18:45,177 - #4 }
+INFO  03:18:45,177 - #3 {
+INFO  03:18:45,178 - #13 void
+INFO  03:18:45,178 - #45 main
+INFO  03:18:45,179 - #6 (
+INFO  03:18:45,179 - #7 )
+INFO  03:18:45,180 - #45 int
+INFO  03:18:45,180 - #45 var
+INFO  03:18:45,180 - #8 ,
+INFO  03:18:45,180 - #45 var2
+INFO  03:18:45,181 - #8 ,
+INFO  03:18:45,181 - #45 var6
+INFO  03:18:45,181 - #5 ;
+INFO  03:18:45,181 - #45 char
+INFO  03:18:45,181 - #45 var3
+INFO  03:18:45,181 - #25 [
+INFO  03:18:45,181 - #34 ]
+INFO  03:18:45,181 - #5 ;
+INFO  03:18:45,182 - #45 A
+INFO  03:18:45,182 - #45 a
+INFO  03:18:45,182 - #5 ;
+INFO  03:18:45,182 - #3 {
+INFO  03:18:45,182 - #45 var3
+INFO  03:18:45,183 - #12 =
+INFO  03:18:45,184 - #18 new
+INFO  03:18:45,185 - #45 char
+INFO  03:18:45,185 - #25 [
+INFO  03:18:45,186 - #42 5
+INFO  03:18:45,186 - #34 ]
+INFO  03:18:45,187 - #5 ;
+INFO  03:18:45,188 - #4 }
+INFO  03:18:45,188 - #4 }
+INFO  03:18:45,201 - Program(
+  ProgName(
+   SemanticTest
+  ) [ProgName]
+  VarDeclLists(
+    VarDeclLists(
+      VarDeclLists(
+        VarDeclLists(
+          VarDeclLists(
+            NoVarDecl(
+            ) [NoVarDecl]
+            ConstDeclaration(
+              ConstDeclarations(
+                Type(
+                 int
+                ) [Type]
+                MultipleConsts(
+                  SingleConst(
+                    ConstItem(
+                     x
+                      InitializerNum(
+                       6
+                      ) [InitializerNum]
+                    ) [ConstItem]
+                  ) [SingleConst]
+                  ConstItem(
+                   init
+                    InitializerNum(
+                     0
+                    ) [InitializerNum]
+                  ) [ConstItem]
+                ) [MultipleConsts]
+              ) [ConstDeclarations]
+            ) [ConstDeclaration]
+          ) [VarDeclLists]
+          VarDeclaration(
+            VarDeclarations(
+              Type(
+               int
+              ) [Type]
+              MultipleVars(
+                SingleVar(
+                  Var(
+                   x1
+                    NoArrayVar(
+                    ) [NoArrayVar]
+                  ) [Var]
+                ) [SingleVar]
+                Var(
+                 x3
+                  ArrayVar(
+                  ) [ArrayVar]
+                ) [Var]
+              ) [MultipleVars]
+            ) [VarDeclarations]
+          ) [VarDeclaration]
+        ) [VarDeclLists]
+        VarDeclaration(
+          VarDeclarations(
+            Type(
+             int
+            ) [Type]
+            SingleVar(
+              Var(
+               x2
+                ArrayVar(
+                ) [ArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [VarDeclaration]
+      ) [VarDeclLists]
+      EnumDeclaration(
+        EnumDeclarations(
+          EnumNamed(
+           nums
+          ) [EnumNamed]
+          MultipleEnums(
+            MultipleEnums(
+              SingleEnum(
+                InitEnum(
+                 ONE
+                 1
+                ) [InitEnum]
+              ) [SingleEnum]
+              InitEnum(
+               TWO
+               5
+              ) [InitEnum]
+            ) [MultipleEnums]
+            NoInitEnum(
+             THREE
+            ) [NoInitEnum]
+          ) [MultipleEnums]
+        ) [EnumDeclarations]
+      ) [EnumDeclaration]
+    ) [VarDeclLists]
+    ClasstDeclaration(
+      ClassDeclaration(
+        ClassName(
+         A
+        ) [ClassName]
+        NoSuperClass(
+        ) [NoSuperClass]
+        NoImplInteraces(
+        ) [NoImplInteraces]
+        OptVars(
+          OptVars(
+            NoOptVars(
+            ) [NoOptVars]
+            VarDeclarations(
+              Type(
+               int
+              ) [Type]
+              SingleVar(
+                Var(
+                 fld1
+                  NoArrayVar(
+                  ) [NoArrayVar]
+                ) [Var]
+              ) [SingleVar]
+            ) [VarDeclarations]
+          ) [OptVars]
+          VarDeclarations(
+            Type(
+             char
+            ) [Type]
+            SingleVar(
+              Var(
+               fld2
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [OptVars]
+        NoClassMethodDecl(
+        ) [NoClassMethodDecl]
+      ) [ClassDeclaration]
+    ) [ClasstDeclaration]
+  ) [VarDeclLists]
+  GlobalMeths(
+    OptMethods(
+      NoOptMethods(
+      ) [NoOptMethods]
+      MethodDeclarations(
+        MethodDeclTypeName(
+          VoidIdentificator(
+          ) [VoidIdentificator]
+         main
+        ) [MethodDeclTypeName]
+        NoOptionalFormPars(
+        ) [NoOptionalFormPars]
+        OptVars(
+          OptVars(
+            OptVars(
+              NoOptVars(
+              ) [NoOptVars]
+              VarDeclarations(
+                Type(
+                 int
+                ) [Type]
+                MultipleVars(
+                  MultipleVars(
+                    SingleVar(
+                      Var(
+                       var
+                        NoArrayVar(
+                        ) [NoArrayVar]
+                      ) [Var]
+                    ) [SingleVar]
+                    Var(
+                     var2
+                      NoArrayVar(
+                      ) [NoArrayVar]
+                    ) [Var]
+                  ) [MultipleVars]
+                  Var(
+                   var6
+                    NoArrayVar(
+                    ) [NoArrayVar]
+                  ) [Var]
+                ) [MultipleVars]
+              ) [VarDeclarations]
+            ) [OptVars]
+            VarDeclarations(
+              Type(
+               char
+              ) [Type]
+              SingleVar(
+                Var(
+                 var3
+                  ArrayVar(
+                  ) [ArrayVar]
+                ) [Var]
+              ) [SingleVar]
+            ) [VarDeclarations]
+          ) [OptVars]
+          VarDeclarations(
+            Type(
+             A
+            ) [Type]
+            SingleVar(
+              Var(
+               a
+                NoArrayVar(
+                ) [NoArrayVar]
+              ) [Var]
+            ) [SingleVar]
+          ) [VarDeclarations]
+        ) [OptVars]
+        OptionalStmt(
+          NoOptionalStmt(
+          ) [NoOptionalStmt]
+          DesignatorStmt(
+            AssignOper(
+              DesignVar(
+                DesignatorName(
+                 var3
+                ) [DesignatorName]
+              ) [DesignVar]
+              AssignOperation(
+              ) [AssignOperation]
+              Expression(
+                Positive(
+                ) [Positive]
+                Terms(
+                  NewArrFactor(
+                    Type(
+                     char
+                    ) [Type]
+                    Expression(
+                      Positive(
+                      ) [Positive]
+                      Terms(
+                        NumFactor(
+                         5
+                        ) [NumFactor]
+                        NoMulFacts(
+                        ) [NoMulFacts]
+                      ) [Terms]
+                      NoAddTerms(
+                      ) [NoAddTerms]
+                    ) [Expression]
+                    OptInitDerived1(
+                    ) [OptInitDerived1]
+                  ) [NewArrFactor]
+                  NoMulFacts(
+                  ) [NoMulFacts]
+                ) [Terms]
+                NoAddTerms(
+                ) [NoAddTerms]
+              ) [Expression]
+            ) [AssignOper]
+          ) [DesignatorStmt]
+        ) [OptionalStmt]
+      ) [MethodDeclarations]
+    ) [OptMethods]
+  ) [GlobalMeths]
+) [Program]
+INFO  03:18:45,201 - ===================================
+INFO  03:18:45,201 - INFO:  Pocetak programa SemanticTest na liniji 4
+INFO  03:18:45,201 - INFO:  Deklarisana konstanta x na liniji 6
+INFO  03:18:45,201 - INFO:  Deklarisana konstanta init na liniji 6
+INFO  03:18:45,201 - INFO:  Deklarisana globalna promenljiva x1 na liniji 7
+INFO  03:18:45,202 - INFO:  Deklarisan niz x3 na liniji 7
+INFO  03:18:45,202 - INFO:  Deklarisan niz x2 na liniji 8
+INFO  03:18:45,202 - INFO:  Definisan enum tip nums na liniji 9
+INFO  03:18:45,202 - INFO:  Deklarisana promenljiva fld1 na liniji 12
+INFO  03:18:45,202 - INFO:  Deklarisana promenljiva fld2 na liniji 13
+INFO  03:18:45,202 - INFO:  Definisana klasa A na liniji 11
+INFO  03:18:45,202 - INFO:  Obradjuje se funkcija main na liniji 44
+INFO  03:18:45,202 - INFO:  Deklarisana promenljiva var na liniji 44
+INFO  03:18:45,202 - INFO:  Deklarisana promenljiva var2 na liniji 44
+INFO  03:18:45,202 - INFO:  Deklarisana promenljiva var6 na liniji 44
+INFO  03:18:45,202 - INFO:  Deklarisan niz var3 na liniji 44
+INFO  03:18:45,202 - INFO:  Deklarisana promenljiva a na liniji 44
+INFO  03:18:45,203 - INFO:  Pristup simbolu var3 na liniji 47
+INFO  03:18:45,203 - INFO:  Deklarisan metod main na liniji 44
+INFO  03:18:45,203 - ===================================
+INFO  03:18:45,213 - Uspesno parsiranje!

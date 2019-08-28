@@ -698,7 +698,35 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		}
 		newFactor.struct = new Struct(Struct.Array, newFactor.getType().struct);
 		newFactor.struct.setElementType( newFactor.getType().struct);
+		
+//		if (newFactor.getOptInit() instanceof WithInitArr) {
+//			initListStruct = newFactor.getType().struct;
+//		}
 	}
+	
+	//////////////////////////////////////////////////////////////////
+	
+	
+	public void visit(InitExpr expr) {
+		initListNum++;
+		if (!expr.getExpr().struct.compatibleWith(this.currentType)) {
+			report_error("ERROR: Nekompatibilan tip izraza u inicijalizatorskoj listi", expr);
+		}
+	}
+	
+	public void visit(IniStart start) {
+		initListNum = 0;
+	}
+	
+	public void visit(WithInitArr arr) {
+		arr.obj = new Obj(Obj.Con, "num", intType);
+		arr.obj.setAdr(initListNum); // ovde pamtim broj elemenata
+	}
+	
+	protected Struct initListStruct = Tab.noType;
+	protected int initListNum = 0;
+	
+	////////////////////////////////////////////////////////////////////
 	
 	@Override
 	public void visit(NewFactor newFactor) {
