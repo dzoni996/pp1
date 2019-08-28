@@ -43,9 +43,13 @@ class A {
 
 	void main() int var, var2, var6; char var3[]; A a;{
 	
+		print(ord('a'));
 		
-		var3 = new char[2]{'a', 1};
-		
+		var3 = new char[2];
+		var3[0] = chr(49);
+		var3[1] = 'b';
+		for (var=0; var < 2; var++)
+			print(var3[var], 3);
 		
 		//for (var=0; var < 5; var++) {
 		//	if (var % 2 == 0){

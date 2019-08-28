@@ -26,6 +26,27 @@ public class CodeGenerator extends VisitorAdaptor{
 		currentDesign = Tab.noObj;
 		this.one = new Obj(Obj.Con, "one", intType);
 		one.setAdr(1);
+		
+		// chr ord
+		Tab.chrObj.setAdr(Code.pc);
+		Tab.ordObj.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(1);
+		Code.put(1);
+		Code.put(Code.load_n + 0);
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
+		//len
+		Tab.lenObj.setAdr(Code.pc);
+		Code.put(Code.enter);
+		Code.put(1);
+		Code.put(1);
+		Code.put(Code.load_n + 0);
+		Code.put(Code.arraylength);
+		Code.put(Code.exit);
+		Code.put(Code.return_);
+		
 	}
 	
 	public int getMainPC() {
@@ -177,20 +198,43 @@ public class CodeGenerator extends VisitorAdaptor{
 	
 	public void visit(NewArrFactor newArr) {
 		// instanciranje objekta niza
-		
-		// 1. array size is already on expr stack (because it is Expr)
-		
-		// 2. check elem type (decause of elem width)
+
+		if (newArr.getOptInit() instanceof NoInitArr) {
+			// 1. array size is already on expr stack (because it is Expr)
+
+			// 2. check elem type (decause of elem width)
+			int b = 0;
+			if (newArr.getType().struct == charType)
+				b = 0;
+			else if (newArr.getType().struct == intType)
+				b = 1;
+
+			// 3. set instructions on program stack
+			Code.put(Code.newarray);
+			Code.put(b);
+
+			// 4. as result, array adr is on expr stack
+			// Code.store(); -> we will store later (in assign oper)
+		}
+
+		/////////////////////////////////////////////////////////
+		if (newArr.getOptInit() instanceof WithInitArr) {
+			// if (newArr.getOptInit().obj.getAdr())
+			
+		}
+	}
+	
+	public void visit(IniStart start) {
+		NewArrFactor newArr = (NewArrFactor) start.getParent().getParent();
 		int b = 0;
-		if (newArr.getType().struct == charType) b=0;
-		else if (newArr.getType().struct == intType) b=1;
-		
-		// 3. set instructions on program stack
+		if (newArr.getType().struct == charType)
+			b = 0;
+		else if (newArr.getType().struct == intType)
+			b = 1;
+
 		Code.put(Code.newarray);
 		Code.put(b);
 		
-		// 4. as result, array adr is on expr stack
-		// Code.store(); -> we will store later (in assign oper)
 		
 	}
 	
@@ -644,4 +688,22 @@ public class CodeGenerator extends VisitorAdaptor{
 		Code.put(Code.return_);
 	}
 	
+	/*
+	 * ORD & CHR ************************************************************************
+	 */
+
+
+	public void visit(ChrMeth chr) {
+//		Code.loadConst(48);
+//		Code.put(Code.add);
+	}
+	
+	public void visit(OrdMeth ord) {
+//		Code.loadConst(48);
+//		Code.put(Code.sub);
+	}
+
+
+
+
 }
