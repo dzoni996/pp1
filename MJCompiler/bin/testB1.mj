@@ -1,0 +1,69 @@
+program TestB1
+
+const int  x = 3, init = 0;
+int x1, x2[];
+
+enum nums {ONE = 1, TWO, FIVE = 5}
+
+{
+
+	int printf() {
+
+		print(eol);
+		print('t', 2); print('e', 1); print('s', 1); print('t', 1);	
+		print('d', 2); print('o', 1); print('n', 1); print('e', 1);
+	
+		return 0;
+	}
+
+	int inc(int x){
+		return x+nums.ONE;
+	}
+	
+	int dec(int x) {
+		return x-nums.ONE;
+	}
+	
+	void main() int var; bool var2; char var3[]; {	
+	
+		// arrays test
+		
+		var3 = new char[3]{'a', 'r', 'r'};
+		//var3[0] = chr(ord('a'));
+		//var3[1] = 'r';
+		//var3[2] = 'r';
+		for (var=0; var < 3; var++)
+			print(var3[var]);
+		print(eol);
+		
+		
+		// if test
+	
+		if (var == 3 && var2 ){
+			print('e'); print('r'); print('r');
+		} else {
+			print('i'); print('f');
+		}
+		print(eol);
+		
+		// for test
+		
+		for (var=0; var < 5; var++) {
+			if (var % 2 == 0){
+				print('f');print('o');print('r');
+				continue;
+			}
+			else {
+				//print(var);
+				break;
+			}
+		print(eol);
+		}
+		
+		// print args test
+		
+		var = printf();
+	
+	
+	}
+}

@@ -57,6 +57,8 @@ import java_cup.runtime.Symbol;
 "void"		{ return new_symbol(sym.VOID,		yytext()); }
 "implements"{ return new_symbol(sym.IMPLEMENTS,	yytext()); }
 "eol"		{ return new_symbol(sym.EOL,		yytext()); }
+"chr"		{ return new_symbol(sym.CHR,		yytext()); }
+"ord"		{ return new_symbol(sym.ORD,		yytext()); }
 
 "++" 		{ return new_symbol(sym.PP, 		yytext()); }
 "--" 		{ return new_symbol(sym.MM, 		yytext()); }

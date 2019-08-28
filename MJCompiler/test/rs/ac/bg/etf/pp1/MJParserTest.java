@@ -30,7 +30,7 @@ public class MJParserTest {
 		
 		Reader br = null;
 		try {
-			File sourceCode = new File("test/mytest.mj");
+			File sourceCode = new File("test/testB1.mj");
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 			
 			br = new BufferedReader(new FileReader(sourceCode));
@@ -66,9 +66,9 @@ public class MJParserTest {
 			String msg;
 			if (!v.passed()) {
 				if (v.getErrNum() == 1) {
-					msg = "Postoji 1 greska u generisanom kodu!";
+					msg = "Postoji 1 semanticka greska u generisanom kodu!";
 				} else {
-					msg = "Postoje "+v.getErrNum()+" greske u generisanom kodu!";
+					msg = "Postoje "+v.getErrNum()+" semanticke greske u generisanom kodu!";
 				}
 				log.error(msg);
 			} else {

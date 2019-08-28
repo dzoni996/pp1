@@ -69,7 +69,7 @@ terminal Character CHARCONST;
 terminal String BOOLCONST;
 terminal String IDENT;
 terminal IF, ELSE;
-terminal EOL;
+terminal EOL, CHR, ORD;
 
 nonterminal DeclList DeclList;
 nonterminal DeclItem DeclItem ;
@@ -121,6 +121,7 @@ nonterminal ForStatement ForStatement;
 nonterminal InitList InitList;
 nonterminal InitExpr InitExpr;
 nonterminal IniStart IniStart;
+nonterminal IniStart2 IniStart2;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj OptInit;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj IfStart, OptElse, ElseStart;
@@ -502,16 +503,21 @@ Factor ::= (DesignFactor) Designator:D1 OptMethodCall:O2 {: RESULT=new DesignFac
 		   (NewArrFactor) NEW Type:T1 LSQUARE Expr:E2 OptInit:O3 {: RESULT=new NewArrFactor(T1, E2, O3); RESULT.setLine(T1left); :}
 		   |
 		   (ExprFactor) LPAREN Expr:E1 RPAREN {: RESULT=new ExprFactor(E1); RESULT.setLine(E1left); :}
+		   |
+		   (ChrMeth) CHR LPAREN Expr:num RPAREN {: RESULT=new ChrMeth(num); RESULT.setLine(numleft); :}
+		   |
+		   (OrdMeth) ORD LPAREN Expr:chr RPAREN {: RESULT=new OrdMeth(chr); RESULT.setLine(chrleft); :}
 		   ;
 
 /* init array -------------------------------------------- */
 
 OptInit ::= (NoInitArr) RSQUARE {: RESULT=new NoInitArr(); :}
 			|
-			(WithInitArr) RSQUARE IniStart:I1 InitList:I2 RBRACE {: RESULT=new WithInitArr(I1, I2); RESULT.setLine(I1left); :}
+			(WithInitArr) IniStart:I1 IniStart2:I2 InitList:I3 RBRACE {: RESULT=new WithInitArr(I1, I2, I3); RESULT.setLine(I1left); :}
 			;  
 
-IniStart ::= LBRACE {: RESULT=new IniStartDerived1(); :};
+IniStart ::= (IniStart) RSQUARE {: RESULT=new IniStart(); :};
+IniStart2 ::= (IniStart2) LBRACE {: RESULT=new IniStart2(); :};
 
 InitList ::= InitList:I1 COMMA InitExpr:I2 {: RESULT=new InitListDerived1(I1, I2); RESULT.setLine(I1left); :}
 			 |

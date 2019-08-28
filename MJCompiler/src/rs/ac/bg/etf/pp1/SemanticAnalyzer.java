@@ -712,10 +712,12 @@ public class SemanticAnalyzer extends VisitorAdaptor {
 		if (!expr.getExpr().struct.compatibleWith(this.currentType)) {
 			report_error("ERROR: Nekompatibilan tip izraza u inicijalizatorskoj listi", expr);
 		}
+		report_info("INFO: Pristup parametru init liste - "+initListNum, expr);
 	}
 	
 	public void visit(IniStart start) {
 		initListNum = 0;
+		report_info("INFO: Pristup parametru init liste - "+initListNum, start);
 	}
 	
 	public void visit(WithInitArr arr) {
@@ -1175,6 +1177,19 @@ public class SemanticAnalyzer extends VisitorAdaptor {
     /*
      * OTHRER METHODS *******************************************************************
      */
+	
+	public void visit(ChrMeth chr) {
+		if (chr.getExpr().struct != intType)
+			report_error("ERROR: Izraz u chr metodi mora biti int", chr);
+		chr.struct = charType;
+	}
+	
+	public void visit(OrdMeth ord) {
+		if (ord.getExpr().struct != charType)
+			report_error("ERROR: Izraz u ord metodi mora biti char", ord);
+		ord.struct = intType;
+		
+	}
 	
 	public int getErrNum() {
 		return this.errorsNum;

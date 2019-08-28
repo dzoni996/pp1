@@ -69,7 +69,7 @@ terminal Character CHARCONST;
 terminal String BOOLCONST;
 terminal String IDENT;
 terminal IF, ELSE;
-terminal EOL;
+terminal EOL, CHR, ORD;
 
 nonterminal DeclList, DeclItem ;
 nonterminal ConstDecl, ConstDeclList ;
@@ -88,7 +88,7 @@ nonterminal GlobalMethDecl;
 
 nonterminal ElseEnd, CondEnd, ForStatement;
 
-nonterminal InitList, InitExpr, IniStart;
+nonterminal InitList, InitExpr, IniStart, IniStart2;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj OptInit;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj IfStart, OptElse, ElseStart;
@@ -470,16 +470,21 @@ Factor ::= (DesignFactor) Designator OptMethodCall
 		   (NewArrFactor) NEW Type LSQUARE Expr OptInit
 		   |
 		   (ExprFactor) LPAREN Expr RPAREN
+		   |
+		   (ChrMeth) CHR LPAREN Expr:num RPAREN
+		   |
+		   (OrdMeth) ORD LPAREN Expr:chr RPAREN
 		   ;
 
 /* init array -------------------------------------------- */
 
 OptInit ::= (NoInitArr) RSQUARE
 			|
-			(WithInitArr) RSQUARE IniStart InitList RBRACE
+			(WithInitArr) IniStart IniStart2 InitList RBRACE
 			;  
 
-IniStart ::= LBRACE;
+IniStart ::= (IniStart) RSQUARE;
+IniStart2 ::= (IniStart2) LBRACE;
 
 InitList ::= InitList COMMA InitExpr
 			 |

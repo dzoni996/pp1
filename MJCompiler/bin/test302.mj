@@ -35,17 +35,13 @@ int niz[];
 			if(i == 2) ibool = true;
 		}
 		
-		
 		if(ibool)
 			if(i == 5) print(1); 
 			else print(-1);
 		
-				
-		
-		niz = new int[3]; //{1, 2, sum(niz[1], niz[0]) + 1};
-		if(niz[2] == 4) print('A'); 
-		else print('a');
-
+		niz = new int[3];// {1, 2, sum(niz[1], niz[0]) + 1};
+		if(niz[2] == 4) print(ord('A')); 
+		else print(ord('a'));
 		
 		print(eol);
 		i = 0;
@@ -71,10 +67,7 @@ int niz[];
 		print(sum (sum(niz[0], niz[1]), niz[2])); 
 			
 		print(eol); 
-		
 		print(inkrement(niz[2], IncrementType.DOUBLE_VALUE));
-		
-		return;
 	}
 }
 
