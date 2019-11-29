@@ -1,7 +1,10 @@
 # pp1
-MicroJava Compiler Construction
+School of Electrical Engineering, University of Belgrade
+Program Compilers
 
-B Phase - 2018/2019
+MicroJava Compiler Construction Project
+
+Completed B Phase - 2018/2019
 
 http://ir4pp1.etf.rs/Domaci.html
 
